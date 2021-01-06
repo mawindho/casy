@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="OLS.Casy.Ui.Core.Views.ExportOptionsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:extensions="clr-namespace:OLS.Casy.Ui.Base.Extensions;assembly=OLS.Casy.Ui.Base"
+             xmlns:localization="clr-namespace:OLS.Casy.Ui.Base.Localization;assembly=OLS.Casy.Ui.Base"
+             xmlns:controls="clr-namespace:OLS.Casy.Ui.Base.Controls;assembly=OLS.Casy.Ui.Base"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <StackPanel>
+            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Foreground="{StaticResource WhiteBrush}" FontSize="14" Text="ExportOptionsView_Label_ExportFormat" localization:Localization.IsLocalized="True" FontWeight="Regular" HorizontalAlignment="Left" Margin="3" />
+            <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                <RadioButton Style="{StaticResource CasyRadioButtonStyle}" GroupName="ExportFormatGroup" IsChecked="{Binding Path=ExportFormat, Mode=TwoWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter=Csy}" Margin="5" Content="ExportOptionsView_Option_CSY" localization:Localization.IsLocalized="True" />
+                <RadioButton Style="{StaticResource CasyRadioButtonStyle}" GroupName="ExportFormatGroup" IsChecked="{Binding Path=ExportFormat, Mode=TwoWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter=Raw}" Margin="5" Content="ExportOptionsView_Option_RAW" localization:Localization.IsLocalized="True" />
+            </StackPanel>
+
+            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Foreground="{StaticResource WhiteBrush}" FontSize="14" Text="ExportOptionsView_Label_ExportPath" localization:Localization.IsLocalized="True" FontWeight="Regular" HorizontalAlignment="Left" Margin="3" />
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <AdornerDecorator>
+                    <controls:OmniTextBox Style="{StaticResource CasyOmniTextBoxStyle}" Text="{Binding Path=ExportPath, Mode=TwoWay}" IsReadOnly="True">
+                        <extensions:WatermarkExtension.Watermark>
+                            <TextBlock Style="{StaticResource WatermarkTextBlock}" Text="ExportOptionsView_ExportPath_Watermark" localization:Localization.IsLocalized="True"/>
+                        </extensions:WatermarkExtension.Watermark>
+                    </controls:OmniTextBox>
+                </AdornerDecorator>
+                <Button Style="{StaticResource GreenButton}" Grid.Column="1" Command="{Binding Path=SelectExportPathCommand}" Width="40" Height="40">
+                    <Button.Content>
+                        <iconPacks:PackIconFontAwesome Width="20" Height="20" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Kind="ChevronRightSolid" />
+                    </Button.Content>
+                </Button>
+            </Grid>
+
+            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Foreground="{StaticResource WhiteBrush}" FontSize="14" Text="ExportOptionsView_Label_ExportOptions" localization:Localization.IsLocalized="True" FontWeight="Regular" HorizontalAlignment="Left" Margin="3" />
+            <StackPanel Margin="5" Orientation="Horizontal" HorizontalAlignment="Stretch">
+                <RadioButton x:Name="rbOneFile" Style="{StaticResource CasyRadioButtonStyle}" GroupName="ExportFileCountGroup" IsChecked="{Binding Path=FileCountOption, Mode=TwoWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter=OneFile}" Margin="5" Content="ExportOptionsView_Mode_OneFile" localization:Localization.IsLocalized="True" />
+                <RadioButton Style="{StaticResource CasyRadioButtonStyle}" GroupName="ExportFileCountGroup" IsChecked="{Binding Path=FileCountOption, Mode=TwoWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter=FilePerMeasurement}" Margin="5"  Content="ExportOptionsView_Mode_PerMeasurement" localization:Localization.IsLocalized="True" />
+            </StackPanel>
+
+            <StackPanel Visibility="{Binding Path=IsChecked, ElementName=rbOneFile, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <TextBlock Style="{StaticResource CasyTextBlockStyle}" Foreground="{StaticResource WhiteBrush}" FontSize="14" Text="ExportOptionsView_Label_FileName" localization:Localization.IsLocalized="True" FontWeight="Regular" HorizontalAlignment="Left" Margin="3" />
+                <AdornerDecorator Margin="5">
+                    <controls:OmniTextBox Style="{StaticResource CasyOmniTextBoxStyle}" Text="{Binding Path=FileName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center">
+                        <extensions:WatermarkExtension.Watermark>
+                            <TextBlock Style="{StaticResource WatermarkTextBlock}" Text="ExportOptionsView_TextBox_FileName_Watermark" localization:Localization.IsLocalized="True" VerticalAlignment="Center"/>
+                        </extensions:WatermarkExtension.Watermark>
+                    </controls:OmniTextBox>
+                </AdornerDecorator>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

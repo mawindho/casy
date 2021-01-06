@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:base="clr-namespace:OLS.Casy.App.ViewModels.Base"
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             xmlns:controls="clr-namespace:OLS.Casy.App.Controls"
+             x:Class="OLS.Casy.App.Views.MainView"
+             base:ViewModelLocator.AutoWireViewModel="true"
+             BackgroundColor="#FF474546"
+             Title="CASY App">
+    <MasterDetailPage.ToolbarItems>
+        <ToolbarItem Text="Logout" Command="{Binding Path=LogoutCommand}" />
+    </MasterDetailPage.ToolbarItems>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LoginButtonStyle"
+                   TargetType="{x:Type Label}">
+                <Setter Property="FontFamily"
+                        Value="{StaticResource DosisBold}" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource WhiteColor}" />
+                <Setter Property="HorizontalOptions"
+                        Value="StartAndExpand" />
+                <Setter Property="VerticalOptions"
+                        Value="Center" />
+                <Setter Property="Margin" Value="12,0,0,0" />
+            </Style>
+
+            <Style x:Key="SelectedListStyle" 
+                   TargetType="{x:Type ListView}">
+                <Setter Property="RowHeight"
+                        Value="50" />
+                <Setter Property="VerticalOptions"
+                        Value="Center" />
+                <Setter Property="Margin"
+                        Value="0" />
+            </Style>
+
+            <Style x:Key="ImageStyle"
+                   TargetType="{x:Type Image}">
+                <Setter Property="Margin"
+                        Value="4" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout>
+                <Grid BackgroundColor="Transparent"
+                      Padding="0"
+                      ColumnSpacing="0"
+                      RowSpacing="0" HorizontalOptions="FillAndExpand"
+                      IsVisible="{x:OnIdiom Phone=false, Tablet=true, Desktop=true}">
+                    <Frame BorderColor="#FF5A5A5A" BackgroundColor="Transparent">
+                        <Label
+                        Text="Dashboard"
+                        Style="{StaticResource LoginButtonStyle}">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding Path=IsDashboardSelected}" Value="True">
+                                    <Setter Property="TextColor" Value="{StaticResource OrangeColor}"></Setter>
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </Frame>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding DashboardCommand}"
+                            NumberOfTapsRequired="1" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <Grid BackgroundColor="Transparent"
+                      Padding="0"
+                      ColumnSpacing="0"
+                      RowSpacing="0" HorizontalOptions="FillAndExpand">
+                    <Frame BorderColor="#FF5A5A5A" BackgroundColor="Transparent">
+                        <Label
+                            Text="Measurement Results >"
+                            Style="{StaticResource LoginButtonStyle}">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding Path=IsMeasureResultsSelected}" Value="True">
+                                    <Setter Property="TextColor" Value="{StaticResource OrangeColor}"></Setter>
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </Frame>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding MeasureResultsCommand}"
+                            NumberOfTapsRequired="1" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <Grid BackgroundColor="Transparent"
+                      Padding="0"
+                      ColumnSpacing="0"
+                      RowSpacing="0" HorizontalOptions="FillAndExpand">
+                    <Frame BorderColor="#FF5A5A5A" BackgroundColor="Transparent">
+                        <Label
+                            Text="Graph View >"
+                            Style="{StaticResource LoginButtonStyle}">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding Path=IsSingleSelected}" Value="True">
+                                    <Setter Property="TextColor" Value="{StaticResource OrangeColor}"></Setter>
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </Frame>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding SingleResultCommand}"
+                            NumberOfTapsRequired="1" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <Grid BackgroundColor="Transparent"
+                      Padding="0"
+                      ColumnSpacing="0"
+                      RowSpacing="0" HorizontalOptions="FillAndExpand">
+                    <Frame BorderColor="#FF5A5A5A" BackgroundColor="Transparent">
+                        <Label
+                            Text="Overlay View >"
+                            Style="{StaticResource LoginButtonStyle}">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding Path=IsOverlaySelected}" Value="True">
+                                    <Setter Property="TextColor" Value="{StaticResource OrangeColor}"></Setter>
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </Frame>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding OverlayCommand}"
+                            NumberOfTapsRequired="1" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <Grid BackgroundColor="Transparent"
+                      Padding="0"
+                      ColumnSpacing="0"
+                      RowSpacing="0" HorizontalOptions="FillAndExpand">
+                    <Frame BorderColor="#FF5A5A5A" BackgroundColor="Transparent">
+                        <Label
+                        Text="Mean View >"
+                        Style="{StaticResource LoginButtonStyle}">
+                            <Label.Triggers>
+                                <DataTrigger TargetType="Label" Binding="{Binding Path=IsMeanSelected}" Value="True">
+                                    <Setter Property="TextColor" Value="{StaticResource OrangeColor}"></Setter>
+                                </DataTrigger>
+                            </Label.Triggers>
+                        </Label>
+                    </Frame>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding MeanCommand}"
+                            NumberOfTapsRequired="1" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+                
+                <Label Text="Selected Measurement Results:" 
+                   Margin="12,12,5,0" 
+                   TextColor="{StaticResource OrangeColor}" 
+                   FontFamily="{StaticResource DosisBold}"></Label>
+
+                <controls:BindableStackLayout x:Name="SelectedStack" ItemsSource="{Binding Path=SelectedMeasurements}" HorizontalOptions="StartAndExpand">
+                    <controls:BindableStackLayout.ItemDataTemplate>
+                        <DataTemplate>
+                            <Grid VerticalOptions="Center" HorizontalOptions="StartAndExpand"
+                              BackgroundColor="Transparent"
+                              Padding="0"
+                              ColumnSpacing="0"
+                              RowSpacing="0">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="50" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <Grid HeightRequest="32" WidthRequest="32" VerticalOptions="Center">
+                                    <Image Style="{StaticResource ImageStyle}" >
+                                        <Image.Source>
+                                            <OnPlatform x:TypeArguments="ImageSource">
+                                                <On Platform="iOS, Android" Value="x-mark-48" />
+                                                <On Platform="UWP, WinRT, WinPhone" Value="Assets/x-mark-48.png" />
+                                            </OnPlatform>
+                                        </Image.Source>
+                                    </Image>
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer
+                                            Command="{Binding BindingContext.RemoveCommand, Source={x:Reference SelectedStack}}"
+                                            CommandParameter="{Binding}"
+                                            NumberOfTapsRequired="1" />
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+
+                                <Label Text="{Binding Path=Name}" Margin="10,0,0,0" TextColor="White" HorizontalOptions="StartAndExpand" VerticalOptions="Center" Grid.Column="1" />
+                            </Grid>
+                        </DataTemplate>
+                    </controls:BindableStackLayout.ItemDataTemplate>
+                </controls:BindableStackLayout>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

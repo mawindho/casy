@@ -1,0 +1,105 @@
+﻿<UserControl x:Class="OLS.Casy.Ui.Analyze.Views.AnalyzeMultipleChartsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:controls="clr-namespace:OLS.Casy.Ui.Base.Controls;assembly=OLS.Casy.Ui.Base"
+             xmlns:extensions="clr-namespace:OLS.Casy.Ui.Base.Extensions;assembly=OLS.Casy.Ui.Base"
+             xmlns:behaviors="clr-namespace:OLS.Casy.Ui.Base.Behaviors;assembly=OLS.Casy.Ui.Base"
+             xmlns:localization="clr-namespace:OLS.Casy.Ui.Base.Localization;assembly=OLS.Casy.Ui.Base"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             IsManipulationEnabled="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1" Background="White" HorizontalAlignment="Stretch">
+            <Grid HorizontalAlignment="Right" Margin="0,0,20,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Label Style="{StaticResource CasyLabelStyle}" Content="AnalyzeMultipleChatsView_Zoom_Label" localization:Localization.IsLocalized="True" Margin="0,0,5,0" FontSize="18" VerticalAlignment="Center"/>
+
+                <Slider x:Name="slZoom" 
+                    Style="{DynamicResource FlatSlider}"
+                        Height="19"
+                    Grid.Column="1"
+                        MinHeight="43"
+                    Minimum="1" 
+                    Maximum="5" 
+                    TickFrequency="1" 
+                    IsSnapToTickEnabled="True" 
+                    Value="{Binding MaxHorizontalChartCount, Mode=TwoWay}"
+                        IsManipulationEnabled="true"/>
+
+                <TextBlock Style="{StaticResource CasyTextBlockStyle}" Grid.Column="2" Text="{Binding ElementName=slZoom, Path=Value}" Margin="4,0,0,0" VerticalAlignment="Center" FontSize="18" Foreground="Black" />
+            </Grid>
+        </Grid>
+
+        <!--
+        HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch"
+        -->
+        <!--<ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" PanningMode="Both" PanningDeceleration="0.003" CanContentScroll="True">-->
+        <!--<controls:ScrollViewerWithTouch VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" PanningMode="VerticalOnly" PanningDeceleration="0.003" IsManipulationEnabled="True">-->
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" PanningMode="VerticalOnly" PanningDeceleration="0.003" IsManipulationEnabled="True">
+            
+            <b:Interaction.Behaviors>
+                <!-- Auf False setzen um Zoom zu aktiviereN! -->
+                <behaviors:BubbleTouchEventsBehavior DoBubble="True" />
+            </b:Interaction.Behaviors>
+
+            <!-- extensions:ScrollViewerExtensions.ScrollToTop="{Binding Path=DoScrollToTop, Mode=TwoWay}" -->
+            <ItemsControl ItemsSource="{Binding Path=MeasureResultContainerViewSource}" 
+                          Margin="0,0,5,0" 
+                          VerticalContentAlignment="Stretch" 
+                          HorizontalContentAlignment="Stretch" 
+                          BorderThickness="0" 
+                          Padding="-1" 
+                          extensions:ItemsControlExtensions.ScrollToTop="{Binding Path=ScrollToTop}"
+                          extensions:ItemsControlExtensions.ScrollIntoView="{Binding Path=ScrollToItem}">
+                <!--<i:Interaction.Behaviors>
+                <behaviors:BubbleScrollEventBehavior DoBubble="{Binding Path=DoBubbleScrollEvent}" />
+            </i:Interaction.Behaviors>
+            <ItemsControl.Template>
+                <ControlTemplate TargetType="{x:Type ItemsControl}">
+                    
+                        <ItemsPresenter />
+                    </ScrollViewer>
+                </ControlTemplate>
+            </ItemsControl.Template>
+                -->
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <ContentControl Content="{Binding}" 
+                                        HorizontalAlignment="Stretch" 
+                                        VerticalAlignment="Stretch" 
+                                        VerticalContentAlignment="Stretch" 
+                                        HorizontalContentAlignment="Stretch"  />
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+                <ItemsControl.ItemContainerStyle>
+                    <Style TargetType="ContentPresenter">
+                        <Setter Property="Visibility" Value="{Binding Path=IsVisible, Converter={StaticResource BooleanToVisibilityConverter}, ConverterParameter=Collapsed}" />
+                    </Style>
+                </ItemsControl.ItemContainerStyle>
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <controls:OmniScrollableUniformGrid 
+                            Columns="{Binding Path=MaxHorizontalChartCount}" />
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+        <!--</controls:ScrollViewerWithTouch>-->
+        </ScrollViewer>
+
+        <!--<dx:WaitIndicator Grid.RowSpan="2" Content="Loading ..." DeferedVisibility="{Binding Path=IsBusy}" />-->
+    </Grid>
+</UserControl>

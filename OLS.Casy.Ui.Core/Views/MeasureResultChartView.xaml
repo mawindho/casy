@@ -1,0 +1,529 @@
+﻿<UserControl x:Class="OLS.Casy.Ui.Core.Views.MeasureResultChartView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+             xmlns:behaviors="clr-namespace:OLS.Casy.Ui.Base.Behaviors;assembly=OLS.Casy.Ui.Base"
+             xmlns:base="clr-namespace:OLS.Casy.Ui.Base;assembly=OLS.Casy.Ui.Base"
+             xmlns:localize="clr-namespace:OLS.Casy.Ui.Base.Localization;assembly=OLS.Casy.Ui.Base"
+             xmlns:auth="clr-namespace:OLS.Casy.Ui.Base.Authorization;assembly=OLS.Casy.Ui.Base"
+             xmlns:controls="clr-namespace:OLS.Casy.Ui.Base.Controls;assembly=OLS.Casy.Ui.Base"
+             xmlns:converter="clr-namespace:OLS.Casy.Ui.Base.Converters;assembly=OLS.Casy.Ui.Base"
+             xmlns:extensions="clr-namespace:OLS.Casy.Ui.Base.Extensions;assembly=OLS.Casy.Ui.Base"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid x:Name="ParentGrid" Background="Transparent" Margin="0,0,10,0">
+            
+        <StackPanel Width="{Binding Path=ActualWidth, ElementName=ParentGrid}"
+                          Height="{Binding Path=ActualHeight, ElementName=ParentGrid}" >
+            <dxc:ChartControl DataSource="{Binding Path=MeasureResultData}" x:Name="chart"
+                          extensions:CaptureChartImageExtension.FileInfo="{Binding Path=FileInfo}"
+                          extensions:CaptureChartImageExtension.DoCaptureImage="{Binding Path=DoCaptureImage}"
+                          extensions:CaptureChartImageExtension.CapturedImage="{Binding Path=CapturedImage, Mode=OneWayToSource}"
+                              extensions:UpdateChartDataExtension.ForceUpdate="{Binding Path=ForceUpdate, Mode=TwoWay}"
+                          Width="{Binding Path=ActualWidth, ElementName=ParentGrid}"
+                          Height="{Binding Path=ActualHeight, ElementName=ParentGrid}" 
+                              MaxWidth="{Binding Path=ActualWidth, ElementName=ParentGrid}"
+                          MaxHeight="{Binding Path=ActualHeight, ElementName=ParentGrid}" 
+                              VerticalAlignment="Top" VerticalContentAlignment="Stretch" Background="{x:Null}" CrosshairEnabled="False"
+                              IsManipulationEnabled="True"
+                              >
+                <b:Interaction.Triggers>
+                    <b:EventTrigger EventName="BoundDataChanged">
+                        <base:MapRoutedEventToCommand Command="{Binding Path=OnBoundDataChangedCommand}" />
+                    </b:EventTrigger>
+                    <!--
+                    <i:EventTrigger EventName="CustomDrawSeries">
+                        <base:MapCustomDrawSeriesEventToCommand Command="{Binding Path=OnCustomDrawSeriesCommand}" />
+                    </i:EventTrigger>
+                    -->
+                    <b:EventTrigger EventName="MouseLeftButtonDown">
+                        <base:MapMouseButtonEventToCommand Command="{Binding Path=MouseLeftButtonDownCommand}" />
+                    </b:EventTrigger>
+                    <!--
+                    <i:EventTrigger EventName="TouchDown">
+                        <base:MapTouchEventToCommand Command="{Binding Path=TouchDownCommand}" />
+                    </i:EventTrigger>
+                    -->
+                </b:Interaction.Triggers>
+                <dxc:ChartControl.CrosshairOptions>
+                    <dxc:CrosshairOptions ArgumentLineBrush="{StaticResource OrangeBrush}" ShowOnlyInFocusedPane="False">
+                        <dxc:CrosshairOptions.PopupTemplate>
+                            <DataTemplate>
+                                <Border Background="#C0FFFFFF" 
+                                        BorderBrush="#C0C0C0C0" 
+                                        BorderThickness="1"
+                                        Padding="16">
+                                    <ItemsControl ItemsSource="{Binding PresentationData}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <ContentPresenter Content="{Binding}" 
+                                                  ContentTemplate="{Binding Path=CrosshairSeriesLabelTemplate}"/>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </Border>
+                            </DataTemplate>
+                        </dxc:CrosshairOptions.PopupTemplate>
+
+                    </dxc:CrosshairOptions>
+                </dxc:ChartControl.CrosshairOptions>
+                <dxc:ChartControl.Diagram>
+                    <dxc:XYDiagram2D SeriesDataMember="SeriesDescription" EnableAxisXNavigation="False" EnableAxisYNavigation="False">
+                        <!--
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Zoom">
+                                <base:MapXYDiagram2DZoomEventToCommand Command="{Binding Path=OnZoomCommand}" />
+                            </i:EventTrigger>
+                            <i:EventTrigger EventName="Scroll">
+                                <base:MapXYDiagram2DScrollEventToCommand Command="{Binding Path=OnScrollCommand}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                        -->
+                        <!--
+                        <dxc:XYDiagram2D.NavigationOptions>
+                            <dxc:NavigationOptions UseTouchDevice="True" UseMouse="True" />
+                        </dxc:XYDiagram2D.NavigationOptions>
+                        -->
+                        <dxc:XYDiagram2D.DefaultPane>
+                            <dxc:Pane DomainBorderBrush="{x:Null}">
+                                <dxc:Pane.Style>
+                                    <Style TargetType="{x:Type dxc:Pane}">
+                                        <Setter Property="DomainBrush" Value="{x:Null}" />
+                                    </Style>
+                                </dxc:Pane.Style>
+                                <dxc:Pane.AxisXScrollBarOptions>
+                                    <dxc:ScrollBarOptions Visible="False" />
+                                </dxc:Pane.AxisXScrollBarOptions>
+                            </dxc:Pane>
+                        </dxc:XYDiagram2D.DefaultPane>
+                        <dxc:XYDiagram2D.AxisX>
+                            <dxc:AxisX2D GridLinesVisible="True" GridLinesBrush="#E1E1E1">
+                                <dxc:AxisX2D.Title>
+                                    <dxc:AxisTitle Content="{Binding Path=XAxisTitle}" Foreground="White" />
+                                </dxc:AxisX2D.Title>
+                                <dxc:AxisX2D.VisualRange>
+                                    <dxc:Range MinValue="{Binding Path=MinXValue}" AutoSideMargins="False" SideMarginsValue="0.0" MaxValue="{Binding Path=MaxXValue}" />
+                                </dxc:AxisX2D.VisualRange>
+                                <dxc:AxisX2D.Label>
+                                    <dxc:AxisLabel Foreground="White" />
+                                </dxc:AxisX2D.Label>
+                            </dxc:AxisX2D>
+                        </dxc:XYDiagram2D.AxisX>
+                        <dxc:XYDiagram2D.AxisY>
+                            <controls:OmniAxisY2D IsShowVolume="{Binding Path=IsShowVolumeChecked}" IsNormalization="{Binding Path=IsNormalized}"  GridLinesBrush="#E1E1E1">
+                                <controls:OmniAxisY2D.Resources>
+                                    <converter:YAxisLabelConverter x:Key="YAxisLabelConverter" />
+
+                                    <DataTemplate x:Key="AxisYVolumeLabelTemplate">
+                                        <ContentPresenter Content="{Binding Path=Content, Converter={StaticResource YAxisLabelConverter}, ConverterParameter=10000}" />
+                                    </DataTemplate>
+
+                                    <DataTemplate x:Key="AxisYLabelTemplate">
+                                        <ContentPresenter Content="{Binding Path=Content}" />
+                                    </DataTemplate>
+                                </controls:OmniAxisY2D.Resources>
+
+                                <controls:OmniAxisY2D.Title>
+                                    <dxc:AxisTitle Content="{Binding Path=YAxisTitle}" Foreground="White" />
+                                </controls:OmniAxisY2D.Title>
+                                <controls:OmniAxisY2D.WholeRange>
+                                    <controls:OmniRange MaxValue="{Binding Path=MaxRange, Mode=TwoWay}" IsAutoRange="{Binding Path=IsAutoRange}" dxc:AxisY2D.AlwaysShowZeroLevel="True" AutoSideMargins="False" SideMarginsValue="0.0" />
+                                </controls:OmniAxisY2D.WholeRange>
+                                <controls:OmniAxisY2D.Label>
+                                    <dxc:AxisLabel Foreground="White" />
+                                </controls:OmniAxisY2D.Label>
+                            </controls:OmniAxisY2D>
+                        </dxc:XYDiagram2D.AxisY>
+
+                        <dxc:XYDiagram2D.SeriesTemplate>
+                            <dxc:SplineSeries2D MarkerVisible="False" ArgumentDataMember="ValueX" ValueDataMember="ValueY" CrosshairLabelPattern="{}{S}: {A:0.00} - {V}" ToolTipSeriesPattern="{}{S}: {A:0.00} - {V}" CrosshairEnabled="{Binding Path=ShowMouseOverInGraph}">
+                                <dxc:SplineSeries2D.LineStyle>
+                                    <dxc:LineStyle Thickness="3" />
+                                </dxc:SplineSeries2D.LineStyle>
+                                <!--
+                                <dxc:SplineSeries2D.ToolTipPointTemplate>
+                                    <DataTemplate>
+                                        <TextBlock Text="Hier zeigen wir was tolles an!" />
+                                    </DataTemplate>
+                                </dxc:SplineSeries2D.ToolTipPointTemplate>
+                                -->
+                            </dxc:SplineSeries2D>
+                        </dxc:XYDiagram2D.SeriesTemplate>
+                    </dxc:XYDiagram2D>
+                </dxc:ChartControl.Diagram>
+                <dxc:ChartControl.Titles>
+                    <dxc:Title Dock="Top" HorizontalAlignment="Left" Content="{Binding Path=DisplayName}" Foreground="White"  />
+                </dxc:ChartControl.Titles>
+            </dxc:ChartControl>
+        </StackPanel>
+
+        <ItemsControl ItemsSource="{Binding Path=ChartOverlayViewModels}">
+            <ItemsControl.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Top" />
+                </ItemsPanelTemplate>
+            </ItemsControl.ItemsPanel>
+
+            <ItemsControl.ItemContainerStyle>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="Canvas.Left" Value="{Binding Path=PositionLeft}" />
+                    <Setter Property="Canvas.Top" Value="{Binding Path=PositionTop}" />
+                </Style>
+            </ItemsControl.ItemContainerStyle>
+        </ItemsControl>
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,65,10,0">
+            <StackPanel.Style>
+                <Style TargetType="{x:Type StackPanel}">
+                    <Setter Property="Visibility" Value="Visible" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=IsButtonMenuCollapsed}" Value="True">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+
+            <Button Style="{StaticResource TransparentButton}"
+                    Command="{Binding Path=EditAccessCommand}"
+                    Visibility="{Binding Path=CanEditAccess, Converter={StaticResource BooleanToVisibilityConverter}}"
+                    ToolTip="MeasureResultChartView_EditAccessButton_Tooltip"
+                    localize:Localization.IsLocalized="True"
+                    localize:Localization.TargetProperty="ToolTip"
+                    BorderThickness="0"
+                    Width="53"
+                    Height="53">
+
+                <Button.Content>
+                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <Ellipse Width="40" Height="40" Fill="#FFF5B182" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <iconPacks:PackIconFontAwesome Width="26" Height="26" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Kind="UserSolid" />
+                    </Grid>
+                </Button.Content>
+            </Button>
+
+            <Button Style="{StaticResource TransparentButton}"
+                    BorderThickness="0"
+                     IsEnabled="{Binding Path=IsNotReadOnly}"
+                    ToolTip="MeasureResultChartView_SettingsButton_Tooltip"
+                    localize:Localization.IsLocalized="True"
+                    localize:Localization.TargetProperty="ToolTip"
+                    Width="53"
+                    Height="53">
+                <b:Interaction.Behaviors>
+                    <behaviors:DropDownButtonBehavior/>
+                </b:Interaction.Behaviors>
+
+                <Button.Content>
+                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <Ellipse Width="40" Height="40" Fill="{StaticResource NotificationBackgroundBrush}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <iconPacks:PackIconFontAwesome Width="26" Height="26" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Kind="CogsSolid" />
+                    </Grid>
+                </Button.Content>
+
+                <Button.ContextMenu>
+                    <ContextMenu Style="{StaticResource TopMenuDropDownMenuStyle}" Foreground="White" Background="{StaticResource NotificationBackgroundBrush}">
+                        <ContextMenu.Template>
+                            <ControlTemplate>
+                                <Grid Background="{StaticResource OrangeTransparentBrush}" MinWidth="400" IsEnabled="{Binding Path=HasEditRights}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Style="{StaticResource CasyLabelStyle}" Content="MeasureResultChartView_Label_Aggregation" localize:Localization.IsLocalized="True" Foreground="White" VerticalAlignment="Center" />
+                                    <Grid Grid.Column="1" auth:Authorization.MinRequiredRole="Operator">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="1*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <AdornerDecorator Margin="5" VerticalAlignment="Center">
+                                            <ComboBox  Style="{StaticResource OrangeComboBoxStyle}" 
+                                                      ItemsSource="{Binding Path=AggregationCalculationModes}"
+                                                       DisplayMemberPath="DisplayItem" 
+                                                      SelectedValuePath="ValueItem"
+                                                      SelectedValue="{Binding Path=AggregationCalculationMode, Mode=TwoWay}"
+                                                      VerticalContentAlignment="Center"
+                                                      HorizontalAlignment="Stretch">
+                                                <!--
+                                                <ComboBox.IsEnabled>
+                                                    <MultiBinding Converter="{StaticResource BooleanAndMultiValueConverter}">
+                                                        <Binding Path="IsOverlayMode" Converter="{StaticResource InvertBooleanConverter}"/>
+                                                    </MultiBinding>
+                                                </ComboBox.IsEnabled>
+                                                -->
+                                            </ComboBox>
+                                        </AdornerDecorator>
+
+                                        <Grid Margin="5" Grid.Column="1" Visibility="{Binding Path=IsManualAggregationCalculationMode, Converter={StaticResource BooleanToVisibilityConverter}}">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition />
+                                                <ColumnDefinition Width="Auto" />
+                                            </Grid.ColumnDefinitions>
+                                            
+                                            <AdornerDecorator VerticalAlignment="Center" >
+                                                <controls:OmniTextBox Style="{StaticResource OrangeOmniTextBoxStyle}" Text="{Binding Path=ManualAggregationCalculationFactor, Mode=TwoWay}" extensions:InputBindingsManager.UpdatePropertySourceWhenEnterPressed="TextBox.Text">
+                                                    <extensions:WatermarkExtension.Watermark>
+                                                        <TextBlock Style="{StaticResource WatermarkTextBlock}" Text="MeasureResultChartView_OmniTextBox_ManualAggregationCalculationFactor_Watermark" localize:Localization.IsLocalized="True"/>
+                                                    </extensions:WatermarkExtension.Watermark>
+                                                </controls:OmniTextBox>
+                                            </AdornerDecorator>
+
+                                            <Label Grid.Column="1" Style="{StaticResource CasyLabelStyle}" Content="fl" Foreground="White" Margin="4,0,4,0" />
+                                        </Grid>
+                                    </Grid>
+
+                                    <Label Grid.Row="1" Style="{StaticResource CasyLabelStyle}" Content="MeasureResultChartView_Label_MeasureMode" localize:Localization.IsLocalized="True" Foreground="White" VerticalAlignment="Center" />
+                                    <Grid Grid.Row="1" Grid.Column="1"
+                                          auth:Authorization.MinRequiredRole="Operator">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="1*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <RadioButton Style="{StaticResource CasyRadioButtonStyle}" Grid.Column="0" GroupName="MeasureModeGroup1" IsChecked="{Binding Path=IsViabilityMode, Mode=TwoWay}">
+                                            <TextBlock Text="MeasureMode_Viability_Name" localize:Localization.IsLocalized="True" />
+                                        </RadioButton>
+                                        <RadioButton Style="{StaticResource CasyRadioButtonStyle}" Grid.Column="1" GroupName="MeasureModeGroup2" IsChecked="{Binding Path=IsMulticursorMode, Mode=TwoWay}">
+                                            <TextBlock Text="MeasureMode_MultipleCursor_Name" localize:Localization.IsLocalized="True" />
+                                        </RadioButton>
+                                    </Grid>
+
+                                    <Label Style="{StaticResource CasyLabelStyle}" Grid.Row="2" Content="MeasureResultChartView_Label_YScale" localize:Localization.IsLocalized="True" Foreground="White" VerticalAlignment="Center" />
+                                    <Grid Grid.Column="1" Grid.Row="2" IsEnabled="{Binding Path=IsNormalized, Converter={StaticResource InvertBooleanConverter}}" auth:Authorization.MinRequiredRole="Operator">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="1*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <RadioButton Style="{StaticResource CasyRadioButtonStyle}" GroupName="ScalingGroup" IsChecked="{Binding Path=IsScalingModeAuto, Mode=TwoWay}">
+                                            <TextBlock Text="MeasureResultChartView_Value_AutoRange" localize:Localization.IsLocalized="True"/>
+                                        </RadioButton>
+                                        <Grid Grid.Column="1">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+                                            
+                                            <RadioButton Style="{StaticResource CasyRadioButtonStyle}" x:Name="rbScalingRange" GroupName="ScalingGroup" IsChecked="{Binding Path=IsScalingModeMaxRange, Mode=TwoWay}" />
+                                            <AdornerDecorator Grid.Column="1" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Stretch">
+                                                <controls:OmniTextBox Style="{StaticResource OrangeOmniTextBoxStyle}" Text="{Binding Path=ScalingMaxRange, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" IsEnabled="{Binding ElementName=rbScalingRange, Path=IsChecked}" extensions:InputBindingsManager.UpdatePropertySourceWhenEnterPressed="TextBox.Text" HorizontalAlignment="Stretch">
+                                                    <extensions:WatermarkExtension.Watermark>
+                                                        <TextBlock Style="{StaticResource WatermarkTextBlock}" Text="MeasureResultChartView_OmniTextBox_ScalingMaxRange_Watermark" localize:Localization.IsLocalized="True"/>
+                                                    </extensions:WatermarkExtension.Watermark>
+                                                    <b:Interaction.Behaviors>
+                                                        <behaviors:TextBoxInputRegExBehaviour RegularExpression="^[1-9]\d*$" MaxLength="9" EmptyValue="" />
+                                                    </b:Interaction.Behaviors>
+                                                </controls:OmniTextBox>
+                                            </AdornerDecorator>
+                                        </Grid>
+                                    </Grid>
+
+                                    <Grid Grid.Column="1" Grid.Row="3" auth:Authorization.MinRequiredRole="Operator">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*" />
+                                            <ColumnDefinition Width="1*" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <RadioButton Style="{StaticResource CasyRadioButtonStyle}" Grid.Column="1" GroupName="YUnitGroup" IsChecked="{Binding Path=IsVolumeUnitMode, Mode=TwoWay}">
+                                            <TextBlock Text="MeasureResultChartView_Value_Volume" localize:Localization.IsLocalized="True"/>
+                                        </RadioButton>
+                                        <RadioButton Style="{StaticResource CasyRadioButtonStyle}" GroupName="YUnitGroup" IsChecked="{Binding Path=IsCountUnitMode, Mode=TwoWay}">
+                                            <TextBlock Text="MeasureResultChartView_Value_Counts" localize:Localization.IsLocalized="True"/>
+                                        </RadioButton>
+                                    </Grid>
+
+                                    <Grid Grid.Column="1" Grid.Row="4" auth:Authorization.MinRequiredRole="Operator">
+                                        <CheckBox Style="{StaticResource CasyOrangeCheckBoxStyle}" IsChecked="{Binding Path=IsNormalized, Mode=TwoWay}" Content="MeasureResultChartView_Label_Normalize" localize:Localization.IsLocalized="True" VerticalAlignment="Center" IsEnabled="{Binding Path=CanNormalize}" />
+                                    </Grid>
+
+                                    <Label Style="{StaticResource CasyLabelStyle}" Grid.Row="5" Content="MeasureResultChartView_Label_SubPopulations" localize:Localization.IsLocalized="True" Foreground="White" VerticalAlignment="Center" Visibility="{Binding Path=IsMulticursorMode, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                                    <Grid Grid.Column="1" Grid.Row="5" Visibility="{Binding Path=IsMulticursorMode, Converter={StaticResource BooleanToVisibilityConverter}}" auth:Authorization.MinRequiredRole="Operator">
+                                        <CheckBox Style="{StaticResource CasyOrangeCheckBoxStyle}" IsChecked="{Binding Path=HasSubpopulations, Mode=TwoWay}" Content="MeasureResultChartView_Label_SubPopulationsActive" localize:Localization.IsLocalized="True" VerticalAlignment="Center"  />
+                                    </Grid>
+
+                                    <Label Style="{StaticResource CasyLabelStyle}" Grid.Row="6" Content="MeasureResultChartView_Label_Smoothing" localize:Localization.IsLocalized="True" Foreground="White" VerticalAlignment="Center" />
+                                    <Grid Grid.Row="6" Grid.Column="1"  auth:Authorization.MinRequiredRole="Operator">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition />
+                                            <ColumnDefinition Width="40" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <Slider Style="{DynamicResource FlatSlider}" Height="19" HorizontalAlignment="Stretch" Minimum="0" Maximum="21" Interval="2" Value="{Binding Path=SmoothingFactor}" VerticalAlignment="Center" IsManipulationEnabled="true" />
+                                        <TextBlock Style="{StaticResource CasyTextBlockStyle}" Grid.Column="1" Text="{Binding Path=SmoothingFactorDisplay}" FontSize="16" Foreground="{StaticResource DialogForegroundBrush}" Margin="5,0,5,0" VerticalAlignment="Center"/>
+                                    </Grid>
+
+                                    <Label Style="{StaticResource CasyLabelStyle}" Grid.Row="7" Content="MeasureResultChartView_Label_DilutionFactor" localize:Localization.IsLocalized="True" Foreground="White" VerticalAlignment="Center" Visibility="{Binding Path=IsMultiChartGraph, Converter={StaticResource BooleanToInvisibilityConverter}}" />
+                                    <Grid Grid.Row="7" Grid.Column="1" Visibility="{Binding Path=IsMultiChartGraph, Converter={StaticResource BooleanToInvisibilityConverter}}">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                                <RowDefinition Height="Auto" />
+                                            </Grid.RowDefinitions>
+
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="Auto" />
+                                                <ColumnDefinition />
+                                            </Grid.ColumnDefinitions>
+
+                                            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="DilutionFactor_Factor" localize:Localization.IsLocalized="True" FontSize="12" Foreground="White" VerticalAlignment="Center" />
+
+                                            <AdornerDecorator Grid.Column="1" Margin="5" VerticalAlignment="Center">
+                                                <controls:OmniTextBox Style="{StaticResource OrangeOmniTextBoxStyle}" Text="{Binding Path=DilutionFactor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DoubleConverter}, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" extensions:SelectTextOnFocus.Active="True" InputScope="Number">
+                                                    <extensions:WatermarkExtension.Watermark>
+                                                        <TextBlock Style="{StaticResource WatermarkTextBlock}" Text="DilutionFactor_Factor" localize:Localization.IsLocalized="True"/>
+                                                    </extensions:WatermarkExtension.Watermark>
+                                                </controls:OmniTextBox>
+                                            </AdornerDecorator>
+
+                                            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Grid.Row="1" Text="DilutionFactor_SampleVolume" localize:Localization.IsLocalized="True" FontSize="12" Foreground="White" VerticalAlignment="Center" />
+
+                                            <AdornerDecorator Grid.Row="1" Grid.Column="1" Margin="5" VerticalAlignment="Center">
+                                                <controls:OmniTextBox Style="{StaticResource OrangeOmniTextBoxStyle}" Text="{Binding Path=DilutionSampleVolume, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" extensions:SelectTextOnFocus.Active="True" InputScope="Number">
+                                                    <extensions:WatermarkExtension.Watermark>
+                                                        <TextBlock Style="{StaticResource WatermarkTextBlock}" Text="DilutionFactor_SampleVolume" localize:Localization.IsLocalized="True"/>
+                                                    </extensions:WatermarkExtension.Watermark>
+                                                </controls:OmniTextBox>
+                                            </AdornerDecorator>
+
+                                            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Grid.Row="2" Text="DilutionFactor_CASYtonVolume" localize:Localization.IsLocalized="True" FontSize="12" Foreground="White" VerticalAlignment="Center" />
+
+                                            <AdornerDecorator Grid.Row="2" Grid.Column="1" Margin="5" VerticalAlignment="Center">
+                                                <controls:OmniTextBox Style="{StaticResource OrangeOmniTextBoxStyle}" Text="{Binding Path=DilutionCasyTonVolume, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" extensions:SelectTextOnFocus.Active="True" InputScope="Number">
+                                                    <extensions:WatermarkExtension.Watermark>
+                                                        <TextBlock Style="{StaticResource WatermarkTextBlock}" Text="DilutionFactor_CASYtonVolume" localize:Localization.IsLocalized="True"/>
+                                                    </extensions:WatermarkExtension.Watermark>
+                                                </controls:OmniTextBox>
+                                            </AdornerDecorator>
+                                        </Grid>
+                                        <!--
+                                        <ComboBox Style="{StaticResource OrangeDilutionFactorComboBoxStyle}" 
+                                                  Background="#FFF5A66B"
+                                                  Foreground="White"
+                                                  Grid.Column="1"
+                                                  IsEditable="True"
+                                                  Text="{Binding Path=DilutionFactor, Mode=TwoWay}" 
+                                                  VerticalContentAlignment="Center">
+                                        </ComboBox>
+                                        -->
+                                    </Grid>
+
+                                    <Label Style="{StaticResource CasyLabelStyle}" Grid.Row="8" Content="MeasureResultChartView_Label_Color" localize:Localization.IsLocalized="True" Foreground="White" VerticalAlignment="Center" />
+                                    <Grid Grid.Row="8" Grid.Column="1">
+                                        <ListView ItemsSource="{Binding Path=ChartColors}" Background="Transparent" BorderBrush="Transparent" ScrollViewer.CanContentScroll="True" Padding="0" AlternationCount="2" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch">
+                                            <ListView.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*" />
+                                                            <ColumnDefinition Width="Auto" />
+                                                        </Grid.ColumnDefinitions>
+
+                                                        <Label Style="{StaticResource CasyLabelStyle}" Content="{Binding Path=ChartName}" VerticalAlignment="Center" Foreground="White" />
+
+                                                        <controls:OmniPopupColorEdit Grid.Column="1" DisplayMode="Color" Color="{Binding Path=ChartColor, Mode=TwoWay}" ShowDefaultColorButton="False" Background="#FFF5A66B" Foreground="White" AllowDefaultButton="False">
+                                                            <b:Interaction.Behaviors>
+                                                                <behaviors:PopupColorEditBehavior ColorResourceBaseName="ChartColor" />
+                                                            </b:Interaction.Behaviors>
+
+                                                            <controls:OmniPopupColorEdit.Buttons>
+                                                                <dxe:ButtonInfo GlyphKind="Custom">
+                                                                    <dxe:ButtonInfo.Template>
+                                                                        <DataTemplate>
+                                                                            <iconPacks:PackIconFontAwesome Width="20" Height="20" Foreground="{StaticResource OrangeBrush}" VerticalAlignment="Center" HorizontalAlignment="Center" Kind="BrushSolid" />
+                                                                        </DataTemplate>
+                                                                    </dxe:ButtonInfo.Template>
+                                                                </dxe:ButtonInfo>
+                                                            </controls:OmniPopupColorEdit.Buttons>
+                                                        </controls:OmniPopupColorEdit>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ListView.ItemTemplate>
+
+                                            <ListView.ItemContainerStyle>
+                                                <Style TargetType="ListViewItem">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="ListViewItem">
+                                                                <Border x:Name="border" Background="Transparent">
+                                                                    <VisualStateManager.VisualStateGroups>
+                                                                        <VisualStateGroup x:Name="CommonStates">
+                                                                            <VisualState x:Name="Normal" />
+                                                                            <VisualState x:Name="Disabled" />
+                                                                        </VisualStateGroup>
+                                                                        <VisualStateGroup x:Name="SelectionStates">
+                                                                            <VisualState x:Name="Unselected" />
+                                                                            <VisualState x:Name="Selected">
+                                                                                <Storyboard>
+                                                                                    <ColorAnimationUsingKeyFrames Storyboard.TargetName="border"
+                                                                    Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                                                                        <EasingColorKeyFrame KeyTime="0" Value="LightBlue" />
+                                                                                    </ColorAnimationUsingKeyFrames>
+                                                                                </Storyboard>
+                                                                            </VisualState>
+                                                                            <VisualState x:Name="SelectedUnfocused">
+                                                                                <Storyboard>
+                                                                                    <ColorAnimationUsingKeyFrames Storyboard.TargetName="border"
+                                                                    Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                                                                        <EasingColorKeyFrame KeyTime="0" Value="SkyBlue" />
+                                                                                    </ColorAnimationUsingKeyFrames>
+                                                                                </Storyboard>
+                                                                            </VisualState>
+                                                                        </VisualStateGroup>
+                                                                    </VisualStateManager.VisualStateGroups>
+                                                                    <ContentPresenter/>
+                                                                </Border>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </ListView.ItemContainerStyle>
+                                        </ListView>
+                                    </Grid>
+                                </Grid>
+                            </ControlTemplate>
+                        </ContextMenu.Template>
+                    </ContextMenu>
+                </Button.ContextMenu>
+            </Button>
+
+            <Button Style="{StaticResource TransparentButton}"
+                    Command="{Binding Path=AddRangeCommand}"
+                    IsEnabled="{Binding Path=CanAddRange}"
+                    ToolTip="MeasureResultChartView_AddRangeButton_Tooltip"
+                    localize:Localization.IsLocalized="True"
+                    localize:Localization.TargetProperty="ToolTip"
+                    BorderThickness="0"
+                    Width="53"
+                    Height="53"
+                    auth:Authorization.MinRequiredRole="Operator">
+
+                <Button.Content>
+                    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                        <Ellipse Width="40" Height="40" Fill="#FFF5B182" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <iconPacks:PackIconFontAwesome Width="26" Height="26" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Kind="PlusSolid" />
+                    </Grid>
+                </Button.Content>
+            </Button>
+        </StackPanel>
+    </Grid>
+</UserControl>

@@ -1,0 +1,23 @@
+﻿{
+  "Identity": {
+    "DiscoveryUrl": "http://192.168.178.122:8200",
+    "ClientId": "casy",
+    "ClientSecret": "casy",
+    "Scope": "items interactors actions devices functions workbooks"
+  },
+  "RabbitMQ": {
+    //"ConnectionString": "localhost:5672"
+    "ConnectionString": "host=192.168.178.122:5672"
+  },
+  "Services": {
+    "DevicesViewUrl": "http://192.168.178.122:8181/api/v1/",
+    "DevicesHandlerUrl": "http://192.168.178.122:8180/api/v1/",
+    "ItemsViewUrl": "http://192.168.178.122:8191/api/v1/",
+    "ItemsHandlerUrl": "http://192.168.178.122:8190/api/v1/",
+    "InteractorsHandlerUrl": "http://192.168.178.122:8184/api/v1/",
+    "InteractorsViewUrl": "http://192.168.178.122:8185/api/v1/",
+    "FunctionsHandlerUrl": "http://192.168.178.122:8186/api/v1/",
+    "WorkbooksViewUrl": "http://192.168.178.122:8197/api/v1/",
+    "WorkbooksHandlerUrl": "http://192.168.178.122:8196/api/v1/"
+  }
+}

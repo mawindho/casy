@@ -1,0 +1,118 @@
+﻿<controls:MetroWindow x:Class="OLS.Casy.Activation.KeyGenerator.Views.SearchCobraView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:dxmvvm="http://schemas.devexpress.com/winfx/2008/xaml/mvvm"
+        xmlns:options="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+        xmlns:dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+        mc:Ignorable="d"
+        Title="Cobra Kontakt finden" Height="450" Width="800">
+    <Window.Background>
+        <ImageBrush ImageSource="pack://application:,,,/OLS.Casy.Activation.KeyGenerator;component/Assets/Icons/Background.jpg" Stretch="Fill" options:Freeze="true"/>
+    </Window.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <dxg:GridControl ItemsSource="{Binding Path=CobraAddresses}" SelectedItem="{Binding Path=SelectedCobraAddress, Mode=TwoWay}">
+            <dxg:GridControl.View>
+                <dxg:TableView ShowVerticalLines="False" ShowAutoFilterRow="False" BorderThickness="0" AlternateRowBackground="#AAC5C5C5" ShowGroupPanel="False" ShowCheckBoxSelectorColumn="True" >
+                    <dxg:TableView.Style>
+                        <Style TargetType="{x:Type dxg:TableView}">
+                            <Setter Property="ColumnHeaderTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <TextBlock Text="{Binding}" TextWrapping="Wrap" />
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </dxg:TableView.Style>
+                </dxg:TableView>
+            </dxg:GridControl.View>
+
+            <dxg:GridControl.Columns>
+                <dxg:GridColumn FieldName="Company" Header="Unternehmen" MinWidth="120" Width="*" ReadOnly="True" />
+                <dxg:GridColumn FieldName="Company2" Header="Unternehmen2" MinWidth="120" Width="*" ReadOnly="True" />
+                <dxg:GridColumn FieldName="Company3" Header="Unternehmen3" MinWidth="120" Width="*" ReadOnly="True" />
+                <dxg:GridColumn FieldName="Department" Header="Abteilung" MinWidth="120" Width="*" ReadOnly="True" />
+                <dxg:GridColumn FieldName="Firstname" Header="Vorname" MinWidth="120" Width="*" ReadOnly="True" />
+                <dxg:GridColumn FieldName="Lastname" Header="Nachname" MinWidth="120" Width="*" ReadOnly="True" />
+                <dxg:GridColumn FieldName="Position" Header="Position" MinWidth="120" Width="*" ReadOnly="True" />
+                <dxg:GridColumn FieldName="Street" Header="Straße" MinWidth="120" Width="*" ReadOnly="True" />
+                <dxg:GridColumn FieldName="PostalCode" Header="PLZ" MinWidth="120" Width="*" ReadOnly="True" />
+                <dxg:GridColumn FieldName="City" Header="Stadt" MinWidth="120" Width="*" ReadOnly="True" />
+                <dxg:GridColumn FieldName="Country" Header="Land" MinWidth="120" Width="*" ReadOnly="True" />
+                <dxg:GridColumn FieldName="Email" Header="Email" MinWidth="120" Width="*" ReadOnly="True" />
+                <!--
+                <dxg:GridColumn FieldName="Value" Header="Schlüssel" MinWidth="120" Width="*" ReadOnly="True" />
+                <dxg:GridColumn FieldName="ValidFrom" Header="Gültig ab" MinWidth="120" Width="*" ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:DateEditSettings DisplayFormat="G" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="ValidTo" Header="Gültig bis" MinWidth="120" Width="*" ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:DateEditSettings DisplayFormat="G" />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="MaxNumActivations" Header="# Aktivierungen" MinWidth="30" Width="*" ReadOnly="True">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:TextEditSettings HorizontalContentAlignment="Left"/>
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="SerialNumber" Header="Gültige Seriennummer" MinWidth="120" Width="*" ReadOnly="True" />
+                <dxg:GridColumn FieldName="CustomerName" Header="Kunde" MinWidth="120" Width="*" ReadOnly="True" />
+                <dxg:GridColumn FieldName="IsControl" Header="Steuerung" ReadOnly="True" Width="*">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:CheckEditSettings />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="IsSimulator" Header="Simulator" ReadOnly="True" Width="*">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:CheckEditSettings />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="IsAdAuth" Header="AD Auth" ReadOnly="True" Width="*">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:CheckEditSettings />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="IsLocalAuth" Header="Lokale Auth" ReadOnly="True" Width="*">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:CheckEditSettings />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="IsAccess" Header="Erw. Zugr. St." ReadOnly="True" Width="*">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:CheckEditSettings />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="IsCounter" Header="Counter" ReadOnly="True" Width="*">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:CheckEditSettings />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="IsCfr" Header="CFR" ReadOnly="True" Width="*">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:CheckEditSettings />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                <dxg:GridColumn FieldName="IsTrial" Header="Trial" ReadOnly="True" Width="*">
+                    <dxg:GridColumn.EditSettings>
+                        <dxe:CheckEditSettings />
+                    </dxg:GridColumn.EditSettings>
+                </dxg:GridColumn>
+                -->
+            </dxg:GridControl.Columns>
+        </dxg:GridControl>
+
+        <Button Grid.Row="1" Content="Auswählen" Width="100" IsDefault="True" HorizontalAlignment="Right" Margin="5" Command="{Binding Path=OkCommand}"
+                CommandParameter="{Binding RelativeSource={RelativeSource FindAncestor, 
+                           AncestorType={x:Type controls:MetroWindow}}}" />
+    </Grid>
+</controls:MetroWindow>

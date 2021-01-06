@@ -1,0 +1,467 @@
+﻿<UserControl x:Class="OLS.Casy.Ui.MainControls.Views.TopMenuView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:behaviors="clr-namespace:OLS.Casy.Ui.Base.Behaviors;assembly=OLS.Casy.Ui.Base"
+             xmlns:autherization="clr-namespace:OLS.Casy.Ui.Base.Authorization;assembly=OLS.Casy.Ui.Base"
+             xmlns:localization="clr-namespace:OLS.Casy.Ui.Base.Localization;assembly=OLS.Casy.Ui.Base"
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             Visibility="{Binding Path=IsVisible, Mode=OneWayToSource, Converter={StaticResource BooleanToVisibilityConverter}}">
+
+    <Grid Background="Transparent">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="1" />
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="1" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Horizontal" VerticalAlignment="Center" Visibility="{Binding Path=IsMeasureControllerLoaded, Converter={StaticResource BooleanToVisibilityConverter}}" Margin="20,0,20,0">
+                <Button BorderThickness="0"
+                        Margin="5,0,5,0">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource TransparentButton}">
+                            <Setter Property="IsEnabled" Value="True" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=HasLessCounts}" Value="True">
+                                    <Setter Property="Foreground" Value="{StaticResource OrangeTransparentBrush}" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=CanMeasure}" Value="False">
+                                    <Setter Property="Foreground" Value="Red" />
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=IsCasyConnected}" Value="False">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.InputBindings>
+                        <MouseBinding Gesture="LeftClick" Command="{Binding Path=MeasureCommand}" />
+                    </Button.InputBindings>
+
+                    <Button.Content>
+                        <Grid VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Ellipse Width="32" Height="32" Fill="{StaticResource NotificationBackgroundBrush}" VerticalAlignment="Center"/>
+                            <Rectangle Width="16" Height="16" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Rectangle.Style>
+                                    <Style TargetType="{x:Type Rectangle}">
+                                        <Setter Property="Fill" Value="White" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=HasLessCounts}" Value="True">
+                                                <Setter Property="Fill" Value="{StaticResource OrangeTransparentBrush}" />
+                                            </DataTrigger>
+                                            <DataTrigger Binding="{Binding Path=HasNoCounts}" Value="True">
+                                                <Setter Property="Fill" Value="Red" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Rectangle.Style>
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill" Visual="{DynamicResource icon_measure}"/>
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                            <StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="10,0,0,0">
+                                <TextBlock Style="{StaticResource CasyTextBlockStyle}"  Text="TopMenuButton_Measurement" localization:Localization.IsLocalized="True" VerticalAlignment="Center" FontSize="16" />
+                                <TextBlock Text="{Binding Path=CountsLeft}" VerticalAlignment="Center" FontSize="12">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CasyTextBlockStyle}">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Path=CountsLeft}" Value="">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                                <TextBlock Text="TopMenuView_NoCasyConnected" VerticalAlignment="Center" FontSize="12" localization:Localization.IsLocalized="True">
+                                    <TextBlock.Style>
+                                        <Style TargetType="{x:Type TextBlock}" BasedOn="{StaticResource CasyTextBlockStyle}">
+                                            <Setter Property="Visibility" Value="Visible" />
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding Path=IsCasyConnected}" Value="True">
+                                                    <Setter Property="Visibility" Value="Collapsed" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </StackPanel>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+
+                <Button BorderThickness="0"
+                        Margin="5,0,5,0">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource TransparentButton}">
+                            <Setter Property="IsEnabled" Value="True" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=IsCasyConnected}" Value="False">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <b:Interaction.Behaviors>
+                        <behaviors:DropDownButtonBehavior/>
+                    </b:Interaction.Behaviors>
+
+                    <Button.Content>
+                        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Ellipse Width="32" Height="32" Fill="{StaticResource NotificationBackgroundBrush}" VerticalAlignment="Center"/>
+                            <Rectangle Width="16" Height="16" Fill="White" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill" Visual="{DynamicResource icon_purge}"/>
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+
+                            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Grid.Column="1" Text="TopMenuButton_Clean" localization:Localization.IsLocalized="True" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16" />
+                            
+                        </Grid>
+                    </Button.Content>
+
+                    <Button.ContextMenu>
+                        <ContextMenu Style="{StaticResource TopMenuDropDownMenuStyle}" Foreground="White" Background="{StaticResource BlueBrush}">
+                            <ContextMenu.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <StackPanel  />
+                                </ItemsPanelTemplate>
+                            </ContextMenu.ItemsPanel>
+
+                            <MenuItem Style="{StaticResource TopMenuDropDownItemStyle}" Background="{StaticResource BlueBrush}" Header="TopMenuButton_Clean" localization:Localization.IsLocalized="True" Command="{Binding Path=PurgeCommand}" CommandParameter="1" VerticalAlignment="Center" Margin="0,0,0,0" FontSize="16" MinHeight="43">
+                                <MenuItem.HeaderTemplate>
+                                    <DataTemplate>
+                                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Background="Transparent">
+                                            <Rectangle Width="32" Height="16" Fill="White" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                <Rectangle.OpacityMask>
+                                                    <VisualBrush Stretch="Fill" Visual="{DynamicResource icon_purge_x1}"/>
+                                                </Rectangle.OpacityMask>
+                                            </Rectangle>
+
+                                            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="{Binding}" VerticalAlignment="Center" FontSize="16" Margin="8,0,12,0" FontWeight="Regular" Controls:ControlsHelper.ContentCharacterCasing="Upper" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </MenuItem.HeaderTemplate>
+                            </MenuItem>
+                            <MenuItem Style="{StaticResource TopMenuDropDownItemStyle}" Background="{StaticResource BlueBrush}" Header="TopMenuButton_Cleanx3" localization:Localization.IsLocalized="True" Command="{Binding Path=PurgeCommand}" CommandParameter="3" VerticalAlignment="Center" Margin="0,0,0,0" FontSize="16" MinHeight="43">
+                                <MenuItem.HeaderTemplate>
+                                    <DataTemplate>
+                                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Background="Transparent">
+                                            <Rectangle Width="32" Height="16" Fill="White" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                <Rectangle.OpacityMask>
+                                                    <VisualBrush Stretch="Fill" Visual="{DynamicResource icon_purge_x3}"/>
+                                                </Rectangle.OpacityMask>
+                                            </Rectangle>
+
+                                            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="{Binding}" VerticalAlignment="Center" FontSize="16" Margin="8,0,12,0" FontWeight="Regular" Controls:ControlsHelper.ContentCharacterCasing="Upper" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </MenuItem.HeaderTemplate>
+                            </MenuItem>
+                            <MenuItem Style="{StaticResource TopMenuDropDownItemStyle}" Background="{StaticResource BlueBrush}" Header="TopMenuButton_Cleanx5" localization:Localization.IsLocalized="True" Command="{Binding Path=PurgeCommand}" CommandParameter="5" VerticalAlignment="Center" Margin="0,0,0,0" FontSize="16" MinHeight="43">
+                                <MenuItem.HeaderTemplate>
+                                    <DataTemplate>
+                                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Background="Transparent">
+                                            <Rectangle Width="32" Height="16" Fill="White" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                                <Rectangle.OpacityMask>
+                                                    <VisualBrush Stretch="Fill" Visual="{DynamicResource icon_purge_x5}"/>
+                                                </Rectangle.OpacityMask>
+                                            </Rectangle>
+
+                                            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="{Binding}" VerticalAlignment="Center" FontSize="16" Margin="8,0,12,0" FontWeight="Regular" Controls:ControlsHelper.ContentCharacterCasing="Upper" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </MenuItem.HeaderTemplate>
+                            </MenuItem>
+
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                </Button>
+
+                <Button Command="{Binding Path=BackgroundCommand}"
+                        BorderThickness="0"
+                        Margin="5,0,5,0">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}" BasedOn="{StaticResource TransparentButton}">
+                            <Setter Property="IsEnabled" Value="True" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=IsCasyConnected}" Value="False">
+                                    <Setter Property="IsEnabled" Value="False" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Content>
+                        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Ellipse Width="32" Height="32" Fill="{StaticResource NotificationBackgroundBrush}" VerticalAlignment="Center" />
+                            <Rectangle Width="16" Height="16" Fill="White" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill" Visual="{DynamicResource icon_background}"/>
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+
+                            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Grid.Column="1" Text="TopMenuButton_Background" localization:Localization.IsLocalized="True" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16" />
+                        </Grid>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+            <Border Grid.Column="1" Background="{StaticResource ShortcutButtonBackgroundBrush}" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+
+            <StackPanel Grid.Column="2" Orientation="Horizontal" VerticalAlignment="Center" Margin="20,0,0,0">
+                <Button Style="{StaticResource TransparentButton}"
+                        Command="{Binding Path=UndoCommand}"
+                        IsEnabled="{Binding Path=IsUndoEnabled}"
+                        BorderThickness="0"
+                        Margin="5,0,5,0">
+
+                    <Button.Content>
+                        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="TopMenuButton_Undo" localization:Localization.IsLocalized="True" VerticalAlignment="Center" Margin="0,0,10,0" FontSize="16" />
+
+                            <Ellipse Grid.Column="1" Width="32" Height="32" Fill="{StaticResource NotificationBackgroundBrush}" VerticalAlignment="Center"/>
+                            <iconPacks:PackIconFontAwesome Grid.Column="1" Width="16" Height="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Kind="UndoSolid" />
+                        </Grid>
+                    </Button.Content>
+                </Button>
+
+                <Button Style="{StaticResource TransparentButton}"
+                        Command="{Binding Path=RedoCommand}"
+                        IsEnabled="{Binding Path=IsRedoEnabled}"
+                        BorderThickness="0"
+                        Margin="5,0,5,0">
+
+                    <Button.Content>
+                        <Grid VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Ellipse Width="32" Height="32" Fill="{StaticResource NotificationBackgroundBrush}" VerticalAlignment="Center"/>
+                            <iconPacks:PackIconFontAwesome Grid.Column="0" Width="16" Height="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Kind="RedoSolid" />
+
+                            <TextBlock Grid.Column="1" Style="{StaticResource CasyTextBlockStyle}" Text="TopMenuButton_Redo" localization:Localization.IsLocalized="True" VerticalAlignment="Center" Margin="10,0,0,0" FontSize="16" />
+                        </Grid>
+                    </Button.Content>
+                </Button>
+
+                <Button Style="{StaticResource TransparentButton}"
+                        Command="{Binding Path=PrintAllCommand}"
+                        IsEnabled="{Binding Path=IsPrintAllEnabled}"
+                        ToolTip="Print All"
+                        BorderThickness="0"
+                        Margin="5,0,5,0">
+
+                    <Button.Content>
+                        <Grid VerticalAlignment="Center">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+
+                            <Ellipse Width="32" Height="32" Fill="{StaticResource NotificationBackgroundBrush}" VerticalAlignment="Center"/>
+                            <iconPacks:PackIconFontAwesome Width="16" Height="16" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Kind="PrintSolid" />
+                        </Grid>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+            <Border Grid.Column="3" Background="{StaticResource ShortcutButtonBackgroundBrush}" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+            
+            <Grid Grid.Column="4" Margin="25,0,20,0" VerticalAlignment="Center">
+                <Button Style="{StaticResource TransparentButton}"
+                                Width="42"
+                                Height="42"
+                                BorderThickness="0"
+                                Command="{Binding Path=ShowNotificationsCommand}">
+                    <b:Interaction.Behaviors>
+                        <behaviors:DropDownButtonBehavior IsOpen="{Binding Path=IsNotificationsOpen, Mode=TwoWay}" />
+                    </b:Interaction.Behaviors>
+
+                    <Button.Content>
+                        <Grid>
+                            <Ellipse Width="30" Height="30" Fill="{StaticResource NotificationBackgroundBrush}" VerticalAlignment="Center"/>
+                            <Rectangle Width="14" Height="14" Fill="White">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill" Visual="{DynamicResource icon_notification}"/>
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                        </Grid>
+                    </Button.Content>
+
+                    <Button.ContextMenu>
+                        <ContextMenu Style="{StaticResource TopMenuDropDownMenuStyle}" Foreground="White" Background="{StaticResource NotificationBackgroundBrush}">
+                            <ContextMenu.Template>
+                                <ControlTemplate>
+                                    <ItemsControl ItemsSource="{Binding Path=Notifications}">
+                                        <ItemsControl.ItemsPanel>
+                                            <ItemsPanelTemplate>
+                                                <StackPanel />
+                                            </ItemsPanelTemplate>
+                                        </ItemsControl.ItemsPanel>
+
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <Grid Width="320">
+                                                    <Grid.Style>
+                                                        <Style TargetType="{x:Type Grid}">
+                                                            <Setter Property="Background" Value="{StaticResource OrangeTransparentBrush}" />
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding Path=NotificationType}" Value="NoNotifications">
+                                                                    <Setter Property="Background" Value="{StaticResource NotificationBackgroundBrush}" />
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                        </Style>
+                                                    </Grid.Style>
+                                                    <Grid.RowDefinitions>
+                                                        <RowDefinition Height="Auto" />
+                                                        <RowDefinition Height="Auto" />
+                                                        <RowDefinition Height="Auto" />
+                                                    </Grid.RowDefinitions>
+
+                                                    <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="{Binding Path=Title}" localization:Localization.IsLocalized="True" Foreground="White" FontWeight="Bold" HorizontalAlignment="Stretch" Margin="5" />
+                                                    <TextBlock Style="{StaticResource CasyTextBlockStyle}" Grid.Row="1" Text="{Binding Path=Message}" localization:Localization.IsLocalized="True" Foreground="White" HorizontalAlignment="Stretch" Margin="5" TextWrapping="Wrap" />
+                                                    <Button Grid.Row="2" HorizontalAlignment="Stretch" Content="{Binding Path=ButtonText}" Command="{Binding Path=ButtonCommand}" Margin="5" localization:Localization.IsLocalized="True">
+                                                        <Button.Style>
+                                                            <Style TargetType="{x:Type Button}" BasedOn="{StaticResource GreenButton}">
+                                                                <Setter Property="Visibility" Value="Visible" />
+                                                                <Style.Triggers>
+                                                                    <DataTrigger Binding="{Binding Path=NotificationType}" Value="NoNotifications">
+                                                                        <Setter Property="Visibility" Value="Collapsed" />
+                                                                    </DataTrigger>
+                                                                </Style.Triggers>
+                                                            </Style>
+                                                        </Button.Style>
+                                                    </Button>
+                                                </Grid>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </ControlTemplate>
+                            </ContextMenu.Template>
+                        </ContextMenu>
+                    </Button.ContextMenu>
+                </Button>
+                <Border CornerRadius="50" Background="Red" BorderThickness="0" Width="9" Height="9" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,6,6,0" Visibility="{Binding Path=HasUnreadNotifications, Converter={StaticResource BooleanToVisibilityConverter}}" />
+            </Grid>
+
+            <Border Grid.Column="5" Background="{StaticResource ShortcutButtonBackgroundBrush}" BorderThickness="0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+        </Grid>
+
+        <Button Style="{StaticResource TransparentButton}" Margin="10,0,30,0" Grid.Column="1">
+            <b:Interaction.Behaviors>
+                <behaviors:DropDownButtonBehavior/>
+            </b:Interaction.Behaviors>
+            <Button.Content>
+                <Grid VerticalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <Ellipse Width="25" Height="25" Fill="{Binding LoggedInUserImage}" VerticalAlignment="Center" />
+
+                    <Grid Width="25" Height="25" VerticalAlignment="Center">
+                        <Grid.Style>
+                            <Style TargetType="{x:Type Grid}">
+                                <Setter Property="Visibility" Value="Visible" />
+                                <Style.Triggers>
+                                    <DataTrigger Binding="{Binding Path=LoggedInUserImage}" Value="{x:Null}">
+                                        <Setter Property="Visibility" Value="Collapsed" />
+                                    </DataTrigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                        
+                        <Ellipse Stroke="White" StrokeThickness="1" />
+                        <iconPacks:PackIconFontAwesome Width="25" Height="25" Foreground="White" Kind="UserSolid" />
+                    </Grid>
+
+                    <StackPanel Grid.Column="1" Margin="10,0,0,0" VerticalAlignment="Center">
+                        <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="{Binding Path=UserMenuButtonText}" FontSize="16" />
+                        <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="{Binding Path=UserMenuButtonTextUserNameRole}" FontSize="12" />
+                    </StackPanel>
+                    <iconPacks:PackIconFontAwesome Grid.Column="2" Width="12" Height="12" Foreground="{StaticResource MenuItemForegroundBrush}" Margin="10,0,12,0" Kind="ChevronDownSolid" />
+                </Grid>
+            </Button.Content>
+
+            <Button.ContextMenu>
+                <ContextMenu Style="{StaticResource TopMenuDropDownMenuStyle}" Foreground="White" ItemsSource="{Binding Path=UserMenuCommands}">
+                    <ContextMenu.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel  />
+                        </ItemsPanelTemplate>
+                    </ContextMenu.ItemsPanel>
+                    <ContextMenu.ItemContainerStyle>
+                        <Style TargetType="MenuItem" BasedOn="{StaticResource TopMenuDropDownItemStyle}">
+                            <Setter Property="Command" Value="{Binding Path=Command}" />
+                            <Setter Property="Background" Value="{StaticResource OrangeTransparentBrush}"/>
+                            <Setter Property="autherization:Authorization.MinRequiredRole" Value="{Binding Path=MinRequiredRole}" />
+                            <Setter Property="autherization:Authorization.TargetProperties" Value="Visibility" />
+                            <Setter Property="IsEnabled" Value="{Binding Path=IsEnabled}" />
+                            <Setter Property="Header" Value="{Binding}" />
+                            <Setter Property="MinHeight" Value="43" />
+                            <Setter Property="HeaderTemplate">
+                                <Setter.Value>
+                                    <DataTemplate>
+                                        <StackPanel VerticalAlignment="Center" Orientation="Horizontal" Background="Transparent">
+                                            <iconPacks:PackIconFontAwesome Width="25" Height="25" Foreground="White" VerticalAlignment="Center" Kind="{Binding Path=AwesomeGlyph}" />
+                                            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="{Binding Path=DisplayName}" VerticalAlignment="Center" FontSize="16" Margin="8,0,0,0" FontWeight="Regular" Controls:ControlsHelper.ContentCharacterCasing="Upper" />
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <!--
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=HasMeasureController}" Value="False">
+                                    <Setter Property="Visibility" Value="Collapsed" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                            -->
+                        </Style>
+                    </ContextMenu.ItemContainerStyle>
+                </ContextMenu>
+            </Button.ContextMenu>
+        </Button>
+    </Grid>
+</UserControl>

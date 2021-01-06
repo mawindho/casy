@@ -1,0 +1,28 @@
+﻿Release Nodes CASY 2.5
+
+Changes Versions 0.9.11.9 --> 1.0.1.7
+- Performance upgrade by dividing deleted and not deleted data in separate tables and adjust database indexes
+- Store selected headers in table view as preset
+- Start-Up and Shutdown-Wizard (Start-Up will appear once a day for the first user that logs in, Option in both: Do not show again)
+- Template tiles now showing sample and CASYton values in addition to dilution factor
+- Option to continue installation of software in case internet connection test was negative (Google server could not be reached)
+- CFR (optional module):
+	- Ability to enter measurement name and group before measurement (also with bar code scanner). Controlled by system setting
+	- Filter System Log by entries category
+	- Filter AuditTrail by Action and Entity Type
+	- Templates are versioned. Saved modifications increase version number
+	- Weekly Clean routine can be marked as mandatory (in settings). Measuring is not possible until weekly clean routine has been completed successfully
+	- There is a notification 12 or 24 (in settings) hours before a mandatory weekly clean routine must be performed
+- Upgrade SQLite library (System.Data.SQLite 1.0.106.0 --> 1.0.112.0)
+- Upgrade JSON library (Newtonsoft.Json 10.0.3.0 --> 12.0.2.0)
+- Network-Capabilities (optional module):
+	- Provide capabilities to remotely access measurements via web service
+- Adjust Weekly Clean Wizard: Background measurement is mandetory at the end. Ability to print weekly clean report
+- Show privileges/role of currently logged in user in User Menu Button
+- Supervisors can clean up the log file
+- Show last successful weekly clean before measurement in document. This is a document setting and can be turned on and off
+- Automatic clean up of deleted measurements after 90 days
+- Several bugfixes
+  - Application crashed when exporting volume data and dates in particular cases to excel in table view
+  - Application crashed when generating mean document in specific situations
+  - Application crashed in particular cases when moving min cursor in overlay view

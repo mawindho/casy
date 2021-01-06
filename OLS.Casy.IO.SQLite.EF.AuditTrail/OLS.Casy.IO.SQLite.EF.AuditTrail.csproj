@@ -1,0 +1,58 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <OutputType>Library</OutputType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\BuildOutput\Debug\Casy\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <OutputPath>..\BuildOutput\Release\Casy\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Simulator|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\BuildOutput\Debug Simulator\Casy\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release Simulator|AnyCPU'">
+    <OutputPath>..\BuildOutput\Release Simulator\Casy\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Desktop|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\BuildOutput\Debug Desktop\Casy\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release Desktop|AnyCPU'">
+    <OutputPath>..\BuildOutput\Release Desktop\Casy\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OLS.Casy.IO.Api\OLS.Casy.IO.Api.csproj" />
+    <ProjectReference Include="..\OLS.Casy.IO.SQLite\OLS.Casy.IO.SQLite.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+	  <PackageReference Include="EntityFramework" version="6.2.0" />
+	  <PackageReference Include="System.Data.SQLite" version="1.0.106.0" />
+	  <PackageReference Include="System.Data.SQLite.Core" version="1.0.106.0" />
+	  <PackageReference Include="System.Data.SQLite.EF6" version="1.0.106.0" />
+	  <PackageReference Include="System.Data.SQLite.Linq" version="1.0.106.0" />
+	  <PackageReference Include="System.Buffers">
+      <Version>4.5.1</Version>
+    </PackageReference>
+    <PackageReference Include="System.ComponentModel.Composition" Version="4.7.0" />
+    <PackageReference Include="System.Numerics.Vectors">
+      <Version>4.5.0</Version>
+    </PackageReference>
+  </ItemGroup>
+</Project>

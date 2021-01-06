@@ -1,0 +1,23 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:converter="clr-namespace:OLS.Casy.Ui.Base.Converters;assembly=OLS.Casy.Ui.Base">
+
+    <converter:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    <converter:BooleanToInvisibilityConverter x:Key="BooleanToInvisibilityConverter" />
+    <converter:GridLengthConverter x:Key="GridLengthConverter" />
+    <converter:StaticResourceConverter x:Key="StaticResourceConverter" />
+    <converter:EnumBooleanConverter x:Key="EnumBooleanConverter" />
+    <converter:EnumVisibilityConverter x:Key="EnumVisibilityConverter" />
+    <converter:UniversalValueConverter x:Key="UniversalValueConverter" />
+    <converter:IsNullConverter x:Key="IsNullConverter" />
+    <converter:IsNullVisibilityConverter x:Key="IsNullVisibilityConverter" />
+    <converter:InvertBooleanConverter x:Key="InvertBooleanConverter" />
+    <converter:MutipleBooleanToVisibilityConverter x:Key="MutipleBooleanToVisibilityConverter" />
+    <converter:ChartToColorConverter x:Key="ChartToColorConverter" />
+    <converter:ToUpperValueConverter x:Key="ToUpperValueConverter" />
+    <converter:StringBrushConverter x:Key="StringBrushConverter" />
+    <!--<converter:LimitToSmoothedConverter x:Key="LimitToSmoothedConverter" />-->
+    <converter:DoubleConverter x:Key="DoubleConverter" />
+    <converter:BooleanAndMultiValueConverter x:Key="BooleanAndMultiValueConverter" />
+    <converter:BooleanOrMultiValueConverter x:Key="BooleanOrMultiValueConverter" />
+</ResourceDictionary>

@@ -1,0 +1,385 @@
+﻿<UserControl x:Class="OLS.Casy.Ui.Core.Views.MeasureResultContainerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:localization="clr-namespace:OLS.Casy.Ui.Base.Localization;assembly=OLS.Casy.Ui.Base"
+             xmlns:auth="clr-namespace:OLS.Casy.Ui.Base.Authorization;assembly=OLS.Casy.Ui.Base"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+             Background="Transparent">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{Binding Path=ChartRowHeight}" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="{Binding Path=DataRowHeight}" />
+        </Grid.RowDefinitions>
+
+        <ContentControl Content="{Binding Path=MeasureResultChartViewModel}" Grid.Row="0" HorizontalAlignment="Stretch"/>
+
+        <Grid Grid.Row="1" HorizontalAlignment="Stretch" Background="#FFECECEC" Height="40">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel Grid.Column="0" Orientation="Horizontal" HorizontalAlignment="Center" Visibility="{Binding Path=IsMultiResultChart, Converter={StaticResource BooleanToInvisibilityConverter}}">
+
+                <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="{Binding Path=TotalCountsLabel}" FontSize="16" FontWeight="Light" Foreground="#FFA9A9A9" VerticalAlignment="Center"/>
+
+                <ToggleButton Name="countsButton">
+                    <ToggleButton.Template>
+                        <ControlTemplate TargetType="ToggleButton">
+                            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="{Binding Path=TotalCounts}" FontSize="16" FontWeight="Bold" Margin="4,0" Foreground="#FFA9A9A9" VerticalAlignment="Center"/>
+                        </ControlTemplate>
+                    </ToggleButton.Template>
+                </ToggleButton>
+                <Popup IsOpen="{Binding IsChecked, ElementName=countsButton}" StaysOpen="False">
+                    <Border Background="#FFECECEC" 
+                            BorderBrush="#FFECECEC" 
+                            BorderThickness="1"
+                            Padding="16">
+                        <ItemsControl ItemsSource="{Binding SingleCounts}" Background="Transparent">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="Auto" />
+                                            <ColumnDefinition Width="Auto" />
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="{Binding Path=Name}" FontSize="16" Margin="4" />
+                                        <TextBlock Style="{StaticResource CasyTextBlockStyle}" Grid.Column="1" Text="{Binding Path=Value}" FontSize="16" Margin="4" />
+                                    </Grid>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Border>
+                </Popup>
+
+                <!--
+                <Ellipse Height="10" Width="10" Margin="4,0" VerticalAlignment="Center">
+                    <Ellipse.Style>
+                        <Style TargetType="Ellipse">
+                            <Setter Property="Fill" Value="LightGreen" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=TotalCountsState}" Value="Red">
+                                    <Setter Property="Fill" Value="Red" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Ellipse.Style>
+                </Ellipse>
+                -->
+            </StackPanel>
+
+            <StackPanel Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Center"  Visibility="{Binding Path=IsMultiResultChart, Converter={StaticResource BooleanToInvisibilityConverter}}">
+                <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="{Binding Path=TotalCountsCursorLabel}" FontSize="16" FontWeight="Light" Foreground="#FFA9A9A9" VerticalAlignment="Center" />
+
+                <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="{Binding Path=TotalCountsCursor}" FontSize="16" FontWeight="Bold" Foreground="#FFA9A9A9" Margin="4,0" VerticalAlignment="Center" />
+
+                <Ellipse Height="10" Width="10" Margin="4,0" VerticalAlignment="Center">
+                    <Ellipse.Style>
+                        <Style TargetType="Ellipse">
+                            <Setter Property="Fill" Value="LightGreen" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=TotalCountsCursorState}" Value="Orange">
+                                    <Setter Property="Fill" Value="Orange" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=TotalCountsCursorState}" Value="Transparent">
+                                    <Setter Property="Fill" Value="Transparent" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Ellipse.Style>
+                </Ellipse>
+            </StackPanel>
+
+            <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Center"  Visibility="{Binding Path=IsMultiResultChart, Converter={StaticResource BooleanToInvisibilityConverter}}">
+
+                <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="{Binding Path=CountsAboveDiameterLabel}" FontSize="16" FontWeight="Light" Foreground="#FFA9A9A9" VerticalAlignment="Center" />
+
+                <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="{Binding Path=CountsAboveDiameter}" FontSize="16" FontWeight="Bold" Foreground="#FFA9A9A9" Margin="4,0" VerticalAlignment="Center" />
+
+                <!--<Ellipse Fill="#FF004897" Height="10" Width="10" Margin="4,0" VerticalAlignment="Center">
+                </Ellipse>
+                -->
+            </StackPanel>
+
+            <StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center"  Visibility="{Binding Path=IsMultiResultChart, Converter={StaticResource BooleanToInvisibilityConverter}}">
+                <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="MeasureContainerView_Label_Concentration" localization:Localization.IsLocalized="True" FontSize="16" FontWeight="Light" Foreground="#FFA9A9A9" VerticalAlignment="Center" />
+                <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="{Binding Path=Concentration}" FontSize="16" FontWeight="Bold" Foreground="#FFA9A9A9" Margin="4,0" VerticalAlignment="Center" />
+            </StackPanel>
+        </Grid>
+
+        
+
+        <Button
+            Grid.Row="1"
+                Width="40"
+                Height="40"
+                Grid.Column="4"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Center"
+            ToolTip="MeasureResultContainerView_ToggleButton_Tooltip"
+            localization:Localization.IsLocalized="True"
+            localization:Localization.TargetProperty="ToolTip"
+                Margin="0,0,5,0"
+                Command="{Binding Path=ExpandButtonCommand}"
+                BorderThickness="0">
+            <Button.Style>
+                <Style TargetType="Button" BasedOn="{StaticResource CasyCircleButtonStyle}">
+                    <Setter Property="Background" Value="#FFF5B182" />
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Path=IsExpandViewCollapsed}" Value="True">
+                            <Setter Property="Background" Value="#FF474546" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+            <Rectangle Width="14" Height="14" Fill="White">
+                <Rectangle.OpacityMask>
+                    <VisualBrush Stretch="Fill" Visual="{DynamicResource icon_analyze}"/>
+                </Rectangle.OpacityMask>
+            </Rectangle>
+        </Button>
+
+        <ContentControl Content="{Binding Path=MeasureResultDataContainerViewModel}" Grid.Row="2" HorizontalAlignment="Stretch" Stylus.IsPressAndHoldEnabled="False"/>
+        <!-- Height="{Binding Path=DataRowHeight}" -->
+
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Style>
+                    <Style TargetType="{x:Type StackPanel}">
+                        <Setter Property="Visibility" Value="Visible" />
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding Path=IsButtonMenuCollapsed}" Value="True">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
+
+                <Button Command="{Binding Path=ShowOriginalCommand}"
+                        Visibility="{Binding Path=CanShowOriginal, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        BorderThickness="0"
+                        ToolTip="MeasureResultContainerView_ShowOriginalButton_Tooltip"
+                        localization:Localization.IsLocalized="True"
+                        localization:Localization.TargetProperty="ToolTip"
+                        Width="53"
+                        Height="53">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource CasyCircleButtonStyle}">
+                            <Setter Property="Background" Value="{StaticResource BlueBrush}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=ShowOriginal}" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource GreenButtonBackgroundBrush}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <iconPacks:PackIconFontAwesome Width="14" Height="14" Foreground="White" Kind="BroomSolid" />
+                </Button>
+
+                <Button Style="{StaticResource TransparentButton}"
+                    Command="{Binding Path=RestoreCommand}"
+                    Visibility="{Binding Path=IsDeleted, Converter={StaticResource BooleanToVisibilityConverter}}"
+                    BorderThickness="0"
+                    ToolTip="MeasureResultContainerView_RestoreButton_Tooltip"
+                    localization:Localization.IsLocalized="True"
+                    localization:Localization.TargetProperty="ToolTip"
+                    Width="53"
+                    Height="53">
+
+                    <Button.Content>
+                        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <Ellipse Width="40" Height="40" Fill="{StaticResource GreenButtonBackgroundBrush}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <iconPacks:PackIconFontAwesome Width="26" Height="26" Foreground="White" Kind="HeartSolid" />
+                        </Grid>
+                    </Button.Content>
+                </Button>
+                
+                <Button Style="{StaticResource TransparentButton}"
+                    Command="{Binding Path=ApplyToParentsCommand}"
+                    Visibility="{Binding Path=IsApplyToParentsAvailable, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        IsEnabled="{Binding Path=CanApplyToParents}"
+                    ToolTip="MeasureResultContainerView_ApplyToParentsButton_Tooltip"
+                    localization:Localization.IsLocalized="True"
+                    localization:Localization.TargetProperty="ToolTip"
+                    BorderThickness="0"
+                    Width="53"
+                    Height="53">
+
+                    <Button.Content>
+                        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <Ellipse Width="40" Height="40" Fill="{StaticResource BlueBrush}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <Rectangle Width="26" Height="26" Fill="White" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill" Visual="{DynamicResource icon_apply_to_parents}"/>
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+
+                <Button Command="{Binding Path=ToggleShowParentsCommand}"
+                    Visibility="{Binding Path=IsShowParentsAvailable, Converter={StaticResource BooleanToVisibilityConverter}}"
+                    BorderThickness="0"
+                    ToolTip="MeasureResultContainerView_ShowParentsButton_Tooltip"
+                    localization:Localization.IsLocalized="True"
+                    localization:Localization.TargetProperty="ToolTip"
+                    Width="53"
+                    Height="53">
+                    <Button.Style>
+                        <Style TargetType="Button" BasedOn="{StaticResource CasyCircleButtonStyle}">
+                            <Setter Property="Background" Value="{StaticResource BlueBrush}" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=ShowParents}" Value="True">
+                                    <Setter Property="Background" Value="{StaticResource GreenButtonBackgroundBrush}" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <iconPacks:PackIconFontAwesome Width="26" Height="26" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Kind="LayerGroupSolid" />
+                </Button>
+
+                <Button Style="{StaticResource TransparentButton}"
+                    Command="{Binding Path=AuditTrailCommand}"
+                    Visibility="{Binding Path=IsAuditTrailAvailable, Converter={StaticResource BooleanToVisibilityConverter}}"
+                    BorderThickness="0"
+                    ToolTip="MeasureResultContainerView_AuditTrailButton_Tooltip"
+                    localization:Localization.IsLocalized="True"
+                    localization:Localization.TargetProperty="ToolTip"
+                    Width="53"
+                    Height="53">
+
+                    <Button.Content>
+                        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <Ellipse Width="40" Height="40" Fill="{StaticResource BlueBrush}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <Rectangle Width="26" Height="26" Fill="White" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill" Visual="{DynamicResource icon_audittrail}"/>
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+
+                <Button Style="{StaticResource TransparentButton}"
+                    Command="{Binding Path=SavePictureCommand}"
+                    BorderThickness="0"
+                    ToolTip="MeasureResultContainerView_SavePictureButton_Tooltip"
+                    localization:Localization.IsLocalized="True"
+                    localization:Localization.TargetProperty="ToolTip"
+                    Width="53"
+                    Height="53">
+
+                    <Button.Content>
+                        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <Ellipse Width="40" Height="40" Fill="{StaticResource BlueBrush}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <iconPacks:PackIconFontAwesome Width="26" Height="26" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Kind="ImageSolid" />
+                        </Grid>
+                    </Button.Content>
+                </Button>
+
+                <Button Style="{StaticResource TransparentButton}"
+                    Command="{Binding Path=PrintCommand}"
+                    BorderThickness="0"
+                    ToolTip="MeasureResultContainerView_PrintButton_Tooltip"
+                    localization:Localization.IsLocalized="True"
+                    localization:Localization.TargetProperty="ToolTip"
+                    Width="53"
+                    Height="53">
+
+                    <Button.Content>
+                        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <Ellipse Width="40" Height="40" Fill="{StaticResource BlueBrush}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <iconPacks:PackIconFontAwesome Width="26" Height="26" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Kind="PrintSolid" />
+                        </Grid>
+                    </Button.Content>
+                </Button>
+
+                <Button Style="{StaticResource TransparentButton}"
+                    Command="{Binding Path=SaveCommand}"
+                    Visibility="{Binding Path=IsSaveVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                    ToolTip="MeasureResultContainerView_SaveButton_Tooltip"
+                    localization:Localization.IsLocalized="True"
+                    localization:Localization.TargetProperty="ToolTip"
+                    BorderThickness="0"
+                    Width="53"
+                    Height="53">
+
+                    <Button.Content>
+                        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <Ellipse Width="40" Height="40" Fill="{StaticResource BlueBrush}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <iconPacks:PackIconFontAwesome Width="26" Height="26" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Kind="SaveSolid" />
+                        </Grid>
+                    </Button.Content>
+                </Button>
+
+                <Button Style="{StaticResource TransparentButton}"
+                    Command="{Binding Path=SaveAsTemplateCommand}"
+                    IsEnabled="{Binding Path=IsSaveAsTemplateCommandEnabled}"
+                    ToolTip="MeasureResultContainerView_SaveAsTemplateButton_Tooltip"
+                    localization:Localization.IsLocalized="True"
+                    localization:Localization.TargetProperty="ToolTip"
+                    BorderThickness="0"
+                    Width="53"
+                    Height="53"
+                        auth:Authorization.TargetProperties="Visibility"
+                        auth:Authorization.MinRequiredRole="Operator">
+
+                    <Button.Content>
+                        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <Ellipse Width="40" Height="40" Fill="{StaticResource BlueBrush}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <Rectangle Width="26" Height="26" Fill="White" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill" Visual="{DynamicResource icon_template}"/>
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal">
+                <Button Style="{StaticResource TransparentButton}"
+                    Command="{Binding Path=ToggleButtonMenuCommand}"
+                    ToolTip="MeasureResultContainerView_ToggleButton_Tooltip"
+                    localization:Localization.IsLocalized="True"
+                    localization:Localization.TargetProperty="ToolTip"
+                    BorderThickness="0"
+                    Width="53"
+                    Height="53">
+
+                    <Button.Content>
+                        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <Ellipse Width="40" Height="40" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Ellipse.Style>
+                                    <Style TargetType="{x:Type Ellipse}">
+                                        <Setter Property="Fill" Value="#FFF5B182" />
+                                        <Style.Triggers>
+                                            <DataTrigger Binding="{Binding Path=IsButtonMenuCollapsed}" Value="True">
+                                                <Setter Property="Fill" Value="#FF474546" />
+                                            </DataTrigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Ellipse.Style>
+                            </Ellipse>
+                            <Rectangle Width="26" Height="26" Fill="White" VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Rectangle.OpacityMask>
+                                    <VisualBrush Stretch="Fill" Visual="{DynamicResource icon_menu}"/>
+                                </Rectangle.OpacityMask>
+                            </Rectangle>
+                        </Grid>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

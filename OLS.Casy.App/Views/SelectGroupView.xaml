@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:base="clr-namespace:OLS.Casy.App.ViewModels.Base"
+             xmlns:controls="clr-namespace:OLS.Casy.App.Controls"
+             x:Class="OLS.Casy.App.Views.SelectGroupView"
+             Title="{Binding Path=Title}"
+             base:ViewModelLocator.AutoWireViewModel="true">
+    <RelativeLayout Padding="0">
+        <Image
+            Aspect="AspectFill"
+            RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="app_background" />
+                    <On Platform="UWP, WinRT, WinPhone" Value="Assets/app_background.png" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+
+        <Grid BackgroundColor="Transparent"
+              RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+              RelativeLayout.HeightConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Label Text="Groups" TextColor="{StaticResource OrangeColor}" Grid.Column="0" Grid.Row="0" />
+            <ScrollView Grid.Column="0"
+                        Grid.Row="1">
+                <controls:BindableStackLayout 
+                x:Name="GroupsPanel"
+                ItemsSource="{Binding Path=Groups}" 
+                                          Margin="2">
+                    <controls:BindableStackLayout.ItemDataTemplate>
+                        <DataTemplate>
+                            <Grid BackgroundColor="#66E6E6E6" HeightRequest="40" HorizontalOptions="FillAndExpand" Margin="10,0,0,0">
+                                <Label TextColor="White" Text="{Binding Path=Name}" LineBreakMode="TailTruncation" FontFamily="{StaticResource DosisRegular}" VerticalOptions="Center">
+                                    <Label.Triggers>
+                                        <DataTrigger TargetType="Label" Binding="{Binding Path=IsSelected}" Value="True">
+                                            <Setter Property="TextColor" Value="{StaticResource OrangeColor}"></Setter>
+                                        </DataTrigger>
+                                    </Label.Triggers>
+                                </Label>
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                    Command="{Binding BindingContext.SelectGroupCommand, Source={x:Reference GroupsPanel}}"
+                                    CommandParameter="{Binding}"
+                                    NumberOfTapsRequired="1" />
+                                </Grid.GestureRecognizers>
+                            </Grid>
+                        </DataTemplate>
+                    </controls:BindableStackLayout.ItemDataTemplate>
+                </controls:BindableStackLayout>
+            </ScrollView>
+
+            <ActivityIndicator      
+                Color="{StaticResource WhiteColor}"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Grid.RowSpan="2">
+                <ActivityIndicator.WidthRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS, Android" Value="100" />
+                        <On Platform="UWP, WinRT, WinPhone" Value="400" />
+                    </OnPlatform>
+                </ActivityIndicator.WidthRequest>
+            </ActivityIndicator>
+
+        </Grid>
+    </RelativeLayout>
+</ContentPage>

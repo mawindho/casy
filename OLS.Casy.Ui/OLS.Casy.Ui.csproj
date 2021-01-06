@@ -1,0 +1,103 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <OutputType>Library</OutputType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\BuildOutput\Debug\Casy\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <OutputPath>..\BuildOutput\Release\Casy\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Simulator|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\BuildOutput\Debug Simulator\Casy\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release Simulator|AnyCPU'">
+    <OutputPath>..\BuildOutput\Release Simulator\Casy\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetPlatformVersion>8.0</TargetPlatformVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Desktop|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\BuildOutput\Debug Desktop\Casy\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release Desktop|AnyCPU'">
+    <OutputPath>..\BuildOutput\Release Desktop\Casy\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OLS.Casy.Controller.Api\OLS.Casy.Controller.Api.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Core.Api\OLS.Casy.Core.Api.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Core.Authorization.Api\OLS.Casy.Core.Authorization.Api.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Core.Events\OLS.Casy.Core.Events.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Core.Localization.Api\OLS.Casy.Core.Localization.Api.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Models\OLS.Casy.Models.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Ui.Api\OLS.Casy.Ui.Api.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Ui.Authorization.Api\OLS.Casy.Ui.Authorization.Api.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Ui.Base\OLS.Casy.Ui.Base.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\Background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\Casy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Icons\logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro">
+      <Version>2.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="PdfSharpCore" Version="1.1.26" />
+    <PackageReference Include="Prism.Core">
+      <Version>7.2.0.1422</Version>
+    </PackageReference>
+    <PackageReference Include="System.Reactive">
+      <Version>4.4.1</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Services\ChildViewService.cs" />
+    <Compile Remove="Services\ContextMenuService.cs" />
+    <Compile Remove="ViewModels\ContextMenuItemViewModel.cs" />
+    <Compile Remove="ViewModels\ContextMenuViewModel.cs" />
+    <Compile Remove="Views\ContextMenuView.xaml.cs" />
+    <Page Remove="Views\ContextMenuView.xaml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v16.2">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Data.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v16.2">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Mvvm.v16.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v16.2">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Xpf.Core.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v16.2">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Xpf.Grid.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v16.2.Core">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Xpf.Grid.v16.2.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

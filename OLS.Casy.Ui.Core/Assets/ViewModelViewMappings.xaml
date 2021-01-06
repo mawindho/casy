@@ -1,0 +1,98 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:viewModel="clr-namespace:OLS.Casy.Ui.Core.ViewModels"                     
+                    xmlns:view="clr-namespace:OLS.Casy.Ui.Core.Views"
+                    xmlns:wizardViewModel="clr-namespace:OLS.Casy.Ui.Base.ViewModels.Wizard;assembly=OLS.Casy.Ui.Base"                     
+                    xmlns:wizardView="clr-namespace:OLS.Casy.Ui.Base.Views.Wizard;assembly=OLS.Casy.Ui.Base"
+                    xmlns:baseViewModel="clr-namespace:OLS.Casy.Ui.Base.ViewModels;assembly=OLS.Casy.Ui.Base"                     
+                    xmlns:baseView="clr-namespace:OLS.Casy.Ui.Base.Views;assembly=OLS.Casy.Ui.Base">
+
+    <DataTemplate DataType="{x:Type viewModel:MeasureResultContainerViewModel}">
+        <view:MeasureResultContainerView />
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type viewModel:MeasureResultChartViewModel}">
+        <view:MeasureResultChartView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:MeasureResultDataContainerViewModel}">
+        <view:MeasureResultDataView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:SelectTemplateViewModel}">
+        <view:SelectTemplateView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:MeasureResultDataChartViewModel}">
+        <view:MeasureResultDataChartView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type wizardViewModel:StandardWizardStepViewModel}">
+        <wizardView:StandardWizardStepView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type wizardViewModel:TimerWizardStepViewModel}">
+        <wizardView:TimerWizardStepView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type wizardViewModel:BackgroundResultWizardStepViewModel}">
+        <wizardView:BackgroundResultWizardStepView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type wizardViewModel:SelectCapillaryWizardStepViewModel}">
+        <wizardView:SelectCapillaryWizardStepView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:RangeMinModificationHandleViewModel}">
+        <view:RangeMinModificationHandleView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:RangeMaxModificationHandleViewModel}">
+        <view:RangeMaxModificationHandleView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:RangeBiModificationHandleViewModel}">
+        <view:RangeBiModificationHandleView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:EditTemplateViewModel}">
+        <view:EditTemplateView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:MeasureResultTreeViewModel}">
+        <view:MeasureResultTreeView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:MeasureResultSubTreeViewModel}">
+        <view:MeasureResultSubTreeView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:MeasureResultTreeItemViewModel}">
+        <view:MeasureResultTreeItemView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:SelectMeasurementsViewModel}">
+        <view:SelectMeasurementsView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:ExportOptionsViewModel}">
+        <view:ExportOptionsView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:DocumentSettingsViewModel}">
+        <view:DocumentSettingsView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:SingleMeasurementDocumentSettingsViewModel}">
+        <view:SingleMeasurementDocumentSettingsView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:OverlayDocumentSettingsViewModel}">
+        <view:OverlayDocumentSettingsView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:MeanDocumentSettingsViewModel}">
+        <view:MeanDocumentSettingsView />
+    </DataTemplate>
+</ResourceDictionary>

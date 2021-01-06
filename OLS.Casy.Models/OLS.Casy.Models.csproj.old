@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{773BD05C-FEEF-41BD-A1A6-83C6AC52228A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OLS.Casy.Models</RootNamespace>
+    <AssemblyName>OLS.Casy.Models</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\BuildOutput\Debug\Casy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\BuildOutput\Release\Casy\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Simulator|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\BuildOutput\Debug Simulator\Casy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release Simulator|AnyCPU'">
+    <OutputPath>..\BuildOutput\Release Simulator\Casy\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Desktop|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\BuildOutput\Debug Desktop\Casy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release Desktop|AnyCPU'">
+    <OutputPath>..\BuildOutput\Release Desktop\Casy\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AnnotationType.cs" />
+    <Compile Include="AuditTrailEntry.cs" />
+    <Compile Include="CapillaryStatistic.cs" />
+    <Compile Include="Cursor.cs" />
+    <Compile Include="DeviationControlItem.cs" />
+    <Compile Include="DocumentSetting.cs" />
+    <Compile Include="Enums\AggregationCalculationModes.cs" />
+    <Compile Include="Enums\ErrorCategory.cs" />
+    <Compile Include="Enums\ErrorResultType.cs" />
+    <Compile Include="Enums\LEDs.cs" />
+    <Compile Include="Enums\LogCategory.cs" />
+    <Compile Include="Enums\MeasureModes.cs" />
+    <Compile Include="Enums\MeasureResultItemTypes.cs" />
+    <Compile Include="Enums\ScalingModes.cs" />
+    <Compile Include="Enums\UnitModes.cs" />
+    <Compile Include="Enums\Valves.cs" />
+    <Compile Include="Enums\Volumes.cs" />
+    <Compile Include="ErrorDetails.cs" />
+    <Compile Include="ErrorResult.cs" />
+    <Compile Include="ErrorStatistic.cs" />
+    <Compile Include="Language.cs" />
+    <Compile Include="MeasureResult.cs" />
+    <Compile Include="MeasureResultAccessMapping.cs" />
+    <Compile Include="MeasureResultAnnotation.cs" />
+    <Compile Include="MeasureResultData.cs" />
+    <Compile Include="MeasureResultItemsContainer.cs" />
+    <Compile Include="MeasureSetup.cs" />
+    <Compile Include="MeasureResultItem.cs" />
+    <Compile Include="MeasureStatistic.cs" />
+    <Compile Include="ModelBase.cs" />
+    <Compile Include="MonitoringItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RisetimeResponse.cs" />
+    <Compile Include="Setting.cs" />
+    <Compile Include="Statistic.cs" />
+    <Compile Include="SystemLogEntry.cs" />
+    <Compile Include="TightnessResponse.cs" />
+    <Compile Include="User.cs" />
+    <Compile Include="UserGroup.cs" />
+    <Compile Include="UserIdentity.cs" />
+    <Compile Include="UserRole.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OLS.Casy.Core\OLS.Casy.Core.csproj">
+      <Project>{BC75001F-C067-4C78-BD8A-1C24F75A7170}</Project>
+      <Name>OLS.Casy.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

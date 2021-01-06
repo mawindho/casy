@@ -1,0 +1,28 @@
+﻿using System;
+
+namespace OLS.Casy.IO.SQLite.Entities
+{
+    public class MeasureResultDataEntity_Deleted
+    {
+        public MeasureResultDataEntity_Deleted()
+        {
+            DeletedAt = DateTimeOffset.MinValue.ToString();
+        }
+
+        public string DeletedBy { get; set; }
+        public string DeletedAt { get; set; }
+        public int MeasureResultDataEntityId { get; set; }
+        public string DataBlock { get; set; }
+        public int BelowMeasureLimtCount { get; set; }
+        public int BelowCalibrationLimitCount { get; set; }
+        public int AboveCalibrationLimitCount { get; set; }
+        public bool ConcentrationTooHigh { get; set; }
+        public string Color { get; set; }
+        public int MeasureResultEntityId { get; set; }
+        public virtual MeasureResultEntity_Deleted MeasureResultEntity { get; set; }
+        public string CreatedBy { get; set; }
+        public string CreatedAt { get; set; }
+        public string LastModifiedBy { get; set; }
+        public string LastModifiedAt { get; set; }
+    }
+}

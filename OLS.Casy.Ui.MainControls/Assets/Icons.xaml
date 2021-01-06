@@ -1,0 +1,10 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <BitmapImage x:Key="deDEIcon" UriSource="pack://application:,,,/OLS.Casy.Ui.MainControls;component/Assets/Icons/de-icon.png" />
+    <BitmapImage x:Key="enUSIcon" UriSource="pack://application:,,,/OLS.Casy.Ui.MainControls;component/Assets/Icons/us-icon.png" />
+    <BitmapImage x:Key="deCHIcon" UriSource="pack://application:,,,/OLS.Casy.Ui.MainControls;component/Assets/Icons/de-icon.png" />
+    <BitmapImage x:Key="frCHIcon" UriSource="pack://application:,,,/OLS.Casy.Ui.MainControls;component/Assets/Icons/fr.png" />
+    <BitmapImage x:Key="itCHIcon" UriSource="pack://application:,,,/OLS.Casy.Ui.MainControls;component/Assets/Icons/it.png" />
+    <BitmapImage x:Key="enGBIcon" UriSource="pack://application:,,,/OLS.Casy.Ui.MainControls;component/Assets/Icons/gb.png" />
+</ResourceDictionary>

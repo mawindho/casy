@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BackgroundWizard_Title" xml:space="preserve">
+    <value>Leerwertmessung</value>
+  </data>
+  <data name="BackgroundWizzard_Initial_PrimaryHeader" xml:space="preserve">
+    <value>Bitte beachte:</value>
+  </data>
+  <data name="BackgroundWizzard_Initial_PrimaryText" xml:space="preserve">
+    <value>Diese Routine kontrolliert den aktuellen Leerwert-Level des Geräts</value>
+  </data>
+  <data name="BackgroundWizzard_Initial_SecondaryHeader" xml:space="preserve">
+    <value>Benötigte Materialien</value>
+  </data>
+  <data name="BackgroundWizzard_Initial_SecondaryText" xml:space="preserve">
+    <value>CASYton</value>
+  </data>
+  <data name="BackgroundWizzard_Result_Button_Accept" xml:space="preserve">
+    <value>Akzeptieren</value>
+  </data>
+  <data name="BackgroundWizzard_Result_Button_Repeat" xml:space="preserve">
+    <value>Wiederholen</value>
+  </data>
+  <data name="BackgroundWizzard_Result_Header" xml:space="preserve">
+    <value>Ergebnis:</value>
+  </data>
+  <data name="BackgroundWizzard_Result_Text" xml:space="preserve">
+    <value>Die Leerwertmessung wurde mit dem folgenden Ergebnis durchgeführt.</value>
+  </data>
+  <data name="BackgroundWizzard_Result_Text_Error" xml:space="preserve">
+    <value>Es ist ein Fehler während der Leerwertmessung aufgetreten. Bitte befolge die Instruktionen und wiederhole den Vorgang.</value>
+  </data>
+  <data name="BackgroundWizzard_SelectCapillary_Header" xml:space="preserve">
+    <value>Installierte Kapillare auswählen</value>
+  </data>
+  <data name="BackgroundWizzard_SelectCapillary_Text" xml:space="preserve">
+    <value>Der Wizard kann für verschiedene installierte Kapillaren durchgeführt werden.
+Es ist notwendig, dass du die z.Z. installierte Kapillargröße auswählst.</value>
+  </data>
+  <data name="BackgroundWizzard_Step1_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+  </data>
+  <data name="BackgroundWizzard_Step1_PrimaryText" xml:space="preserve">
+    <value>Stelle ein CASYcup gefüllt mit 10 ml &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; unter die Kapillare.</value>
+  </data>
+  <data name="BackgroundWizzard_Step1_SecondaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+  </data>
+  <data name="BackgroundWizzard_Step1_SecondaryText" xml:space="preserve">
+    <value>CASY wird nun &lt;Bold&gt;&lt;Underline&gt;eine&lt;/Underline&gt;&lt;/Bold&gt; Leerwertmessung mit &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; durchführen und das Ergebnis auswerten</value>
+  </data>
+  <data name="Notification_WeeklyCleanAnnouncement_Message" xml:space="preserve">
+    <value>Eine wöchentliche Reinigungsroutine ist in den nächsten {0} fällig. ACHTUNG: Nach Ablauf der Zeit sind keine Messungen mehr möglich</value>
+  </data>
+  <data name="Notification_WeeklyCleanAnnouncement_Title" xml:space="preserve">
+    <value>Ankündigung Wöchtentliche Reinigung</value>
+  </data>
+  <data name="Notification_WeeklyCleanMandatory_Message" xml:space="preserve">
+    <value>Die letzte wöchentliche Reinigung ist länger als eine Woche her. Es ist zwingend erforderlich, diese jetzt durchzuführen.</value>
+  </data>
+  <data name="Notification_WeeklyCleanMandatory_Title" xml:space="preserve">
+    <value>Wöchentliche Reinigung erforderlich</value>
+  </data>
+  <data name="Notification_WeeklyCleanRecommanded_ButtonText" xml:space="preserve">
+    <value>Service anzeigen</value>
+  </data>
+  <data name="Notification_WeeklyCleanRecommanded_Message" xml:space="preserve">
+    <value>Es ist länger als eine Woche her, dass du die wöchentliche Reinigungsroutine genutzt hast. Möchtest du dies nun erledigen?</value>
+  </data>
+  <data name="Notification_WeeklyCleanRecommanded_Title" xml:space="preserve">
+    <value>Wöchentliche Reinigungsroutine empfohlen</value>
+  </data>
+  <data name="Notification_WeeklyClean_Action" xml:space="preserve">
+    <value>Service anzeigen</value>
+  </data>
+  <data name="Notification_WeeklyClean_Message" xml:space="preserve">
+    <value>Die letzte wöchentliche Reinigung ist länger als eine Woche her. Es wird empfohlen, diese jetzt durchzuführen.</value>
+  </data>
+  <data name="Notification_WeeklyClean_Title" xml:space="preserve">
+    <value>Wöchentliche Reinigung empfohlen</value>
+  </data>
+  <data name="ProgressBox_Background_Message" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="ProgressBox_Background_Message_Calculate" xml:space="preserve">
+    <value>Berechne Messergebnisse ...</value>
+  </data>
+  <data name="ProgressBox_Background_Message_Calibration" xml:space="preserve">
+    <value>Kalibrierung ...</value>
+  </data>
+  <data name="ProgressBox_Background_Message_Measure" xml:space="preserve">
+    <value>Messung ...</value>
+  </data>
+  <data name="ProgressBox_Background_Message_Results" xml:space="preserve">
+    <value>Empfange Ergebnis ...</value>
+  </data>
+  <data name="ProgressBox_Background_Title" xml:space="preserve">
+    <value>Leerwertmessung durchführen</value>
+  </data>
+  <data name="ProgressBox_CheckRisetime_Message" xml:space="preserve">
+    <value>Überprüfung der Steigzeiten läuft …</value>
+  </data>
+  <data name="ProgressBox_CheckRisetime_Title" xml:space="preserve">
+    <value>Überprüfung Steigzeiten</value>
+  </data>
+  <data name="ProgressBox_CheckTightness_Message" xml:space="preserve">
+    <value>Überprüfung der Dichtigkeit läuft …</value>
+  </data>
+  <data name="ProgressBox_CheckTightness_Title" xml:space="preserve">
+    <value>Überprüfung der Dichtigkeit</value>
+  </data>
+  <data name="ProgressBox_Dry_Message" xml:space="preserve">
+    <value>Trockne das System ...</value>
+  </data>
+  <data name="ProgressBox_Dry_Title" xml:space="preserve">
+    <value>Trocknen</value>
+  </data>
+  <data name="ProgressBox_TestPattern_Message" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="ProgressBox_TestPattern_Message_Calibration" xml:space="preserve">
+    <value>Kalibrierung ...</value>
+  </data>
+  <data name="ProgressBox_TestPattern_Message_CreateTestPattern" xml:space="preserve">
+    <value>Erzeuge Testmuster ...</value>
+  </data>
+  <data name="ProgressBox_TestPattern_Message_RetrieveTestPattern" xml:space="preserve">
+    <value>Empfange Testmuster ...</value>
+  </data>
+  <data name="ProgressBox_TestPattern_Title" xml:space="preserve">
+    <value>Fordere Testmuster an</value>
+  </data>
+</root>

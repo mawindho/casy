@@ -1,0 +1,119 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FDD3F04A-66C6-485B-94BC-5F9E16A23ECB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OLS.Casy.IO.ImportExport.Binary</RootNamespace>
+    <AssemblyName>OLS.Casy.IO.ImportExport.Binary</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\BuildOutput\Debug\Casy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\BuildOutput\Release\Casy\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Simulator|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\BuildOutput\Debug Simulator\Casy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release Simulator|AnyCPU'">
+    <OutputPath>..\BuildOutput\Release Simulator\Casy\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Desktop|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\BuildOutput\Debug Desktop\Casy\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release Desktop|AnyCPU'">
+    <OutputPath>..\BuildOutput\Release Desktop\Casy\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Prism, Version=6.3.0.0, Culture=neutral, PublicKeyToken=40ee6c3a2184dc59" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BinaryImportExportProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OLS.Casy.Core.Api\OLS.Casy.Core.Api.csproj">
+      <Project>{6e0ceacd-a87d-4e02-a44c-568b0171f6b1}</Project>
+      <Name>OLS.Casy.Core.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OLS.Casy.Core.Events\OLS.Casy.Core.Events.csproj">
+      <Project>{3816F571-DC69-4716-9C94-8FCC52246ADB}</Project>
+      <Name>OLS.Casy.Core.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OLS.Casy.Core.Logging.Api\OLS.Casy.Core.Logging.Api.csproj">
+      <Project>{69B08B15-DD31-4B8C-80A7-38D264C176D1}</Project>
+      <Name>OLS.Casy.Core.Logging.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OLS.Casy.Core\OLS.Casy.Core.csproj">
+      <Project>{BC75001F-C067-4C78-BD8A-1C24F75A7170}</Project>
+      <Name>OLS.Casy.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OLS.Casy.IO.Api\OLS.Casy.IO.Api.csproj">
+      <Project>{F7F529D7-393D-4E47-9CCF-4EF5EE428916}</Project>
+      <Name>OLS.Casy.IO.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OLS.Casy.Models\OLS.Casy.Models.csproj">
+      <Project>{773BD05C-FEEF-41BD-A1A6-83C6AC52228A}</Project>
+      <Name>OLS.Casy.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

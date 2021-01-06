@@ -1,0 +1,84 @@
+﻿<Dialog:CustomDialog x:Class="OLS.Casy.Ui.Analyze.Views.SelectRangeParentDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             xmlns:localization="clr-namespace:OLS.Casy.Ui.Base.Localization;assembly=OLS.Casy.Ui.Base"
+                     xmlns:extensions="clr-namespace:OLS.Casy.Ui.Base.Extensions;assembly=OLS.Casy.Ui.Base"
+             mc:Ignorable="d" 
+                      Style="{StaticResource CasyDialogStyle}"
+                     Title="{Binding Path=Title}">
+    <Dialog:CustomDialog.Content>
+        <Grid Background="Transparent" Width="600">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Style="{StaticResource CasyTextBlockStyle}"  Foreground="White" Text="SelectRangeParentDialog_Header" localization:Localization.IsLocalized="True" FontWeight="Bold" FontSize="20" />
+                    <TextBlock Style="{StaticResource CasyTextBlockStyle}"  Foreground="White" Text="SelectRangeParentDialog_Text" localization:Localization.IsLocalized="True" TextWrapping="Wrap" Grid.Row="1" FontSize="20"/>
+                </Grid>
+
+                <AdornerDecorator Margin="5" VerticalAlignment="Center" Grid.Row="1">
+                    <ComboBox Style="{StaticResource CasyComboBoxStyle}" 
+                                  ItemsSource="{Binding Path=RangeOptions}"
+                                DisplayMemberPath="Item1"
+                              SelectedValuePath="Item2"
+                                  SelectedValue="{Binding Path=SelectedRangeOption, Mode=TwoWay}"
+                          VerticalContentAlignment="Center">
+                        <extensions:WatermarkExtension.Watermark>
+                            <TextBlock Style="{StaticResource WatermarkTextBlock}" Text="Range Options" localization:Localization.IsLocalized="True" VerticalAlignment="Center"/>
+                        </extensions:WatermarkExtension.Watermark>
+
+                        <!--
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal" Margin="1">
+                                    <TextBlock Text="{Binding}" />
+                                    <TextBlock Text=" &#x00b5;m">
+                                        <TextBlock.Style>
+                                            <Style TargetType="TextBlock">
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding}" Value="{x:Null}" >
+                                                        <Setter Property="Visibility" Value="Hidden" />
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                        -->
+                    </ComboBox>
+                </AdornerDecorator>
+            </StackPanel>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Style="{StaticResource GreenButton}"
+                        Grid.Column="2"
+                        Command="{Binding Path=OkCommand}" 
+                        IsEnabled="{Binding Path=CanOk}"
+                        Content="MessageBox_Button_Ok_Text"
+                        localization:Localization.IsLocalized="True"
+                        Margin="6"/>
+
+                <!--<Button Style="{StaticResource GrayButton}" Grid.Column="2" Command="{Binding Path=ToggleMeasurementModeCommand}" Content="{Binding Path=ToggleMeasurementModeButtonText}" localization:Localization.IsLocalized="True" Margin="6" auth:Authorization.MinRequiredRole="Operator" auth:Authorization.TargetProperties="Visibility" />-->
+            </Grid>
+        </Grid>
+    </Dialog:CustomDialog.Content>
+</Dialog:CustomDialog>

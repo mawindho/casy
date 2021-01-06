@@ -1,0 +1,725 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ConfirmSaveMeasureResultsOnCloseDialog_Content" xml:space="preserve">
+    <value>Die Messergebnisse '{0}' haben noch ungesicherte Änderungen. Wie willst du mit den Änderungen verfahren?</value>
+  </data>
+  <data name="ConfirmSaveMeasureResultsOnCloseDialog_Title" xml:space="preserve">
+    <value>Ausstehende Änderungen</value>
+  </data>
+  <data name="EditTemplateView_Label_AutoComment" xml:space="preserve">
+    <value>KOMMENTAR ERFORDERLICH</value>
+  </data>
+  <data name="MeasureResultDataChartViewModel_AxisX_Title" xml:space="preserve">
+    <value>Zeitpunkt der Messung</value>
+  </data>
+  <data name="MeasureResultDataChartViewModel_AxisY_Title" xml:space="preserve">
+    <value>Messwert</value>
+  </data>
+  <data name="MeasureResultTreeView_GroupNode_NoExperiment" xml:space="preserve">
+    <value>[Kein Experiment]</value>
+  </data>
+  <data name="MeasureResultTreeView_GroupNode_NoGroup" xml:space="preserve">
+    <value>[Keine Gruppe]</value>
+  </data>
+  <data name="SaveMeasureResultDialog_ComboBox_Experiment_Watermark" xml:space="preserve">
+    <value>Experiment</value>
+  </data>
+  <data name="SaveMeasureResultDialog_ComboBox_Group_Watermark" xml:space="preserve">
+    <value>Gruppe</value>
+  </data>
+  <data name="SaveMeasureResultDialog_OmniTextBox_Comment_Watermark" xml:space="preserve">
+    <value>Kommentar</value>
+  </data>
+  <data name="SaveMeasureResultDialog_OmniTextBox_MeasureResultName_Watermark" xml:space="preserve">
+    <value>Name der Messung</value>
+  </data>
+  <data name="SaveMeasureResultDialog_Title" xml:space="preserve">
+    <value>Messung speichern</value>
+  </data>
+  <data name="WizardContainerView_CancelButton_Content" xml:space="preserve">
+    <value>Abbrechen</value>
+  </data>
+  <data name="WizardContainerView_NextButton_Content" xml:space="preserve">
+    <value>Weiter</value>
+  </data>
+  <data name="EditTemplateDialog_Button_Export" xml:space="preserve">
+    <value>EXPORTIEREN</value>
+  </data>
+  <data name="EditTemplateDialog_Button_Import" xml:space="preserve">
+    <value>IMPORTIEREN</value>
+  </data>
+  <data name="SelectTemplateDialog_Header" xml:space="preserve">
+    <value>Verfügbare Vorlagen:</value>
+  </data>
+  <data name="SaveAsTemplateDialog_Watermark" xml:space="preserve">
+    <value>Vorlagenname</value>
+  </data>
+  <data name="MeasureResultChartView_OmniTextBox_ManualAggregationCalculationFactor_Watermark" xml:space="preserve">
+    <value>Manueller Wert</value>
+  </data>
+  <data name="MeasureResultChartView_Label_Aggregation" xml:space="preserve">
+    <value>AGGREGATION:</value>
+  </data>
+  <data name="MeasureResultChartView_Label_DilutionFactor" xml:space="preserve">
+    <value>VERDÜNNUNG:</value>
+  </data>
+  <data name="MeasureResultChartView_Label_YScale" xml:space="preserve">
+    <value>Y-ACHSE:</value>
+  </data>
+  <data name="MeasureResultChartView_Value_AutoRange" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="MeasureResultChartView_Value_Counts" xml:space="preserve">
+    <value>Anzahl</value>
+  </data>
+  <data name="MeasureResultChartView_Value_Volume" xml:space="preserve">
+    <value>Volumen</value>
+  </data>
+  <data name="MeasureResultChartView_OmniTextBox_ScalingMaxRange_Watermark" xml:space="preserve">
+    <value>MAX. RANGE</value>
+  </data>
+  <data name="MeasureResultChartView_Label_Smoothing" xml:space="preserve">
+    <value>GLÄTTUNG:</value>
+  </data>
+  <data name="MeasureResultChartView_SmoothingFactor_Off" xml:space="preserve">
+    <value>Aus</value>
+  </data>
+  <data name="EditTemplateDialog_Header" xml:space="preserve">
+    <value>Vorlagen bearbeiten:</value>
+  </data>
+  <data name="EditTemplateDialog_Button_Save" xml:space="preserve">
+    <value>SPEICHERN</value>
+  </data>
+  <data name="MeasureResultDataView_Label_AggregationFactor" xml:space="preserve">
+    <value>AGGR. FAKTOR</value>
+  </data>
+  <data name="MeasureResultDataView_Label_CountsPercentage" xml:space="preserve">
+    <value>% ANZAHL</value>
+  </data>
+  <data name="ConfirmOverrideDialog_Message" xml:space="preserve">
+    <value>Willst du das Messergebnis '{0}' wirklich überschreiben?</value>
+  </data>
+  <data name="ConfirmOverrideDialog_Title" xml:space="preserve">
+    <value>Messergebnis überschreiben?</value>
+  </data>
+  <data name="MeasureResultDataView_Label_Viability" xml:space="preserve">
+    <value>VIABILITÄT</value>
+  </data>
+  <data name="MeasureResultDataView_Label_ViableCells" xml:space="preserve">
+    <value>ZELLZAHL / ML</value>
+  </data>
+  <data name="MeasureResultTreeView_BackButton_DefaultText" xml:space="preserve">
+    <value>EXPERIMENTE</value>
+  </data>
+  <data name="OpenImportMeasureResultDialog_Title" xml:space="preserve">
+    <value>Wähle die Dateien, die du öffnen/importieren willst.</value>
+  </data>
+  <data name="LoadTemplateFileDialog_Title" xml:space="preserve">
+    <value>Zu importierende Vorlage auswählen:</value>
+  </data>
+  <data name="SaveAsTemplateDialog_Content" xml:space="preserve">
+    <value>Bitte wähle einen Namen für die neue Vorlage</value>
+  </data>
+  <data name="SaveAsTemplateDialog_Title" xml:space="preserve">
+    <value>Verwendete Messparameter als Vorlage speichern</value>
+  </data>
+  <data name="SaveTemplateFileDialog_Title" xml:space="preserve">
+    <value>Datei für Export auswählen</value>
+  </data>
+  <data name="MeasureResultChartView_XAxis_Label" xml:space="preserve">
+    <value>Durchmesser (µm)</value>
+  </data>
+  <data name="MeasureResultChartView_YAxis_Label_Counts" xml:space="preserve">
+    <value>Anzahl</value>
+  </data>
+  <data name="MeasureResultChartView_YAxis_Label_Volume" xml:space="preserve">
+    <value>Volumen x E4</value>
+  </data>
+  <data name="EditTemplateView_ComboBox_Capillary_Watermark" xml:space="preserve">
+    <value>KAPILLARE</value>
+  </data>
+  <data name="EditTemplateView_ComboBox_Experiment_Watermark" xml:space="preserve">
+    <value>Experiment</value>
+  </data>
+  <data name="EditTemplateView_ComboBox_Group_Watermark" xml:space="preserve">
+    <value>Gruppe</value>
+  </data>
+  <data name="EditTemplateView_ComboBox_ToDiameter_Watermark" xml:space="preserve">
+    <value>X-ACHSE</value>
+  </data>
+  <data name="EditTemplateView_Label_Counts" xml:space="preserve">
+    <value>ZYKLEN</value>
+  </data>
+  <data name="EditTemplateView_Label_Dilution" xml:space="preserve">
+    <value>VERDÜNNUNG</value>
+  </data>
+  <data name="EditTemplateView_Label_MeasureMode" xml:space="preserve">
+    <value>MODUS</value>
+  </data>
+  <data name="EditTemplateView_Label_Volume" xml:space="preserve">
+    <value>VOLUMEN</value>
+  </data>
+  <data name="EditTemplateView_Label_YScale" xml:space="preserve">
+    <value>Y-ACHSE:</value>
+  </data>
+  <data name="EditTemplateView_OmniTextBox_ManualAggregationCalculationFactor_Watermark" xml:space="preserve">
+    <value>Manueller Wert</value>
+  </data>
+  <data name="EditTemplateView_OmniTextBox_ScalingMaxRange_Watermark" xml:space="preserve">
+    <value>MAX. RANGE</value>
+  </data>
+  <data name="EditTemplateView_Value_AutoRange" xml:space="preserve">
+    <value>Auto</value>
+  </data>
+  <data name="ExportMeasurementxDialog_Title" xml:space="preserve">
+    <value>Bitte wähle eine Datei</value>
+  </data>
+  <data name="ImportCRFDialog_Message" xml:space="preserve">
+    <value>Bitte wähle einen Namen für das Messergebnis aus der Datei '{0}'.</value>
+  </data>
+  <data name="ImportCRFDialog_Title" xml:space="preserve">
+    <value>Messergebnis benennen</value>
+  </data>
+  <data name="MeasureContainerView_Label_CountsAboveDiamter" xml:space="preserve">
+    <value>Anzahl / ml &gt; {0} µm:</value>
+  </data>
+  <data name="MeasureResultDataView_Label_CountsPerMl" xml:space="preserve">
+    <value>ANZAHL / ML</value>
+  </data>
+  <data name="MeasureResultWithGuidExistsDialog_Content" xml:space="preserve">
+    <value>Dieses Messergebnis existiert bereits in der Systemdatanbank. Wie willst du mit dem Messergebnis fortfahren?</value>
+  </data>
+  <data name="MeasureResultWithGuidExistsDialog_Title" xml:space="preserve">
+    <value>Messergebnis existiert bereits</value>
+  </data>
+  <data name="SaveAsTemplateDialog_SetupAlreadyExists_Content" xml:space="preserve">
+    <value>Eine Vorlage mit dem selben Namen existiert bereits. Wie willst du fortfahren?</value>
+  </data>
+  <data name="SaveAsTemplateDialog_SetupAlreadyExists_Title" xml:space="preserve">
+    <value>Eine Vorlage mit dem selben Namen existiert bereits</value>
+  </data>
+  <data name="EditTemplateView_Label_AutoSave" xml:space="preserve">
+    <value>ERZWINGE AUTOSPEICHERUNG</value>
+  </data>
+  <data name="EditTemplateView_Label_Smoothing" xml:space="preserve">
+    <value>GLÄTTUNG:</value>
+  </data>
+  <data name="EditTemplateView_OmniTextBox_AutoSaveName_Watermark" xml:space="preserve">
+    <value>STANDARD NAME</value>
+  </data>
+  <data name="EditTemplateView_Value_Counts" xml:space="preserve">
+    <value>Anzahl</value>
+  </data>
+  <data name="EditTemplateView_Value_Volume" xml:space="preserve">
+    <value>Volumen</value>
+  </data>
+  <data name="MeasureResultChartView_Label_Color" xml:space="preserve">
+    <value>FARBEN:</value>
+  </data>
+  <data name="MeasureResultChartView_Label_MeasureMode" xml:space="preserve">
+    <value>MODUS</value>
+  </data>
+  <data name="MeasureResultDataView_Label_MeanDiameter" xml:space="preserve">
+    <value>Ø MITTEL</value>
+  </data>
+  <data name="MeasureResultDataView_Label_Name" xml:space="preserve">
+    <value>BEREICH</value>
+  </data>
+  <data name="MeasureResultDataView_Label_PeakDiameter" xml:space="preserve">
+    <value>Ø PEAK</value>
+  </data>
+  <data name="MeasureResultDataView_Label_RoiSettings" xml:space="preserve">
+    <value>EINSTELLUNGEN BEREICHE</value>
+  </data>
+  <data name="MeasureResultDataView_Label_Total" xml:space="preserve">
+    <value>GESAMT</value>
+  </data>
+  <data name="MeasureResultDataView_Label_VolumePerMl" xml:space="preserve">
+    <value>VOL / ML</value>
+  </data>
+  <data name="SelectTemplateView_Label_Capillary" xml:space="preserve">
+    <value>Kap:</value>
+  </data>
+  <data name="SelectTemplateView_Label_Range" xml:space="preserve">
+    <value>Max Ø:</value>
+  </data>
+  <data name="DeleteMesureResult_ConfirmDialog_Content" xml:space="preserve">
+    <value>Bist du dir sicher, dass du das Messergebnis '{0}' löschen willst?</value>
+  </data>
+  <data name="DeleteMesureResult_ConfirmDialog_Title" xml:space="preserve">
+    <value>Messergebnis löschen</value>
+  </data>
+  <data name="MessageBox_Button_ContinueWithoutSave" xml:space="preserve">
+    <value>Verwerfen</value>
+  </data>
+  <data name="MessageBox_TemporaryMeasureResultNotSaved_Content" xml:space="preserve">
+    <value>'{0}*' wurde bisher nicht gespeichert. 
+Fortfahren ohne zu speichern verwirft das aktuelle Messergebnis.</value>
+  </data>
+  <data name="MessageBox_TemporaryMeasureResultNotSaved_Title" xml:space="preserve">
+    <value>Das aktuelle Messergebnis wurde nicht gespeichert</value>
+  </data>
+  <data name="DocumentBase_Footer_Page" xml:space="preserve">
+    <value>PAGE:</value>
+  </data>
+  <data name="DocumentBase_Footer_Page_Of" xml:space="preserve">
+    <value>of</value>
+  </data>
+  <data name="DocumentBase_Footer_PrintDate" xml:space="preserve">
+    <value>DATE OF PRINT:</value>
+  </data>
+  <data name="DocumentBase_Footer_User" xml:space="preserve">
+    <value>USER:</value>
+  </data>
+  <data name="SingleMeasureResultDocument_Heading_Comment" xml:space="preserve">
+    <value>Comment:</value>
+  </data>
+  <data name="SingleMeasureResultDocument_Heading_Parameter" xml:space="preserve">
+    <value>PARAMETER</value>
+  </data>
+  <data name="SingleMeasureResultDocument_Heading_Results" xml:space="preserve">
+    <value>RESULTS</value>
+  </data>
+  <data name="DeleteCursorDialog_Content" xml:space="preserve">
+    <value>Willst du wirklich den ausgewählten Bereich löschen?</value>
+  </data>
+  <data name="DeleteCursorDialog_Title" xml:space="preserve">
+    <value>Bereich löschen</value>
+  </data>
+  <data name="MeasureContainerView_Label_TotalCounts" xml:space="preserve">
+    <value>Gesamtanzahl ({0} x {1}):</value>
+  </data>
+  <data name="MeasureContainerView_Label_TotalCountsCursor" xml:space="preserve">
+    <value>Gesamtanzahl ausgewählte Bereiche:</value>
+  </data>
+  <data name="SaveTemplateAsDialog_Content" xml:space="preserve">
+    <value>Bitte wähle einen Namen für die neue Vorlage</value>
+  </data>
+  <data name="SaveTemplateAsDialog_Title" xml:space="preserve">
+    <value>Vorlagennamen wählen</value>
+  </data>
+  <data name="MesureResultContainerViewModel_ApplyToParents_Message" xml:space="preserve">
+    <value>Folgende Parameter des Overlay wurden auf die einzelnen Messungen übertragen.
+- Visuelle Paramter (Glättung, Einstellungen der Y-Achse)
+- Bereichsoptionen</value>
+  </data>
+  <data name="MesureResultContainerViewModel_ApplyToParents_Title" xml:space="preserve">
+    <value>Übernahme erfolgreich</value>
+  </data>
+  <data name="MeasureResultDataView_Label_Comment" xml:space="preserve">
+    <value>KOMMENTAR:</value>
+  </data>
+  <data name="MeasureResultChartView_Label_Normalize" xml:space="preserve">
+    <value>Normalisierung aktiv</value>
+  </data>
+  <data name="MessageBox_Button_SaveAll" xml:space="preserve">
+    <value>Alle Speichern</value>
+  </data>
+  <data name="DeleteTemplateDialog_Content" xml:space="preserve">
+    <value>Du willst die Vorlage mit dem Name '{0}' löschen. Bist du dir sicher, dass du mit der Operation fortfahren wollen?</value>
+  </data>
+  <data name="DeleteTemplateDialog_Title" xml:space="preserve">
+    <value>Vorlage löschen</value>
+  </data>
+  <data name="EditTemplateView_OmniTextBox_Name_Watermark" xml:space="preserve">
+    <value>Vorlagenname</value>
+  </data>
+  <data name="SaveAsImageDialog_Title" xml:space="preserve">
+    <value>Bild Export Datei wählen:</value>
+  </data>
+  <data name="ValidationError_CommentIsMendetory" xml:space="preserve">
+    <value>Der Kommentar ist erforderlich</value>
+  </data>
+  <data name="ValidationError_MeasureResultNameMustBeUnique" xml:space="preserve">
+    <value>Der Name eines Messergebnis muss innerhalb des Experiment und Gruppe eindeutig sein</value>
+  </data>
+  <data name="ValidationError_MeasureResultNameMustNotBeEmpty" xml:space="preserve">
+    <value>Der Name eines Messergebnis darf nicht leer sein</value>
+  </data>
+  <data name="MeasureResultChartView_Label_SubPopulations" xml:space="preserve">
+    <value>Subpopulation</value>
+  </data>
+  <data name="MeasureResultChartView_Label_SubPopulationsActive" xml:space="preserve">
+    <value />
+  </data>
+  <data name="MeasureContainerView_Label_Concentration" xml:space="preserve">
+    <value>Konzentration:</value>
+  </data>
+  <data name="MeasureResultDataView_Label_PeakVolume" xml:space="preserve">
+    <value>VOL PEAK</value>
+  </data>
+  <data name="EditTemplateView_Label_Aggregation" xml:space="preserve">
+    <value>AGGREGATION:</value>
+  </data>
+  <data name="EditTemplateView_Label_DeviationControl" xml:space="preserve">
+    <value>ABWEICHUNGSKONTROLLZYKLEN:</value>
+  </data>
+  <data name="EditTemplateDialog_Button_SaveAs" xml:space="preserve">
+    <value>Kopie speichern</value>
+  </data>
+  <data name="SelectTemplateView_Label_Dilution" xml:space="preserve">
+    <value>Verdünnung:</value>
+  </data>
+  <data name="SelectTemplateView_Label_Ranges" xml:space="preserve">
+    <value>Bereich(e)</value>
+  </data>
+  <data name="SelectTemplateView_Watermark_Filter" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="ExportDialog_Button_Export" xml:space="preserve">
+    <value>Exportieren</value>
+  </data>
+  <data name="ExportDialog_Button_Next" xml:space="preserve">
+    <value>Weiter</value>
+  </data>
+  <data name="ExportDialog_ComboBox_Experiment_Watermark" xml:space="preserve">
+    <value>Experiment</value>
+  </data>
+  <data name="ExportDialog_ComboBox_Group_Watermark" xml:space="preserve">
+    <value>Gruppe</value>
+  </data>
+  <data name="ExportDialog_Label_FilterDate" xml:space="preserve">
+    <value>Messdatum:</value>
+  </data>
+  <data name="ExportDialog_Label_FilterExperiment" xml:space="preserve">
+    <value>Experiment:</value>
+  </data>
+  <data name="ExportDialog_Label_FilterGroup" xml:space="preserve">
+    <value>Gruppe:</value>
+  </data>
+  <data name="ExportDialog_Label_FilterName" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="ExportDialog_TextBox_FilterDate_Watermark" xml:space="preserve">
+    <value>Messdatum</value>
+  </data>
+  <data name="ExportDialog_TextBox_FilterName_Watermark" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="ExportOptionsView_Title" xml:space="preserve">
+    <value>Einstellungen für den Export:</value>
+  </data>
+  <data name="SelectMeasurementsView_Header_Available" xml:space="preserve">
+    <value>Verfügbar</value>
+  </data>
+  <data name="SelectMeasurementsView_Header_Clustering" xml:space="preserve">
+    <value>Filter</value>
+  </data>
+  <data name="SelectMeasurementsView_Header_Selected" xml:space="preserve">
+    <value>Ausgewählt</value>
+  </data>
+  <data name="SelectMeasurementsView_Title" xml:space="preserve">
+    <value>Wähle die zu exportierenden Messungen aus:</value>
+  </data>
+  <data name="ExportOptionsView_ExportPath_Watermark" xml:space="preserve">
+    <value>Exportverzeichnis</value>
+  </data>
+  <data name="ExportOptionsView_Label_ExportFormat" xml:space="preserve">
+    <value>Exportformat:</value>
+  </data>
+  <data name="ExportOptionsView_Label_ExportOptions" xml:space="preserve">
+    <value>Exportmodus:</value>
+  </data>
+  <data name="ExportOptionsView_Label_ExportPath" xml:space="preserve">
+    <value>Exportverzeichnis:</value>
+  </data>
+  <data name="ExportOptionsView_Label_FileName" xml:space="preserve">
+    <value>Dateiname:</value>
+  </data>
+  <data name="ExportOptionsView_Mode_OneFile" xml:space="preserve">
+    <value>Eine Datei</value>
+  </data>
+  <data name="ExportOptionsView_Mode_PerMeasurement" xml:space="preserve">
+    <value>Eine Datei pro Messung</value>
+  </data>
+  <data name="ExportOptionsView_Option_CSY" xml:space="preserve">
+    <value>CASY internes Format (.csy)</value>
+  </data>
+  <data name="ExportOptionsView_Option_RAW" xml:space="preserve">
+    <value>Rohdaten (.raw)</value>
+  </data>
+  <data name="ExportOptionsView_TextBox_FileName_Watermark" xml:space="preserve">
+    <value>Dateiname</value>
+  </data>
+  <data name="MeasureContainerView_Label_TotalCountsViability" xml:space="preserve">
+    <value>Viable Zellen:</value>
+  </data>
+  <data name="MeasureResultSubTreeView_Button_SelectAll" xml:space="preserve">
+    <value>(Alle Auswählen)</value>
+  </data>
+  <data name="MessageBox_Button_SaveAll_Text" xml:space="preserve">
+    <value>Alle Speichern</value>
+  </data>
+  <data name="ImportTTError_Content" xml:space="preserve">
+    <value>Bitte stelle sicher, dass der Name der importierten Datei kein Semikolon enthält</value>
+  </data>
+  <data name="ImportTTError_Title" xml:space="preserve">
+    <value>Ein Fehler ist beim Import aufgetreten</value>
+  </data>
+  <data name="AddCommentDialog_Title" xml:space="preserve">
+    <value>Kommentar eingeben</value>
+  </data>
+  <data name="Notification_LessCounts_ButtonText" xml:space="preserve">
+    <value>Jetzt bestellen</value>
+  </data>
+  <data name="Notification_LessCounts_Message" xml:space="preserve">
+    <value>Du hast nur noch {0} Messungen übrig. Überlege dir, neue Messungen zu bestellen.</value>
+  </data>
+  <data name="Notification_LessCounts_Title" xml:space="preserve">
+    <value>Wenige Messungen übrig</value>
+  </data>
+  <data name="Notification_NoCounts_ButtonText" xml:space="preserve">
+    <value>Jetzt bestellen</value>
+  </data>
+  <data name="Notification_NoCounts_Message" xml:space="preserve">
+    <value>Das Messen ist nicht mehr möglich, da keine Messungen mehr freigeschaltet sind. Bitte bestelle jetzt neue Messungen.</value>
+  </data>
+  <data name="Notification_NoCounts_Title" xml:space="preserve">
+    <value>Messen nicht mehr möglich</value>
+  </data>
+  <data name="ValidationError_MeasureResultNameMustNotContainSpecialChars" xml:space="preserve">
+    <value>Der Name eines Messergebnis darf folgende Zeichen nicht enthalten: /, \, :, *, &lt;, &gt;, |</value>
+  </data>
+  <data name="ImportTemplateFailed_Content" xml:space="preserve">
+    <value>Der Import der Vorlage ist fehlgeschlagen. Die Kombination aus Kapillare ({0} µm) und maximalem Durchmesser ({1} µm) wird vom System nicht unterstützt.</value>
+  </data>
+  <data name="ImportTemplateFailed_Title" xml:space="preserve">
+    <value>Importieren fehlgeschlagen</value>
+  </data>
+  <data name="MeasureResultTreeView_ShowDeleted_Label" xml:space="preserve">
+    <value>Gelöschte anzeigen</value>
+  </data>
+  <data name="ImportingCfrInNonCfrVersionDialog_Content" xml:space="preserve">
+    <value>Die importierte Messung '{0}' enthält Audit-Trail-Informationen. Diese werden entfernt, da deine Software-Version nicht CFR 21 Part 11 konform ist.
+Möchtest du fortfahren?</value>
+  </data>
+  <data name="ImportingCfrInNonCfrVersionDialog_Title" xml:space="preserve">
+    <value>Messung mit Audit-Trail-Informationen entdeckt</value>
+  </data>
+  <data name="ImportingNonCfrInCfrVersionDialog_Content" xml:space="preserve">
+    <value>Die importierte Messsung '{0}' stammt aus einer nicht CFR-konformen Software-Version. Die Historie der Messung ist damit nicht komplett nachverfolgbar.
+Möchtest du denoch fortfahren?</value>
+  </data>
+  <data name="ImportingNonCfrInCfrVersionDialog_Title" xml:space="preserve">
+    <value>Nicht CFR-konforme Messung entdeckt</value>
+  </data>
+  <data name="FailedToOpenFile_Message" xml:space="preserve">
+    <value>Es ist ein Fehler beim Öffnen der Datei '{0}' aufgetreten. Bitte überprüfen Sie in den Einstellungen des Betriebsystems, ob eine Standard-Zuordnung für die Dateiendung gesetzt ist.</value>
+  </data>
+  <data name="FailedToOpenFile_Title" xml:space="preserve">
+    <value>Datei konnte nicht geöffnet werden</value>
+  </data>
+  <data name="MeanDocumentSettingsViewModel_Title" xml:space="preserve">
+    <value>Mittelwert</value>
+  </data>
+  <data name="OverlayDocumentSettingsViewModel_Title" xml:space="preserve">
+    <value>Overlay</value>
+  </data>
+  <data name="DocumentSettingsView_DocumentLogo_Watermark" xml:space="preserve">
+    <value>Selektiertes Logo</value>
+  </data>
+  <data name="DocumentSettingsView_LogoSection_Title" xml:space="preserve">
+    <value>DOKUMENTENLOGO</value>
+  </data>
+  <data name="MeanDocumentSettings_Title" xml:space="preserve">
+    <value>Definiere hier, welche Daten in welcher Reihenfolge beim Drucken einer Mean-Kurve verwendet werden.</value>
+  </data>
+  <data name="OverlayDocumentSettings_Title" xml:space="preserve">
+    <value>Definiere hier, welche Daten in welcher Reihenfolge beim Drucken einer Overlay-Kurve verwendet werden.</value>
+  </data>
+  <data name="SingleMeasurementSettings_Title" xml:space="preserve">
+    <value>Definiere hier, welche Daten in welcher Reihenfolge beim Drucken einer Einzelmessung verwendet werden.</value>
+  </data>
+  <data name="MeasureResultChartView_AddRangeButton_Tooltip" xml:space="preserve">
+    <value>Breiech hinzufügen</value>
+  </data>
+  <data name="MeasureResultChartView_EditAccessButton_Tooltip" xml:space="preserve">
+    <value>Zugriffsrechte verwalten</value>
+  </data>
+  <data name="MeasureResultChartView_SettingsButton_Tooltip" xml:space="preserve">
+    <value>Einstellungen</value>
+  </data>
+  <data name="MeasureResultContainerView_ApplyToParentsButton_Tooltip" xml:space="preserve">
+    <value>Einstellungen übertragen</value>
+  </data>
+  <data name="MeasureResultContainerView_AuditTrailButton_Tooltip" xml:space="preserve">
+    <value>Audit Trail anzeigen</value>
+  </data>
+  <data name="MeasureResultContainerView_PrintButton_Tooltip" xml:space="preserve">
+    <value>Drucken</value>
+  </data>
+  <data name="MeasureResultContainerView_RestoreButton_Tooltip" xml:space="preserve">
+    <value>Messung Wiederherstellen</value>
+  </data>
+  <data name="MeasureResultContainerView_SaveAsTemplateButton_Tooltip" xml:space="preserve">
+    <value>Einstellungen als Template speichern</value>
+  </data>
+  <data name="MeasureResultContainerView_SaveButton_Tooltip" xml:space="preserve">
+    <value>Speichern</value>
+  </data>
+  <data name="MeasureResultContainerView_SavePictureButton_Tooltip" xml:space="preserve">
+    <value>Graph als Bild speichern</value>
+  </data>
+  <data name="MeasureResultContainerView_ShowOriginalButton_Tooltip" xml:space="preserve">
+    <value>Messung mit Originaleinstellungen anzeigen</value>
+  </data>
+  <data name="MeasureResultContainerView_ShowParentsButton_Tooltip" xml:space="preserve">
+    <value>Elternmessungen ein-/ausblenden</value>
+  </data>
+  <data name="MeasureResultContainerView_ToggleButton_Tooltip" xml:space="preserve">
+    <value>Ein-/Ausblenden</value>
+  </data>
+  <data name="MeasureResultTreeView_BackButton_Tooltip" xml:space="preserve">
+    <value>Zurück</value>
+  </data>
+  <data name="MeasureResultTreeView_ExportButton_Tooltip" xml:space="preserve">
+    <value>Messergebnisse exportieren</value>
+  </data>
+  <data name="MeasureResultTreeView_ImportButton_Tooltip" xml:space="preserve">
+    <value>Messergebnisse importieren</value>
+  </data>
+  <data name="MeasureResultTreeView_RemoveAllFromSelectionButton_Tooltip" xml:space="preserve">
+    <value>Auwahl zurücksetzen</value>
+  </data>
+  <data name="EditTemplateDialog_Button_AuditTrail" xml:space="preserve">
+    <value>Audit Trail</value>
+  </data>
+  <data name="StnadardWizardStepView_DoNotShowAgain" xml:space="preserve">
+    <value>Nicht wieder anzeigen</value>
+  </data>
+  <data name="TemporaryMeasurementsFound_Content" xml:space="preserve">
+    <value>Wir haben ungespeicherte Messungen gefunden. Wir haben diese für dich wiederhergestellt um diese endgültig zu speichern oder zu verwerfen.</value>
+  </data>
+  <data name="TemporaryMeasurementsFound_Title" xml:space="preserve">
+    <value>Wiederherstellung ungespeicherter Messungen</value>
+  </data>
+  <data name="DocumentSettingsView_CfrSection_ShowLastWeeklyClean" xml:space="preserve">
+    <value>Zeige das Datum der letzten erfolgreichen wöchentlichen Reinigung an</value>
+  </data>
+  <data name="DocumentSettingsView_CfrSection_Title" xml:space="preserve">
+    <value>CFR EINSTELLUNGEN</value>
+  </data>
+  <data name="EditTemplateViewModel_ResetCursorMessage_Message" xml:space="preserve">
+    <value>Achtung! Änderung dieser Vorlageneinstellung setzt die definierten Bereiche zurück.</value>
+  </data>
+  <data name="EditTemplateViewModel_ResetCursorMessage_Title" xml:space="preserve">
+    <value>Ranges werden zurückgesetzt</value>
+  </data>
+</root>

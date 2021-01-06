@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OLS.Casy.App.Views.DashboardView"
+             xmlns:base="clr-namespace:OLS.Casy.App.ViewModels.Base"
+             xmlns:controls="clr-namespace:OLS.Casy.App.Controls"
+             base:ViewModelLocator.AutoWireViewModel="true">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="LabelStyle"
+                   TargetType="{x:Type Label}">
+                <Setter Property="FontFamily"
+                        Value="{StaticResource DosisBold}" />
+                <Setter Property="FontSize"
+                        Value="{StaticResource BigSize}" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource WhiteColor}" />
+            </Style>
+
+            <Style x:Key="LabelStyle2"
+                   TargetType="{x:Type Label}">
+                <Setter Property="FontFamily"
+                        Value="{StaticResource DosisRegular}" />
+                <Setter Property="FontSize"
+                        Value="{StaticResource MediumSize}" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource WhiteColor}" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <RelativeLayout Padding="0">
+        <Image
+            Aspect="AspectFill"
+            RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="app_background" />
+                    <On Platform="UWP, WinRT, WinPhone" Value="Assets/app_background.png" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+
+        <Grid BackgroundColor="Transparent"
+              RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+              RelativeLayout.HeightConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="43*" />
+                <RowDefinition Height="57*" />
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="5*" />
+                    <ColumnDefinition Width="3*" />
+                </Grid.ColumnDefinitions>
+
+                <StackLayout VerticalOptions="Center" HorizontalOptions="Center" Grid.Column="1">
+                    <Label Style="{StaticResource LabelStyle}" Text="WELCOME" Margin="5" />
+                    <StackLayout Orientation="Horizontal">
+                        <Label Style="{StaticResource LabelStyle}" Text="TO CASY APP" Margin="5" />
+                        <Label Style="{StaticResource LabelStyle}" Text="{Binding Path=UserName}" Margin="5" />
+                    </StackLayout>
+
+                    <Label Style="{StaticResource LabelStyle2}" Text="Remotely access your measurements, examine your overlays and mean views." Margin="10,5,5,5"/>
+                </StackLayout>
+            </Grid>
+
+            <Grid Grid.Row="1" BackgroundColor="White">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="20" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="20" />
+                </Grid.ColumnDefinitions>
+
+                <controls:BindableStackLayout x:Name="LastSelectedStackLeft" Grid.Column="1" ItemsSource="{Binding Path=LastSelectedLeft}">
+                    <controls:BindableStackLayout.ItemDataTemplate>
+                        <DataTemplate>
+                            <Grid HeightRequest="40" HorizontalOptions="FillAndExpand" Margin="4" BackgroundColor="LightGray">
+                                <Label Text="{Binding Path=Name}" TextColor="Black" VerticalOptions="CenterAndExpand" />
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                            Command="{Binding BindingContext.SelectLastSelected, Source={x:Reference LastSelectedStackLeft}}"
+                                            CommandParameter="{Binding}"
+                                            NumberOfTapsRequired="1" />
+                                </Grid.GestureRecognizers>
+                            </Grid>
+                        </DataTemplate>
+                    </controls:BindableStackLayout.ItemDataTemplate>
+                </controls:BindableStackLayout>
+
+                <controls:BindableStackLayout x:Name="LastSelectedStackRight" Grid.Column="3" ItemsSource="{Binding Path=LastSelectedRight}">
+                    <controls:BindableStackLayout.ItemDataTemplate>
+                        <DataTemplate>
+                            <Grid HeightRequest="40" HorizontalOptions="FillAndExpand" Margin="4" BackgroundColor="LightGray">
+                                <Label Text="{Binding Path=Name}" TextColor="Black" VerticalOptions="CenterAndExpand" />
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer
+                                            Command="{Binding BindingContext.SelectLastSelected, Source={x:Reference LastSelectedStackRight}}"
+                                            CommandParameter="{Binding}"
+                                            NumberOfTapsRequired="1" />
+                                </Grid.GestureRecognizers>
+                            </Grid>
+                        </DataTemplate>
+                    </controls:BindableStackLayout.ItemDataTemplate>
+                </controls:BindableStackLayout>
+            </Grid>
+        </Grid>
+    </RelativeLayout>
+</ContentPage>

@@ -1,0 +1,143 @@
+﻿<controls:MetroWindow  x:Class="OLS.Casy.Ui.Views.MainView"
+                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                       xmlns:controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+                       xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+                       xmlns:base="clr-namespace:OLS.Casy.Ui.Base;assembly=OLS.Casy.Ui.Base"
+                       xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+                       xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+                       ShowMinButton="False"
+                      ShowMaxRestoreButton="False"
+                      ShowCloseButton="False"
+                      ShowTitleBar="False"
+                      WindowState="Maximized"
+                       Background="{StaticResource Background}"
+                       OverlayBrush="Black"
+                       ResizeMode="CanResize"
+                       Dialog:DialogParticipation.Register="{Binding}">
+    
+
+    <!-- 
+    IgnoreTaskbarOnMaximize="True"
+    UseNoneWindowStyle="True"
+    -->
+    <Grid>
+        <b:Interaction.Triggers>
+            <!--
+            <i:EventTrigger EventName="PreviewTouchDown">
+                <base:MapTouchEventToCommand Command="{Binding Path=TouchDownCommand}" />
+            </i:EventTrigger>
+            <i:EventTrigger EventName="PreviewTouchUp">
+                <base:MapTouchEventToCommand Command="{Binding Path=TouchUpCommand}" />
+            </i:EventTrigger>
+            <i:EventTrigger EventName="PreviewTouchMove">
+                <base:MapTouchEventToCommand Command="{Binding Path=TouchMoveCommand}" />
+            </i:EventTrigger>
+            <i:EventTrigger EventName="PreviewMouseLeftButtonDown">
+                <base:MapMouseButtonEventToCommand Command="{Binding Path=MouseDownCommand}" />
+            </i:EventTrigger>
+            <i:EventTrigger EventName="PreviewMouseLeftButtonUp">
+                <base:MapMouseButtonEventToCommand Command="{Binding Path=MouseUpCommand}" />
+            </i:EventTrigger>
+            <i:EventTrigger EventName="PreviewMouseMove">
+                <base:MapMouseEventToCommand Command="{Binding Path=MouseMoveCommand}" />
+            </i:EventTrigger>
+            <i:EventTrigger EventName="MouseRightButtonDown">
+                <base:MapMouseButtonEventToCommand Command="{Binding Path=MouseRightButtonDownCommand, Mode=OneTime}" />
+            </i:EventTrigger>
+            <i:EventTrigger EventName="MouseRightButtonUp">
+                <base:MapMouseButtonEventToCommand Command="{Binding Path=MouseRightButtonUpCommand, Mode=OneTime}" />
+            </i:EventTrigger>
+            <i:EventTrigger EventName="MouseLeftButtonDown">
+                <base:MapMouseButtonEventToCommand Command="{Binding Path=MouseLeftButtonDownCommand, Mode=OneTime}" />
+            </i:EventTrigger>
+            -->
+            <b:EventTrigger EventName="PreviewKeyDown">
+                <base:MapKeyEventToCommand Command="{Binding Path=KeyDownCommand, Mode=OneTime}" />
+            </b:EventTrigger>
+            <b:EventTrigger EventName="PreviewKeyUp">
+                <base:MapKeyEventToCommand Command="{Binding Path=KeyUpCommand, Mode=OneTime}" />
+            </b:EventTrigger>
+        </b:Interaction.Triggers>
+        <Grid>
+            <ItemsControl ItemsSource="{Binding Path=MainContainerViewModels}" Visibility="{Binding Path=IsMainContainerVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <UniformGrid Rows="1"/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+            </ItemsControl>
+
+            <ContentControl Content="{Binding Path=LoginViewModel}" Visibility="{Binding Path=IsLoginContainerVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
+
+
+            <Grid Visibility="{Binding Path=IsInitializationVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Rectangle Height="40" Width="131" Fill="White">
+                            <Rectangle.OpacityMask>
+                                <VisualBrush>
+                                    <VisualBrush.Visual>
+                                        <Canvas Width="724.67" Height="194.81">
+                                            <Path Fill="#000000">
+                                                <Path.Data>
+                                                    <PathGeometry Figures="M352.37 84.64h-54.3V68.83h54.3Zm0 10.59h-54.3V111h54.3ZM242.81 48.87Q234 42.2 219 39.33t-45.29-2.86H109.86q-30.19 0-45 2.86T41 48.87a40.66 40.66 0 0 0-9.07 9.37H251.67A40.34 40.34 0 0 0 242.81 48.87ZM550 78.59q5-3.11 20.66-3.1h62.54q8.95 0 13.42 4.41a13.63 13.63 0 0 1 3 4.74h54.22c0-.18 0-.39 0-.56a70.24 70.24 0 0 0-1.57-15.25H491.9a81.52 81.52 0 0 0-2.23 15.82h56A10 10 0 0 1 550 78.59Zm140.3-30.91q-13.57-11.22-44.35-11.21H563.12q-28.29 0-40.81 3.1T502 50.07A36 36 0 0 0 496 58.24H698.62A32.88 32.88 0 0 0 690.29 47.68ZM352.37 38.61h-54.3V58.24h54.3ZM124.54 80.86h34.73c13.85 0 24.28 1.27 31.41 3.78h70.12a76.58 76.58 0 0 0-3.49-15.24c-.07-.2-.17-.37-.25-.57H26.49c-.09.24-.21.45-.3.69a76.26 76.26 0 0 0-3.36 15.12h70C99.94 82.13 110.47 80.86 124.54 80.86ZM684 111c-7.63-2.83-17.08-4.45-28.49-4.77l-89.27-1.43q-12.18-1-16.71-4.36a10.62 10.62 0 0 1-3.63-5.26h-56.3A103.35 103.35 0 0 0 491 111Zm-190 10.59a31.17 31.17 0 0 0 6.83 10.91Q512 143.75 544 144.71l85.21 1.91q16.34 1.2 21.3 4.65t4.95 11.46q0 7.89-4.3 11.28t-14.31 3.4H568.74q-15.63 0-20.53-3.52t-4.9-13.55v-3.22l-53.58.12q-.35 5.25-.54 8.89c-.12 2.43-.18 4.16-.18 5.19q0 27.21 15 37.18t59.53 10h72.32q23.27 0 35.56-2t19.47-6.5q10.85-7.17 15.44-17.3T711 164c0-19.56-3.74-33.65-11.13-42.41ZM80.61 95.23H21.92c-.16 3.06-.26 6.24-.26 9.62V111H77.06Q77.63 101.41 80.61 95.23ZM357.26 171c-3.22-2.32-4.86-6.78-4.89-13.35V121.63h-54.3v46.86q0 27.2 15 37.17c8.87 5.89 24.9 9.77 49.13 10.56l.61.1H470.64V174.42H373.06C365.34 174.1 360 173 357.26 171ZM203.2 95.23c2.06 4.13 3.23 9.43 3.56 15.82H261.9V102.7c0-2.61-.11-5-.22-7.47Zm3.68 44.82q0 19.58-9.43 26.79t-38.19 7.22H124.78q-28.64 0-38.25-7.16t-9.6-26.38v-18.9H21.67V153.3q0 20.41 4.53 32.76A42.72 42.72 0 0 0 41 206q9.08 6.8 23.51 9.61t45.59 2.8h63.6q30.79 0 45.47-2.8T242.81 206a43.85 43.85 0 0 0 14.5-20.47q4.59-12.83 4.59-33.36V121.63h-55ZM746.31 38.78a43.73 43.73 0 0 1-.31 6.92 11.91 11.91 0 0 1-2.16 5.5 9.59 9.59 0 0 1-4.91 3.3 24.19 24.19 0 0 1-7.43 1H720.85a25.72 25.72 0 0 1-6.46-.69 10.87 10.87 0 0 1-5-2.54 10.35 10.35 0 0 1-2.89-5.55A31.72 31.72 0 0 1 706 39.9a39.63 39.63 0 0 1 .35-6.82 11.31 11.31 0 0 1 2.22-5.32 10.23 10.23 0 0 1 5-3.18 24.46 24.46 0 0 1 7.3-.94H731.5a27 27 0 0 1 6.68.75 10.53 10.53 0 0 1 5 2.75 10.87 10.87 0 0 1 2.71 5.6A33.71 33.71 0 0 1 746.31 38.78Zm-4.23-2.48a14.18 14.18 0 0 0-.67-4.11 5.81 5.81 0 0 0-2.12-2.9 8.45 8.45 0 0 0-3.1-1.22 28.46 28.46 0 0 0-5.77-.47h-8.55c-1 0-2.09 0-3.15.11a15.18 15.18 0 0 0-4.23.81 5.7 5.7 0 0 0-3.31 3.07 11.69 11.69 0 0 0-.86 3.83c-.11 2.37-.14 4.73-.07 7.09a15.71 15.71 0 0 0 .66 4.19 5.83 5.83 0 0 0 2.08 3A8.32 8.32 0 0 0 716.07 51a29 29 0 0 0 5.79.45h8.55c1 0 2.08 0 3.14-.09a15.06 15.06 0 0 0 4.28-.83 5.74 5.74 0 0 0 3.34-3.17 12.36 12.36 0 0 0 .85-3.91Q742.18 39.85 742.08 36.31Zm-7.89-1c0 .7 0 1.4 0 2.11a4.38 4.38 0 0 1-.11 1.09 2 2 0 0 1-1 1.36 5.38 5.38 0 0 1-1.44.5 2.73 2.73 0 0 1 .6.11 2.34 2.34 0 0 1 1.46 1.13 3.37 3.37 0 0 1 .34 1.6V46.8h-1.8V43.4a3.16 3.16 0 0 0-.17-1.11 1.43 1.43 0 0 0-.67-.81 2.47 2.47 0 0 0-.89-.3 14 14 0 0 0-1.81-.1h-8.84V46.8h-1.8V32.21h10.4a22 22 0 0 1 2.46.1 5.8 5.8 0 0 1 1.76.43 2.38 2.38 0 0 1 1.19 1.17A3.8 3.8 0 0 1 734.18 35.28Zm-1.88.7a3.8 3.8 0 0 0-.16-1 1.42 1.42 0 0 0-.55-.75 2.18 2.18 0 0 0-.83-.32 8.8 8.8 0 0 0-1.7-.13h-9.2V39.4h9.2a11.77 11.77 0 0 0 1.27-.07 3.5 3.5 0 0 0 1-.23 1.42 1.42 0 0 0 .75-.71 2.37 2.37 0 0 0 .22-.87A13.76 13.76 0 0 0 732.3 36Z" FillRule="NonZero"/>
+                                                </Path.Data>
+                                                <!--<Path.RenderTransform>
+                                            <TranslateTransform X="-21.67" Y="-23.64"/>
+                                        </Path.RenderTransform>-->
+                                            </Path>
+                                        </Canvas>
+                                    </VisualBrush.Visual>
+                                </VisualBrush>
+                            </Rectangle.OpacityMask>
+                        </Rectangle>
+
+                        <Label Content="{Binding Path=ProductName}" FontSize="52" Margin="10,0,0,0" Foreground="White" VerticalAlignment="Center" VerticalContentAlignment="Center" FontWeight="Regular"/>
+                    </StackPanel>
+                    <Label FontSize="28" Content="{Binding Path=CurrentProgressText}" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="0,30,0,30" Height="45" />
+                </StackPanel>
+            </Grid>
+            
+            <Grid>
+                <ItemsControl ItemsSource="{Binding Path=DragItems}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+
+                    <!--
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Path=DragDisplayText}" 
+                                       IsHitTestVisible="False" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                    -->
+
+                    <ItemsControl.ItemContainerStyle>
+                        <Style TargetType="ContentPresenter">
+                            <Setter Property="Canvas.Left" Value="{Binding Path=DragPositionLeft}" />
+                            <Setter Property="Canvas.Top" Value="{Binding Path=DragPositionTop}" />
+                            <Setter Property="Opacity" Value="0.5" />
+                            <Setter Property="IsHitTestVisible" Value="False" />
+                        </Style>
+                    </ItemsControl.ItemContainerStyle>
+                </ItemsControl>
+            </Grid>
+<!--
+            <Grid>
+                <Canvas HorizontalAlignment="Stretch" VerticalAlignment="Stretch" DataContext="{Binding Path=DropActionViewModel}">
+                    <Grid Canvas.Left="{Binding Path=PositionLeft}"
+                              Canvas.Top="{Binding Path=PositionTop}"
+                              Margin="-100000">
+                        <view:DropActionView Visibility="{Binding Path=IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                    </Grid>
+                </Canvas>
+            </Grid>
+-->
+            <dx:WaitIndicator Grid.RowSpan="2" Content="Loading ..." DeferedVisibility="{Binding Path=IsBusy}" />
+        </Grid>
+    </Grid>
+</controls:MetroWindow>

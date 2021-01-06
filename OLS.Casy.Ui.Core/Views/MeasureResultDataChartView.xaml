@@ -1,0 +1,84 @@
+﻿<UserControl x:Class="OLS.Casy.Ui.Core.Views.MeasureResultDataChartView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+             xmlns:extensions="clr-namespace:OLS.Casy.Ui.Base.Extensions;assembly=OLS.Casy.Ui.Base"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid x:Name="ParentGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel Width="{Binding Path=ActualWidth, ElementName=ParentGrid}"
+                          Height="{Binding Path=ActualHeight, ElementName=ParentGrid}" >
+            <dxc:ChartControl DataSource="{Binding Path=ChartData}" x:Name="chart"
+                          extensions:CaptureChartImageExtension.DoCaptureImage="{Binding Path=DoCaputreImage}"
+                          extensions:CaptureChartImageExtension.CapturedImage="{Binding Path=CapturedImage, Mode=OneWayToSource}"
+                          Width="{Binding Path=ActualWidth, ElementName=ParentGrid}"
+                          Height="{Binding Path=ActualHeight, ElementName=ParentGrid}" 
+                              MaxWidth="{Binding Path=ActualWidth, ElementName=ParentGrid}"
+                          MaxHeight="{Binding Path=ActualHeight, ElementName=ParentGrid}" 
+                               BorderBrush="Black" BorderThickness="2"
+                              VerticalAlignment="Top" VerticalContentAlignment="Stretch">
+                <dxc:ChartControl.Legend>
+                    <dxc:Legend
+                        HorizontalPosition="Left"
+                        VerticalPosition="TopOutside"
+                        Orientation="Horizontal" />
+                </dxc:ChartControl.Legend>
+                
+                <dxc:ChartControl.Diagram>
+                    <dxc:XYDiagram2D SeriesDataMember="SeriesDescription" EnableAxisXNavigation="False" EnableAxisYNavigation="False">
+                        <dxc:XYDiagram2D.AxisX>
+                            <dxc:AxisX2D GridLinesVisible="True">
+                                <dxc:AxisX2D.DateTimeScaleOptions>
+                                    <!--<dxc:ManualDateTimeScaleOptions GridAlignment="Second"  />-->
+                                    <dxc:ContinuousDateTimeScaleOptions  />
+                                    <!--<dxc:ManualDateTimeScaleOptions AggregateFunction="Maximum" AutoGrid="False"
+                                                            GridAlignment="Year" MeasureUnit="Month" 
+                                                            GridSpacing="3" GridOffset="1"/>-->
+
+                                </dxc:AxisX2D.DateTimeScaleOptions>
+                                <dxc:AxisX2D.Label>
+                                    <dxc:AxisLabel
+                                    TextPattern="{}{A:dd:MM:yyyy hh:mm:ss}" />
+                                </dxc:AxisX2D.Label>
+                                <dxc:AxisX2D.WholeRange>
+                                    <dxc:Range AutoSideMargins="False"
+                                        SideMarginsValue="100" />
+                                </dxc:AxisX2D.WholeRange>
+                                <dxc:AxisX2D.Title>
+                                    <dxc:AxisTitle Content="{Binding Path=XAxisTitle}" />
+                                </dxc:AxisX2D.Title>
+                            </dxc:AxisX2D>
+                            
+                        </dxc:XYDiagram2D.AxisX>
+
+                        <dxc:XYDiagram2D.AxisY>
+                            <dxc:AxisY2D>
+                                <dxc:AxisY2D.Title>
+                                    <dxc:AxisTitle Content="{Binding Path=YAxisTitle}" />
+                                </dxc:AxisY2D.Title>
+                            </dxc:AxisY2D>
+                        </dxc:XYDiagram2D.AxisY>
+
+                        <dxc:XYDiagram2D.SeriesTemplate>
+                            <dxc:LineSeries2D ArgumentScaleType="DateTime" ArgumentDataMember="ValueX" ValueDataMember="ValueY" ShowInLegend="True" MarkerSize="16" MarkerVisible="True" CrosshairLabelPattern="{}{S}: {V}">
+                                <dxc:LineSeries2D.MarkerModel>
+                                    <dxc:CrossMarker2DModel />
+                                </dxc:LineSeries2D.MarkerModel>
+                            </dxc:LineSeries2D>
+                        </dxc:XYDiagram2D.SeriesTemplate>
+                    </dxc:XYDiagram2D>
+                </dxc:ChartControl.Diagram>
+            </dxc:ChartControl>
+        </StackPanel>
+    </Grid>
+</UserControl>

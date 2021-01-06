@@ -1,0 +1,15 @@
+﻿{
+  "Identity": {
+    "DiscoveryUrl": "http://192.168.178.122:8200",
+    "ClientId": "hub",
+    "ClientSecret": "hub",
+    "Scope": "items interactors actions devices workbooks"
+  },
+  "RabbitMQ": {
+    //"ConnectionString": "localhost:5672"
+    "ConnectionString": "host=192.168.178.122:5672"
+  },
+  "Services": {
+    "DevicesViewUrl": "http://192.168.178.122:8181/api/v1/"
+  }
+}

@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  ols.casy.webservice.host:
+    image: ${DOCKER_REGISTRY-}olscasywebservicehost
+    build:
+      context: .
+      dockerfile: OLS.Casy.WebService.Host/Dockerfile
+    environment:
+      - DbConnection=./casy.standard.db
+      - Username=casy
+      - Password=c4sy
+    ports:
+      - "8536:8536"
+    expose:
+     - 8536

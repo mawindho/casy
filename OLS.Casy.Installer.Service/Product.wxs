@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
+  <?define ProductName = "OLS CASY 2.5 Service" ?>
+  <?define ProductManufacturer = "OMNI Life Science GmbH" ?>
+  <?define ProductVersion = "1.0.5.0" ?>
+  <?define ProductUpgradeCode = "df0f02d4-3ea6-11ea-b77f-2e728ce88125" ?>
+  <?define ClientDir = "Client" ?>
+
+  <Product Id="*" Name="$(var.ProductName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="$(var.ProductManufacturer)" UpgradeCode="$(var.ProductUpgradeCode)">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate />
+
+    <CustomAction Id="Cleanup_all" Directory="INSTALLLOCATION"
+                  ExeCommand="cmd /C &quot;rmdir /s /q &quot;..\CasyService&quot;&quot;"
+    Execute="deferred" Return="ignore" HideTarget="no" Impersonate="no" />
+
+    <InstallExecuteSequence>
+      <Custom Action="Cleanup_all" After="RemoveFiles" >
+        REMOVE="ALL"
+      </Custom>
+    </InstallExecuteSequence>
+
+		<Feature Id="ProductFeature" Title="HarvestSetup" Level="1">
+      <ComponentGroupRef Id="OLSCasyComponentGroup" />
+      <ComponentGroupRef Id="AdditionalProductComponents"/>
+      <ComponentRef Id="RemoveInstallDir" />
+
+      <!--<ComponentRef Id="MyAppFolder" />-->
+    </Feature>
+  </Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="DesktopFolder" Name="Desktop">
+      </Directory>
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLLOCATION" Name="CasyService">
+          <!--
+          <Component Id="MyAppFolder" Guid="{874730AB-E9F1-4B2C-9F1C-DE56B5EACE93}">
+            <CreateFolder Directory="INSTALLLOCATION">
+              <util:PermissionEx User="Users" GenericAll="yes"/>
+            </CreateFolder>
+            <RemoveFile Id="PurgeAppFolder" Name="*" On="uninstall" />
+          </Component>
+          -->
+        </Directory>
+        <!--<?ifdef Simulator ?>
+          <Directory Id="INSTALLLOCATION" Name="Casy Simulator">
+            <Directory Id="DATALOCATION" Name="Data">
+              <Directory Id="CALIBRATIONLOCATION" Name="Calibration" />
+            </Directory>
+          </Directory>
+        <?else ?>-->
+        <!--
+          <?ifdef Desktop ?>
+            <Directory Id="INSTALLLOCATION" Name="Casy Desktop" />
+          <?else ?>-->
+              <!--<Directory Id="DATALOCATION" Name="Data">-->
+                <!--<Directory Id="CALIBRATIONLOCATION" Name="Calibration" />-->
+              <!--</Directory>-->
+          <!--<?endif ?>
+        <?endif ?>-->
+			</Directory>
+		</Directory>
+  </Fragment>
+
+	<Fragment>
+    <!--<Property Id="CALIBRATIONSOURCE" Value="$(var.CalibrationDirectory)" />-->
+
+    <ComponentGroup Id="AdditionalProductComponents">
+			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+      <!--
+      <Component Id="f7cdb863fd8bf4ea1aaae5d4eba1d680f" Guid="{9f1faeb6-29fe-4b6d-a6ed-d1d5231be3d7}" Directory="INSTALLLOCATION">
+        <File Id="casy.db" Source="C:\Projekte\Casy\Data\Inital Data\Database\v0\casy.db" KeyPath="yes" />
+      </Component>
+      <Component Id="f17962016e9bd4956902329bb25b27dc2" Guid="{245c487b-e7e5-4a9c-8e8a-8e90589ac7f7}" Directory="INSTALLLOCATION">
+        <File Id="log.db" Source="C:\Projekte\Casy\Data\Inital Data\Database\v0\log.db" KeyPath="yes" />
+      </Component>
+      <Component Id="f3c1565a25be348ecbb2ac0bf07e1fadb" Guid="{5edd4021-cba8-4805-a2e1-3fb68d6728bf}" Directory="INSTALLLOCATION">
+        <File Id="monitoring.db" Source="C:\Projekte\Casy\Data\Inital Data\Database\v0\monitoring.db" KeyPath="yes" />
+      </Component>
+      -->
+      <!--
+      <Component Id="bd118f80a84d4588ab2a594589ec858d" Guid="{bd118f80-a84d-4588-ab2a-594589ec858d}" Directory="INSTALLLOCATION">
+        <File Id="settings.casy" Source="C:\Projekte\Casy\Data\Inital Data\settings\Public Beta\settings.casy" KeyPath="yes" />
+      </Component>
+      -->
+      <!--
+      <?ifndef Desktop ?>
+      <Component Id="CMP_Data" Guid="{c0b31638-ba29-433f-bdb4-5b47170a162c}" Directory="CALIBRATIONLOCATION">
+        <CreateFolder />
+        <CopyFile Id="f673269a987cf48e6a56cc3cdd60b1644" SourceProperty="CALIBRATIONSOURCE"
+          DestinationDirectory="CALIBRATIONLOCATION" SourceName="*" />
+      </Component>
+      <?endif ?>
+      
+      {c0b31638-ba29-433f-bdb4-5b47170a162c}
+      {b33c4190-7b5e-4133-b1c4-9fbec4ab9ab8}
+-->
+      <Component Id="ApplicationShortcutDesktop" Guid="{14f9fb72-40e3-11ea-b77f-2e728ce88125}" Directory="DesktopFolder">
+        <Shortcut Id="ApplicationDesktopShortcut"
+              Name="CASY 2.5 Service"
+                  Directory="DesktopFolder"
+            Description="CASY 2.5 Service"
+            Target="[INSTALLLOCATION]OLS.Casy.AppService.exe"
+            WorkingDirectory="INSTALLLOCATION">
+          <Icon Id="casy.ico" SourceFile="Icon\casy.ico"/>
+        </Shortcut>
+        <RegistryValue Action='write' Type='integer' Root='HKCU'
+                   Key='Software\OLS\CASY_Service'
+                   Name='installed' Value='1' KeyPath='yes'/>
+
+        <RemoveFile Name="CASY 2.5 Service" Id="Remove_ApplicationDesktopShortcut" On="uninstall"/>
+      </Component>
+
+      <!--
+        <CreateFolder />
+        <RemoveFolder Id="RemoveInstallFolder" On="uninstall" />
+        
+      </Component>
+      -->
+    </ComponentGroup>
+	</Fragment>
+
+  <Fragment>
+    <Property Id="FINDINSTALLDIR">
+      <RegistrySearch Id='Registry' Type='raw' Root='HKCU' Key='Software\OLS\CASY_Service' Name='Location' />
+    </Property>
+
+    <DirectoryRef Id='INSTALLLOCATION'>
+      <Component Id="RemoveInstallDir" Guid="{2d3dc9b6-40e3-11ea-b77f-2e728ce88125}">
+        <RegistryKey Root="HKCU" Key="Software\OLS\CASY_Service">
+          <RegistryValue  Name="Location"
+                          Type="string"
+                          Value="[PUBLIC]"
+                          Action="write"
+                          KeyPath="yes" />
+        </RegistryKey>
+        <CreateFolder Directory="INSTALLLOCATION">
+          <util:PermissionEx User="Everyone" GenericAll="yes"/>
+        </CreateFolder>
+        <util:RemoveFolderEx Property="FINDINSTALLDIR" On="uninstall"/>
+        <RemoveFolder Id="INSTALLLOCATION" On="uninstall"/>
+      </Component>
+    </DirectoryRef>
+  </Fragment>
+</Wix>

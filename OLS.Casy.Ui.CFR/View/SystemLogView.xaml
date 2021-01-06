@@ -1,0 +1,161 @@
+﻿<Dialog:CustomDialog x:Class="OLS.Casy.Ui.AuditTrail.Views.SystemLogView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+                     xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
+                     xmlns:extensions="clr-namespace:OLS.Casy.Ui.Base.Extensions;assembly=OLS.Casy.Ui.Base"
+             xmlns:localization="clr-namespace:OLS.Casy.Ui.Base.Localization;assembly=OLS.Casy.Ui.Base"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+                     Style="{StaticResource CasyDialogStyle}"
+                     Title="{Binding Path=Title}">
+
+    <Dialog:CustomDialog.Content>
+        <Grid Background="Transparent">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Margin="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="160" />
+                    <ColumnDefinition Width="60" />
+                    <ColumnDefinition Width="80" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="640" />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.ColumnSpan="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Style="{StaticResource CasyLabelStyle}" Content="SystemLogView_Filter_Label" localization:Localization.IsLocalized="True" Foreground="White" FontSize="16" Margin="5" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+                    
+                    <AdornerDecorator Margin="5" Grid.Column="1">
+                        <ComboBox Style="{StaticResource CasyComboBoxStyle}"
+                                  ItemsSource="{Binding Path=KnownCategories}">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <CheckBox IsChecked="{Binding IsSelected}" Width="20" />
+                                        <TextBlock Text="{Binding DisplayItem}" Width="230" />
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                            <extensions:WatermarkExtension.Watermark>
+                                <TextBlock Style="{StaticResource WatermarkTextBlock}" Text="Filter Category" localization:Localization.IsLocalized="True"/>
+                            </extensions:WatermarkExtension.Watermark>
+                        </ComboBox>
+                    </AdornerDecorator>
+
+                    <DatePicker Style="{StaticResource CasyDatePickerStyle}" Grid.Column="2" Controls:TextBoxHelper.Watermark="Filter from" SelectedDate="{Binding FilterFromDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+                    <DatePicker Style="{StaticResource CasyDatePickerStyle}" Grid.Column="3" Controls:TextBoxHelper.Watermark="Filter to" SelectedDate="{Binding FilterToDate, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" VerticalContentAlignment="Center" />
+                </Grid>
+
+                <Label Style="{StaticResource CasyLabelStyle}" Grid.Row="1" Content="SystemLogView_GridColum_Date" localization:Localization.IsLocalized="True" Foreground="White" FontSize="16" FontWeight="Bold" Margin="5"/>
+                <Label Style="{StaticResource CasyLabelStyle}" Grid.Row="1" Grid.Column="1" Content="SystemLogView_GridColum_Level" localization:Localization.IsLocalized="True" Foreground="White" FontSize="16" FontWeight="Bold" Margin="5"/>
+                <Label Style="{StaticResource CasyLabelStyle}" Grid.Row="1" Grid.Column="2" Content="SystemLogView_GridColum_Category" localization:Localization.IsLocalized="True" Foreground="White" FontSize="16" FontWeight="Bold" Margin="5"/>
+                <Label Style="{StaticResource CasyLabelStyle}" Grid.Row="1" Grid.Column="3" Content="SystemLogView_GridColum_User" localization:Localization.IsLocalized="True" Foreground="White" FontSize="16" FontWeight="Bold" Margin="5"/>
+                <Label Style="{StaticResource CasyLabelStyle}" Grid.Row="1" Grid.Column="4" Content="SystemLogView_GridColum_Message" localization:Localization.IsLocalized="True" Foreground="White" FontSize="16" FontWeight="Bold" Margin="5"/>
+
+                <!--<ScrollViewer Grid.ColumnSpan="4" MinWidth="1000" HorizontalAlignment="Stretch">-->
+                <ListView ItemsSource="{Binding Path=SystemLogEntries}" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" Height="500" Grid.ColumnSpan="5" Grid.Row="2"  Width="1040" BorderBrush="Transparent" Background="Transparent" Padding="0">
+                    <ListView.Style>
+                        <Style TargetType="{x:Type ListView}">
+                            <Setter Property="VirtualizingStackPanel.IsVirtualizing" Value="True"/>
+                            <Setter Property="VirtualizingStackPanel.VirtualizationMode" Value="Recycling"/>
+                            <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="True"/>
+                        </Style>
+                    </ListView.Style>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HorizontalAlignment="Stretch">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="160" />
+                                    <ColumnDefinition Width="60" />
+                                    <ColumnDefinition Width="80" />
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="640" />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Style="{StaticResource CasyLabelStyle}" Content="{Binding Path=DateDisplay}" Foreground="White" FontSize="16" FontWeight="Light" Margin="5"/>
+                                <Label Style="{StaticResource CasyLabelStyle}" Grid.Column="1" Content="{Binding Path=Level}" Foreground="White" FontSize="16" FontWeight="Light" Margin="5"/>
+                                <Label Style="{StaticResource CasyLabelStyle}" Grid.Column="2" Content="{Binding Path=CategoryDisplay}" Foreground="White" FontSize="16" FontWeight="Light" Margin="5"/>
+                                <Label Style="{StaticResource CasyLabelStyle}" Grid.Column="3" Content="{Binding Path=User}" Foreground="White" FontSize="16" FontWeight="Light" Margin="5"/>
+                                <TextBlock Style="{StaticResource CasyTextBlockStyle}" Grid.Column="4" Text="{Binding Path=Message}" Foreground="White" FontSize="16" FontWeight="Light" Margin="5" TextWrapping="WrapWithOverflow"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListViewItem">
+                                        <Border x:Name="border" Background="Transparent">
+                                            <VisualStateManager.VisualStateGroups>
+                                                <VisualStateGroup x:Name="CommonStates">
+                                                    <VisualState x:Name="Normal" />
+                                                    <VisualState x:Name="Disabled" />
+                                                </VisualStateGroup>
+                                                <VisualStateGroup x:Name="SelectionStates">
+                                                    <VisualState x:Name="Unselected" />
+                                                    <VisualState x:Name="Selected">
+                                                        <Storyboard>
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                    <VisualState x:Name="SelectedUnfocused">
+                                                        <Storyboard>
+                                                        </Storyboard>
+                                                    </VisualState>
+                                                </VisualStateGroup>
+                                            </VisualStateManager.VisualStateGroups>
+                                            <ContentPresenter/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                </ListView>
+                <!--</ScrollViewer>-->
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Style="{StaticResource GrayButton}" 
+                        Grid.Column="1" 
+                        Command="{Binding Path=PrintCommand}" 
+                        Content="MessageBox_Button_Print_Text" 
+                        localization:Localization.IsLocalized="True" 
+                        Margin="6"/>
+                
+                <Button Style="{StaticResource GreenButton}" 
+                        Grid.Column="2" 
+                        Command="{Binding Path=OkCommand}" 
+                        IsEnabled="{Binding Path=CanOk}" 
+                        Content="MessageBox_Button_Ok_Text" 
+                        localization:Localization.IsLocalized="True" 
+                        Margin="6"/>
+            </Grid>
+        </Grid>
+    </Dialog:CustomDialog.Content>
+</Dialog:CustomDialog>

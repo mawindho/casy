@@ -1,0 +1,71 @@
+﻿<Dialog:CustomDialog x:Class="OLS.Casy.Ui.Base.Views.CasyInputDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+                     xmlns:localization="clr-namespace:OLS.Casy.Ui.Base.Localization"
+                     xmlns:extensions="clr-namespace:OLS.Casy.Ui.Base.Extensions"
+                     xmlns:controls="clr-namespace:OLS.Casy.Ui.Base.Controls"
+             mc:Ignorable="d" 
+             Style="{StaticResource CasyDialogStyle}"
+                     Title="{Binding Path=Title}"
+                     Width="711">
+    <Dialog:CustomDialog.Content>
+        <Grid extensions:KeyboardFocusExtension.On="{Binding ElementName=txtInput}">
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <TextBlock Style="{StaticResource CasyTextBlockStyle}"
+                       Grid.Row="0"
+                       Margin="0 5 0 0"
+                       FontSize="18"
+                       Foreground="{StaticResource DialogForegroundBrush}"
+                       Text="{Binding Message, UpdateSourceTrigger=PropertyChanged}"
+                       TextWrapping="Wrap" />
+
+                <AdornerDecorator Margin="5" Grid.Row="1">
+                    <controls:OmniTextBox x:Name="txtInput" Style="{StaticResource CasyOmniTextBoxStyle}" Text="{Binding Path=Input, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <extensions:WatermarkExtension.Watermark>
+                            <TextBlock Style="{StaticResource WatermarkTextBlock}" Text="InputDialog_Watermark" localization:Localization.IsLocalized="True" />
+                        </extensions:WatermarkExtension.Watermark>
+                    </controls:OmniTextBox>
+                </AdornerDecorator>
+
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Style="{StaticResource GrayButton}" 
+                        Grid.Column="1" 
+                        Command="{Binding Path=CancelCommand}" 
+                        Content="MessageBox_Button_Cancel_Text" 
+                        localization:Localization.IsLocalized="True" 
+                        Margin="6"
+                        IsCancel="True" />
+                
+                <Button Style="{StaticResource GreenButton}" 
+                        Grid.Column="2" 
+                        Command="{Binding Path=OkCommand}" 
+                        Content="MessageBox_Button_Ok_Text" 
+                        IsEnabled="{Binding Path=CanOk}" 
+                        localization:Localization.IsLocalized="True" 
+                        Margin="6"
+                        IsDefault="True" />
+            </Grid>
+        </Grid>
+    </Dialog:CustomDialog.Content>
+</Dialog:CustomDialog>

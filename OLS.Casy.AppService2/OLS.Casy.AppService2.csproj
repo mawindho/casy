@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net472</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro">
+      <Version>2.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Windows.Compatibility" Version="3.1.0" />
+    <PackageReference Include="Newtonsoft.Json">
+      <Version>12.0.3</Version>
+    </PackageReference>
+    <PackageReference Include="System.ComponentModel.Composition" Version="4.7.0" />
+    <PackageReference Include="System.Reactive">
+      <Version>4.4.1</Version>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OLS.Casy.Ui.Api\OLS.Casy.Ui.Api.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Ui.Base\OLS.Casy.Ui.Base.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Ui.Core.TipTap\OLS.Casy.Ui.Core.TipTap.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Data.v16.2">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Data.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v16.2">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Xpf.Core.v16.2.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>

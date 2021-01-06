@@ -1,0 +1,58 @@
+[
+  {
+    "Name": "ShowLastLoggedInUserName",
+    "Value": true
+  },
+  {
+    "Name": "LastLoggedInUserName",
+    "Value": "setup"
+  },
+  {
+    "Name": "AutoLogOffTime",
+    "Value": 10
+  },
+  {
+    "Name": "IsBackupEnabled",
+    "Value": false
+  },
+  {
+    "Name": "BackupPath",
+    "Value": ""
+  },
+  {
+    "Name": "BackupInterval",
+    "Value": 0
+  },
+  {
+    "Name": "LastBackupTime",
+    "Value": 0
+  },
+  {
+    "Name": "DefaultBrowseLocation",
+    "Value": ""
+  },
+  {
+    "Name": "CalibrationFileDirectory",
+    "Value": "Calibration"
+  },
+  {
+    "Name": "UpdateInfoUrl",
+    "Value": "https://www.dropbox.com/s/fcw0veblvo343ig/updateInfo.xml?dl=1"
+  },
+  {
+    "Name": "AdditionalUpdateInfoUrl",
+    "Value": "https://www.dropbox.com/s/m26sljkuy3ynqzc/additinalUpdateInfo.xml?dl=1"
+  },
+  {
+    "Name": "IsHighSecurityModeOn",
+    "Value": false
+  },
+  {
+    "Name": "SerialPort",
+    "Value": "Auto"
+  },
+  {
+    "Name": "ShowMouseOverInGraph",
+    "Value": true
+  }
+]

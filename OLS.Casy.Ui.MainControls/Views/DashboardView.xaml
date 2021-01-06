@@ -1,0 +1,112 @@
+﻿<UserControl x:Class="OLS.Casy.Ui.MainControls.Views.DashboardView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
+             xmlns:localization="clr-namespace:OLS.Casy.Ui.Base.Localization;assembly=OLS.Casy.Ui.Base"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <!--:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"-->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="43*" />
+            <RowDefinition Height="57*" />
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+
+            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="1">
+                <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="DachboardView_Welcome_Header" localization:Localization.IsLocalized="True" FontSize="46" FontWeight="Bold" Foreground="White" Margin="5" />
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="DachboardView_Welcome_Header2" localization:Localization.IsLocalized="True" FontSize="42" FontWeight="Regular" Foreground="White" Margin="5" />
+                    <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="{Binding Path=UserName}" FontSize="42" FontWeight="Regular" Foreground="White" Margin="5" />
+                </StackPanel>
+
+                <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="DashboardView_Welcome_Text" localization:Localization.IsLocalized="True" FontSize="16" FontWeight="Regular" Foreground="White" Margin="10,5,5,5" TextWrapping="Wrap" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="MenuView_Label_Copyright" localization:Localization.LocalizationParameter="{Binding Path=VersionNumber}" localization:Localization.IsLocalized="True" FontSize="12" FontWeight="Light" Foreground="#FF9F9894" Margin="10,10,10,4" TextWrapping="Wrap"  />
+                        <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="MenuView_Label_About" localization:Localization.LocalizationParameter="{Binding Path=SerialNumberAndModules}" localization:Localization.IsLocalized="True" FontSize="12" FontWeight="Light" Foreground="#FF9F9894" Margin="10,0,10,20" TextWrapping="Wrap"  />
+                    </StackPanel>
+
+                    <Button Style="{StaticResource TransparentButton}"
+                            Grid.Column="1"
+                            Command="{Binding Path=AboutCommand}"
+                            BorderThickness="0"
+                            Width="43"
+                            Height="43">
+                        <Button.Content>
+                            <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                                <Ellipse Width="30" Height="30" Fill="#FF9F9894" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                <iconPacks:PackIconFontAwesome Width="18" Height="18" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Kind="InfoSolid" />
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+                </Grid>
+            </StackPanel>
+        </Grid>
+
+
+<!--
+        <Grid Grid.Row="1" Background="White">
+            <dxwui:FlipView ItemsSource="{Binding DashboardPages}" IsManipulationEnabled="True" IsManipulationInertiaEnabled="True"
+                            HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <dxwui:FlipView.ItemTemplate>
+                    <DataTemplate>
+                        <dxwui:FlipViewItem>
+                            <ContentControl Content="{Binding}" />
+                        </dxwui:FlipViewItem>
+                    </DataTemplate>
+                </dxwui:FlipView.ItemTemplate>
+            </dxwui:FlipView>
+        </Grid>
+-->
+        <Grid Grid.Row="1" Background="White">
+            <mah:FlipView ItemsSource="{Binding Path=DashboardPages}" 
+                          HorizontalAlignment="Stretch" 
+                          VerticalAlignment="Stretch" 
+                          IsManipulationEnabled="True"
+                          Background="White"
+                          IsBannerEnabled="False"
+                          IsNavigationEnabled="True"
+                          NavigationButtonsPosition="Inside">
+                <mah:FlipView.ItemTemplate>
+                    <DataTemplate>
+                        <ContentControl Content="{Binding}" />
+                    </DataTemplate>
+                </mah:FlipView.ItemTemplate>
+            </mah:FlipView>
+        </Grid>
+
+        <Grid Grid.RowSpan="2" Margin="0,50,50,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="5*" />
+                <ColumnDefinition Width="3*" />
+            </Grid.ColumnDefinitions>
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+
+            <!--
+            <Viewbox Stretch="Uniform" Grid.Column="2" HorizontalAlignment="Left">
+                <Rectangle Width="335" Height="393" Stretch="Fill" Fill="{StaticResource CasyImage}" />
+            </Viewbox>
+            -->
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,66 @@
+﻿<Dialog:CustomDialog x:Class="OLS.Casy.Ui.Core.Views.WizardContainerDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+                     xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             mc:Ignorable="d" 
+             Style="{StaticResource CasyDialogStyle}"
+                     Title="{Binding Path=Title}">
+    <Dialog:CustomDialog.Content>
+        <DockPanel LastChildFill="True" MinWidth="711">
+            <Grid HorizontalAlignment="Stretch" Margin="10,20" DockPanel.Dock="Bottom" >
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+                
+                <Button x:Name="butPrev" 
+                        Content="{Binding Path=PreviousButtonText}"
+                        Grid.Column="0"
+                        HorizontalAlignment="Stretch"
+                        Margin="6"
+                        Visibility="{Binding Path=IsPreviousButtonVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        Command="{Binding Path=PreviousButtonCommand}"  
+                        IsEnabled="{Binding Path=CanPreviousButtonCommand}" />
+            
+                <Button x:Name="butNext" 
+                        Style="{StaticResource GreenButton}"
+                        Content="{Binding Path=NextButtonText}"
+                        Grid.Column="1"
+                        Margin="6"
+                        HorizontalAlignment="Stretch"
+                        Command="{Binding Path=NextButtonCommand}"  
+                        IsEnabled="{Binding Path=CanNextButtonCommand}" />
+
+                <Button x:Name="butCancel" 
+                        Style="{StaticResource GrayButton}"
+                        Content="{Binding Path=CancelButtonText}"
+                        Grid.Column="2"
+                        Margin="6"
+                        HorizontalAlignment="Stretch"
+                        Visibility="{Binding Path=IsCancelButtonVisible, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        Command="{Binding Path=CancelCommand}" />
+        </Grid>
+
+            <ContentControl Content="{Binding Path=ActiveWizardStepViewModel}" />
+        </DockPanel>
+    </Dialog:CustomDialog.Content>
+
+    <Dialog:CustomDialog.DialogBottom>
+        <Controls:MetroProgressBar Width="{Binding ActualWidth, RelativeSource={RelativeSource AncestorType=Controls:MetroWindow, Mode=FindAncestor}, UpdateSourceTrigger=PropertyChanged}"
+                                   Height="6"
+                                   HorizontalAlignment="Stretch"
+                                   VerticalAlignment="Bottom"
+                                   Panel.ZIndex="5"
+                                   EllipseDiameter="5"
+                                   Foreground="{StaticResource GreenButtonBackgroundBrush}"
+                                   Maximum="{Binding Path=ProgressMaximum}"
+                                   Minimum="{Binding Path=ProgressMinimum}"
+                                   IsIndeterminate="False"
+                                   Value="{Binding Path=ProgressValue}"/>
+    </Dialog:CustomDialog.DialogBottom>
+</Dialog:CustomDialog>

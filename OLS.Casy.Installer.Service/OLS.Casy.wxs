@@ -1,0 +1,561 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+    <Fragment>
+        <DirectoryRef Id="INSTALLLOCATION">
+            <Directory Id="dirB27348B57A5DB473BF7C6C7DF00A5DBA" Name="de" />
+            <Directory Id="dir4DC39E28E88A7F1F26918FEF6A2132A1" Name="Resources" />
+            <Directory Id="dir7C2C83F6CC8AC47D9022A8AD6554F0C1" Name="x64" />
+            <Directory Id="dirE62C75B0DFC66B1F221D6A7BDE116F3B" Name="x86" />
+        </DirectoryRef>
+    </Fragment>
+    <Fragment>
+        <ComponentGroup Id="OLSCasyComponentGroup">
+            <Component Id="cmp405E801B49328F3A853EAC0608C717AF" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filB3588B93EFC64DB1A0B372AEB67396B2" KeyPath="yes" Source="$(var.HarvestPath)\casy.db" />
+            </Component>
+            <Component Id="cmpD85DA79F73B7589C441434CB1364E292" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil5CF0000FFF96324D35EBCB505CA13926" KeyPath="yes" Source="$(var.HarvestPath)\Common.Logging.Core.dll" />
+            </Component>
+            <Component Id="cmpB747BE58890D1EF0144A973C456FAD3F" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil9AF61597194E15F704CA5DD2AD20B2D0" KeyPath="yes" Source="$(var.HarvestPath)\Common.Logging.Core.pdb" />
+            </Component>
+            <Component Id="cmp9DE362220CBC49AADF2A1FFF02668A0B" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filE48ADA27C3A734D17B82D5EF54B5FCB4" KeyPath="yes" Source="$(var.HarvestPath)\Common.Logging.Core.xml" />
+            </Component>
+            <Component Id="cmp4FD34C82AC67B65A9E3DE59C14F69104" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil5DCB88570E37C2FBB20BE99B13DB9ABA" KeyPath="yes" Source="$(var.HarvestPath)\Common.Logging.dll" />
+            </Component>
+            <Component Id="cmpCC1DDE19D261B3D5D5B71AC9D0D7066D" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filA7564D2F6A5D50146181116737EE1B16" KeyPath="yes" Source="$(var.HarvestPath)\Common.Logging.pdb" />
+            </Component>
+            <Component Id="cmpC3C2DD5F07463D982D7688E95693F137" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil03BDB4A59CCA0A786FC24231B1BF4C4D" KeyPath="yes" Source="$(var.HarvestPath)\Common.Logging.xml" />
+            </Component>
+            <Component Id="cmpD22127E48D96CF621D1838091676C93B" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil3EBF8BB322A1E2AF0AA9990D3D36CFD4" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Charts.v16.2.Core.dll" />
+            </Component>
+            <Component Id="cmp04AA05B3CC27D4D27C68B6DFB3907153" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filCB7BADB32C4D6FF38C767AC6794C612D" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.CodeParser.v16.2.dll" />
+            </Component>
+            <Component Id="cmp47C5170AF34B4F9BFC0625781BAE3D5C" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil319561F0C1DE90F64F42E46454414166" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Data.v16.2.dll" />
+            </Component>
+            <Component Id="cmpDA908700DF5515972D4AC96E5CFE4F2C" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filA937ABA1AA26DF2C153BAD7784772CDF" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Data.v16.2.xml" />
+            </Component>
+            <Component Id="cmp1CBD695BAF2DD0D5BC7020D28A26CCE0" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filCE4B8B041C16D0A13D0AFA810752FACC" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Mvvm.v16.2.dll" />
+            </Component>
+            <Component Id="cmp9742193FC4F9717DD945C93867F0F111" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil589F5F02DDB98E237FF9FB3D3CF99563" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Mvvm.v16.2.xml" />
+            </Component>
+            <Component Id="cmp27994B3E0636902A00FCAEF49D3CF3CE" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filB3411AB5987D02A73FEB8A0922AD96CC" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Office.v16.2.Core.dll" />
+            </Component>
+            <Component Id="cmp9AAF0EEB2C847377AADD45DCAC0ABC17" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filFDCD2BB2EB96B1713324144C8CA15CE8" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Office.v16.2.Core.xml" />
+            </Component>
+            <Component Id="cmpAC976B46D8CCFD7B64D222D9C6D04382" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil46257D9ACEF5CD9C6CA286D76F062D01" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Pdf.v16.2.Core.dll" />
+            </Component>
+            <Component Id="cmpC05D24FDE03C93837940BA539E416085" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil0559EA47ABF1653D02736DF6D1021935" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Pdf.v16.2.Core.xml" />
+            </Component>
+            <Component Id="cmp33AC65C43C1FF4E9706B8151D3915372" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil0875090558700A203BFC793F99D665DA" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Pdf.v16.2.Drawing.dll" />
+            </Component>
+            <Component Id="cmp18ADAAD732E059CD4EEDEAB21C950602" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filACCC9CC29304547EAFC6EA1508741811" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Pdf.v16.2.Drawing.xml" />
+            </Component>
+            <Component Id="cmp48B4EFFF2966BBE9CF67C8605A10547A" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil49356BA36AD31FBE609C79501805C2E7" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Printing.v16.2.Core.dll" />
+            </Component>
+            <Component Id="cmpE985502051D88591CAC597FF8EE0F612" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil64901C98CE08A5AB2E900E7A02880488" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Printing.v16.2.Core.xml" />
+            </Component>
+            <Component Id="cmp10AE7C6C8FBD5EE0CD78098A777E47FD" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil35D48DD2FFE43884C27C4E165004AE87" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.RichEdit.v16.2.Core.dll" />
+            </Component>
+            <Component Id="cmp50EF55D5AE401413EBB7935BF350FB57" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil146369824C6A876C15DE15D2D79BC079" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.RichEdit.v16.2.Core.xml" />
+            </Component>
+            <Component Id="cmpDD9D4CA140CE348F6C91AFF97E1A3FDB" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil66DAF7A285768BBA0C6755BBC2A00E20" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Charts.v16.2.dll" />
+            </Component>
+            <Component Id="cmpA7589FCA53D88B3957B955166DE07BBB" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil7B054FD457F1AAB0703B9B65618120B5" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Charts.v16.2.xml" />
+            </Component>
+            <Component Id="cmpE27A182E9230EC42DB28D369CCD77D8D" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filEC69095322074BF77FB38D86682C267A" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Controls.v16.2.dll" />
+            </Component>
+            <Component Id="cmp7C21664FFC0BC7FA6EF2E5E13754D231" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filDB0AA92B93FCFEA43A0D7982C8CCE168" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Controls.v16.2.xml" />
+            </Component>
+            <Component Id="cmpAAC5CB96F0F303F84CBF63F47F25CA7F" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil277871B759D3C1E6F9C39738297039F4" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Core.v16.2.dll" />
+            </Component>
+            <Component Id="cmpEF30CFD86723B77E1F7A6F2B8A908516" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil2D4DA8FF70677D03F2D26BB322389627" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Core.v16.2.xml" />
+            </Component>
+            <Component Id="cmpF5BB179223E7F4B8E0725A1F4724F091" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil29C0AE5E1A45EFB6E105AAB46C58E52F" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Docking.v16.2.dll" />
+            </Component>
+            <Component Id="cmp3CA12C95AE019411B034F03A630D19DE" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil66EC7BCFB27B389CB68B6D8800C0C33C" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Docking.v16.2.xml" />
+            </Component>
+            <Component Id="cmp37BC4B37157125C97A60E46EC24C4E7B" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil545F57C611F0E7EE3DFC3EB6BBA10750" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.DocumentViewer.v16.2.Core.dll" />
+            </Component>
+            <Component Id="cmp0F574729E89588051EBB370FAA4E0147" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filECBD107CFA5AF3075012BF124F9D1318" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.DocumentViewer.v16.2.Core.xml" />
+            </Component>
+            <Component Id="cmp21FA5398B97DC14FC7D7A8CEFD1DA5AA" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil724C475F2ED720DAA267F4CE07662A20" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Grid.v16.2.Core.dll" />
+            </Component>
+            <Component Id="cmp366449EB0189272F2513589A9D642A05" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil0F9DFBBF81CE4D2A43A64C6434F1ED2A" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Grid.v16.2.Core.xml" />
+            </Component>
+            <Component Id="cmp5698B41C6CF677DCE64B17B8A645E189" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filD34F3A30552BFAE2081276AED77C1558" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Grid.v16.2.dll" />
+            </Component>
+            <Component Id="cmp577BA369973F31E1F179D39A3E807503" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil112566349C1B1532D225CE3B9ADF62B4" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Grid.v16.2.Extensions.dll" />
+            </Component>
+            <Component Id="cmp93BB0D0A377C25E781E14A6C92E7B0BD" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil700FCEB04F468B310CC85BB40B2F6CED" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Grid.v16.2.xml" />
+            </Component>
+            <Component Id="cmpE6DD6A548DA29237562498CBD3A75C3E" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filFB96680C0EDC74387972C83321A4F57F" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Layout.v16.2.Core.dll" />
+            </Component>
+            <Component Id="cmpE873BCA82AE97F6DBC971433D14B79B0" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil00209744A274CEE30B89840746261A0B" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Layout.v16.2.Core.xml" />
+            </Component>
+            <Component Id="cmpC39AC4E48D6BEABC96AD2D5A3270FAA5" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil8C90F0F78408254FC29F3B5ED064B388" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.PdfViewer.v16.2.dll" />
+            </Component>
+            <Component Id="cmpEDCBB934714414D2012765D72467988C" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil9F573E7966277683DDC9BCE20FD1E9D8" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.PdfViewer.v16.2.xml" />
+            </Component>
+            <Component Id="cmp29BBE14EAA1D36BC9EE22BF937926571" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil50141CB652AD71B9AEAE98B559683DE0" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Printing.v16.2.dll" />
+            </Component>
+            <Component Id="cmpBFCC885CD13B5D35D19BC3F30A9B36AC" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filEA1091ACF2D4EA6A31C0BD470C7563F1" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Printing.v16.2.xml" />
+            </Component>
+            <Component Id="cmpC1DCB687A40054DE808587DD41985C52" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil2CFD4061A01AF90E6507343200B5457A" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Ribbon.v16.2.dll" />
+            </Component>
+            <Component Id="cmpF371EBC9FF8FB837DA63217764BC8D13" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil0C628468FE11777A51893548E7AE7945" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Ribbon.v16.2.xml" />
+            </Component>
+            <Component Id="cmpD032E7247D7F900DE263254CCE6C3CDE" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filE5A8F55720321265922540F67F0490F4" KeyPath="yes" Source="$(var.HarvestPath)\DevExpress.Xpf.Themes.Office2016White.v16.2.dll" />
+            </Component>
+            <Component Id="cmp27EA2B61687E5A7DC650AE74087C769C" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil0F065753A31F13E6321AE36B2AAD06E5" KeyPath="yes" Source="$(var.HarvestPath)\EntityFramework.dll" />
+            </Component>
+            <Component Id="cmpC089A10BB84F4EFA42B4AD836B628DFA" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil45C508C3172777941868E32F1A08EC7F" KeyPath="yes" Source="$(var.HarvestPath)\EntityFramework.SqlServer.dll" />
+            </Component>
+            <Component Id="cmpA9009B0955E1A9E51C340E0B023E6D02" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filEC6B0E0C78BDA59A0820E556AF64F8A5" KeyPath="yes" Source="$(var.HarvestPath)\EntityFramework.SqlServer.xml" />
+            </Component>
+            <Component Id="cmpE60D13745A784BE18A10BE44EF030E68" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filD42A1DF6E53C1CA67CC42BE2D0C1A05B" KeyPath="yes" Source="$(var.HarvestPath)\EntityFramework.xml" />
+            </Component>
+            <Component Id="cmpCD88180E8E35FA32F969E44F076C89A2" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil688FEFDC3BE58A9BEF8575166F0C28FB" KeyPath="yes" Source="$(var.HarvestPath)\FontAwesome.WPF.dll" />
+            </Component>
+            <Component Id="cmp70B24B72E374E36F3788F9187AE96D8A" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil4DB0095190B757362D147C813E5F7645" KeyPath="yes" Source="$(var.HarvestPath)\FontAwesome.WPF.xml" />
+            </Component>
+            <Component Id="cmp1238296BCB400508C89B9EC1F650B0EC" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil63EFADB66B829A5706948768B72650DA" KeyPath="yes" Source="$(var.HarvestPath)\ICSharpCode.SharpZipLib.dll" />
+            </Component>
+            <Component Id="cmp1DAAA25A636F6C5B7D9EFE0428D79C24" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filD795C0EE78F6FB1CDA664DEE865C26EC" KeyPath="yes" Source="$(var.HarvestPath)\LinqToExcel.dll" />
+            </Component>
+            <Component Id="cmp59A61C61322872594FC2926F50CE2344" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil371B8DCCCAFFB57F33C0C4F1504B8F2E" KeyPath="yes" Source="$(var.HarvestPath)\LinqToExcel.xml" />
+            </Component>
+            <Component Id="cmpF2BF6AFD53D2AADE630F97DCF0C1DFBC" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil99A610D015AFF301DC770C56C37F8343" KeyPath="yes" Source="$(var.HarvestPath)\log.db" />
+            </Component>
+            <Component Id="cmp1F6DF8646619108DFBB033EF4679F1AC" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filCAAC665964D1DB313016DB15221ED3C8" KeyPath="yes" Source="$(var.HarvestPath)\log4net.config" />
+            </Component>
+            <Component Id="cmpE5C01B5677C30D575CC15B4B558A57E0" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filD17F9AFAC4DF3D7A44817DFBA8510C1A" KeyPath="yes" Source="$(var.HarvestPath)\log4net.dll" />
+            </Component>
+            <Component Id="cmp877B7234C9DA19A7310544D169C9D4B4" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil62C89A12B49E1BF54AFB70F4277695E8" KeyPath="yes" Source="$(var.HarvestPath)\log4net.xml" />
+            </Component>
+            <Component Id="cmpFF4123DA97B2417442446BD4FF887917" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filC4554478BFCA62AE34680EF77C739897" KeyPath="yes" Source="$(var.HarvestPath)\MahApps.Metro.dll" />
+            </Component>
+            <Component Id="cmpF85FE63732780F6437B62DCBA00FB588" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil0DB8A0F2888249815DABB2871E8BF718" KeyPath="yes" Source="$(var.HarvestPath)\MahApps.Metro.pdb" />
+            </Component>
+            <Component Id="cmp7F47DF471919A185CFF0261514CD4BFA" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filF1DB27693EFD89CBDBCEBE946F25AD82" KeyPath="yes" Source="$(var.HarvestPath)\MahApps.Metro.xml" />
+            </Component>
+            <Component Id="cmp06C55D5D8854CE6301A4B76346F9D28E" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filFA380D73EFA4F212431F43B27AB92ECD" KeyPath="yes" Source="$(var.HarvestPath)\MigraDoc.DocumentObjectModel.dll" />
+            </Component>
+            <Component Id="cmpCC450B5751FB690502170E9AD406D80C" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil6C5E09B13402C7DE634393D5AF8A0CAF" KeyPath="yes" Source="$(var.HarvestPath)\MigraDoc.DocumentObjectModel.xml" />
+            </Component>
+            <Component Id="cmp83F7CD2AB914164F65D484466143E4BB" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil0AA67DA423DEC5E8F0F1A45269117291" KeyPath="yes" Source="$(var.HarvestPath)\MigraDoc.Rendering.dll" />
+            </Component>
+            <Component Id="cmpB5BD809F513400FFB2AAD9B1986C0172" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil216DBB1C60682CAE67A238A3857C19B1" KeyPath="yes" Source="$(var.HarvestPath)\MigraDoc.Rendering.xml" />
+            </Component>
+            <Component Id="cmp986F5E49C46DFC2153E4DD83383F0EE5" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil45937E94A774EB277F1D9F34D5D83D64" KeyPath="yes" Source="$(var.HarvestPath)\MigraDoc.RtfRendering.dll" />
+            </Component>
+            <Component Id="cmp01B31744F4CE8E263530A943265A176B" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filCA1652223D0828E8A6964428C50EFE78" KeyPath="yes" Source="$(var.HarvestPath)\MigraDoc.RtfRendering.xml" />
+            </Component>
+            <Component Id="cmpE8BEB470762600F7A3E193D52081A1E9" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filF0F2DFEFD7A4E13FBCE4E90FC7C353BF" KeyPath="yes" Source="$(var.HarvestPath)\monitoring.db" />
+            </Component>
+            <Component Id="cmpE48528C4F5932A4EFD89F7331108F45D" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filF1B84C2C6BCC693224B7A7959445B74F" KeyPath="yes" Source="$(var.HarvestPath)\Newtonsoft.Json.dll" />
+            </Component>
+            <Component Id="cmpE4CCA8ADB2C554D2FCD03F8B4A383604" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filCC081F4881EB8C63FC22F14F559218AA" KeyPath="yes" Source="$(var.HarvestPath)\Newtonsoft.Json.xml" />
+            </Component>
+            <Component Id="cmpECA6DD51D6128EEC7CF34BD6CD475011" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filD095779E7DD055EF46A0A07073748054" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.AppService.exe" />
+            </Component>
+            <Component Id="cmp1BE8A423AF0755772375D16601A81057" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil8EC98B1E0315C756ADAD2A3E61DE647F" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.AppService.exe.config" />
+            </Component>
+            <Component Id="cmp08D737A86F1EB368BAC48C22AAD8E57F" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil4FB0EB81046E548FEAE2C1D60159AD6D" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Calculation.Api.dll" />
+            </Component>
+            <Component Id="cmp2FAEDC9B00559D1F16D4956A658E54A1" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil13005F7DA2E86A4DEABC6E7FA9F8965F" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Calculation.Normalization.dll" />
+            </Component>
+            <Component Id="cmp16EDE605C48C8787E4A2F357379FF469" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filFF00B2A7B491CE8C9FA0F23D010A556A" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Calculation.PolynomialFitting.dll" />
+            </Component>
+            <Component Id="cmp2A06FA33ECE1F7475E37068C95829C77" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil4C002AF1945FDCB64CBAF5534D6E9629" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Calculation.Smooth.dll" />
+            </Component>
+            <Component Id="cmpD97BA9B3D5E6B8B383217FD42C49EF56" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil2DD33F81868543DBD4E02FA1F6595F75" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Calculation.Volume.dll" />
+            </Component>
+            <Component Id="cmpF374B8FE48A179DAD0B1ECA186D25557" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil94626824981C97E0C302785499906154" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Com.Api.dll" />
+            </Component>
+            <Component Id="cmp9B6EEAF45C9491A995A817E26F40F2D6" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil8C7E924E4B0B90D77B54350114C18567" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Controller.Api.dll" />
+            </Component>
+            <Component Id="cmp1CE57FFA0601A76598C0026AB90C9A8F" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil345DFF9B574C5F094CC37F8E54F91BC8" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Controller.dll" />
+            </Component>
+            <Component Id="cmp2AECE7DB85DC236D1FAD05DEB3920B30" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil26FF761FF6864BEFF71ABA8C24154134" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Controller.Measure.dll" />
+            </Component>
+            <Component Id="cmp81DEA0E039653567B33B9BBC8E01E30B" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filE8F0764D302154363551C20D6187150E" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Controller.Measure.dll.config" />
+            </Component>
+            <Component Id="cmpCC80752820623AAFE6A5C2545E013544" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil4F75B380D6B896555327FC2C08189F6F" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Activation.Model.dll" />
+            </Component>
+            <Component Id="cmp25062BAE12F53B58C32032CFC1703023" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil0B1DA1519DC2EE91A641C31C7A1453BD" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Api.dll" />
+            </Component>
+            <Component Id="cmp6949A201D6B0B61570835869B2AAAF37" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil661DF16EF7F0A7D86FF31D4B76D8E13A" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Authorization.Api.dll" />
+            </Component>
+            <Component Id="cmpDD218473AC001CAD80EDDD205004DDAB" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filE7862B8F5898F71E6C901E0F943F5025" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Authorization.Default.dll" />
+            </Component>
+            <Component Id="cmp1C493DD1C2350F575DCB4239FDF2A6A3" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filDD2B3FF0A8626D548D12516F38656F1E" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Authorization.dll" />
+            </Component>
+            <Component Id="cmp99D9A459B233B4BE61AD90D9AA437A41" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil95D55D1C8D8D6CC5025B9C5460A62C72" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Authorization.Emergency.dll" />
+            </Component>
+            <Component Id="cmpD1DCB9497E3A6F98DC47670DC0611BB9" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filC7D0E5F33BB83333DACC333B0E284C57" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Authorization.Encryption.dll" />
+            </Component>
+            <Component Id="cmp81AE5E601E20E7BB97B68531907C768F" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil6AFB7D583A35CE46EC68C839EE3873C7" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Config.Api.dll" />
+            </Component>
+            <Component Id="cmp402AA31B21BF0B118AAB697C08BA8E95" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filDC47B2935C26E5D558030BD82C34CFA8" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Config.dll" />
+            </Component>
+            <Component Id="cmp4937F9EFB1F1396632481533138D7125" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil7BBBD5FA0B2FA6BE83192682CC7506D2" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.dll" />
+            </Component>
+            <Component Id="cmpF41128F727CD22C72AEDFB70E1CC894A" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil31067E9E6082846B37625FDE442ADCBE" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Events.dll" />
+            </Component>
+            <Component Id="cmp7BF12B9EDE1816EA30CF3C4A52C817C8" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil9F40466ED550B8E8F209F715D9D9F790" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Localization.Api.dll" />
+            </Component>
+            <Component Id="cmp0C49247EC2B79A8E65C878E57CFD53CC" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil6C97CB970FEAE95536BDBA2C1BB4864A" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Localization.dll" />
+            </Component>
+            <Component Id="cmpF5F92D73589B232E3F2CF034D67BB7E3" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil9D1D0B38BBFCCE6D812D82FAB6D9CD2F" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Logging.Api.dll" />
+            </Component>
+            <Component Id="cmpB25964BBB73FC35B61D18DE850C6297E" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil6EA48996D4F55B757E99AD0C5BAC9D3D" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Logging.SQLite.EF.dll" />
+            </Component>
+            <Component Id="cmp97C2E4C522CD6FFAD33C6AACE6E9FA54" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil4C6C64D45412DC50F7C7A098803427C7" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Logging.SQLite.EF.dll.config" />
+            </Component>
+            <Component Id="cmp53577357974C2EAD1CAD36FE22E23B50" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filB75E9216124D60A3C8FEBE73B1E7ED46" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Notification.Api.dll" />
+            </Component>
+            <Component Id="cmpF17CAD3F6EE9626E4E73D0759C94CE86" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filA72A9D48456F1B99C48F97BDCF0015C2" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Notification.dll" />
+            </Component>
+            <Component Id="cmp4E2D1D9AA2BA12B872EDE7A539E75465" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil7D01A8357110003F2F3A121C4A4ED7D7" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Runtime.Api.dll" />
+            </Component>
+            <Component Id="cmp702947D26338806C990088D37BCBBE5F" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filCCCA6AB98198E7D15212333A4460A203" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Runtime.dll" />
+            </Component>
+            <Component Id="cmp01C1B23BBD631BDC77BC0DBC1F7B72FC" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil3A8D19C4D4040C52B907605169A6CF3A" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Ui.Workflow.dll" />
+            </Component>
+            <Component Id="cmp64B838278B536964EBBDD3AFA6D2ED41" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filD3EB1B5758E7FE281E87455908D194C7" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Update.dll" />
+            </Component>
+            <Component Id="cmp81D6F41F61E71344CFA65B8E33005ED4" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filA17827CC5606ED1B511B9F660EB48241" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Update.dll.config" />
+            </Component>
+            <Component Id="cmp8E1FD50CD6426050C810805CFE467DA5" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil7349394C6BDE9E3393B01D04B7779907" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Update.Ui.exe" />
+            </Component>
+            <Component Id="cmp98DBBCC69B7AB9857173CFB164E5D808" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil5C9F22CFF66F3AC8B8D245A95D560A48" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Core.Update.Ui.exe.config" />
+            </Component>
+            <Component Id="cmpE2EF0AEFCC39ECEDA552D086D3720542" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil672DEFE52FE44B903D344E369C28CDAD" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.IO.Api.dll" />
+            </Component>
+            <Component Id="cmpF5986991063FD7D0FF970D5A68260585" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filCD2754A3BD93FE2F564FC41D6906306C" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.IO.Backup.dll" />
+            </Component>
+            <Component Id="cmpF05214F9E50CDDF099F3670EE4E49366" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filD5EA0E2BB6E3715D3F221083110B0BA8" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.IO.dll" />
+            </Component>
+            <Component Id="cmp3F51D1858BE132D77D622027127EEEB1" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil1BC8FE6A6C8ACCDAF009267DDA039D7D" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.IO.ImportExport.Binary.dll" />
+            </Component>
+            <Component Id="cmp379869605FCCAB25BF1D94AB19F796DB" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil2A6EDDA1B1395CC4EF76A3A2B22A45ED" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.IO.ImportExport.CRF.dll" />
+            </Component>
+            <Component Id="cmpDC5B15441328CB6E9CBE7F3404C394E8" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil60EEBCA297240C73ADFE4F0C5EE89634" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.IO.ImportExport.Raw.dll" />
+            </Component>
+            <Component Id="cmp70DD8E6DA0F49325C8C2CE9013F741EA" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil68F3CCDC8A41A5A3FA6A89E7C1D7B7C4" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.IO.ImportExport.TT.dll" />
+            </Component>
+            <Component Id="cmp27210105697C9356954D0A095AEFAC74" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil5F6B46F0463E21D443679EB68FE102EC" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.IO.SQLite.dll" />
+            </Component>
+            <Component Id="cmp2BCD69DF998B87E5D85D907467B42C25" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil72F6820A97F7E9BB94C9BAB1F2C3382C" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.IO.SQLite.dll.config" />
+            </Component>
+            <Component Id="cmpB3EA9DEB853C7432670E6762C428188B" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil31F1CC41A4296B27B9655BB124D3572B" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.IO.SQLite.EF.dll" />
+            </Component>
+            <Component Id="cmpCCDAF57EE8CFA965F7907F7C8D08DD72" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil7E5D58C014EFDBCAFB098DA509B65813" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.IO.SQLite.EF.dll.config" />
+            </Component>
+            <Component Id="cmp91EC3B5F2234F1BA348AB9DF8186BB82" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filDC9803D55B14C3DE5C36AFC2D2C67611" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.IO.UsbDetection.dll" />
+            </Component>
+            <Component Id="cmp8DAD905659D603967FB529E53B55DA95" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil4D3AC880A66D4994A6E434FD6786C8B6" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Models.dll" />
+            </Component>
+            <Component Id="cmp1B9037CC9EEB53677D502350948F4D6E" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil09C5418F831B1806B925F4CB819BAF0A" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Monitoring.Api.dll" />
+            </Component>
+            <Component Id="cmpC8CE0E69158B380A5919BA73D65062D6" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil26ADADC2F64FFCFFF8520EC6A0C8F647" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Monitoring.dll" />
+            </Component>
+            <Component Id="cmp435F24C12962A903E21D868868B8957A" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil056DFA7E8FF5AA82434B2631C64D4763" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Monitoring.dll.config" />
+            </Component>
+            <Component Id="cmpCED14EE84A188C3365DB746991FD988A" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filFEB262E01F66C376DBCCD62C08585A9B" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Ui.Analyze.dll" />
+            </Component>
+            <Component Id="cmp176D1D4886F2E4BA49FAF64BC1E90C1F" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil005584C4B28FFF0235B758FAB3B6FE4E" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Ui.Analyze.dll.config" />
+            </Component>
+            <Component Id="cmp6E2636E3AB6EF92A5D7EA22384C26F39" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil9DE4F7BEB1E620440D9D0D3AA2C7A8F4" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Ui.Api.dll" />
+            </Component>
+            <Component Id="cmpCABF63F6B59A6F187DFBAAC021DE8BA4" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filC5433B6918EFE8B84247DFAB3839C8CC" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Ui.Authorization.Api.dll" />
+            </Component>
+            <Component Id="cmpBAD5F34338D2B057831EDC326E4A170B" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil9FC7F94A4119B24AFDC12C0802A6E0E4" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Ui.Base.dll" />
+            </Component>
+            <Component Id="cmp0C19910BDE8C692B14EC4CE364BC5CEB" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filAF118344F93DE221302E054CAD846137" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Ui.Base.dll.config" />
+            </Component>
+            <Component Id="cmp41A0A703043F75C26119CD8F1D780950" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil7D799F059E59B15FDC6055AF087B4B8E" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Ui.Core.Api.dll" />
+            </Component>
+            <Component Id="cmpFE37F5DD248E9F99336D5E8A76A4D75C" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil8D5E725882B9BE96CCE7AA8D8216C829" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Ui.Core.Api.dll.config" />
+            </Component>
+            <Component Id="cmp1BCE01108EB5C2F76E51CF8B40E56F67" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filF9124F83C176205E60C375DD86CC1D7C" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Ui.Core.dll" />
+            </Component>
+            <Component Id="cmpC87FECED018153495C3F8D7CC2974E92" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filD0B857B83A2F3D7E8D588EAA3FE32780" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Ui.Core.dll.config" />
+            </Component>
+            <Component Id="cmpCF952F6ECD32E296FC31C66F4E6D937F" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filF650F8013FAACCA48FA3572B2C3F066F" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Ui.Core.TipTap.dll" />
+            </Component>
+            <Component Id="cmp26596F09C97E49AA6B571A522CD1E88E" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil4CA7C8DF5E8E44EEA523B74B1A4A1C7D" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Ui.Core.TipTap.dll.config" />
+            </Component>
+            <Component Id="cmp2AB90D2625A41E09659FD00C02ADF378" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil273617CF00AC0A2235770A580DC90DED" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Ui.dll" />
+            </Component>
+            <Component Id="cmp931C97C9ED424CD8FE80E67E039ED1B8" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil25CEC6FE56EA0883D17666F75BD7A9EF" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Ui.dll.config" />
+            </Component>
+            <Component Id="cmpD9D804F1B6E9AF7402A9DECE3FFF32BA" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil2514D1EE83CEBCC37D91DF00B1BFA6F6" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Ui.MainControls.Api.dll" />
+            </Component>
+            <Component Id="cmpBBB71A9E569BEB221411AB302E7792CE" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil0BFC10BC6D4C200C5991D633C7C6DEA6" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Ui.MainControls.Api.dll.config" />
+            </Component>
+            <Component Id="cmpE9656525F87A5836B303C1D4EC08553C" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filCC51FD41718879D78EB332ADEB9D8E95" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Ui.MainControls.dll" />
+            </Component>
+            <Component Id="cmp15CB1D1C7BB4F1AA09E63CA0C4C600B7" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil8042746604FFAEB3E7D63F4B913B4C2C" KeyPath="yes" Source="$(var.HarvestPath)\OLS.Casy.Ui.MainControls.dll.config" />
+            </Component>
+            <Component Id="cmpD5B9D1365286951270B507265DB0775C" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil4E66AA8ABF04E8C8C244D2496E1D112B" KeyPath="yes" Source="$(var.HarvestPath)\PdfSharp.Charting.dll" />
+            </Component>
+            <Component Id="cmpDFD89B2BC1060BB2708AEC23EB5C42CD" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil432E14DAE77034867079D4585715FD0D" KeyPath="yes" Source="$(var.HarvestPath)\PdfSharp.Charting.xml" />
+            </Component>
+            <Component Id="cmp74307993B21E1583316D850DDDF3016A" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil8168E3C2861C3EA410B7C22932AD4CBD" KeyPath="yes" Source="$(var.HarvestPath)\PdfSharp.dll" />
+            </Component>
+            <Component Id="cmpD1917EEADE4DEF036D9793B5C04FC3B2" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil17C8C64D71D429914ECBC3D4B323F882" KeyPath="yes" Source="$(var.HarvestPath)\PdfSharp.xml" />
+            </Component>
+            <Component Id="cmp06D9FFD2C2C012A0DD50276CD47D7826" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filDD691C2D89D3FE4E68E75093A91685A2" KeyPath="yes" Source="$(var.HarvestPath)\Prism.dll" />
+            </Component>
+            <Component Id="cmp780C5996B0E32BD41320F3110A54DC69" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filCB4C0520C479A284047A591DE7E1A6B4" KeyPath="yes" Source="$(var.HarvestPath)\Prism.xml" />
+            </Component>
+            <Component Id="cmp444B1FA3E755D96FA85289A3130E8103" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil3D0F822AB6AEC10ACFA5ABA82ACC67B3" KeyPath="yes" Source="$(var.HarvestPath)\Quartz.dll" />
+            </Component>
+            <Component Id="cmp317DC867AFA0DF3CA932523957031FC2" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filF132F9EF59539215C708C5B10C8C5332" KeyPath="yes" Source="$(var.HarvestPath)\Quartz.pdb" />
+            </Component>
+            <Component Id="cmp9DE88CC84DE5E3E88C7016BFD1DA10A0" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filE04FA0452F66ED41D305001FB861E13F" KeyPath="yes" Source="$(var.HarvestPath)\Quartz.xml" />
+            </Component>
+            <Component Id="cmpF30ABFBDD5F2EE9E009690984CBE92F3" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filCB148AB3489EECE96893BE7BEA8872CF" KeyPath="yes" Source="$(var.HarvestPath)\Remotion.Data.Linq.dll" />
+            </Component>
+            <Component Id="cmp54934D318BAC54F13D8B616B6112DC3F" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil4271C3AC66B6F8BDC549DEC068AE7937" KeyPath="yes" Source="$(var.HarvestPath)\Remotion.dll" />
+            </Component>
+            <Component Id="cmpAE471DCAD7B91CFDD1E5267E4D3351B6" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil4B5ADC0C3CF4553C5025C907A13481C6" KeyPath="yes" Source="$(var.HarvestPath)\Remotion.Interfaces.dll" />
+            </Component>
+            <Component Id="cmp86406663FB2201AAC8C3C9D72F022DEA" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filD25BD584E193C89487D4D51BB296EDE8" KeyPath="yes" Source="$(var.HarvestPath)\settings.casy" />
+            </Component>
+            <Component Id="cmp062AD082597894B05E12C33F93F7CF77" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil102A30FBD68CF693D2B2325E489331C2" KeyPath="yes" Source="$(var.HarvestPath)\System.Data.SQLite.dll" />
+            </Component>
+            <Component Id="cmp58085F89A5D7CB8E6F2DEDE0336D46DB" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil9B65193DC7A687320604CCB9802AFABF" KeyPath="yes" Source="$(var.HarvestPath)\System.Data.SQLite.dll.config" />
+            </Component>
+            <Component Id="cmpD8C41F182258FD2A5FB82A6EEE805879" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil2093C6ACC6A41F05991A00FA3A4185AA" KeyPath="yes" Source="$(var.HarvestPath)\System.Data.SQLite.EF6.dll" />
+            </Component>
+            <Component Id="cmp096ADC3AFD267BF9CCE488FCF611C73E" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil59E5309D5DC429FF2E2DE3ED371CC2F3" KeyPath="yes" Source="$(var.HarvestPath)\System.Data.SQLite.Linq.dll" />
+            </Component>
+            <Component Id="cmp45BCA311C06724D90F4F78CC4C47C5D9" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil9B35045D99417590F2118B6F407DE8A7" KeyPath="yes" Source="$(var.HarvestPath)\System.Data.SQLite.xml" />
+            </Component>
+            <Component Id="cmp18D7DDBDF5B438D6F911D5A7395C3A3F" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil736E053EB1E398006C9739B3BC20947B" KeyPath="yes" Source="$(var.HarvestPath)\System.Reactive.Core.dll" />
+            </Component>
+            <Component Id="cmpBB6693198FF53C3BDFCAF96F97D0F8F1" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filFD1B1BB503205AF1FCBD6693931BFB50" KeyPath="yes" Source="$(var.HarvestPath)\System.Reactive.Core.xml" />
+            </Component>
+            <Component Id="cmpF2267E81A7A5F72FB500E2316FD9B245" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filD7A10E6F4FAA7266AB0619BBF1216981" KeyPath="yes" Source="$(var.HarvestPath)\System.Reactive.Interfaces.dll" />
+            </Component>
+            <Component Id="cmp1C02FC6FA9F736AA6EC1D2D9361A54AC" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil4F286BB237971F2C1B21D50FB1AA1818" KeyPath="yes" Source="$(var.HarvestPath)\System.Reactive.Interfaces.xml" />
+            </Component>
+            <Component Id="cmp0C7E2465651BC6098685840BDFE548B6" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil53382AA2F36086D816D4B97F9D05CA93" KeyPath="yes" Source="$(var.HarvestPath)\System.Reactive.Linq.dll" />
+            </Component>
+            <Component Id="cmpDE8E70E89AA285DA4592041EF0F18EBD" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="filCCF658C4BB2F6C4C6643EEB35B364DBE" KeyPath="yes" Source="$(var.HarvestPath)\System.Reactive.Linq.xml" />
+            </Component>
+            <Component Id="cmpD2BD72393CA5BCEA2EFD3FCA8B4DC898" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil628DD6CD39FC903BB3DAFB855A264E7F" KeyPath="yes" Source="$(var.HarvestPath)\System.Reactive.PlatformServices.dll" />
+            </Component>
+            <Component Id="cmpA3128E4040D01B9624D8C88753858226" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil0BB36DF3CFCA16E1D0ECF021A2A5A7D6" KeyPath="yes" Source="$(var.HarvestPath)\System.Reactive.PlatformServices.xml" />
+            </Component>
+            <Component Id="cmp6D4211E3487325DD16A97C3B994B16A3" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil4722798E3ED9CF4F6F045DD8B30193D3" KeyPath="yes" Source="$(var.HarvestPath)\System.Reactive.Windows.Threading.dll" />
+            </Component>
+            <Component Id="cmp01E05CA339C81B7FE6E1D479AF19863E" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil87B8FBEC006B644B28868C07ADD8C5C5" KeyPath="yes" Source="$(var.HarvestPath)\System.Reactive.Windows.Threading.xml" />
+            </Component>
+            <Component Id="cmp7610FA931ED264E2DDF8F5B6D53D1873" Directory="INSTALLLOCATION" Guid="*">
+                <File Id="fil5789A3F41EE337A1B8F482A64C786BDE" KeyPath="yes" Source="$(var.HarvestPath)\System.Windows.Interactivity.dll" />
+            </Component>
+            <Component Id="cmp1E03261AFE9412D6B503C1DE9BD3DD00" Directory="dirB27348B57A5DB473BF7C6C7DF00A5DBA" Guid="*">
+                <File Id="filB7672AB62B8C42D1E4FA4930B29DF9CE" KeyPath="yes" Source="$(var.HarvestPath)\de\MigraDoc.DocumentObjectModel.resources.dll" />
+            </Component>
+            <Component Id="cmp4B244A5F716E5EEB923892651211E071" Directory="dirB27348B57A5DB473BF7C6C7DF00A5DBA" Guid="*">
+                <File Id="fil27A6022C13F41EBCD731B23A351A4579" KeyPath="yes" Source="$(var.HarvestPath)\de\MigraDoc.Rendering.resources.dll" />
+            </Component>
+            <Component Id="cmpDC8635DBAE5D332BFC9AE801C2377D79" Directory="dirB27348B57A5DB473BF7C6C7DF00A5DBA" Guid="*">
+                <File Id="filEE9C2AD5DA8694F30810C44286D1339F" KeyPath="yes" Source="$(var.HarvestPath)\de\MigraDoc.RtfRendering.resources.dll" />
+            </Component>
+            <Component Id="cmp7FCDD36436E172E8C444E3EF8786175E" Directory="dirB27348B57A5DB473BF7C6C7DF00A5DBA" Guid="*">
+                <File Id="filDF59151BD0850D7782EB3E9875D0D9B0" KeyPath="yes" Source="$(var.HarvestPath)\de\PdfSharp.Charting.resources.dll" />
+            </Component>
+            <Component Id="cmp485046B383A415CBA6F192A00013E279" Directory="dirB27348B57A5DB473BF7C6C7DF00A5DBA" Guid="*">
+                <File Id="filEF4988B96B2C498540F635BA6429C81C" KeyPath="yes" Source="$(var.HarvestPath)\de\PdfSharp.resources.dll" />
+            </Component>
+            <Component Id="cmpD8C38D95853154536F7B2D0E194D7641" Directory="dir4DC39E28E88A7F1F26918FEF6A2132A1" Guid="*">
+                <File Id="filE191825576A67039AE8AEF772816571E" KeyPath="yes" Source="$(var.HarvestPath)\Resources\Icon_LogomitUnterzeile.png" />
+            </Component>
+            <Component Id="cmpFA6C5A6839E95B386FD3F07555D7B5BB" Directory="dir4DC39E28E88A7F1F26918FEF6A2132A1" Guid="*">
+                <File Id="fil258A91554F69E55F4A735764BEC716F7" KeyPath="yes" Source="$(var.HarvestPath)\Resources\Icon_LogoStriche.png" />
+            </Component>
+            <Component Id="cmp2B37075CF92B54A2A6BFB895260836AF" Directory="dir4DC39E28E88A7F1F26918FEF6A2132A1" Guid="*">
+                <File Id="fil5017D4D05D307B82F25A230CC512DE39" KeyPath="yes" Source="$(var.HarvestPath)\Resources\OLS_Logo.png" />
+            </Component>
+            <Component Id="cmp2CC53C18C5BE3BACEE486B4630FB01F0" Directory="dir7C2C83F6CC8AC47D9022A8AD6554F0C1" Guid="*">
+                <File Id="fil51445029E4EDF9C9E5349EDA9AB08211" KeyPath="yes" Source="$(var.HarvestPath)\x64\SQLite.Interop.dll" />
+            </Component>
+            <Component Id="cmpEAC9E519DF3BB5A407CDD85A4B128AF0" Directory="dirE62C75B0DFC66B1F221D6A7BDE116F3B" Guid="*">
+                <File Id="filC47E4271B865893B6BEA412E9318E80D" KeyPath="yes" Source="$(var.HarvestPath)\x86\SQLite.Interop.dll" />
+            </Component>
+        </ComponentGroup>
+    </Fragment>
+</Wix>

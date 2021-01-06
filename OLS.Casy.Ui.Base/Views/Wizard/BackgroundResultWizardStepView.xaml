@@ -1,0 +1,117 @@
+﻿<UserControl x:Class="OLS.Casy.Ui.Base.Views.Wizard.BackgroundResultWizardStepView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:extensions="clr-namespace:OLS.Casy.Ui.Base.Extensions"
+             xmlns:localization="clr-namespace:OLS.Casy.Ui.Base.Localization"
+             xmlns:dxc="http://schemas.devexpress.com/winfx/2008/xaml/charts"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Margin="4" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Foreground="White" Text="{Binding Path=Header}" FontWeight="Bold" FontSize="20"/>
+            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Foreground="White" extensions:FormattedTextBlockExtensions.FormattedText="{Binding Path=Text}" TextWrapping="Wrap" Grid.Row="1" FontSize="20"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Foreground="White" Text="BackgroundResultWizardStepView_Results_Header" localization:Localization.IsLocalized="True" FontWeight="Bold" FontSize="20"/>
+
+            <Grid Grid.Row="1" Margin="4">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <iconPacks:PackIconFontAwesome Width="20" Height="20" Margin="4,6" VerticalAlignment="Top" Kind="MoonSolid">
+                    <iconPacks:PackIconFontAwesome.Style>
+                        <Style TargetType="iconPacks:PackIconFontAwesome">
+                            <Setter Property="Foreground" Value="LightGreen" />
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding Path=TotalCountsState}" Value="Red">
+                                    <Setter Property="Foreground" Value="Red" />
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding Path=TotalCountsState}" Value="Yellow">
+                                    <Setter Property="Foreground" Value="Yellow" />
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </iconPacks:PackIconFontAwesome.Style>
+                </iconPacks:PackIconFontAwesome>
+                
+                <Label Style="{StaticResource CasyLabelStyle}" Foreground="White" Content="BackgroundResultWizardStepView_Results_TotalCounts" localization:Localization.IsLocalized="True" Grid.Column="1"  FontSize="20" VerticalAlignment="Top" />
+                <Label Style="{StaticResource CasyLabelStyle}" Foreground="White" Content="{Binding Path=TotalCounts}" Grid.Column="2" FontSize="20" VerticalAlignment="Top" />
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1" Margin="6">
+            <dxc:ChartControl DataSource="{Binding Path=MeasureResultData}" 
+                          Width="300" Height="300" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" 
+                              Background="{x:Null}" CrosshairEnabled="False">
+                <dxc:ChartControl.CrosshairOptions>
+                    <dxc:CrosshairOptions ArgumentLineBrush="{StaticResource OrangeBrush}"  />
+                </dxc:ChartControl.CrosshairOptions>
+                <dxc:ChartControl.Diagram>
+                    <dxc:XYDiagram2D SeriesDataMember="SeriesDescription" EnableAxisXNavigation="False" EnableAxisYNavigation="False">
+                        <dxc:XYDiagram2D.DefaultPane>
+                            <dxc:Pane DomainBorderBrush="{x:Null}">
+                                <dxc:Pane.Style>
+                                    <Style TargetType="{x:Type dxc:Pane}">
+                                        <Setter Property="DomainBrush" Value="{x:Null}" />
+                                    </Style>
+                                </dxc:Pane.Style>
+                            </dxc:Pane>
+                        </dxc:XYDiagram2D.DefaultPane>
+                        <dxc:XYDiagram2D.SeriesTemplate>
+                            <dxc:SplineSeries2D MarkerVisible="False" ArgumentDataMember="ValueX" ValueDataMember="ValueY">
+                                <dxc:SplineSeries2D.LineStyle>
+                                    <dxc:LineStyle Thickness="1" />
+                                </dxc:SplineSeries2D.LineStyle>
+                            </dxc:SplineSeries2D>
+                        </dxc:XYDiagram2D.SeriesTemplate>
+                    </dxc:XYDiagram2D>
+                </dxc:ChartControl.Diagram>
+            </dxc:ChartControl>
+
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right" Margin="0,10,10,0">
+                <Button Style="{StaticResource TransparentButton}"
+                    Command="{Binding Path=PrintCommand}"
+                    BorderThickness="0"
+                    Width="53"
+                    Height="53"
+                        Visibility="{Binding Path=IsPrintButtonVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+
+                    <Button.Content>
+                        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+                            <Ellipse Width="40" Height="40" Fill="Transparent" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <iconPacks:PackIconFontAwesome Width="26" Height="26" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Kind="PrintSolid" />
+                        </Grid>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EACB15CC-4715-4B63-8F96-805BB5324A00}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OLS.Casy.Controller.Test</RootNamespace>
+    <AssemblyName>OLS.Casy.Controller.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">15.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    <ReferencePath>$(ProgramFiles)\Common Files\microsoft shared\VSTT\$(VisualStudioVersion)\UITestExtensionPackages</ReferencePath>
+    <IsCodedUITest>False</IsCodedUITest>
+    <TestProjectType>UnitTest</TestProjectType>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CasyControllerTest.cs" />
+    <Compile Include="ErrorControllerTest.cs" />
+    <Compile Include="MockedObjectProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CalibrationControllerTest.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <Content Include="TestCalibration\K000_003.045">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestCalibration\K000_005.060">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestCalibration\K000_015.150">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TestCalibration\K000_120.150">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OLS.Casy.Com.Api\OLS.Casy.Com.Api.csproj">
+      <Project>{3B6DE788-6400-4721-AE60-41F80CACF6CC}</Project>
+      <Name>OLS.Casy.Com.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OLS.Casy.Com\OLS.Casy.Com.csproj">
+      <Project>{95B45113-7597-46CD-9687-4A6847E19448}</Project>
+      <Name>OLS.Casy.Com</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OLS.Casy.Controller.Api\OLS.Casy.Controller.Api.csproj">
+      <Project>{05A6D41C-60E0-44EA-BD31-31903979072A}</Project>
+      <Name>OLS.Casy.Controller.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OLS.Casy.Controller.Calibration\OLS.Casy.Controller.Calibration.csproj">
+      <Project>{2A000FEF-A2D0-4645-A791-CD59ADECE0EE}</Project>
+      <Name>OLS.Casy.Controller.Calibration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OLS.Casy.Controller.Error\OLS.Casy.Controller.Error.csproj">
+      <Project>{19DFEC0B-4164-4D19-9A19-CEF02C045509}</Project>
+      <Name>OLS.Casy.Controller.Error</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OLS.Casy.Controller\OLS.Casy.Controller.csproj">
+      <Project>{32399789-8109-4c5c-acc6-ae603fdf4741}</Project>
+      <Name>OLS.Casy.Controller</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OLS.Casy.Core.Api\OLS.Casy.Core.Api.csproj">
+      <Project>{6E0CEACD-A87D-4E02-A44C-568B0171F6B1}</Project>
+      <Name>OLS.Casy.Core.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OLS.Casy.Core.Config.Api\OLS.Casy.Core.Config.Api.csproj">
+      <Project>{2E8947AB-282D-4385-924B-836E0885823F}</Project>
+      <Name>OLS.Casy.Core.Config.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OLS.Casy.Core.Events\OLS.Casy.Core.Events.csproj">
+      <Project>{3816F571-DC69-4716-9C94-8FCC52246ADB}</Project>
+      <Name>OLS.Casy.Core.Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OLS.Casy.Core.Localization.Api\OLS.Casy.Core.Localization.Api.csproj">
+      <Project>{7A040B6A-1AA9-431B-9AB6-D929A2767351}</Project>
+      <Name>OLS.Casy.Core.Localization.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OLS.Casy.Core\OLS.Casy.Core.csproj">
+      <Project>{BC75001F-C067-4C78-BD8A-1C24F75A7170}</Project>
+      <Name>OLS.Casy.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OLS.Casy.IO.Api\OLS.Casy.IO.Api.csproj">
+      <Project>{F7F529D7-393D-4E47-9CCF-4EF5EE428916}</Project>
+      <Name>OLS.Casy.IO.Api</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OLS.Casy.Models\OLS.Casy.Models.csproj">
+      <Project>{773BD05C-FEEF-41BD-A1A6-83C6AC52228A}</Project>
+      <Name>OLS.Casy.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OLS.Casy.Test.Mock\OLS.Casy.Test.Mock.csproj">
+      <Project>{154e0d4a-1cdd-4f02-b48d-b992490ad728}</Project>
+      <Name>OLS.Casy.Test.Mock</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Moq">
+      <Version>4.8.2</Version>
+    </PackageReference>
+    <PackageReference Include="MSTest.TestAdapter">
+      <Version>1.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="MSTest.TestFramework">
+      <Version>1.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="System.Threading.Tasks.Extensions">
+      <Version>4.5.4</Version>
+    </PackageReference>
+    <PackageReference Include="System.ValueTuple">
+      <Version>4.5.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" InitialTargets="EnsureWixToolsetInstalled" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>3.10</ProductVersion>
+    <ProjectGuid>f73c74f9-b39a-41ea-a0c4-ed3d686b003f</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>OLS.Casy.Installer</OutputName>
+    <OutputType>Package</OutputType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug Simulator|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+    <DefineConstants>Simulator</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug Desktop|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+    <DefineConstants>Desktop</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release Simulator|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Simulator</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release Desktop|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Desktop</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="NetFx472.wxs" />
+    <Compile Include="OLS.Casy.RemoteAccessService.wxs" />
+    <Compile Include="OLS.Casy.wxs" />
+    <Compile Include="Product.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OLS.Casy.AppService\OLS.Casy.AppService.csproj">
+      <Name>OLS.Casy.AppService</Name>
+      <Project>{7066f00d-02d9-4aff-898e-d4c74bb9d4a5}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixUIExtension">
+      <HintPath>$(WixExtDir)\WixUIExtension.dll</HintPath>
+      <Name>WixUIExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\WiX Toolset v3.11\bin\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Client\casy.db" />
+    <Content Include="Client\casy.standard.db" />
+    <Content Include="Client\Common.Logging.Core.dll" />
+    <Content Include="Client\Common.Logging.dll" />
+    <Content Include="Client\ControlzEx.dll" />
+    <Content Include="Client\Data\OLS_ CASY_TTT-OperatorsGuide_2018-8.pdf" />
+    <Content Include="Client\DevExpress.Charts.v16.2.Core.dll" />
+    <Content Include="Client\DevExpress.CodeParser.v16.2.dll" />
+    <Content Include="Client\DevExpress.Data.v16.2.dll" />
+    <Content Include="Client\DevExpress.Data.v16.2.xml" />
+    <Content Include="Client\DevExpress.Mvvm.v16.2.dll" />
+    <Content Include="Client\DevExpress.Mvvm.v16.2.xml" />
+    <Content Include="Client\DevExpress.Office.v16.2.Core.dll" />
+    <Content Include="Client\DevExpress.Office.v16.2.Core.xml" />
+    <Content Include="Client\DevExpress.Pdf.v16.2.Core.dll" />
+    <Content Include="Client\DevExpress.Pdf.v16.2.Core.xml" />
+    <Content Include="Client\DevExpress.Printing.v16.2.Core.dll" />
+    <Content Include="Client\DevExpress.Printing.v16.2.Core.xml" />
+    <Content Include="Client\DevExpress.RichEdit.v16.2.Core.dll" />
+    <Content Include="Client\DevExpress.RichEdit.v16.2.Core.xml" />
+    <Content Include="Client\DevExpress.Xpf.Charts.v16.2.dll" />
+    <Content Include="Client\DevExpress.Xpf.Charts.v16.2.xml" />
+    <Content Include="Client\DevExpress.Xpf.Core.v16.2.dll" />
+    <Content Include="Client\DevExpress.Xpf.Core.v16.2.xml" />
+    <Content Include="Client\DevExpress.Xpf.Docking.v16.2.dll" />
+    <Content Include="Client\DevExpress.Xpf.Docking.v16.2.xml" />
+    <Content Include="Client\DevExpress.Xpf.DocumentViewer.v16.2.Core.dll" />
+    <Content Include="Client\DevExpress.Xpf.DocumentViewer.v16.2.Core.xml" />
+    <Content Include="Client\DevExpress.Xpf.Grid.v16.2.Core.dll" />
+    <Content Include="Client\DevExpress.Xpf.Grid.v16.2.Core.xml" />
+    <Content Include="Client\DevExpress.Xpf.Grid.v16.2.dll" />
+    <Content Include="Client\DevExpress.Xpf.Grid.v16.2.xml" />
+    <Content Include="Client\DevExpress.Xpf.Layout.v16.2.Core.dll" />
+    <Content Include="Client\DevExpress.Xpf.Layout.v16.2.Core.xml" />
+    <Content Include="Client\DevExpress.Xpf.Printing.v16.2.dll" />
+    <Content Include="Client\DevExpress.Xpf.Printing.v16.2.xml" />
+    <Content Include="Client\DevExpress.Xpf.Ribbon.v16.2.dll" />
+    <Content Include="Client\DevExpress.Xpf.Ribbon.v16.2.xml" />
+    <Content Include="Client\de\DevExpress.Data.v16.2.resources.dll" />
+    <Content Include="Client\de\DevExpress.Office.v16.2.Core.resources.dll" />
+    <Content Include="Client\de\DevExpress.Pdf.v16.2.Core.resources.dll" />
+    <Content Include="Client\de\DevExpress.Printing.v16.2.Core.resources.dll" />
+    <Content Include="Client\de\DevExpress.RichEdit.v16.2.Core.resources.dll" />
+    <Content Include="Client\de\DevExpress.Xpf.Charts.v16.2.resources.dll" />
+    <Content Include="Client\de\DevExpress.Xpf.Core.v16.2.resources.dll" />
+    <Content Include="Client\de\DevExpress.Xpf.Docking.v16.2.resources.dll" />
+    <Content Include="Client\de\DevExpress.Xpf.DocumentViewer.v16.2.Core.resources.dll" />
+    <Content Include="Client\de\DevExpress.Xpf.Grid.v16.2.Core.resources.dll" />
+    <Content Include="Client\de\DevExpress.Xpf.Printing.v16.2.resources.dll" />
+    <Content Include="Client\de\DevExpress.Xpf.Ribbon.v16.2.resources.dll" />
+    <Content Include="Client\de\MigraDoc.DocumentObjectModel.resources.dll" />
+    <Content Include="Client\de\MigraDoc.Rendering.resources.dll" />
+    <Content Include="Client\de\PdfSharp.Charting.resources.dll" />
+    <Content Include="Client\de\PdfSharp.resources.dll" />
+    <Content Include="Client\de\PdfSharpCore.resources.dll" />
+    <Content Include="Client\EntityFramework.dll" />
+    <Content Include="Client\EntityFramework.SqlServer.dll" />
+    <Content Include="Client\EPPlus.dll" />
+    <Content Include="Client\es\DevExpress.Data.v16.2.resources.dll" />
+    <Content Include="Client\es\DevExpress.Office.v16.2.Core.resources.dll" />
+    <Content Include="Client\es\DevExpress.Pdf.v16.2.Core.resources.dll" />
+    <Content Include="Client\es\DevExpress.Printing.v16.2.Core.resources.dll" />
+    <Content Include="Client\es\DevExpress.RichEdit.v16.2.Core.resources.dll" />
+    <Content Include="Client\es\DevExpress.Xpf.Charts.v16.2.resources.dll" />
+    <Content Include="Client\es\DevExpress.Xpf.Core.v16.2.resources.dll" />
+    <Content Include="Client\es\DevExpress.Xpf.Docking.v16.2.resources.dll" />
+    <Content Include="Client\es\DevExpress.Xpf.DocumentViewer.v16.2.Core.resources.dll" />
+    <Content Include="Client\es\DevExpress.Xpf.Grid.v16.2.Core.resources.dll" />
+    <Content Include="Client\es\DevExpress.Xpf.Printing.v16.2.resources.dll" />
+    <Content Include="Client\es\DevExpress.Xpf.Ribbon.v16.2.resources.dll" />
+    <Content Include="Client\ICSharpCode.SharpZipLib.dll" />
+    <Content Include="Client\ja\DevExpress.Data.v16.2.resources.dll" />
+    <Content Include="Client\ja\DevExpress.Office.v16.2.Core.resources.dll" />
+    <Content Include="Client\ja\DevExpress.Pdf.v16.2.Core.resources.dll" />
+    <Content Include="Client\ja\DevExpress.Printing.v16.2.Core.resources.dll" />
+    <Content Include="Client\ja\DevExpress.RichEdit.v16.2.Core.resources.dll" />
+    <Content Include="Client\ja\DevExpress.Xpf.Charts.v16.2.resources.dll" />
+    <Content Include="Client\ja\DevExpress.Xpf.Core.v16.2.resources.dll" />
+    <Content Include="Client\ja\DevExpress.Xpf.Docking.v16.2.resources.dll" />
+    <Content Include="Client\ja\DevExpress.Xpf.DocumentViewer.v16.2.Core.resources.dll" />
+    <Content Include="Client\ja\DevExpress.Xpf.Grid.v16.2.Core.resources.dll" />
+    <Content Include="Client\ja\DevExpress.Xpf.Printing.v16.2.resources.dll" />
+    <Content Include="Client\ja\DevExpress.Xpf.Ribbon.v16.2.resources.dll" />
+    <Content Include="Client\log.db" />
+    <Content Include="Client\log4net.config" />
+    <Content Include="Client\log4net.dll" />
+    <Content Include="Client\log4net_debug.txt" />
+    <Content Include="Client\MahApps.Metro.dll" />
+    <Content Include="Client\MahApps.Metro.IconPacks.Core.dll" />
+    <Content Include="Client\MahApps.Metro.IconPacks.FontAwesome.dll" />
+    <Content Include="Client\Microsoft.Bcl.AsyncInterfaces.dll" />
+    <Content Include="Client\Microsoft.Data.Sqlite.dll" />
+    <Content Include="Client\Microsoft.DotNet.PlatformAbstractions.dll" />
+    <Content Include="Client\Microsoft.EntityFrameworkCore.Abstractions.dll" />
+    <Content Include="Client\Microsoft.EntityFrameworkCore.Design.dll" />
+    <Content Include="Client\Microsoft.EntityFrameworkCore.dll" />
+    <Content Include="Client\Microsoft.EntityFrameworkCore.Relational.dll" />
+    <Content Include="Client\Microsoft.EntityFrameworkCore.Sqlite.dll" />
+    <Content Include="Client\Microsoft.Extensions.Caching.Abstractions.dll" />
+    <Content Include="Client\Microsoft.Extensions.Caching.Memory.dll" />
+    <Content Include="Client\Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <Content Include="Client\Microsoft.Extensions.Configuration.Binder.dll" />
+    <Content Include="Client\Microsoft.Extensions.Configuration.dll" />
+    <Content Include="Client\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <Content Include="Client\Microsoft.Extensions.DependencyInjection.dll" />
+    <Content Include="Client\Microsoft.Extensions.DependencyModel.dll" />
+    <Content Include="Client\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <Content Include="Client\Microsoft.Extensions.Logging.Debug.dll" />
+    <Content Include="Client\Microsoft.Extensions.Logging.dll" />
+    <Content Include="Client\Microsoft.Extensions.Options.dll" />
+    <Content Include="Client\Microsoft.Extensions.Primitives.dll" />
+    <Content Include="Client\Microsoft.Win32.Registry.AccessControl.dll" />
+    <Content Include="Client\Microsoft.Win32.Registry.dll" />
+    <Content Include="Client\Microsoft.Win32.SystemEvents.dll" />
+    <Content Include="Client\Microsoft.Xaml.Behaviors.dll" />
+    <Content Include="Client\MigraDoc.DocumentObjectModel.dll" />
+    <Content Include="Client\MigraDoc.Rendering.dll" />
+    <Content Include="Client\monitoring.db" />
+    <Content Include="Client\Newtonsoft.Json.dll" />
+    <Content Include="Client\OLS.Casy.AppService.exe" />
+    <Content Include="Client\OLS.Casy.AppService.exe.config" />
+    <Content Include="Client\OLS.Casy.Base.dll" />
+    <Content Include="Client\OLS.Casy.Calculation.Api.dll" />
+    <Content Include="Client\OLS.Casy.Calculation.Normalization.dll" />
+    <Content Include="Client\OLS.Casy.Calculation.PolynomialFitting.dll" />
+    <Content Include="Client\OLS.Casy.Calculation.Smooth.dll" />
+    <Content Include="Client\OLS.Casy.Calculation.Volume.dll" />
+    <Content Include="Client\OLS.Casy.Com.Api.dll" />
+    <Content Include="Client\OLS.Casy.Controller.Api.dll" />
+    <Content Include="Client\OLS.Casy.Controller.dll" />
+    <Content Include="Client\OLS.Casy.Controller.Measure.dll" />
+    <Content Include="Client\OLS.Casy.Core.Activation.Model.dll" />
+    <Content Include="Client\OLS.Casy.Core.Api.dll" />
+    <Content Include="Client\OLS.Casy.Core.Authorization.Api.dll" />
+    <Content Include="Client\OLS.Casy.Core.Authorization.Default.dll" />
+    <Content Include="Client\OLS.Casy.Core.Authorization.dll" />
+    <Content Include="Client\OLS.Casy.Core.Authorization.Emergency.dll" />
+    <Content Include="Client\OLS.Casy.Core.Authorization.Encryption.dll" />
+    <Content Include="Client\OLS.Casy.Core.Config.Api.dll" />
+    <Content Include="Client\OLS.Casy.Core.Config.dll" />
+    <Content Include="Client\OLS.Casy.Core.Detection.dll" />
+    <Content Include="Client\OLS.Casy.Core.dll" />
+    <Content Include="Client\OLS.Casy.Core.Events.dll" />
+    <Content Include="Client\OLS.Casy.Core.Localization.Api.dll" />
+    <Content Include="Client\OLS.Casy.Core.Localization.dll" />
+    <Content Include="Client\OLS.Casy.Core.Logging.Api.dll" />
+    <Content Include="Client\OLS.Casy.Core.Logging.SQLite.EF.dll" />
+    <Content Include="Client\OLS.Casy.Core.Notification.Api.dll" />
+    <Content Include="Client\OLS.Casy.Core.Notification.dll" />
+    <Content Include="Client\OLS.Casy.Core.Runtime.Api.dll" />
+    <Content Include="Client\OLS.Casy.Core.Runtime.dll" />
+    <Content Include="Client\OLS.Casy.Core.Ui.Workflow.dll" />
+    <Content Include="Client\OLS.Casy.Core.Update.dll" />
+    <Content Include="Client\OLS.Casy.Core.Update.Ui.exe" />
+    <Content Include="Client\OLS.Casy.Core.Update.Ui.exe.config" />
+    <Content Include="Client\OLS.Casy.ErrorReport.Ui.exe" />
+    <Content Include="Client\OLS.Casy.ErrorReport.Ui.exe.config" />
+    <Content Include="Client\OLS.Casy.IO.Api.dll" />
+    <Content Include="Client\OLS.Casy.IO.Backup.dll" />
+    <Content Include="Client\OLS.Casy.IO.dll" />
+    <Content Include="Client\OLS.Casy.IO.ImportExport.Binary.dll" />
+    <Content Include="Client\OLS.Casy.IO.ImportExport.CRF.dll" />
+    <Content Include="Client\OLS.Casy.IO.ImportExport.Raw.dll" />
+    <Content Include="Client\OLS.Casy.IO.ImportExport.TT.dll" />
+    <Content Include="Client\OLS.Casy.IO.SQLite.dll" />
+    <Content Include="Client\OLS.Casy.IO.SQLite.EF.dll" />
+    <Content Include="Client\OLS.Casy.IO.SQLite.Standard.dll" />
+    <Content Include="Client\OLS.Casy.IO.UsbDetection.dll" />
+    <Content Include="Client\OLS.Casy.Models.dll" />
+    <Content Include="Client\OLS.Casy.Monitoring.Api.dll" />
+    <Content Include="Client\OLS.Casy.Monitoring.dll" />
+    <Content Include="Client\OLS.Casy.RemoteIPS.Api.dll" />
+    <Content Include="Client\OLS.Casy.Ui.Analyze.dll" />
+    <Content Include="Client\OLS.Casy.Ui.Api.dll" />
+    <Content Include="Client\OLS.Casy.Ui.Authorization.Api.dll" />
+    <Content Include="Client\OLS.Casy.Ui.Base.dll" />
+    <Content Include="Client\OLS.Casy.Ui.Core.Api.dll" />
+    <Content Include="Client\OLS.Casy.Ui.Core.dll" />
+    <Content Include="Client\OLS.Casy.Ui.Core.TipTap.dll" />
+    <Content Include="Client\OLS.Casy.Ui.dll" />
+    <Content Include="Client\OLS.Casy.Ui.MainControls.Api.dll" />
+    <Content Include="Client\OLS.Casy.Ui.MainControls.dll" />
+    <Content Include="Client\PdfSharp.Charting.dll" />
+    <Content Include="Client\PdfSharp.dll" />
+    <Content Include="Client\PdfSharpCore.dll" />
+    <Content Include="Client\Polly.dll" />
+    <Content Include="Client\Prism.dll" />
+    <Content Include="Client\ReleaseNotes.txt" />
+    <Content Include="Client\Remotion.Linq.dll" />
+    <Content Include="Client\Resources\Icon_LogomitUnterzeile.png" />
+    <Content Include="Client\Resources\Icon_LogoStriche.png" />
+    <Content Include="Client\ru\DevExpress.Data.v16.2.resources.dll" />
+    <Content Include="Client\ru\DevExpress.Office.v16.2.Core.resources.dll" />
+    <Content Include="Client\ru\DevExpress.Pdf.v16.2.Core.resources.dll" />
+    <Content Include="Client\ru\DevExpress.Printing.v16.2.Core.resources.dll" />
+    <Content Include="Client\ru\DevExpress.RichEdit.v16.2.Core.resources.dll" />
+    <Content Include="Client\ru\DevExpress.Xpf.Charts.v16.2.resources.dll" />
+    <Content Include="Client\ru\DevExpress.Xpf.Core.v16.2.resources.dll" />
+    <Content Include="Client\ru\DevExpress.Xpf.Docking.v16.2.resources.dll" />
+    <Content Include="Client\ru\DevExpress.Xpf.DocumentViewer.v16.2.Core.resources.dll" />
+    <Content Include="Client\ru\DevExpress.Xpf.Grid.v16.2.Core.resources.dll" />
+    <Content Include="Client\ru\DevExpress.Xpf.Printing.v16.2.resources.dll" />
+    <Content Include="Client\ru\DevExpress.Xpf.Ribbon.v16.2.resources.dll" />
+    <Content Include="Client\settings.casy" />
+    <Content Include="Client\SixLabors.Core.dll" />
+    <Content Include="Client\SixLabors.Fonts.dll" />
+    <Content Include="Client\SixLabors.ImageSharp.dll" />
+    <Content Include="Client\sqlcipher.dll" />
+    <Content Include="Client\SQLitePCLRaw.batteries_sqlcipher.dll" />
+    <Content Include="Client\SQLitePCLRaw.batteries_v2.dll" />
+    <Content Include="Client\SQLitePCLRaw.core.dll" />
+    <Content Include="Client\SQLitePCLRaw.provider.sqlcipher.dll" />
+    <Content Include="Client\System.Buffers.dll" />
+    <Content Include="Client\System.CodeDom.dll" />
+    <Content Include="Client\System.Collections.Immutable.dll" />
+    <Content Include="Client\System.ComponentModel.Annotations.dll" />
+    <Content Include="Client\System.Configuration.ConfigurationManager.dll" />
+    <Content Include="Client\System.Data.Odbc.dll" />
+    <Content Include="Client\System.Data.OleDb.dll" />
+    <Content Include="Client\System.Data.SqlClient.dll" />
+    <Content Include="Client\System.Data.SQLite.dll" />
+    <Content Include="Client\System.Data.SQLite.EF6.dll" />
+    <Content Include="Client\System.Data.SQLite.Linq.dll" />
+    <Content Include="Client\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="Client\System.Diagnostics.EventLog.dll" />
+    <Content Include="Client\System.Diagnostics.PerformanceCounter.dll" />
+    <Content Include="Client\System.Drawing.Common.dll" />
+    <Content Include="Client\System.Interactive.Async.dll" />
+    <Content Include="Client\System.IO.FileSystem.AccessControl.dll" />
+    <Content Include="Client\System.IO.Packaging.dll" />
+    <Content Include="Client\System.IO.Pipes.AccessControl.dll" />
+    <Content Include="Client\System.IO.Ports.dll" />
+    <Content Include="Client\System.Memory.dll" />
+    <Content Include="Client\System.Net.Http.Extensions.dll" />
+    <Content Include="Client\System.Net.Http.Primitives.dll" />
+    <Content Include="Client\System.Net.Http.WebRequest.dll" />
+    <Content Include="Client\System.Numerics.Vectors.dll" />
+    <Content Include="Client\System.Reactive.dll" />
+    <Content Include="Client\System.Resources.Extensions.dll" />
+    <Content Include="Client\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="Client\System.Security.AccessControl.dll" />
+    <Content Include="Client\System.Security.Cryptography.Cng.dll" />
+    <Content Include="Client\System.Security.Cryptography.Pkcs.dll" />
+    <Content Include="Client\System.Security.Cryptography.ProtectedData.dll" />
+    <Content Include="Client\System.Security.Cryptography.Xml.dll" />
+    <Content Include="Client\System.Security.Permissions.dll" />
+    <Content Include="Client\System.Security.Principal.Windows.dll" />
+    <Content Include="Client\System.ServiceModel.Duplex.dll" />
+    <Content Include="Client\System.ServiceModel.Http.dll" />
+    <Content Include="Client\System.ServiceModel.NetTcp.dll" />
+    <Content Include="Client\System.ServiceModel.Primitives.dll" />
+    <Content Include="Client\System.ServiceModel.Security.dll" />
+    <Content Include="Client\System.ServiceModel.Syndication.dll" />
+    <Content Include="Client\System.ServiceProcess.ServiceController.dll" />
+    <Content Include="Client\System.Text.Encoding.CodePages.dll" />
+    <Content Include="Client\System.Threading.AccessControl.dll" />
+    <Content Include="Client\System.Threading.Tasks.Extensions.dll" />
+    <Content Include="Client\System.ValueTuple.dll" />
+    <Content Include="Client\x64\sqlcipher.dll" />
+    <Content Include="Client\x64\SQLite.Interop.dll" />
+    <Content Include="Client\x86\sqlcipher.dll" />
+    <Content Include="Client\x86\SQLite.Interop.dll" />
+    <Content Include="Filter.xslt" />
+    <Content Include="Icon\casy.ico" />
+    <Content Include="license.rtf" />
+    <Content Include="Service\appsettings.json" />
+    <Content Include="Service\Microsoft.AspNetCore.Hosting.WindowsServices.dll" />
+    <Content Include="Service\Microsoft.AspNetCore.JsonPatch.dll" />
+    <Content Include="Service\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll" />
+    <Content Include="Service\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll" />
+    <Content Include="Service\Microsoft.AspNetCore.Razor.Language.dll" />
+    <Content Include="Service\Microsoft.AspNetCore.Server.Kestrel.Https.dll" />
+    <Content Include="Service\Microsoft.AspNetCore.Server.Kestrel.Transport.Abstractions.dll" />
+    <Content Include="Service\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="Service\Microsoft.CodeAnalysis.dll" />
+    <Content Include="Service\Microsoft.CodeAnalysis.Razor.dll" />
+    <Content Include="Service\Microsoft.Data.Sqlite.dll" />
+    <Content Include="Service\Microsoft.DotNet.PlatformAbstractions.dll" />
+    <Content Include="Service\Microsoft.EntityFrameworkCore.Abstractions.dll" />
+    <Content Include="Service\Microsoft.EntityFrameworkCore.Design.dll" />
+    <Content Include="Service\Microsoft.EntityFrameworkCore.dll" />
+    <Content Include="Service\Microsoft.EntityFrameworkCore.Relational.dll" />
+    <Content Include="Service\Microsoft.EntityFrameworkCore.Sqlite.dll" />
+    <Content Include="Service\Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <Content Include="Service\Microsoft.Extensions.Configuration.Binder.dll" />
+    <Content Include="Service\Microsoft.Extensions.Configuration.dll" />
+    <Content Include="Service\Microsoft.Extensions.Configuration.FileExtensions.dll" />
+    <Content Include="Service\Microsoft.Extensions.Configuration.Json.dll" />
+    <Content Include="Service\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <Content Include="Service\Microsoft.Extensions.DependencyInjection.dll" />
+    <Content Include="Service\Microsoft.Extensions.DependencyModel.dll" />
+    <Content Include="Service\Microsoft.Extensions.FileProviders.Abstractions.dll" />
+    <Content Include="Service\Microsoft.Extensions.FileProviders.Physical.dll" />
+    <Content Include="Service\Microsoft.Extensions.FileSystemGlobbing.dll" />
+    <Content Include="Service\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <Content Include="Service\Microsoft.Extensions.Logging.Configuration.dll" />
+    <Content Include="Service\Microsoft.Extensions.Logging.Console.dll" />
+    <Content Include="Service\Microsoft.Extensions.Logging.Debug.dll" />
+    <Content Include="Service\Microsoft.Extensions.Logging.dll" />
+    <Content Include="Service\Microsoft.Extensions.Options.ConfigurationExtensions.dll" />
+    <Content Include="Service\Microsoft.Extensions.Options.dll" />
+    <Content Include="Service\Microsoft.Extensions.Primitives.dll" />
+    <Content Include="Service\Newtonsoft.Json.Bson.dll" />
+    <Content Include="Service\Newtonsoft.Json.dll" />
+    <Content Include="Service\OLS.Casy.Base.dll" />
+    <Content Include="Service\OLS.Casy.Calculation.Api.dll" />
+    <Content Include="Service\OLS.Casy.Calculation.Volume.dll" />
+    <Content Include="Service\OLS.Casy.Core.Api.dll" />
+    <Content Include="Service\OLS.Casy.Core.Authorization.Encryption.dll" />
+    <Content Include="Service\OLS.Casy.IO.Api.dll" />
+    <Content Include="Service\OLS.Casy.IO.SQLite.dll" />
+    <Content Include="Service\OLS.Casy.IO.SQLite.Standard.dll" />
+    <Content Include="Service\OLS.Casy.Models.dll" />
+    <Content Include="Service\OLS.Casy.WebService.Host.deps.json" />
+    <Content Include="Service\OLS.Casy.WebService.Host.dll" />
+    <Content Include="Service\OLS.Casy.WebService.Host.exe" />
+    <Content Include="Service\OLS.Casy.WebService.Host.runtimeconfig.json" />
+    <Content Include="Service\Prism.dll" />
+    <Content Include="Service\Remotion.Linq.dll" />
+    <Content Include="Service\runtimes\linux-x64\native\libsqlcipher.so" />
+    <Content Include="Service\runtimes\linux-x86\native\libsqlcipher.so" />
+    <Content Include="Service\runtimes\osx-x64\native\libsqlcipher.dylib" />
+    <Content Include="Service\runtimes\win-arm\native\sqlcipher.dll" />
+    <Content Include="Service\runtimes\win-x64\native\sqlcipher.dll" />
+    <Content Include="Service\runtimes\win-x86\native\sqlcipher.dll" />
+    <Content Include="Service\runtimes\win\lib\netstandard2.0\System.ServiceProcess.ServiceController.dll" />
+    <Content Include="Service\SQLitePCLRaw.batteries_sqlcipher.dll" />
+    <Content Include="Service\SQLitePCLRaw.batteries_v2.dll" />
+    <Content Include="Service\SQLitePCLRaw.core.dll" />
+    <Content Include="Service\SQLitePCLRaw.provider.sqlcipher.dll" />
+    <Content Include="Service\System.ComponentModel.Composition.dll" />
+    <Content Include="Service\System.Interactive.Async.dll" />
+    <Content Include="Service\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="Service\System.ServiceProcess.ServiceController.dll" />
+    <Content Include="Service\TimeZoneConverter.dll" />
+    <Content Include="Service\web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Client\" />
+    <Folder Include="Client\Data\" />
+    <Folder Include="Client\de\" />
+    <Folder Include="Client\es\" />
+    <Folder Include="Client\ja\" />
+    <Folder Include="Client\Resources\" />
+    <Folder Include="Client\ru\" />
+    <Folder Include="Client\x64\" />
+    <Folder Include="Client\x86\" />
+    <Folder Include="Icon\" />
+    <Folder Include="Service" />
+    <Folder Include="Service\runtimes\" />
+    <Folder Include="Service\runtimes\linux-x64\" />
+    <Folder Include="Service\runtimes\linux-x64\native\" />
+    <Folder Include="Service\runtimes\linux-x86\" />
+    <Folder Include="Service\runtimes\linux-x86\native\" />
+    <Folder Include="Service\runtimes\osx-x64\" />
+    <Folder Include="Service\runtimes\osx-x64\native\" />
+    <Folder Include="Service\runtimes\win-arm\" />
+    <Folder Include="Service\runtimes\win-arm\native\" />
+    <Folder Include="Service\runtimes\win-x64\" />
+    <Folder Include="Service\runtimes\win-x64\native\" />
+    <Folder Include="Service\runtimes\win-x86\" />
+    <Folder Include="Service\runtimes\win-x86\native\" />
+    <Folder Include="Service\runtimes\win\" />
+    <Folder Include="Service\runtimes\win\lib\" />
+    <Folder Include="Service\runtimes\win\lib\netstandard2.0\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>$(WixExtDir)\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" Condition=" '$(WixTargetsPath)' != '' " />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets" Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets') " />
+  <Target Name="EnsureWixToolsetInstalled" Condition=" '$(WixTargetsImported)' != 'true' ">
+    <Error Text="The WiX Toolset v3.11 (or newer) build tools must be installed to build this project. To download the WiX Toolset, see http://wixtoolset.org/releases/" />
+  </Target>
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <DefineConstants>HarvestPath=Client;HarvestPath2=Service</DefineConstants>
+  </PropertyGroup>
+  <!--
+	To modify your build process, add your task inside one of the targets below and uncomment it.
+	Other similar extension points exist, see Wix.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+  <Target Name="BeforeBuild">
+    <!--  -->
+    <!--<HeatDirectory OutputFile="$(ProjectDir)\OLS.Casy.wxs" Directory="$(SolutionDir)BuildOutput\$(Configuration)\Casy" PreprocessorVariable="var.OLS.Casy.AppService.TargetDir" ComponentGroupName="OLSCasyComponentGroup" DirectoryRefId="INSTALLLOCATION" AutogenerateGuids="true" SuppressRegistry="true" SuppressRootDirectory="true" ToolPath="$(WixToolPath)" NoLogo="true" Transforms="$(Projectdir)\Filter.xslt" />-->
+    <HeatDirectory OutputFile="$(ProjectDir)\OLS.Casy.wxs" Directory="$(ProjectDir)\Client" PreprocessorVariable="var.HarvestPath" ComponentGroupName="OLSCasyComponentGroup" DirectoryRefId="INSTALLLOCATION" AutogenerateGuids="true" SuppressRegistry="true" SuppressRootDirectory="true" ToolPath="$(WixToolPath)" NoLogo="true" />
+    <HeatDirectory OutputFile="$(ProjectDir)\OLS.Casy.RemoteAccessService.wxs" Directory="$(ProjectDir)\Service" PreprocessorVariable="var.HarvestPath2" ComponentGroupName="OLSCasyRemoteAccessComponentGroup" DirectoryRefId="INSTALLLOCATIONSVC" AutogenerateGuids="true" SuppressRegistry="true" SuppressRootDirectory="true" ToolPath="$(WixToolPath)" NoLogo="true" Transforms="$(Projectdir)\Filter.xslt" />
+  </Target>
+</Project>

@@ -1,0 +1,95 @@
+﻿<Dialog:CustomDialog x:Class="OLS.Casy.Core.Activation.Dialogs.ActivationKeyDialog"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+                     xmlns:controls="clr-namespace:OLS.Casy.Ui.Base.Controls;assembly=OLS.Casy.Ui.Base"
+                     xmlns:extensions="clr-namespace:OLS.Casy.Ui.Base.Extensions;assembly=OLS.Casy.Ui.Base"
+                     xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+                     mc:Ignorable="d" 
+             Style="{StaticResource CasyDialogStyle}"
+                     Title="Activation required"
+                     Width="711">
+    <Dialog:CustomDialog.Content>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <StackPanel>
+                    <TextBlock Style="{StaticResource CasyTextBlockStyle}" TextWrapping="Wrap" LineStackingStrategy="BlockLineHeight" FontSize="18"
+                       Foreground="{StaticResource DialogForegroundBrush}">
+                    <Run>Your software has not been activated yet.</Run>
+                    <LineBreak />
+                    <Run>Prerequisites:</Run>
+                    <LineBreak />
+                    <Run>- Internet connection: </Run>
+                    <Grid>
+                        <iconPacks:PackIconFontAwesome Width="16" Height="16" Foreground="Green" Margin="10,0,12,0" Kind="CheckSolid" Visibility="{Binding Path=IsInternetConnected, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        <iconPacks:PackIconFontAwesome Width="16" Height="16" Foreground="Red" Margin="10,0,12,0" Kind="TimesSolid" Visibility="{Binding Path=IsInternetConnected, Converter={StaticResource BooleanToInvisibilityConverter}}" />
+                    </Grid>
+                    <LineBreak />
+                    <Run>- Directory write access: </Run>
+                    <Grid>
+                        <iconPacks:PackIconFontAwesome Width="16" Height="16" Foreground="Green" Margin="10,0,12,0" Kind="CheckSolid" Visibility="{Binding Path=EveryOneHasWriteAccess, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        <iconPacks:PackIconFontAwesome Width="16" Height="16" Foreground="Red" Margin="10,0,12,0" Kind="TimesSolid" Visibility="{Binding Path=EveryOneHasWriteAccess, Converter={StaticResource BooleanToInvisibilityConverter}}" />
+                    </Grid>
+                    <LineBreak />
+                    <Run>- CASY device conntected: </Run>
+                    <Grid>
+                        <iconPacks:PackIconFontAwesome Width="16" Height="16" Foreground="Green" Margin="10,0,12,0" Kind="CheckSolid" Visibility="{Binding Path=IsCasyConnected, Converter={StaticResource BooleanToVisibilityConverter}}" />
+                        <iconPacks:PackIconFontAwesome Width="16" Height="16" Foreground="Red" Margin="10,0,12,0" Kind="TimesSolid" Visibility="{Binding Path=IsCasyConnected, Converter={StaticResource BooleanToInvisibilityConverter}}" />
+                    </Grid>
+                    <LineBreak />
+                    <Run>- CASY serial number: </Run>
+                    <Run Text="{Binding Path=SerialNumber}" />
+                </TextBlock>
+
+                    <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="Please enter your valid activation key here:" Margin="5" FontSize="18"
+                       Foreground="{StaticResource DialogForegroundBrush}"></TextBlock>
+                    
+                <AdornerDecorator Margin="5" >
+                    <controls:OmniTextBox x:Name="txtInput" Style="{StaticResource CasyOmniTextBoxStyle}" Text="{Binding Path=ActivationKey, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                        <extensions:WatermarkExtension.Watermark>
+                            <TextBlock Style="{StaticResource WatermarkTextBlock}" Text="Activation key" />
+                        </extensions:WatermarkExtension.Watermark>
+                    </controls:OmniTextBox>
+                </AdornerDecorator>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <Button Style="{StaticResource GrayButton}" 
+                        Grid.Column="1" 
+                        Command="{Binding Path=CancelCommand}" 
+                        Content="Cancel" 
+                        Margin="6"/>
+                
+                <Button Style="{StaticResource GreenButton}" 
+                        Grid.Column="2" 
+                        Command="{Binding Path=OkCommand}" 
+                        IsEnabled="{Binding Path=CanSubmit}"
+                        Content="Submit" 
+                        Margin="6"
+                        IsDefault="True"/>
+            </Grid>
+        </Grid>
+    </Dialog:CustomDialog.Content>
+</Dialog:CustomDialog>

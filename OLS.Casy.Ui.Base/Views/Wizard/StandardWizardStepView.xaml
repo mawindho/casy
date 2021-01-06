@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="OLS.Casy.Ui.Base.Views.Wizard.StandardWizardStepView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:extensions="clr-namespace:OLS.Casy.Ui.Base.Extensions"
+             xmlns:localization="clr-namespace:OLS.Casy.Ui.Base.Localization"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Image Source="{Binding Path=ImagePath, Converter={StaticResource StaticResourceConverter}}" />
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock Style="{StaticResource CasyTextBlockStyle}"  Foreground="White" Text="{Binding Path=PrimaryHeader}" FontWeight="Bold" FontSize="20" />
+            <TextBlock Style="{StaticResource CasyTextBlockStyle}"  Foreground="White" extensions:FormattedTextBlockExtensions.FormattedText="{Binding Path=PrimaryText}" TextWrapping="Wrap" Grid.Row="1" FontSize="20"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="2"  Margin="0,4,0,4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Foreground="White" Text="{Binding Path=SecondaryHeader}" FontWeight="Bold" FontSize="20" />
+            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Foreground="White" extensions:FormattedTextBlockExtensions.FormattedText="{Binding Path=SecondaryText}" TextWrapping="Wrap" Grid.Row="1" FontSize="20" />
+        </Grid>
+
+        <Grid Grid.Row="2" Grid.ColumnSpan="2" Margin="0,4,0,4">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Foreground="White" Text="{Binding Path=ThirdHeader}" FontWeight="Bold" FontSize="20" />
+            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Foreground="White" extensions:FormattedTextBlockExtensions.FormattedText="{Binding Path=ThirdText}" TextWrapping="Wrap" Grid.Row="1" FontSize="20" />
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.ColumnSpan="2"  Margin="0,4,0,4" Visibility="{Binding Path=IsDoNotShowAgainVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <CheckBox Style="{StaticResource CasyCheckBoxStyle}" IsChecked="{Binding Path=DoNotShowAgain, Mode=TwoWay}" Content="StnadardWizardStepView_DoNotShowAgain" localization:Localization.IsLocalized="True" FontSize="16" />
+        </Grid>
+    </Grid>
+</UserControl>

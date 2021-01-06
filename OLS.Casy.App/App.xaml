@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:behavior="clr-namespace:OLS.Casy.App.Behavior"
+             xmlns:converters="clr-namespace:OLS.Casy.App.Converters"
+             x:Class="OLS.Casy.App.App">
+    <Application.Resources>
+
+        <!-- COLORS -->
+        <Color x:Key="WhiteColor">#ffffff</Color>
+        <Color x:Key="BlackColor">#000000</Color>
+        <Color x:Key="AccentColor">#FF95C11F</Color>
+        <Color x:Key="LightBlackColor">#595959</Color>
+        <Color x:Key="BackgroundColor">#7F7269</Color>
+        <Color x:Key="GreenColor">#FF95C11F</Color>
+        <Color x:Key="LightGreenColor">#83D01B</Color>
+        <Color x:Key="LightYellowColor">#FFFF9B</Color>
+        <Color x:Key="GrayColor">#e2e2e2</Color>
+        <Color x:Key="TextColor">#757575</Color>
+        <Color x:Key="InverseTextColor">#FFFFFF</Color>
+        <Color x:Key="LightTextColor">#979797</Color>
+        <Color x:Key="SeparatorLineColor">#CCCCCC</Color>
+        <Color x:Key="OrangeColor">#EE7F00</Color>
+        <Color x:Key="ErrorColor">#ff5252</Color>
+
+        <Color x:Key="AndroidDefaultButtonClassBackgroundColor">#C9C9C9</Color>
+        <Color x:Key="iOSDefaultButtonClassBackgroundColor">Transparent</Color>
+        <Color x:Key="AndroidDefaultButtonClassBorderColor">Transparent</Color>
+        <Color x:Key="iOSDefaultButtonClassBorderColor">#007aff</Color>
+        <Color x:Key="AndroidDefaultButtonClassTextColor">#FFFFFF</Color>
+        <Color x:Key="iOSDefaultButtonClassTextColor">#007aff</Color>
+        <Color x:Key="AndroidEntryBackgroundColor">LightGray</Color>
+        <Color x:Key="iOSEntryBackgroundColor">LightGray</Color>
+        <Color x:Key="iOSDefaultTintColor">#007aff</Color>
+        <Color x:Key="AndroidListViewBackgroundColor">Transparent</Color>
+        <Color x:Key="iOSListViewBackgroundColor">Transparent</Color>
+
+        <OnPlatform x:TypeArguments="Color"
+                    x:Key="ActivityIndicatorColor">
+            <On Platform="iOS" Value="{ StaticResource iOSDefaultTintColor }" />
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="Color"
+                    x:Key="DefaultButtonClassBackgroundColor">
+            <On Platform="iOS" Value="{ StaticResource iOSDefaultButtonClassBackgroundColor }" />
+            <On Platform="Android" Value="{ StaticResource AndroidDefaultButtonClassBackgroundColor }" />
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="Color"
+                    x:Key="DefaultButtonClassBorderColor">
+            <On Platform="iOS" Value="{ StaticResource iOSDefaultButtonClassBorderColor }" />
+            <On Platform="Android" Value="{ StaticResource AndroidDefaultButtonClassBorderColor }" />
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="Color"
+                    x:Key="DefaultButtonClassTextColor">
+            <On Platform="iOS" Value="{ StaticResource iOSDefaultButtonClassTextColor }" />
+            <On Platform="Android" Value="{ StaticResource AndroidDefaultButtonClassTextColor }" />
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="Color"
+                    x:Key="EntryBackgroundColor">
+            <On Platform="iOS" Value="{ StaticResource iOSEntryBackgroundColor }" />
+            <On Platform="Android" Value="{ StaticResource AndroidEntryBackgroundColor }" />
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="Color"
+                    x:Key="ThemeListViewBackgroundColor">
+            <On Platform="iOS" Value="{ StaticResource iOSListViewBackgroundColor }" />
+            <On Platform="Android" Value="{ StaticResource AndroidListViewBackgroundColor }" />
+        </OnPlatform>
+
+        <!-- SIZES -->
+        <OnPlatform x:TypeArguments="x:Double"
+                    x:Key="BaseButtonBorderRadius">
+            <On Platform="iOS" Value="6" />
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="x:Double"
+                    x:Key="BaseButtonBorderWidth">
+            <On Platform="iOS, Android" Value="0" />
+        </OnPlatform>
+
+        <!-- FONTS -->
+        <OnPlatform x:Key="DosisRegular"
+                    x:TypeArguments="x:String">
+            <On Platform="iOS" Value="Dosis-Regular" />
+            <On Platform="Android" Value="Dosis-Regular.ttf#Dosis" />
+            <On Platform="UWP, WinRT, WinPhone" Value="Assets/Dosis-Regular.ttf#Dosis" />
+        </OnPlatform>
+
+        <OnPlatform x:Key="DosisBold"
+                    x:TypeArguments="x:String">
+            <On Platform="iOS" Value="Dosis-Bold" />
+            <On Platform="Android" Value="Dosis-Bold.ttf#Dosis" />
+            <On Platform="UWP, WinRT, WinPhone" Value="Assets/Dosis-Bold.ttf#Dosis" />
+        </OnPlatform>
+
+        <OnPlatform x:Key="DosisLight"
+                    x:TypeArguments="x:String">
+            <On Platform="iOS" Value="Dosis-Light" />
+            <On Platform="Android" Value="Dosis-Light.ttf#Dosis" />
+            <On Platform="UWP, WinRT, WinPhone" Value="Assets/Dosis-Light.ttf#Dosis" />
+        </OnPlatform>
+
+        <OnPlatform x:Key="FontAwesomeSolid" x:TypeArguments="x:String">
+            <On Platform="Android" Value="Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free Solid" />
+            <On Platform="iOS" Value="FontAwesome5Free-Solid" />
+            <On Platform="UWP, WinRT, WinPhone" Value="Assets/Font Awesome 5 Free-Solid-900.otf#Font Awesome 5 Free" />
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="x:Double"
+                    x:Key="BaseButtonFontSize">
+            <On Platform="iOS" Value="18" />
+            <On Platform="Android" Value="16" />
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="x:Double"
+                    x:Key="BaseFontSize">
+            <On Platform="iOS" Value="16" />
+            <On Platform="Android" Value="15" />
+        </OnPlatform>
+
+        <OnPlatform x:Key="LittleSize"
+                        x:TypeArguments="x:Double">
+            <On Platform="iOS" Value="11" />
+            <On Platform="Android, UWP, WinRT, WinPhone" Value="12" />
+        </OnPlatform>
+
+        <OnPlatform x:Key="MidMediumSize"
+                        x:TypeArguments="x:Double">
+            <On Platform="iOS" Value="12" />
+            <On Platform="Android, UWP, WinRT, WinPhone" Value="14" />
+        </OnPlatform>
+
+        <OnPlatform x:Key="MediumSize"
+                        x:TypeArguments="x:Double">
+            <On Platform="iOS" Value="14" />
+            <On Platform="Android, UWP, WinRT, WinPhone" Value="16" />
+        </OnPlatform>
+
+        <OnPlatform x:Key="LargeSize"
+                        x:TypeArguments="x:Double">
+            <On Platform="iOS" Value="16" />
+            <On Platform="Android, UWP, WinRT, WinPhone" Value="18" />
+        </OnPlatform>
+
+        <OnPlatform x:Key="LargerSize"
+                        x:TypeArguments="x:Double">
+            <On Platform="iOS" Value="18" />
+            <On Platform="Android, UWP, WinRT, WinPhone" Value="20" />
+        </OnPlatform>
+
+        <OnPlatform x:Key="BigSize"
+                        x:TypeArguments="x:Double">
+            <On Platform="iOS" Value="20" />
+            <On Platform="Android, UWP, WinRT, WinPhone" Value="24" />
+        </OnPlatform>
+
+        <OnPlatform x:Key="ExtraBigSize"
+                        x:TypeArguments="x:Double">
+            <On Platform="iOS" Value="24" />
+            <On Platform="Android, UWP, WinRT, WinPhone" Value="32" />
+        </OnPlatform>
+
+        <OnPlatform x:Key="HugeSize"
+                        x:TypeArguments="x:Double">
+            <On Platform="iOS" Value="32" />
+            <On Platform="Android, UWP, WinRT, WinPhone" Value="48" />
+        </OnPlatform>
+
+        <OnPlatform x:TypeArguments="FontAttributes"
+                        x:Key="BaseButtonFontAttributes">
+            <On Platform="iOS" Value="Bold" />
+            <On Platform="Android" Value="None" />
+        </OnPlatform>
+
+        <converters:CountToBoolConverter x:Key="CountToBoolConverter" />
+        <converters:ItemTappedEventArgsConverter x:Key="ItemTappedEventArgsConverter" />
+        <!--
+        <converters:InverseBoolConverter x:Key="InverseBoolConverter" />
+        <converters:InverseCountToBoolConverter x:Key="InverseCountToBoolConverter" />
+        
+        <converters:ToUpperConverter x:Key="ToUpperConverter" />
+        <converters:NotNullConverter x:Key="NotNullConverter" />
+        <converters:DoubleGridLengthConverter x:Key="DoubleGridLengthConverter" />
+        -->
+
+        <Style x:Key="ValidationErrorLabelStyle"
+                   TargetType="{x:Type Label}">
+            <Setter Property="TextColor"
+                           Value="{StaticResource ErrorColor}" />
+            <Setter Property="FontSize"
+                           Value="{StaticResource LittleSize}" />
+        </Style>
+
+        <Style x:Key="EntryStyle"
+                   TargetType="{x:Type Entry}">
+            <Setter Property="FontFamily"
+                        Value="{StaticResource DosisRegular}" />
+            <Setter Property="TextColor"
+                        Value="#000000" />
+            <Setter Property="PlaceholderColor"
+                        Value="#000000" />
+            <Setter Property="FontSize"
+                        Value="{StaticResource LargeSize}" />
+            <Setter Property="HorizontalOptions"
+                        Value="FillAndExpand" />
+            <Setter Property="FontAttributes"
+                        Value="Bold" />
+            <Setter Property="BackgroundColor" 
+                        Value="LightGray" />
+            <Setter Property="Opacity"
+                        Value="0.6" />
+            <Setter Property="behavior:LineColorBehavior.ApplyLineColor"
+                        Value="True" />
+            <Setter Property="behavior:LineColorBehavior.LineColor"
+                        Value="#000000" />
+            <Style.Triggers>
+                <Trigger TargetType="Entry"
+                             Property="IsFocused" 
+                             Value="True">
+                    <Setter Property="Opacity" Value="1" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="UwpEntryStyle"
+                   TargetType="{x:Type Entry}">
+            <Setter Property="FontFamily"
+                        Value="{StaticResource DosisRegular}" />
+            <Setter Property="TextColor"
+                        Value="#000000" />
+            <Setter Property="PlaceholderColor"
+                        Value="#000000" />
+            <Setter Property="FontSize"
+                        Value="{StaticResource LargeSize}" />
+            <Setter Property="HorizontalOptions"                      
+                        Value="FillAndExpand" />
+            <Setter Property="FontAttributes"
+                        Value="Bold" />
+            <Setter Property="BackgroundColor" 
+                        Value="LightGray" />
+            <Setter Property="Opacity"
+                        Value="0.6" />
+            <Setter Property="behavior:LineColorBehavior.ApplyLineColor"
+                        Value="True" />
+            <Setter Property="behavior:LineColorBehavior.LineColor"
+                        Value="#000000" />
+            <Style.Triggers>
+                <Trigger TargetType="Entry"
+                       Property="IsFocused"
+                       Value="True">
+                    <Setter Property="Opacity" Value="1" />
+                    <Setter Property="behavior:LineColorBehavior.LineColor"                        
+                                Value="{StaticResource GreenColor}" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="Button" ApplyToDerivedTypes="True" CanCascade="True">
+            <Setter Property="FontSize" Value="{ StaticResource BaseButtonFontSize }" />
+            <Setter Property="FontAttributes" Value="{ StaticResource BaseButtonFontAttributes }" />
+            <Setter Property="BorderRadius" Value="{ StaticResource BaseButtonBorderRadius }" />
+            <Setter Property="BorderWidth" Value="{ StaticResource BaseButtonBorderWidth }" />
+            <Setter Property="BackgroundColor" Value="{ StaticResource DefaultButtonClassBackgroundColor }" />
+            <Setter Property="BorderColor" Value="{ StaticResource DefaultButtonClassBorderColor }" />
+            <Setter Property="TextColor" Value="{ StaticResource DefaultButtonClassTextColor }" />
+        </Style>
+
+        <Style TargetType="Label" ApplyToDerivedTypes="True" CanCascade="True">
+            <Setter Property="TextColor" Value="{StaticResource WhiteColor}" />
+            <Setter Property="FontSize" Value="{ StaticResource BaseFontSize }" />
+        </Style>
+
+        <Style TargetType="Entry" ApplyToDerivedTypes="True" CanCascade="True">
+            <Setter Property="TextColor" Value="{ StaticResource TextColor }" />
+            <Setter Property="PlaceholderColor" Value="{ StaticResource LightTextColor }" />
+            <Setter Property="BackgroundColor" Value="{ StaticResource EntryBackgroundColor }" />
+        </Style>
+
+        <Style TargetType="ImageCell" ApplyToDerivedTypes="True" CanCascade="True">
+            <Setter Property="TextColor" Value="{ StaticResource InverseTextColor }" />
+            <Setter Property="DetailColor" Value="{ StaticResource AccentColor }" />
+        </Style>
+
+        <Style TargetType="TextCell" ApplyToDerivedTypes="True" CanCascade="True">
+            <Setter Property="TextColor" Value="{ StaticResource InverseTextColor }" />
+            <Setter Property="DetailColor" Value="{ StaticResource AccentColor }" />
+        </Style>
+
+        <Style TargetType="ListView" ApplyToDerivedTypes="True" CanCascade="True">
+            <Setter Property="BackgroundColor" Value="{ StaticResource ThemeListViewBackgroundColor }" />
+            <Setter Property="SeparatorColor" Value="{ StaticResource SeparatorLineColor }" />
+            <Setter Property="SeparatorVisibility" Value="Default" />
+        </Style>
+
+        <Style TargetType="ActivityIndicator" ApplyToDerivedTypes="True" CanCascade="True">
+            <Setter Property="Color" Value="{ StaticResource ActivityIndicatorColor }" />
+        </Style>
+
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="{StaticResource LightBlackColor}"/>
+            <Setter Property="BarTextColor" Value="{StaticResource WhiteColor}"/>
+        </Style>
+
+        <ImageSourceConverter x:Key="imageSourceConverter" />
+
+        <Style x:Key="FA-Solid" TargetType="Label">
+            <Setter Property="FontFamily" Value="{StaticResource FontAwesomeSolid}" />
+        </Style>
+    </Application.Resources>
+</Application>

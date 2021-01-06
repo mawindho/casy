@@ -1,0 +1,1140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BackupInterval_Daily_Name" xml:space="preserve">
+    <value>Täglich</value>
+    <comment>x</comment>
+  </data>
+  <data name="BackupInterval_Monthly_Name" xml:space="preserve">
+    <value>Monatlich</value>
+    <comment>x</comment>
+  </data>
+  <data name="BackupInterval_Weekly_Name" xml:space="preserve">
+    <value>Wöchentlich</value>
+    <comment>x</comment>
+  </data>
+  <data name="DachboardView_Welcome_Header" xml:space="preserve">
+    <value>WILLKOMMEN</value>
+    <comment>x</comment>
+  </data>
+  <data name="DachboardView_Welcome_Header2" xml:space="preserve">
+    <value>ZU DEINEM CASY,</value>
+    <comment>x</comment>
+  </data>
+  <data name="DashboardView_Welcome_Text" xml:space="preserve">
+    <value>CASY® - vollautomatisch und nicht-invasiv - digitale Signalauswertung mit einer Million Messpunkten pro Sekunde.
+Viable Zellen werden von toten Zellen gertrennt erfasst.</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Title" xml:space="preserve">
+    <value>Intensivreinigung</value>
+    <comment>x</comment>
+  </data>
+  <data name="MenuView_Label_Copyright" xml:space="preserve">
+    <value>© 2017-2019 OLS - OMNI Life Science GmbH &amp; Co KG ({0})</value>
+    <comment>x</comment>
+  </data>
+  <data name="NavigationCategory_Analyse" xml:space="preserve">
+    <value>Analyse</value>
+    <comment>x</comment>
+  </data>
+  <data name="NavigationCategory_AnalyseGraph" xml:space="preserve">
+    <value>Diagrammansicht</value>
+    <comment>x</comment>
+  </data>
+  <data name="NavigationCategory_AnalyseTable" xml:space="preserve">
+    <value>Tabellenansicht</value>
+    <comment>x</comment>
+  </data>
+  <data name="NavigationCategory_Dashboard" xml:space="preserve">
+    <value>Dashboard</value>
+    <comment>x</comment>
+  </data>
+  <data name="NavigationCategory_Measurement" xml:space="preserve">
+    <value>Messung</value>
+    <comment>x</comment>
+  </data>
+  <data name="NavigationCategory_MeasureResults" xml:space="preserve">
+    <value>Messergebnisse</value>
+    <comment>x</comment>
+  </data>
+  <data name="NavigationCategory_Template" xml:space="preserve">
+    <value>Vorlagen</value>
+    <comment>x</comment>
+  </data>
+  <data name="SettingsView_AnnotationTypes_Title" xml:space="preserve">
+    <value>ANNOTATIONSTYPEN</value>
+    <comment>x</comment>
+  </data>
+  <data name="SettingsView_BackupSection_EnableBackup" xml:space="preserve">
+    <value>Sicherung aktiviert</value>
+    <comment>x</comment>
+  </data>
+  <data name="SettingsView_BackupSection_BackupPath_Watermark" xml:space="preserve">
+    <value>ORDNER WÄHLEN</value>
+    <comment>x</comment>
+  </data>
+  <data name="SettingsView_BackupSection_Title" xml:space="preserve">
+    <value>SICHERUNG / LOGGING</value>
+    <comment>x</comment>
+  </data>
+  <data name="SettingsView_CounterSection_Activationkey_Watermark" xml:space="preserve">
+    <value>Aktivierungsschlüssel</value>
+    <comment>x</comment>
+  </data>
+  <data name="SettingsView_CounterSection_CurrentCount" xml:space="preserve">
+    <value>Verfügbare Anzahl</value>
+    <comment>x</comment>
+  </data>
+  <data name="SettingsView_CounterSection_Title" xml:space="preserve">
+    <value>ZÄHLER</value>
+    <comment>x</comment>
+  </data>
+  <data name="SettingsView_LoginSection_AutoLogout_Label" xml:space="preserve">
+    <value>Inaktiven Benutzer ausloggen nach:</value>
+    <comment>x</comment>
+  </data>
+  <data name="SettingsView_LoginSection_ShowLastLoggedInUserName" xml:space="preserve">
+    <value>Zuletzt eingeloggten User anzeigen</value>
+    <comment>x</comment>
+  </data>
+  <data name="SettingsView_LoginSection_Title" xml:space="preserve">
+    <value>LOGIN / LOGOUT</value>
+    <comment>x</comment>
+  </data>
+  <data name="ShortcutDashboardPageView_ShortCut_Analyze" xml:space="preserve">
+    <value>Diagrammansicht</value>
+    <comment>x</comment>
+  </data>
+  <data name="ShortcutDashboardPageView_ShortCut_Data" xml:space="preserve">
+    <value>Tabellenansicht</value>
+    <comment>x</comment>
+  </data>
+  <data name="ShortcutDashboardPageView_ShortCut_Measure" xml:space="preserve">
+    <value>Messung</value>
+    <comment>x</comment>
+  </data>
+  <data name="ShortcutDashboardPageView_ShortCut_Template" xml:space="preserve">
+    <value>Vorlagen</value>
+    <comment>x</comment>
+  </data>
+  <data name="ToolboxView_Title" xml:space="preserve">
+    <value>Service Werkzeuge</value>
+    <comment>x</comment>
+  </data>
+  <data name="ToolboxView_Title_Private" xml:space="preserve">
+    <value>Erweiterte Servicefunktionen</value>
+    <comment>x</comment>
+  </data>
+  <data name="ToolboxView_Title_Public" xml:space="preserve">
+    <value>Service Funktionen</value>
+    <comment>x</comment>
+  </data>
+  <data name="TopMenuView_UserMenu_Content" xml:space="preserve">
+    <value>Guten Tag, {0}</value>
+    <comment>x</comment>
+  </data>
+  <data name="UserMenu_Button_Service" xml:space="preserve">
+    <value>Service</value>
+    <comment>x</comment>
+  </data>
+  <data name="TopMenuButton_Background" xml:space="preserve">
+    <value>LEERWERT</value>
+    <comment>x</comment>
+  </data>
+  <data name="TopMenuButton_Clean" xml:space="preserve">
+    <value>SPÜLEN</value>
+    <comment>x</comment>
+  </data>
+  <data name="TopMenuButton_Measurement" xml:space="preserve">
+    <value>MESSUNG</value>
+    <comment>x</comment>
+  </data>
+  <data name="ShortcutDashboardPageView_ShortCut_Background" xml:space="preserve">
+    <value>Leerwertmessung</value>
+    <comment>x</comment>
+  </data>
+  <data name="ShortcutDashboardPageView_ShortCut_Clean" xml:space="preserve">
+    <value>Spülen</value>
+    <comment>x</comment>
+  </data>
+  <data name="UserMenu_Button_Settings" xml:space="preserve">
+    <value>Einstellungen</value>
+    <comment>x</comment>
+  </data>
+  <data name="SettingsView_UserSection_Title" xml:space="preserve">
+    <value>BENUTZEREINSTELLUNGEN</value>
+    <comment>x</comment>
+  </data>
+  <data name="SettingsView_AutoLogoff_Label_Minute" xml:space="preserve">
+    <value>Minute(n)</value>
+    <comment>x</comment>
+  </data>
+  <data name="SettingsView_AutoLogoff_Label_Never" xml:space="preserve">
+    <value>Niemals</value>
+    <comment>x</comment>
+  </data>
+  <data name="SettingsView_UserSection_Language_Label" xml:space="preserve">
+    <value>Sprache:</value>
+    <comment>x</comment>
+  </data>
+  <data name="SettingsView_AnnotationTypes_NewItem_Watermark" xml:space="preserve">
+    <value>Name des neuen Annotationstypen</value>
+    <comment>x</comment>
+  </data>
+  <data name="ToolboxView_ServicePin_Watermark" xml:space="preserve">
+    <value>EINGABE SERVICE PIN</value>
+    <comment>x</comment>
+  </data>
+  <data name="ToolboxView_Title_Console" xml:space="preserve">
+    <value>SERVICEKONSOLE</value>
+    <comment>x</comment>
+  </data>
+  <data name="ToolboxView_Button_CheckRisetime" xml:space="preserve">
+    <value>STEIGZEIT PRÜFEN</value>
+    <comment>x</comment>
+  </data>
+  <data name="ToolboxView_Button_CheckTightness" xml:space="preserve">
+    <value>DICHTIGKEIT PRÜFEN</value>
+    <comment>x</comment>
+  </data>
+  <data name="ToolboxView_Button_CleanCapillary" xml:space="preserve">
+    <value>ANWEISUNG KAPILLARREINIGUNG</value>
+    <comment>x</comment>
+  </data>
+  <data name="ToolboxView_Button_DeepClean" xml:space="preserve">
+    <value>INTENSIVREINIGUNG</value>
+    <comment>x</comment>
+  </data>
+  <data name="ToolboxView_Button_Dry" xml:space="preserve">
+    <value>TROCKNEN</value>
+    <comment>x</comment>
+  </data>
+  <data name="ToolboxView_Button_PrintStatistice" xml:space="preserve">
+    <value>STATISTIK DRUCKEN</value>
+    <comment>x</comment>
+  </data>
+  <data name="ToolboxView_Button_SelfTest" xml:space="preserve">
+    <value>SELBSTTEST</value>
+    <comment>x</comment>
+  </data>
+  <data name="ToolboxView_Button_ShowCapillaryVoltage" xml:space="preserve">
+    <value>KAPILLARSPANNUNG ANZEIGEN</value>
+    <comment>x</comment>
+  </data>
+  <data name="ToolboxView_Button_Testpattern" xml:space="preserve">
+    <value>TESTMUSTER ERZEUGEN</value>
+    <comment>x</comment>
+  </data>
+  <data name="ToolboxView_Button_WeeklyClean" xml:space="preserve">
+    <value>WÖCHENTLICHE REINIGUNG</value>
+    <comment>x</comment>
+  </data>
+  <data name="NavigationCategory_AnalyseMean" xml:space="preserve">
+    <value>Mittelwertansicht</value>
+    <comment>x</comment>
+  </data>
+  <data name="NavigationCategory_AnalyseOverlay" xml:space="preserve">
+    <value>Overlayansicht</value>
+    <comment>x</comment>
+  </data>
+  <data name="SettingsView_UserSection_Keyboard_Label" xml:space="preserve">
+    <value>Tastatursprache</value>
+    <comment>x</comment>
+  </data>
+  <data name="TopMenuButton_Cleanx3" xml:space="preserve">
+    <value>SPÜLEN</value>
+    <comment>x</comment>
+  </data>
+  <data name="TopMenuButton_Cleanx5" xml:space="preserve">
+    <value>SPÜLEN</value>
+    <comment>x</comment>
+  </data>
+  <data name="TopMenuButton_Redo" xml:space="preserve">
+    <value>REDO</value>
+    <comment>x</comment>
+  </data>
+  <data name="TopMenuButton_Undo" xml:space="preserve">
+    <value>UNDO</value>
+    <comment>x</comment>
+  </data>
+  <data name="SettingsView_BackupSection_SelectPathDialog_Description" xml:space="preserve">
+    <value>Pfad zum Speichern der Sicherung wählen:</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_Button_Finish" xml:space="preserve">
+    <value>Beenden</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_Button_Measure" xml:space="preserve">
+    <value>Leerwert</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_FinalStep_PrimaryHeader" xml:space="preserve">
+    <value>Fertig</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_FinalStep_PrimaryText" xml:space="preserve">
+    <value>Kapillarreinigung erfolgreich beendet.</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_FinalStep_SecondaryHeader" xml:space="preserve">
+    <value>Empfehlung</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_FinalStep_SecondaryText" xml:space="preserve">
+    <value>Es wird empfohlen eine Leerwertmessung mit &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; durchzuführen. Bei &lt;Leerwert&gt; wird ein Leerwermessung durchgeführt, &lt;Beenden&gt; schliesst die Routine ohne den Messvorgang.</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_InitialStep_PrimaryHeader" xml:space="preserve">
+    <value>Bitte beachte</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_InitialStep_PrimaryText" xml:space="preserve">
+    <value>Bitte benutze die Kapillarenreinigungsroutine wenn deine Kapillare verstopft ist</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_InitialStep_SecondaryHeader" xml:space="preserve">
+    <value>Benötigte Materialien</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_InitialStep_SecondaryText" xml:space="preserve">
+    <value>CASYton, Ultraschallbad</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_Step2_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_Step2_PrimaryText" xml:space="preserve">
+    <value>Stelle ein CASYcup gefüllt mit &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; unter die Kapillare.</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_Step2_SecondaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_Step2_SecondaryText" xml:space="preserve">
+    <value>Das System wird den Messkopf &lt;Bold&gt;&lt;Underline&gt;3&lt;/Underline&gt;&lt;/Bold&gt; mal mit &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; spülen.</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_Step3_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_Step3_PrimaryText" xml:space="preserve">
+    <value>Entferne die Kapillare vom Gerät und stelle sie in ein CASYcup mit 10mL &lt;Bold&gt;&lt;Underline&gt;CASYclean&lt;/Underline&gt;&lt;/Bold&gt;. Beschalle die Kapillare für 5 Minuten in einem Ultraschallbad. Weitere Information zum Ausbau der Kapillare findest du im Abschnitt 3.2 der Bedienungsanleitung.</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_Step4_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_Step4_PrimaryText" xml:space="preserve">
+    <value>Baue die Kapillare wieder ein.
+Stelle ein CASYcup gefüllt mit 10ml &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; unter die Kapillare.</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_Step4_SecondaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_Step4_SecondaryText" xml:space="preserve">
+    <value>Das System wird den Messkopf &lt;Bold&gt;&lt;Underline&gt;3&lt;/Underline&gt;&lt;/Bold&gt; mal reinigen, gefolgt von &lt;Bold&gt;&lt;Underline&gt;einer&lt;/Underline&gt;&lt;/Bold&gt; Leerwertmessung mit &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt;.</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_Title" xml:space="preserve">
+    <value>Anweisung Kapillarreinigung</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Button_Finish" xml:space="preserve">
+    <value>Beenden</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_FinalStep_PrimaryHeader" xml:space="preserve">
+    <value>Fertig</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_FinalStep_PrimaryText" xml:space="preserve">
+    <value>Die Intensivreinigung wurde erfolgreich durchgeführt.</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_InitialStep_PrimaryHeader" xml:space="preserve">
+    <value>Bitte beachte</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_InitialStep_PrimaryText" xml:space="preserve">
+    <value>Die Intensivreinigung ist kein Ersatz für die regelmäßige wöchentliche Reinigungsroutine, wie sie in der Kurzanleitung beschrieben ist. Die Intensivreinigung dient zur Beseitigung von spezifischen Problemen wie: 
++ Häufig auftretende grosse Luftblasen im Steigrohr
++ Erhöhte Leerwertmessungen
++ Wiederholtes Vorkommen einer blockierten Kapillare</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_InitialStep_SecondaryHeader" xml:space="preserve">
+    <value>Benötigte Materialien</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_InitialStep_SecondaryText" xml:space="preserve">
+    <value>CASYton, CASYclean, CASYcups, destiliertes Wasser, Ultraschallbad</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_InitialStep_ThirdHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_InitialStep_ThirdText" xml:space="preserve">
+    <value>Das System wird den Messkopf &lt;Bold&gt;&lt;Underline&gt;3&lt;/Underline&gt;&lt;/Bold&gt; mal mit &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; spülen</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step10_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step10_PrimaryText" xml:space="preserve">
+    <value>Baue die Kapillare wieder ein.</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step11to15_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step11to15_PrimaryText" xml:space="preserve">
+    <value>Stelle ein CASYcup gefüllt mit 10ml &lt;Bold&gt;&lt;Underline&gt;CASYclean&lt;/Underline&gt;&lt;/Bold&gt; unter die Kapillare und ein komplett mit &lt;Bold&gt;&lt;Underline&gt;CASYclean&lt;/Underline&gt;&lt;/Bold&gt; gefülltes CASYcup an Stelle der CASYton Flasche.</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step11to15_SecondaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step11to15_SecondaryText" xml:space="preserve">
+    <value>Das System wird den Messkopf &lt;Bold&gt;&lt;Underline&gt;5&lt;/Underline&gt;&lt;/Bold&gt; mal spülen, gefolgt von &lt;Bold&gt;&lt;Underline&gt;einer&lt;/Underline&gt;&lt;/Bold&gt; Leerwertmessung mit &lt;Bold&gt;&lt;Underline&gt;CASYclean&lt;/Underline&gt;&lt;/Bold&gt;.</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step16_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step16_PrimaryText" xml:space="preserve">
+    <value>Inkubiere das System für mindestens eine Stunde (über Nacht oder Wochenende empfohlen)</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step17to19_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step17to19_PrimaryText" xml:space="preserve">
+    <value>Stelle ein CASYcup gefüllt mit 10ml &lt;Bold&gt;&lt;Underline&gt;destilliertem Wasser&lt;/Underline&gt;&lt;/Bold&gt; unter die Kapillare und ein komplett mit &lt;Bold&gt;&lt;Underline&gt;destilliertem Wasser&lt;/Underline&gt;&lt;/Bold&gt; gefülltes CASYcup an Stelle der CASYton Flasche.</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step17to19_SecondaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step17to19_SecondaryText" xml:space="preserve">
+    <value>Das System wird den Messkopf &lt;Bold&gt;&lt;Underline&gt;5&lt;/Underline&gt;&lt;/Bold&gt; mal mit &lt;Bold&gt;&lt;Underline&gt;destilliertem Wasser&lt;/Underline&gt;&lt;/Bold&gt; spülen</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step20_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step20_PrimaryText" xml:space="preserve">
+    <value>Stelle die &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; Flasche unter den Ansaugschlauch.</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step21_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step21_PrimaryText" xml:space="preserve">
+    <value>Stelle ein CASYcup gefüllt mit &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; unter die Kapillare.</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step21_SecondaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step21_SecondaryText" xml:space="preserve">
+    <value>Das System wird den Messkopf &lt;Bold&gt;&lt;Underline&gt;5&lt;/Underline&gt;&lt;/Bold&gt; mal mit &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; spülen</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step22_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step22_PrimaryText" xml:space="preserve">
+    <value>Befülle das CASYcup mit frischem &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt;.</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step22_SecondaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step22_SecondaryText" xml:space="preserve">
+    <value>Das System wird &lt;Bold&gt;&lt;Underline&gt;eine&lt;/Underline&gt;&lt;/Bold&gt; Leerwertmessung durchführen.</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step2to4_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step2to4_PrimaryText" xml:space="preserve">
+    <value>Stelle ein CASYcup gefüllt mit 10ml &lt;Bold&gt;&lt;Underline&gt;destilliertem Wasser&lt;/Underline&gt;&lt;/Bold&gt; unter die Kapillare und ein komplett mit &lt;Bold&gt;&lt;Underline&gt;destilliertem Wasser&lt;/Underline&gt;&lt;/Bold&gt; gefülltes CASYcup an Stelle der CASYton Flasche.</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step2to4_SecondaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step2to4_SecondaryText" xml:space="preserve">
+    <value>Das System wird den Messkopf &lt;Bold&gt;&lt;Underline&gt;5&lt;/Underline&gt;&lt;/Bold&gt; mal mit &lt;Bold&gt;&lt;Underline&gt;destilliertem Wasser&lt;/Underline&gt;&lt;/Bold&gt; spülen</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step5to7_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step5to7_PrimaryText" xml:space="preserve">
+    <value>Stelle ein CASYcup gefüllt mit 10ml &lt;Bold&gt;&lt;Underline&gt;CASYclean&lt;/Underline&gt;&lt;/Bold&gt; unter die Kapillare und ein komplett mit &lt;Bold&gt;&lt;Underline&gt;CASYclean&lt;/Underline&gt;&lt;/Bold&gt; gefülltes CASYcup an Stelle der CASYton Flasche.</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step5to7_SecondaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step5to7_SecondaryText" xml:space="preserve">
+    <value>Das System wird den Messkopf &lt;Bold&gt;&lt;Underline&gt;5&lt;/Underline&gt;&lt;/Bold&gt; mal mit &lt;Bold&gt;&lt;Underline&gt;CASYclean&lt;/Underline&gt;&lt;/Bold&gt; spülen</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step8_PrimaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step8_PrimaryText" xml:space="preserve">
+    <value>Das System wird  &lt;Bold&gt;&lt;Underline&gt;eine&lt;/Underline&gt;&lt;/Bold&gt; Leerwertmessung durchführen.</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step9_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+    <comment>x</comment>
+  </data>
+  <data name="DeepCleanWizard_Step9_PrimaryText" xml:space="preserve">
+    <value>Entferne die Kapillare vom Gerät und stelle sie in ein CASYcup mit 10mL &lt;Bold&gt;&lt;Underline&gt;CASYclean&lt;/Underline&gt;&lt;/Bold&gt;. Beschalle die Kapillare für 5 Minuten in einem Ultraschallbad. Weitere Information zum Ausbau der Kapillare findest du im Abschnitt 3.2 der Bedienungsanleitung.</value>
+    <comment>x</comment>
+  </data>
+  <data name="MainControlsContainerView_TopLeftCorner_ProductDexcription" xml:space="preserve">
+    <value>CELL COUNTER AND ANALYSER</value>
+    <comment>x</comment>
+  </data>
+  <data name="MainControlsContainerView_TopLeftCorner_ProductName" xml:space="preserve">
+    <value>CASY</value>
+    <comment>x</comment>
+  </data>
+  <data name="ToolboxView_Button_CleanCapillary_SelectCapillary" xml:space="preserve">
+    <value>{0} µm Kapillare</value>
+    <comment>x</comment>
+  </data>
+  <data name="ToolboxView_Button_Testpattern_SelectCapillary" xml:space="preserve">
+    <value>{0} µm Kapillare</value>
+    <comment>x</comment>
+  </data>
+  <data name="ToolboxView_Button_WeeklyClean_SelectCapillary" xml:space="preserve">
+    <value>{0} µm Kapillare</value>
+    <comment>x</comment>
+  </data>
+  <data name="ToolboxView_ServiceConsole_Prompt" xml:space="preserve">
+    <value>Service&gt;</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_Button_Finish" xml:space="preserve">
+    <value>Beenden</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_Button_Measure" xml:space="preserve">
+    <value>Leerwert</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_FinalStep_PrimaryHeader" xml:space="preserve">
+    <value>Fast fertig</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_FinalStep_PrimaryText" xml:space="preserve">
+    <value>Die wöchentliche Reinigungsroutine wurde erfolgreich abgeschlossen.</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_FinalStep_SecondaryHeader" xml:space="preserve">
+    <value>Überprüfung</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_FinalStep_SecondaryText" xml:space="preserve">
+    <value>Um den Erfolg der Routine zu überprüfen, wird eine Leerwertmessung mit &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; durchgeführt, anhand deren Ergebnis dieser abgelesen werden kann.</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_initialStep_PrimaryHeader" xml:space="preserve">
+    <value>Bitte beachte</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_initialStep_PrimaryText" xml:space="preserve">
+    <value>Es wird empfohlen, das CASY einmal wöchentlich mit CASYclean zu reinigen. Diese Routine leitet durch die erforderlichen Schritte.</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_initialStep_SecondaryHeader" xml:space="preserve">
+    <value>Benötigte Materialien</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_initialStep_SecondaryText" xml:space="preserve">
+    <value>CASYton, CASYclean, CASYcups, destilliertes Wasser</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_initialStep_ThirdHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_initialStep_ThirdText" xml:space="preserve">
+    <value>Das System wird den Messkopf &lt;Bold&gt;&lt;Underline&gt;3&lt;/Underline&gt;&lt;/Bold&gt; mal mit &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; spülen</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_Step2_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_Step2_PrimaryText" xml:space="preserve">
+    <value>Stelle ein CASYcup gefüllt mit 10ml &lt;Bold&gt;&lt;Underline&gt;destilliertem Wasser&lt;/Underline&gt;&lt;/Bold&gt; unter die Kapillare und ein komplett mit &lt;Bold&gt;&lt;Underline&gt;destilliertem Wasser&lt;/Underline&gt;&lt;/Bold&gt; gefülltes CASYcup an Stelle der CASYton Flasche.</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_Step2_SecondaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_Step2_SecondaryText" xml:space="preserve">
+    <value>Das System wird den Messkopf &lt;Bold&gt;&lt;Underline&gt;5&lt;/Underline&gt;&lt;/Bold&gt; mal mit &lt;Bold&gt;&lt;Underline&gt;destilliertem Wasser&lt;/Underline&gt;&lt;/Bold&gt; spülen</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_Step3_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_Step3_PrimaryText" xml:space="preserve">
+    <value>Stelle ein CASYcup gefüllt mit 10ml &lt;Bold&gt;&lt;Underline&gt;CASYclean&lt;/Underline&gt;&lt;/Bold&gt; unter die Kapillare und ein komplett mit &lt;Bold&gt;&lt;Underline&gt;CASYclean&lt;/Underline&gt;&lt;/Bold&gt; gefülltes CASYcup an Stelle der CASYton Flasche.</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_Step3_SecondaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_Step3_SecondaryText" xml:space="preserve">
+    <value>Das System wird den Messkopf &lt;Bold&gt;&lt;Underline&gt;5&lt;/Underline&gt;&lt;/Bold&gt; mal spülen, gefolgt von &lt;Bold&gt;&lt;Underline&gt;einer&lt;/Underline&gt;&lt;/Bold&gt; Leerwertmessung mit &lt;Bold&gt;&lt;Underline&gt;CASYclean&lt;/Underline&gt;&lt;/Bold&gt;.</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_Step4_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_Step4_PrimaryText" xml:space="preserve">
+    <value>Inkubiere das System für mindestens eine Stunde (über Nacht oder Wochenende empfohlen)</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_Step5_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_Step5_PrimaryText" xml:space="preserve">
+    <value>Stelle ein CASYcup gefüllt mit &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; unter die Kapillare und die CASYton Flasche gefüllt mit &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; unter den CASYton Ansaugschlauch.</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_Step5_SecondaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_Step5_SecondaryText" xml:space="preserve">
+    <value>Das System wird den Messkopf &lt;Bold&gt;&lt;Underline&gt;5&lt;/Underline&gt;&lt;/Bold&gt; mal mit &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; spülen</value>
+    <comment>x</comment>
+  </data>
+  <data name="WeeklyCleanWizard_Title" xml:space="preserve">
+    <value>Wöchentliche Reinigungsroutine</value>
+    <comment>x</comment>
+  </data>
+  <data name="SettingsView_Header" xml:space="preserve">
+    <value>Systemeinstellungen</value>
+  </data>
+  <data name="TopMenuView_CountsLeft" xml:space="preserve">
+    <value>Verbleibende Messungen: {0}</value>
+  </data>
+  <data name="ToolboxView_Button_DeepClean_SelectCapillary" xml:space="preserve">
+    <value>{0} µm Kapillare</value>
+  </data>
+  <data name="UserMenu_Button_Shutdown" xml:space="preserve">
+    <value>Beenden</value>
+  </data>
+  <data name="SettingsView_BrowseLocationSection_BrowseLocation_Watermark" xml:space="preserve">
+    <value>Standard Dateipfad</value>
+  </data>
+  <data name="SettingsView_BrowseLocationSection_SelectPathDialog_Description" xml:space="preserve">
+    <value>Standard Dateipfad</value>
+  </data>
+  <data name="SettingsView_BrowseLocationSection_Title" xml:space="preserve">
+    <value>Standard Dateipfad:</value>
+  </data>
+  <data name="MeasureResultTableView_IsFreeRangePreset" xml:space="preserve">
+    <value>Bereiche</value>
+  </data>
+  <data name="MeasureResultTableView_IsViablityPreset" xml:space="preserve">
+    <value>Viabilität</value>
+  </data>
+  <data name="TopMenuView_NoCasyConnected" xml:space="preserve">
+    <value>Kein Gerät verbunden</value>
+  </data>
+  <data name="CleanCapillaryWizard_Step22_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_Step22_PrimaryText" xml:space="preserve">
+    <value>Stelle ein CASYcup gefüllt mit &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; unter die Kapillare.</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_Step22_SecondaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+    <comment>x</comment>
+  </data>
+  <data name="CleanCapillaryWizard_Step22_SecondaryText" xml:space="preserve">
+    <value>Das System wird  &lt;Bold&gt;&lt;Underline&gt;eine&lt;/Underline&gt;&lt;/Bold&gt; Leerwertmessung mit &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; durchführen.</value>
+    <comment>x</comment>
+  </data>
+  <data name="FavTemplates_Header" xml:space="preserve">
+    <value>Vorlagen Favoriten:</value>
+  </data>
+  <data name="Notification_NoNotifications_Message" xml:space="preserve">
+    <value>Es sind keine Benachrichtigungen vorhanden</value>
+  </data>
+  <data name="Notification_NoNotifications_Title" xml:space="preserve">
+    <value>Keine Benachrichtigungen</value>
+  </data>
+  <data name="SettingsView_RestoreBackupSection_Title" xml:space="preserve">
+    <value>Backup Wiederherstellen</value>
+  </data>
+  <data name="SettingsView_BackupSection_RestoreBackupPath_Watermark" xml:space="preserve">
+    <value>Backup Dateipfad</value>
+  </data>
+  <data name="RestoreBackupWizard_initialStep_PrimaryHeader" xml:space="preserve">
+    <value>Wiederherstellung einer Sicherung</value>
+  </data>
+  <data name="RestoreBackupWizard_initialStep_PrimaryText" xml:space="preserve">
+    <value>ACHTUNG!
+Die WIederherstellung einer Sicherung setzt die komplette Datenbank zum Zeitpunkt des Backups zurück. Zwischenzeitliche Änderungen gehen dauerhaft verloren.
+Willst du wirklich mit dem Wiederherstellen einer Sicherung fortfahren?</value>
+  </data>
+  <data name="String1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="RestoreBackupWizard_Finish_Header" xml:space="preserve">
+    <value>Wiederherstellung abgeschlossen. </value>
+  </data>
+  <data name="RestoreBackupWizard_Finish_Text" xml:space="preserve">
+    <value>Die Wiederherstellung der Sicherung wurde abgeschlossen. Die Anwendung MUSS neu gestartet werden um das Backup vollständig laden zu können!</value>
+  </data>
+  <data name="RestoreBackupWizard_Title" xml:space="preserve">
+    <value>Sicherung Wiederherstellen</value>
+  </data>
+  <data name="MenuView_Label_About" xml:space="preserve">
+    <value>{0}</value>
+  </data>
+  <data name="AboutDialog_Title" xml:space="preserve">
+    <value>Über CASY 2.5 Software</value>
+  </data>
+  <data name="AboutDialog_ModuleAccessControl" xml:space="preserve">
+    <value>Modul erweiterte Zugriffskontrolle</value>
+  </data>
+  <data name="AboutDialog_ModuleAdAuth" xml:space="preserve">
+    <value>Modul Active Directory Authentifizierung</value>
+  </data>
+  <data name="AboutDialog_ModuleCfr" xml:space="preserve">
+    <value>Modul 21 CFR Part 11 Konformität</value>
+  </data>
+  <data name="AboutDialog_ModuleControl" xml:space="preserve">
+    <value>Modul Gerätesteuerung</value>
+  </data>
+  <data name="AboutDialog_ModuleCounter" xml:space="preserve">
+    <value>Modul "Pay Per Measurement"</value>
+  </data>
+  <data name="AboutDialog_ModuleLocalAuth" xml:space="preserve">
+    <value>Modul lokale Authentifizierung</value>
+  </data>
+  <data name="AboutDialog_ModuleTrial" xml:space="preserve">
+    <value>Modul Trial-Version</value>
+  </data>
+  <data name="AboutDialog_Warenty" xml:space="preserve">
+    <value>Aktualitätsgarantie endet am:</value>
+  </data>
+  <data name="ChangeVirtualKeyboardDialog_Content" xml:space="preserve">
+    <value>Einstellungen zur virtuellen Tastatur werden erst nach einem Neustart der Software aktiv.</value>
+  </data>
+  <data name="ChangeVirtualKeyboardDialog_Title" xml:space="preserve">
+    <value>Achtung!</value>
+  </data>
+  <data name="SettingsView_AdAuthSection_GroupOperator_Label" xml:space="preserve">
+    <value>AD-Gruppe Level 'Operator':</value>
+  </data>
+  <data name="SettingsView_AdAuthSection_GroupOperator_Watermark" xml:space="preserve">
+    <value>Operator</value>
+  </data>
+  <data name="SettingsView_AdAuthSection_GroupSupervisor_Label" xml:space="preserve">
+    <value>AD-Gruppe Level 'Supervisor':</value>
+  </data>
+  <data name="SettingsView_AdAuthSection_GroupSupervisor_Watermark" xml:space="preserve">
+    <value>Supervisor</value>
+  </data>
+  <data name="SettingsView_AdAuthSection_GroupUser_Label" xml:space="preserve">
+    <value>AD-Gruppe Level 'User':</value>
+  </data>
+  <data name="SettingsView_AdAuthSection_GroupUser_Watermark" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="SettingsView_AdAuthSection_Title" xml:space="preserve">
+    <value>Active-Directory</value>
+  </data>
+  <data name="SettingsView_TipTapSection_ShowVirtualKeyboard" xml:space="preserve">
+    <value>Virtuelle Tastatur automatisch anzeigen</value>
+  </data>
+  <data name="SettingsView_TipTap_Title" xml:space="preserve">
+    <value>Anzeigeeinstellungen</value>
+  </data>
+  <data name="AboutDialog_UpdateChannel" xml:space="preserve">
+    <value>Update-Kanal:</value>
+  </data>
+  <data name="RestoreBackupWizard_SelectBackup_Header" xml:space="preserve">
+    <value>Backup-Datei wählen</value>
+  </data>
+  <data name="RestoreBackupWizard_SelectBackup_Text" xml:space="preserve">
+    <value>Wählen Sie eine Backup-Datei zur Wiederherstellung aus.</value>
+  </data>
+  <data name="UserMenu_Button_Manual" xml:space="preserve">
+    <value>Bedienungsanleitung</value>
+  </data>
+  <data name="SettingsView_TipTapSection_ShowMouseOverInGraph" xml:space="preserve">
+    <value>Mouse Over Informationen im Graph anzeigen</value>
+  </data>
+  <data name="DocumentSettingsViewModel_Title" xml:space="preserve">
+    <value>Dokumente</value>
+  </data>
+  <data name="SingleMeasurementDocumentSettingsViewModel_Title" xml:space="preserve">
+    <value>Einzelmessung</value>
+  </data>
+  <data name="ToolboxView_Button_Abandonment" xml:space="preserve">
+    <value>ANWEISUNGEN AUSSERBETRIEBNAHME</value>
+  </data>
+  <data name="ToolboxView_Button_Abandonment_SelectCapillary" xml:space="preserve">
+    <value>{0} µm Kapillare</value>
+  </data>
+  <data name="AbandonmentWizard_FinalStep_PrimaryHeader" xml:space="preserve">
+    <value>Fertig</value>
+    <comment>x</comment>
+  </data>
+  <data name="AbandonmentWizard_FinalStep_PrimaryText" xml:space="preserve">
+    <value>Die Ausserbetriebnahme wurde erfolgreich abgeschlossen.</value>
+    <comment>x</comment>
+  </data>
+  <data name="AbandonmentWizard_FinalStep_SecondaryHeader" xml:space="preserve">
+    <value>Letzte Schritte</value>
+    <comment>x</comment>
+  </data>
+  <data name="AbandonmentWizard_FinalStep_SecondaryText" xml:space="preserve">
+    <value>Leere die Abfallbehälter und die zwei CASYcups.
+Schalte die Messeinheit und die Software ab.
+Stelle sicher, dass das System ausreichend vor Staub geschützt ist, während es nicht genutzt wird.</value>
+    <comment>x</comment>
+  </data>
+  <data name="AbandonmentWizard_initialStep_PrimaryHeader" xml:space="preserve">
+    <value>Bitte beachte</value>
+    <comment>x</comment>
+  </data>
+  <data name="AbandonmentWizard_initialStep_PrimaryText" xml:space="preserve">
+    <value>Falls das CASY-System längere Zeit (mehr als zwei Wochen) nicht benutzt wird, sollte das Flüssigkeitssystem entleert werden. Vor dem Herunterfahren muss das Flüssigkeitssystem gereinigt werden. Diese Routine leitet durch die erforderlichen Schritte.</value>
+    <comment>x</comment>
+  </data>
+  <data name="AbandonmentWizard_initialStep_SecondaryHeader" xml:space="preserve">
+    <value>Benötigte Materialien</value>
+    <comment>x</comment>
+  </data>
+  <data name="AbandonmentWizard_initialStep_SecondaryText" xml:space="preserve">
+    <value>CASYton, CASYclean, CASYcups, destilliertes Wasser</value>
+    <comment>x</comment>
+  </data>
+  <data name="AbandonmentWizard_initialStep_ThirdHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+    <comment>x</comment>
+  </data>
+  <data name="AbandonmentWizard_initialStep_ThirdText" xml:space="preserve">
+    <value>Das System wird den Messkopf &lt;Bold&gt;&lt;Underline&gt;3&lt;/Underline&gt;&lt;/Bold&gt; mal mit &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; spülen</value>
+    <comment>x</comment>
+  </data>
+  <data name="AbandonmentWizard_Step7_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+  </data>
+  <data name="AbandonmentWizard_Step7_PrimaryText" xml:space="preserve">
+    <value>Stelle ein CASYcup gefüllt mit 10ml &lt;Bold&gt;&lt;Underline&gt;destilliertem Wasser&lt;/Underline&gt;&lt;/Bold&gt; unter die Kapillare und ein komplett mit &lt;Bold&gt;&lt;Underline&gt;destilliertem Wasser&lt;/Underline&gt;&lt;/Bold&gt; gefülltes CASYcup an Stelle der CASYton Flasche.</value>
+  </data>
+  <data name="AbandonmentWizard_Step7_SecondaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+  </data>
+  <data name="AbandonmentWizard_Step7_SecondaryText" xml:space="preserve">
+    <value>Das System wird den Messkopf &lt;Bold&gt;&lt;Underline&gt;3&lt;/Underline&gt;&lt;/Bold&gt; mal mit &lt;Bold&gt;&lt;Underline&gt;destilliertem Wasser&lt;/Underline&gt;&lt;/Bold&gt; spülen</value>
+  </data>
+  <data name="AbandonmentWizard_Step8_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+  </data>
+  <data name="AbandonmentWizard_Step8_PrimaryText" xml:space="preserve">
+    <value>Stelle ein &lt;Bold&gt;&lt;Underline&gt;leeres&lt;/Underline&gt;&lt;/Bold&gt; CASYcup unter die Kapillare und ein &lt;Bold&gt;&lt;Underline&gt;leeres&lt;/Underline&gt;&lt;/Bold&gt; CASYcup an Stelle der CASYton Flasche.</value>
+  </data>
+  <data name="AbandonmentWizard_Step8_SecondaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+  </data>
+  <data name="AbandonmentWizard_Step8_SecondaryText" xml:space="preserve">
+    <value>Das System wird &lt;Bold&gt;&lt;Underline&gt;2&lt;/Underline&gt;&lt;/Bold&gt; mal getrocknet</value>
+  </data>
+  <data name="AbandonmentWizard_Title" xml:space="preserve">
+    <value>Ausserbetriebnahme</value>
+  </data>
+  <data name="MeasureResultTableView_IsUserPreset" xml:space="preserve">
+    <value>Benutzerdefiniert</value>
+  </data>
+  <data name="StartUpWizard_Title" xml:space="preserve">
+    <value>Betriebsstart</value>
+  </data>
+  <data name="StartUpWizzard_Initial_PrimaryText" xml:space="preserve">
+    <value>Es wird empfohlen, diese Routine mit dem CASY zu Beginn jeden Arbeitstags durchzuführen.</value>
+  </data>
+  <data name="StartUpWizzard_Initial_SecondaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+  </data>
+  <data name="StartUpWizzard_Initial_SecondaryText" xml:space="preserve">
+    <value>Überprüfe, ob die &lt;Bold&gt;&lt;Underline&gt;Waste-Flasche&lt;/Underline&gt;&lt;/Bold&gt; geleert und die  &lt;Bold&gt;&lt;Underline&gt;CASYton-Flasche&lt;/Underline&gt;&lt;/Bold&gt; gefüllt ist.
+Das System wird den Messkopf &lt;Bold&gt;&lt;Underline&gt;3&lt;/Underline&gt;&lt;/Bold&gt; mal mit &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; spülen</value>
+  </data>
+  <data name="StartUpWizzard_Result_Button_Accept" xml:space="preserve">
+    <value>Akzeptieren</value>
+  </data>
+  <data name="StartUpWizzard_Result_Button_Repeat" xml:space="preserve">
+    <value>Wiederholen</value>
+  </data>
+  <data name="StartUpWizzard_Result_Text" xml:space="preserve">
+    <value>Ergebnis:</value>
+  </data>
+  <data name="StartUpWizzard_SelectCapillary_Text" xml:space="preserve">
+    <value>Bitte wähle die aktuell installierte Kapillare. Dies ist notwendig für die folgende Background-Messung measurement.</value>
+  </data>
+  <data name="StartUpWizzard_Step2_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+  </data>
+  <data name="StartUpWizzard_Step2_PrimaryText" xml:space="preserve">
+    <value>Stelle ein CASYcup gefüllt mit 10ml &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; unter die Kapillare.</value>
+  </data>
+  <data name="StartUpWizzard_Step2_SecondaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+  </data>
+  <data name="StartUpWizzard_Step2_SecondaryText" xml:space="preserve">
+    <value>Das System wird &lt;Bold&gt;&lt;Underline&gt;eine&lt;/Underline&gt;&lt;/Bold&gt; Backgrund-Messung durchführen.</value>
+  </data>
+  <data name="ToolboxView_Button_ShutDown" xml:space="preserve">
+    <value>BETRIEBSENDE</value>
+  </data>
+  <data name="ToolboxView_Button_StartUp" xml:space="preserve">
+    <value>BETRIEBSSTART</value>
+  </data>
+  <data name="ShutDownWizard_Title" xml:space="preserve">
+    <value>Betriebsende</value>
+  </data>
+  <data name="ShutDownWizzard_Initial_PrimaryText" xml:space="preserve">
+    <value>Führe die folgenden Schritte am Ende des Arbeitstages nach der letzten Messung durch, bevor du dein CASY abschaltest
+</value>
+  </data>
+  <data name="ShutDownWizzard_Initial_SecondaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+  </data>
+  <data name="ShutDownWizzard_Initial_SecondaryText" xml:space="preserve">
+    <value>Stelle ein CASYcup gefüllt mit &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; unter die Kapillare.
+Das System wird den Messkopf &lt;Bold&gt;&lt;Underline&gt;3&lt;/Underline&gt;&lt;/Bold&gt; mal mit &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; spülen</value>
+  </data>
+  <data name="ShutDownWizzard_Result_Button_Repeat" xml:space="preserve">
+    <value>Wiederholen</value>
+  </data>
+  <data name="ShutDownWizzard_Result_Button_Shutdown" xml:space="preserve">
+    <value>Beenden</value>
+  </data>
+  <data name="ShutDownWizzard_Result_Text" xml:space="preserve">
+    <value>Ist der Leerwert OK, stelle ein CASYcup mit frischem CASYton unter die Kapillare und schalte die Mess- und Kontrolleinheit ab
+</value>
+  </data>
+  <data name="ShutDownWizzard_SelectCapillary_Text" xml:space="preserve">
+    <value>Bitte wähle die aktuell installierte Kapillare. Dies ist notwendig für die folgende Background-Messung measurement.</value>
+  </data>
+  <data name="ShutDownWizzard_Step2_PrimaryHeader" xml:space="preserve">
+    <value>Anweisungen</value>
+  </data>
+  <data name="ShutDownWizzard_Step2_PrimaryText" xml:space="preserve">
+    <value>Stelle ein CASYcup gefüllt mit 10ml &lt;Bold&gt;&lt;Underline&gt;CASYton&lt;/Underline&gt;&lt;/Bold&gt; unter die Kapillare.</value>
+  </data>
+  <data name="ShutDownWizzard_Step2_SecondaryHeader" xml:space="preserve">
+    <value>Nächste Schritte</value>
+  </data>
+  <data name="ShutDownWizzard_Step2_SecondaryText" xml:space="preserve">
+    <value>Das System wird &lt;Bold&gt;&lt;Underline&gt;eine&lt;/Underline&gt;&lt;/Bold&gt; Backgrund-Messung durchführen.</value>
+  </data>
+  <data name="SettingsView_CFRSection_ShowProbeName" xml:space="preserve">
+    <value>Abfrage des Name vor der Messung erzwingen</value>
+  </data>
+  <data name="SettingsView_CFR_Title" xml:space="preserve">
+    <value>CFR Einstellungen</value>
+  </data>
+  <data name="TopMenuView_UserMenu_Role_Content" xml:space="preserve">
+    <value>Rolle: {0}</value>
+  </data>
+  <data name="SettingsView_CFRSection_Button_CleanSystemLog" xml:space="preserve">
+    <value>Einträge älter als {0} Tage löschen</value>
+  </data>
+  <data name="SettingsView_CFRSection_CleanSystemLog" xml:space="preserve">
+    <value>Gerätelog aufräumen</value>
+  </data>
+  <data name="DeleteSystemLogMessageBox_Content" xml:space="preserve">
+    <value>Möchtest du wirklich den Gerätelog bereinigen? Die Informationen werden unwiederruflich gelöscht.</value>
+  </data>
+  <data name="DeleteSystemLogMessageBox_Title" xml:space="preserve">
+    <value>Gerätelog aufräumen</value>
+  </data>
+  <data name="SettingsView_CFRSection_WeeklyCleanMandatory" xml:space="preserve">
+    <value>Wöchentliche Reinigungsmethode erzwingen</value>
+  </data>
+  <data name="SettingsView_CFRSection_WeeklyCleanNotification_Label" xml:space="preserve">
+    <value>Hinweis auf anstehende wöchentliche Reinigung anzeigen:</value>
+  </data>
+  <data name="SettingsView_Hours" xml:space="preserve">
+    <value>Strunden</value>
+  </data>
+  <data name="RemoteDashboyrdPage_Url_Label" xml:space="preserve">
+    <value>URL eines CASY Remote Webservice: </value>
+  </data>
+  <data name="RemoteDashboyrdPage_Url_Watermark" xml:space="preserve">
+    <value>Remote Webservice URL</value>
+  </data>
+  <data name="RemoteDashboyrdPage_Url_Button_Connect" xml:space="preserve">
+    <value>Verbinden</value>
+  </data>
+  <data name="SettingsView_DateTimeFormatSection_Title" xml:space="preserve">
+    <value>Datums- und Zeitformatierung</value>
+  </data>
+</root>

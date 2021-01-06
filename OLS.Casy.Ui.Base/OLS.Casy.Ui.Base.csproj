@@ -1,0 +1,122 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <OutputType>Library</OutputType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>..\BuildOutput\Debug\Casy\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <OutputPath>..\BuildOutput\Release\Casy\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Simulator|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\BuildOutput\Debug Simulator\Casy\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release Simulator|AnyCPU'">
+    <OutputPath>..\BuildOutput\Release Simulator\Casy\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Desktop|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\BuildOutput\Debug Desktop\Casy\</OutputPath>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release Desktop|AnyCPU'">
+    <OutputPath>..\BuildOutput\Release Desktop\Casy\</OutputPath>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DevExpress.Charts.v16.2.Core">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Charts.v16.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Data.v16.2">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Data.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Mvvm.v16.2">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Mvvm.v16.2.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="DevExpress.Printing.v16.2.Core">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Printing.v16.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Charts.v16.2">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Xpf.Charts.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Core.v16.2">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Xpf.Core.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v16.2">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Xpf.Grid.v16.2.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Grid.v16.2.Core">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Xpf.Grid.v16.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Printing.v16.2">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Xpf.Printing.v16.2.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Entypo.ttf" />
+    <Resource Include="Resources\Dosis-SemiBold.ttf" />
+    <Resource Include="Resources\Dosis-Regular.ttf" />
+    <Resource Include="Resources\Dosis-Medium.ttf" />
+    <Resource Include="Resources\Dosis-Light.ttf" />
+    <Resource Include="Resources\Dosis-ExtraLight.ttf" />
+    <Resource Include="Resources\Dosis-ExtraBold.ttf" />
+    <Resource Include="Resources\Dosis-Bold.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OLS.Casy.Core.Api\OLS.Casy.Core.Api.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Core.Authorization.Api\OLS.Casy.Core.Authorization.Api.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Core.Events\OLS.Casy.Core.Events.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Core.Localization.Api\OLS.Casy.Core.Localization.Api.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Core\OLS.Casy.Core.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Models\OLS.Casy.Models.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Ui.Api\OLS.Casy.Ui.Api.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Ui.Core.Api\OLS.Casy.Ui.Core.Api.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\WindowsIcons-license.txt" />
+    <Resource Include="Resources\Entypo-license.txt" />
+    <Content Include="Resources\Icon_LogomitUnterzeile.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Resources\Icon_LogoStriche.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="MahApps.Metro">
+      <Version>2.0.1</Version>
+    </PackageReference>
+    <PackageReference Include="MahApps.Metro.IconPacks.FontAwesome" Version="4.2.0" />
+    <PackageReference Include="PdfSharp.MigraDoc.Standard" Version="1.51.12" />
+    <PackageReference Include="Prism.Core">
+      <Version>7.2.0.1422</Version>
+    </PackageReference>
+    <PackageReference Include="System.ComponentModel.Annotations" Version="4.7.0" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="4.7.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Controls\ChildView.cs" />
+    <Compile Remove="Converters\ContextMenuStateToOpacityConverter.cs" />
+    <Compile Remove="Extensions\PrintExtension.cs" />
+    <Compile Remove="Views\PdfView.xaml.cs" />
+    <Page Remove="Views\PdfView.xaml" />
+  </ItemGroup>
+</Project>

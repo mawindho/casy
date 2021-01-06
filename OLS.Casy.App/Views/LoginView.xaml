@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:converters="clr-namespace:OLS.Casy.App.Converters"
+             xmlns:behaviors="clr-namespace:OLS.Casy.App.Behavior"
+             xmlns:base="clr-namespace:OLS.Casy.App.ViewModels.Base"
+             x:Class="OLS.Casy.App.Views.LoginView"
+             base:ViewModelLocator.AutoWireViewModel="true">
+    <ContentPage.Title>
+        <OnPlatform x:TypeArguments="x:String">
+            <On Platform="iOS, UWP, WinRT, WinPhone" Value="CASY App" />
+        </OnPlatform>
+    </ContentPage.Title>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:FirstValidationErrorConverter x:Key="FirstValidationErrorConverter" />
+            
+            <Style x:Key="TitleLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter Property="FontFamily"
+                    Value="{StaticResource DosisRegular}" />
+                <Setter Property="FontAttributes"
+                    Value="Bold" />
+                <Setter Property="FontSize"
+                    Value="{StaticResource MediumSize}" />
+                <Setter Property="HorizontalOptions"
+                    Value="Center" />
+                <Setter Property="Margin"
+                    Value="0, 12" />
+            </Style>
+
+            <Style x:Key="HeaderLabelStyle"
+                TargetType="{x:Type Label}">
+                <Setter Property="FontFamily"
+                    Value="{StaticResource DosisRegular}" />
+                <Setter Property="FontSize"
+                    Value="{StaticResource LittleSize}" />
+                <Setter Property="TextColor"
+                    Value="{StaticResource WhiteColor}" />
+                <Setter Property="HorizontalOptions"
+                    Value="Start" />
+            </Style>
+
+            <Style x:Key="LoginButtonStyle"
+                   TargetType="{x:Type Label}">
+                <Setter Property="FontFamily"
+                        Value="{StaticResource DosisRegular}" />
+                <Setter Property="TextColor"
+                        Value="{StaticResource WhiteColor}" />
+                <Setter Property="HorizontalOptions"
+                        Value="Center" />
+                <Setter Property="VerticalOptions"
+                        Value="Center" />
+            </Style>
+
+            <Style x:Key="SettingsPanelStyle"
+                   TargetType="{x:Type Grid}">
+                <Setter Property="HeightRequest" 
+                        Value="60" />
+                <Setter Property="HorizontalOptions" 
+                        Value="FillAndExpand" />
+                <Setter Property="VerticalOptions" 
+                        Value="FillAndExpand" />
+                <Setter Property="BackgroundColor"
+                        Value="{StaticResource BlackColor}" />
+            </Style>
+
+            <Style x:Key="SettingsImageStyle"
+                   TargetType="{x:Type Image}">
+                <Setter Property="Margin"
+                        Value="12" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <RelativeLayout Padding="0">
+        <Image
+            Aspect="AspectFill"
+            RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="app_background" />
+                    <On Platform="UWP, WinRT, WinPhone" Value="Assets/app_background.png" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+
+        <Grid BackgroundColor="Transparent"
+              RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+              RelativeLayout.HeightConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+
+            <Grid
+                x:Name="LoginPanel"
+                Padding="0"
+                ColumnSpacing="0"
+                RowSpacing="0">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                    <RowDefinition Height="60" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="60" />
+                </Grid.ColumnDefinitions>
+
+                <!-- INFO -->
+                <Label
+                    Grid.Row="0"
+                    Grid.ColumnSpan="2"
+                    Text="WELCOME TO CASY APP"
+                    Style="{StaticResource TitleLabelStyle}"/>
+
+                <!-- LOGIN FORM -->
+                <Grid Grid.Row="1" Grid.ColumnSpan="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+
+                    <Frame
+                        Margin="10,0,10,0"
+                        Grid.Column="1"
+                        CornerRadius="10"  
+                        BackgroundColor="#66000000" 
+                        Padding="10"
+                        WidthRequest="{x:OnIdiom Phone=300, Tablet=500, Desktop=500}">
+                        <StackLayout Margin="24">
+                            <Label Text="User name"
+                                   Style="{StaticResource HeaderLabelStyle}" />
+                            <Entry Text="{Binding UserName.Value, Mode=TwoWay}">
+                                <Entry.Style>
+                                    <OnPlatform x:TypeArguments="Style">
+                                        <On Platform="iOS, Android" Value="{StaticResource EntryStyle}" />
+                                        <On Platform="UWP, WinRT, WinPhone" Value="{StaticResource UwpEntryStyle}" />
+                                    </OnPlatform>
+                                </Entry.Style>
+                                <Entry.Behaviors>
+                                    <behaviors:EventToCommandBehavior EventName="TextChanged" Command="{Binding ValidateUserNameCommand}" />
+                                </Entry.Behaviors>
+                                <Entry.Triggers>
+                                    <DataTrigger TargetType="Entry"
+                                                 Binding="{Binding UserName.IsValid}"
+                                                 Value="False">
+                                        <Setter Property="behaviors:LineColorBehavior.LineColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </Entry.Triggers>
+                            </Entry>
+                            <Label 
+                                Text="{Binding UserName.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                                Style="{StaticResource ValidationErrorLabelStyle}" />
+                            <Label Text="Password" Style="{StaticResource HeaderLabelStyle}"/>
+                            <Entry
+                                IsPassword="True"
+                                Text="{Binding Password.Value, Mode=TwoWay}">
+                                <Entry.Style>
+                                    <OnPlatform x:TypeArguments="Style">
+                                        <On Platform="iOS, Android" Value="{StaticResource EntryStyle}" />
+                                        <On Platform="UWP, WinRT, WinPhone" Value="{StaticResource UwpEntryStyle}" />
+                                    </OnPlatform>
+                                </Entry.Style>
+                                <Entry.Behaviors>
+                                    <behaviors:EventToCommandBehavior
+                                        EventName="TextChanged"
+                                        Command="{Binding ValidatePasswordCommand}" />
+                                </Entry.Behaviors>
+                                <Entry.Triggers>
+                                    <DataTrigger TargetType="Entry"
+                                                 Binding="{Binding Password.IsValid}"
+                                                 Value="False">
+                                        <Setter Property="behaviors:LineColorBehavior.LineColor" Value="{StaticResource ErrorColor}" />
+                                    </DataTrigger>
+                                </Entry.Triggers>
+                            </Entry>
+                            <Label 
+                                Text="{Binding Password.Errors, Converter={StaticResource FirstValidationErrorConverter}}"
+                                Style="{StaticResource ValidationErrorLabelStyle}" />
+                        </StackLayout>
+                    </Frame>
+                </Grid>
+
+                <Label
+                    Grid.Row="2"
+                    Grid.ColumnSpan="2"
+                    Margin="6,0,6,0"
+                    Text="Connect to your CASY with activated module 'Remote Access' by entering it's hostname or ip address in settings screen."
+                    Style="{StaticResource TitleLabelStyle}"/>
+
+                <Label
+                    Grid.Row="3"
+                    Margin="6,0,6,0"
+                    Grid.ColumnSpan="2"
+                    Text="For further information about CASY 'Remote Access' module contact OLS (info@ols-bio.de)."
+                    Style="{StaticResource TitleLabelStyle}"/>
+
+                <!-- BUTTONS -->
+                <Grid
+                    BackgroundColor="{StaticResource LightGreenColor}"
+                    Grid.Row="5"
+                    Padding="0"
+                    ColumnSpacing="0"
+                    RowSpacing="0">
+                    <Label
+                        Text="[ LOGIN ]"
+                        Style="{StaticResource LoginButtonStyle}"/>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding SignInCommand}"
+                            NumberOfTapsRequired="1" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+                <Grid Grid.Row="5"
+                      Grid.Column="1"
+                      Style="{StaticResource SettingsPanelStyle}">
+                    <Image Style="{StaticResource SettingsImageStyle}">
+                        <Image.Source>
+                            <OnPlatform x:TypeArguments="ImageSource">
+                                <On Platform="iOS, Android" Value="app_settings" />
+                                <On Platform="UWP, WinRT, WinPhone" Value="Assets/app_settings.png" />
+                            </OnPlatform>
+                        </Image.Source>
+                    </Image>
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding SettingsCommand}"
+                            NumberOfTapsRequired="1" />
+                    </Grid.GestureRecognizers>
+                </Grid>
+            </Grid>
+            <ActivityIndicator      
+                Color="{StaticResource WhiteColor}"
+                IsRunning="{Binding IsBusy}"
+                IsVisible="{Binding IsBusy}"
+                VerticalOptions="Center"
+                HorizontalOptions="Center">
+                <ActivityIndicator.WidthRequest>
+                    <OnPlatform x:TypeArguments="x:Double">
+                        <On Platform="iOS, Android" Value="100" />
+                        <On Platform="UWP, WinRT, WinPhone" Value="400" />
+                    </OnPlatform>
+                </ActivityIndicator.WidthRequest>
+            </ActivityIndicator>
+        </Grid>
+    </RelativeLayout>
+</ContentPage>

@@ -1,0 +1,744 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Error_0000_0000_0001_Description" xml:space="preserve">
+    <value>Measuring Timout.
+Capillary is possibly blocked.</value>
+  </data>
+  <data name="Error_0000_0000_0001_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_0001_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM
+PRESS CLEAN TO FLUSH THE LIQUID SYSTEM</value>
+  </data>
+  <data name="Error_0000_0000_0001_Notice" xml:space="preserve">
+    <value>Regular use of CASYclean is recommended!
+
+Exchange CASYcup to one filled with CASYton only and try to PURGE to remove possible blockages. 
+RETRY starts another measurement.
+In case the problem persists refer to “Clean Capillary Wizard” in Service Menu.</value>
+  </data>
+  <data name="Error_0000_0000_0002_Description" xml:space="preserve">
+    <value>Measuring Timout.
+Capillary is possibly blocked.</value>
+  </data>
+  <data name="Error_0000_0000_0002_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_0002_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM
+PRESS CLEAN TO FLUSH THE LIQUID SYSTEM</value>
+  </data>
+  <data name="Error_0000_0000_0002_Notice" xml:space="preserve">
+    <value>Regular use of CASYclean is recommended!
+
+Exchange CASYcup to one filled with CASYton only and try to PURGE to remove possible blockages. 
+RETRY starts another measurement.
+In case the problem persists refer to “Clean Capillary Wizard” in Service Menu.</value>
+  </data>
+  <data name="Error_0000_0000_0004_Description" xml:space="preserve">
+    <value>Large Air Bubble detected.</value>
+  </data>
+  <data name="Error_0000_0000_0004_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_0004_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM 
+PRESS CLEAN TO FLUSH THE LIQUID SYSTEM</value>
+  </data>
+  <data name="Error_0000_0000_0004_Notice" xml:space="preserve">
+    <value>Regular use of CASYclean is recommended!
+Further information will be provided by your manual.</value>
+  </data>
+  <data name="Error_0000_0000_0008_Description" xml:space="preserve">
+    <value>Large Air Bubble detected.</value>
+  </data>
+  <data name="Error_0000_0000_0008_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_0008_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM 
+PRESS CLEAN TO FLUSH THE LIQUID SYSTEM</value>
+  </data>
+  <data name="Error_0000_0000_0008_Notice" xml:space="preserve">
+    <value>Regular use of CASYclean is recommended!
+Further information will be provided by your manual.</value>
+  </data>
+  <data name="Error_0000_0000_0010_Description" xml:space="preserve">
+    <value>Concentration too high.</value>
+  </data>
+  <data name="Error_0000_0000_0010_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_0010_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM 
+PRESS CLEAN TO FLUSH THE LIQUID SYSTEM</value>
+  </data>
+  <data name="Error_0000_0000_0010_Notice" xml:space="preserve">
+    <value>Please dilute your sample.
+Further information will be provided by your manual.</value>
+  </data>
+  <data name="Error_0000_0000_0020_Description" xml:space="preserve">
+    <value>Measurement interrupted by User.</value>
+  </data>
+  <data name="Error_0000_0000_0020_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_0020_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM</value>
+  </data>
+  <data name="Error_0000_0000_0020_Notice" xml:space="preserve">
+    <value>Please dilute your sample.
+Further information will be provided by your manual.</value>
+  </data>
+  <data name="Error_0000_0000_0040_Description" xml:space="preserve">
+    <value>Clean cycle interrupted by User.</value>
+  </data>
+  <data name="Error_0000_0000_0040_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_0040_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM</value>
+  </data>
+  <data name="Error_0000_0000_0040_Notice" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_0080_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_0080_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_0080_Information" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_0080_Notice" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_0100_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_0100_ErrorNumber" xml:space="preserve">
+    <value>HW-1a</value>
+  </data>
+  <data name="Error_0000_0000_0100_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0000_0000_0100_Notice" xml:space="preserve">
+    <value>Please shut off your CASY for at least 5 seconds.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_0000_0000_0200_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_0200_ErrorNumber" xml:space="preserve">
+    <value>HW-1b</value>
+  </data>
+  <data name="Error_0000_0000_0200_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0000_0000_0200_Notice" xml:space="preserve">
+    <value>Please shut off your CASY for at least 5 seconds.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_0000_0000_0400_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_0400_ErrorNumber" xml:space="preserve">
+    <value>HW-2a</value>
+  </data>
+  <data name="Error_0000_0000_0400_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0000_0000_0400_Notice" xml:space="preserve">
+    <value>Please shut off your CASY for at least 5 seconds.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_0000_0000_0800_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_0800_ErrorNumber" xml:space="preserve">
+    <value>HW-2b</value>
+  </data>
+  <data name="Error_0000_0000_0800_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0000_0000_0800_Notice" xml:space="preserve">
+    <value>Please shut off your CASY for at least 5 seconds.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_0000_0000_1000_Description" xml:space="preserve">
+    <value>Realtime Clock: not running.</value>
+  </data>
+  <data name="Error_0000_0000_1000_ErrorNumber" xml:space="preserve">
+    <value>HW-3a</value>
+  </data>
+  <data name="Error_0000_0000_1000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0000_0000_1000_Notice" xml:space="preserve">
+    <value>Your system will work, but time and date may be wrong.
+Further information will be provided by your manual.</value>
+  </data>
+  <data name="Error_0000_0000_2000_Description" xml:space="preserve">
+    <value>Realtime Clock: low Voltage.</value>
+  </data>
+  <data name="Error_0000_0000_2000_ErrorNumber" xml:space="preserve">
+    <value>HW-3b</value>
+  </data>
+  <data name="Error_0000_0000_2000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0000_0000_2000_Notice" xml:space="preserve">
+    <value>Your system will work, but time and date may be wrong.
+Further information will be provided by your manual.</value>
+  </data>
+  <data name="Error_0000_0000_4000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_4000_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_4000_Information" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_4000_Notice" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_8000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_8000_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_8000_Information" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0000_8000_Notice" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0001_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0001_0000_ErrorNumber" xml:space="preserve">
+    <value>MM-1</value>
+  </data>
+  <data name="Error_0000_0001_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0000_0001_0000_Notice" xml:space="preserve">
+    <value>Please shut off your CASY for at least 5 seconds.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_0000_0002_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0002_0000_ErrorNumber" xml:space="preserve">
+    <value>MM-2</value>
+  </data>
+  <data name="Error_0000_0002_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0000_0002_0000_Notice" xml:space="preserve">
+    <value>Please shut off your CASY for at least 5 seconds.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_0000_0004_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0004_0000_ErrorNumber" xml:space="preserve">
+    <value>MM-3</value>
+  </data>
+  <data name="Error_0000_0004_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0000_0004_0000_Notice" xml:space="preserve">
+    <value>Please shut off your CASY for at least 5 seconds.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_0000_0008_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0008_0000_ErrorNumber" xml:space="preserve">
+    <value>MM-4</value>
+  </data>
+  <data name="Error_0000_0008_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0000_0008_0000_Notice" xml:space="preserve">
+    <value>Please shut off your CASY for at least 5 seconds.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_0000_0010_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0010_0000_ErrorNumber" xml:space="preserve">
+    <value>PR-1a</value>
+  </data>
+  <data name="Error_0000_0010_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0000_0010_0000_Notice" xml:space="preserve">
+    <value>Please shut off your CASY for at least 5 seconds.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_0000_0020_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0020_0000_ErrorNumber" xml:space="preserve">
+    <value>PR-1b</value>
+  </data>
+  <data name="Error_0000_0020_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0000_0020_0000_Notice" xml:space="preserve">
+    <value>Please shut off your CASY for at least 5 seconds.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_0000_0040_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0040_0000_ErrorNumber" xml:space="preserve">
+    <value>PR-2a</value>
+  </data>
+  <data name="Error_0000_0040_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0000_0040_0000_Notice" xml:space="preserve">
+    <value>Please shut off your CASY for at least 5 seconds.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_0000_0080_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0080_0000_ErrorNumber" xml:space="preserve">
+    <value>PR-2b</value>
+  </data>
+  <data name="Error_0000_0080_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0000_0080_0000_Notice" xml:space="preserve">
+    <value>Please shut off your CASY for at least 5 seconds.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_0000_0100_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0100_0000_ErrorNumber" xml:space="preserve">
+    <value>PR-3</value>
+  </data>
+  <data name="Error_0000_0100_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0000_0100_0000_Notice" xml:space="preserve">
+    <value>Please shut off your CASY for at least 5 seconds.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_0000_0200_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0200_0000_ErrorNumber" xml:space="preserve">
+    <value>PR-4</value>
+  </data>
+  <data name="Error_0000_0200_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0000_0200_0000_Notice" xml:space="preserve">
+    <value>Please shut off your CASY for at least 5 seconds.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_0000_0400_0000_Description" xml:space="preserve">
+    <value>Liquid System could not be emptied.</value>
+  </data>
+  <data name="Error_0000_0400_0000_ErrorNumber" xml:space="preserve">
+    <value>PR-5</value>
+  </data>
+  <data name="Error_0000_0400_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY
+PRESS CLEAN TO FLUSH THE LIQUID SYSTEM</value>
+  </data>
+  <data name="Error_0000_0400_0000_Notice" xml:space="preserve">
+    <value>Flush the liquid system and try again.
+Further information will be provided by your manual.</value>
+  </data>
+  <data name="Error_0000_0800_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_0800_0000_ErrorNumber" xml:space="preserve">
+    <value>PR-6</value>
+  </data>
+  <data name="Error_0000_0800_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY
+PRESS CLEAN TO FLUSH THE LIQUID SYSTEM</value>
+  </data>
+  <data name="Error_0000_0800_0000_Notice" xml:space="preserve">
+    <value>Flush the liquid system and try again.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_0000_1000_0000_Description" xml:space="preserve">
+    <value>Measuring Time too short.</value>
+  </data>
+  <data name="Error_0000_1000_0000_ErrorNumber" xml:space="preserve">
+    <value>PR-7</value>
+  </data>
+  <data name="Error_0000_1000_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY
+PRESS CLEAN TO FLUSH THE LIQUID SYSTEM</value>
+  </data>
+  <data name="Error_0000_1000_0000_Notice" xml:space="preserve">
+    <value>Please be sure that the correct capillary is installed.
+Further information will be provided by your manual.</value>
+  </data>
+  <data name="Error_0000_2000_0000_Description" xml:space="preserve">
+    <value>Liquid System could not be filled during Clean.</value>
+  </data>
+  <data name="Error_0000_2000_0000_ErrorNumber" xml:space="preserve">
+    <value>PR-8</value>
+  </data>
+  <data name="Error_0000_2000_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY
+PRESS CLEAN TO FLUSH THE LIQUID SYSTEM</value>
+  </data>
+  <data name="Error_0000_2000_0000_Notice" xml:space="preserve">
+    <value>Please check, that there is enough CASYton in the storage container.
+Further information will be provided by your manual.</value>
+  </data>
+  <data name="Error_0000_4000_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_4000_0000_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_4000_0000_Information" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_4000_0000_Notice" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_8000_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_8000_0000_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_8000_0000_Information" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0000_8000_0000_Notice" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0001_0000_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0001_0000_0000_ErrorNumber" xml:space="preserve">
+    <value>SG-1a</value>
+  </data>
+  <data name="Error_0001_0000_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0001_0000_0000_Notice" xml:space="preserve">
+    <value>Please shut off your CASY for at least 5 seconds.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_0002_0000_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0002_0000_0000_ErrorNumber" xml:space="preserve">
+    <value>SG-1b</value>
+  </data>
+  <data name="Error_0002_0000_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0002_0000_0000_Notice" xml:space="preserve">
+    <value>Please shut off your CASY for at least 5 seconds.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_0004_0000_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0004_0000_0000_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0004_0000_0000_Information" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0004_0000_0000_Notice" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0008_0000_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0008_0000_0000_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0008_0000_0000_Information" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0008_0000_0000_Notice" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0010_0000_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0010_0000_0000_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0010_0000_0000_Information" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0010_0000_0000_Notice" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0020_0000_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0020_0000_0000_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0020_0000_0000_Information" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0020_0000_0000_Notice" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0040_0000_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0040_0000_0000_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0040_0000_0000_Information" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0040_0000_0000_Notice" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0080_0000_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0080_0000_0000_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0080_0000_0000_Information" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0080_0000_0000_Notice" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0100_0000_0000_Description" xml:space="preserve">
+    <value>Printer does not respond.</value>
+  </data>
+  <data name="Error_0100_0000_0000_ErrorNumber" xml:space="preserve">
+    <value>CM-1</value>
+  </data>
+  <data name="Error_0100_0000_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0100_0000_0000_Notice" xml:space="preserve">
+    <value>Be sure that your printer is switched on and connected.</value>
+  </data>
+  <data name="Error_0200_0000_0000_Description" xml:space="preserve">
+    <value>Computer does not respond.</value>
+  </data>
+  <data name="Error_0200_0000_0000_ErrorNumber" xml:space="preserve">
+    <value>CM-2</value>
+  </data>
+  <data name="Error_0200_0000_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0200_0000_0000_Notice" xml:space="preserve">
+    <value>Be sure that your Computer is  switched on and connected.</value>
+  </data>
+  <data name="Error_0400_0000_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0400_0000_0000_ErrorNumber" xml:space="preserve">
+    <value>CL-1</value>
+  </data>
+  <data name="Error_0400_0000_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0400_0000_0000_Notice" xml:space="preserve">
+    <value>Please shut off your CASY for at least 5 seconds.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_0800_0000_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_0800_0000_0000_ErrorNumber" xml:space="preserve">
+    <value>CL-2</value>
+  </data>
+  <data name="Error_0800_0000_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_0800_0000_0000_Notice" xml:space="preserve">
+    <value>Please shut off your CASY for at least 5 seconds.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_1000_0000_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_1000_0000_0000_ErrorNumber" xml:space="preserve">
+    <value>CL-3</value>
+  </data>
+  <data name="Error_1000_0000_0000_Information" xml:space="preserve">
+    <value>PRESS ENTER TO CONFIRM OR PRINT TO GET A HARDCOPY</value>
+  </data>
+  <data name="Error_1000_0000_0000_Notice" xml:space="preserve">
+    <value>Please shut off your CASY for at least 5 seconds.
+If error persists note the code and contact OLS GmbH or your local distributor.</value>
+  </data>
+  <data name="Error_2000_0000_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_2000_0000_0000_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_2000_0000_0000_Information" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_2000_0000_0000_Notice" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_4000_0000_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_4000_0000_0000_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_4000_0000_0000_Information" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_4000_0000_0000_Notice" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_8000_0000_0000_Description" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_8000_0000_0000_ErrorNumber" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_8000_0000_0000_Information" xml:space="preserve">
+    <value />
+  </data>
+  <data name="Error_8000_0000_0000_Notice" xml:space="preserve">
+    <value />
+  </data>
+</root>

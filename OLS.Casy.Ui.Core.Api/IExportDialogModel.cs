@@ -1,0 +1,11 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace OLS.Casy.Ui.Core.Api
+{
+    public interface IExportDialogModel
+    {
+    }
+}

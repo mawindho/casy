@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<NavigationPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="OLS.Casy.App.Views.CustomNavigationView"
+                BarBackgroundColor="{StaticResource LightBlackColor}"
+             BarTextColor="{StaticResource WhiteColor}"
+             BackgroundColor="Transparent">
+    
+    <!--
+    <NavigationPage.TitleView>
+        <StackLayout Orientation="Horizontal" VerticalOptions="Center" Spacing="10">
+            <Grid HeightRequest="60" WidthRequest="60">
+                <Image>
+                    <Image.Source>
+                        <OnPlatform x:TypeArguments="ImageSource">
+                            <On Platform="iOS, Android" Value="logo_weissorange" />
+                            <On Platform="UWP, WinRT, WinPhone" Value="Assets/logo_weissorange.png" />
+                        </OnPlatform>
+                    </Image.Source>
+                </Image>
+            </Grid>
+            <Label Text="3.2.0" FontSize="16" VerticalTextAlignment="Center" />
+        </StackLayout>
+    </NavigationPage.TitleView>
+    -->
+</NavigationPage>

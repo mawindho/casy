@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <AspNetCoreHostingModel>InProcess</AspNetCoreHostingModel>
+    <StartupObject>OLS.Casy.WebService.Host.Program</StartupObject>
+    <UserSecretsId>ea775f2b-550e-46ca-bd99-39c09830d531</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="casy.standard.db" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="casy.standard.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting.WindowsServices" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.5" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.10.9" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="TimeZoneConverter" Version="3.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OLS.Casy.Base\OLS.Casy.Base.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Calculation.Volume\OLS.Casy.Calculation.Volume.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Core.Authorization.Encryption\OLS.Casy.Core.Authorization.Encryption.csproj" />
+    <ProjectReference Include="..\OLS.Casy.IO.Api\OLS.Casy.IO.Api.csproj" />
+    <ProjectReference Include="..\OLS.Casy.IO.SQLite\OLS.Casy.IO.SQLite.csproj" />
+    <ProjectReference Include="..\OLS.Casy.IO.SQLite.Standard\OLS.Casy.IO.SQLite.Standard.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Models\OLS.Casy.Models.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

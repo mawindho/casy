@@ -1,0 +1,196 @@
+﻿<UserControl x:Class="OLS.Casy.Ui.Measure.Views.ManualMeasurementView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:controls="clr-namespace:OLS.Casy.Ui.Base.Controls;assembly=OLS.Casy.Ui.Base"
+             xmlns:localization="clr-namespace:OLS.Casy.Ui.Base.Localization;assembly=OLS.Casy.Ui.Base"
+             xmlns:extensions="clr-namespace:OLS.Casy.Ui.Base.Extensions;assembly=OLS.Casy.Ui.Base"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid MinHeight="43" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <AdornerDecorator Margin="5" VerticalAlignment="Center">
+                <ComboBox Style="{StaticResource CasyComboBoxStyle}" 
+                                  ItemsSource="{Binding Path=AvailableCapillarySizes}" 
+                                  SelectedItem="{Binding Path=CapillarySize, Mode=TwoWay}"
+                          VerticalContentAlignment="Center">
+                    <extensions:WatermarkExtension.Watermark>
+                        <TextBlock Style="{StaticResource WatermarkTextBlock}" Text="ManualMeasurementView_ComboBox_Capillary_Watermark" localization:Localization.IsLocalized="True" VerticalAlignment="Center"/>
+                    </extensions:WatermarkExtension.Watermark>
+
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="1">
+                                <TextBlock Text="{Binding}" />
+                                <TextBlock Text=" &#x00b5;m">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding}" Value="{x:Null}" >
+                                                    <Setter Property="Visibility" Value="Hidden" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </AdornerDecorator>
+
+            <AdornerDecorator Margin="5" Grid.Column="1" VerticalAlignment="Center">
+                <ComboBox Style="{StaticResource CasyComboBoxStyle}" 
+                                  ItemsSource="{Binding Path=KnownToDiameters}"
+                                  SelectedItem="{Binding Path=ToDiameter, Mode=TwoWay}"
+                          VerticalContentAlignment="Center">
+                    <extensions:WatermarkExtension.Watermark>
+                        <TextBlock Style="{StaticResource WatermarkTextBlock}" Text="ManualMeasurementView_ComboBox_ToDiameter_Watermark" localization:Localization.IsLocalized="True" VerticalAlignment="Center"/>
+                    </extensions:WatermarkExtension.Watermark>
+
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="1">
+                                <TextBlock Text="{Binding}" />
+                                <TextBlock Text=" &#x00b5;m">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding}" Value="{x:Null}" >
+                                                    <Setter Property="Visibility" Value="Hidden" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </AdornerDecorator>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="5" MinHeight="43">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="ManualMeasurementView_Label_Counts" localization:Localization.IsLocalized="True" FontSize="16" Foreground="{StaticResource DialogForegroundBrush}" VerticalAlignment="Center"/>
+            <Grid Grid.Row="1" Margin="5" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <Slider Grid.Row="1" Style="{DynamicResource FlatSlider}" HorizontalAlignment="Stretch" Minimum="1" Maximum="9" Value="{Binding Path=Repeats}" VerticalAlignment="Center" IsManipulationEnabled="true" />
+                <TextBlock Style="{StaticResource CasyTextBlockStyle}" Grid.Column="1" Text="{Binding Path=Repeats}" FontSize="16" Foreground="{StaticResource DialogForegroundBrush}" Margin="5,0,5,0" VerticalAlignment="Center"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="5" MinHeight="43">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="ManualMeasurementView_Label_Volume" localization:Localization.IsLocalized="True" FontSize="16" Foreground="{StaticResource DialogForegroundBrush}" VerticalAlignment="Center" />
+            <RadioButton Style="{StaticResource CasyRadioButtonStyle}" Grid.Column="1" GroupName="VolumeGroup1" IsChecked="{Binding Path=Volume, Mode=TwoWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter=TwoHundred}">200 &#x00b5;l</RadioButton>
+            <RadioButton Style="{StaticResource CasyRadioButtonStyle}" Grid.Column="2" GroupName="VolumeGroup2" IsChecked="{Binding Path=Volume, Mode=TwoWay, Converter={StaticResource EnumBooleanConverter}, ConverterParameter=FourHundred}">400 &#x00b5;l</RadioButton>
+
+        </Grid>
+
+        <Grid Grid.Row="3" Margin="5" MinHeight="43">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="ManualMeasurementView_Label_MeasureMode" localization:Localization.IsLocalized="True" FontSize="16" Foreground="{StaticResource DialogForegroundBrush}" VerticalAlignment="Center" />
+            <RadioButton Style="{StaticResource CasyRadioButtonStyle}" Grid.Column="1" GroupName="MeasureModeGroup1" IsChecked="{Binding Path=IsViabilityMode, Mode=TwoWay}">
+                <TextBlock Text="MeasureMode_Viability_Name" localization:Localization.IsLocalized="True" />
+            </RadioButton>
+            <RadioButton Style="{StaticResource CasyRadioButtonStyle}" Grid.Column="2" GroupName="MeasureModeGroup2" IsChecked="{Binding Path=IsMultiCursorMode, Mode=TwoWay}">
+                <TextBlock Text="MeasureMode_MultipleCursor_Name" localization:Localization.IsLocalized="True" />
+            </RadioButton>
+        </Grid>
+
+        <Grid Grid.Row="4" Margin="5" MinHeight="43">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="ManualMeasurementView_Label_Dilution" localization:Localization.IsLocalized="True" FontSize="16" Foreground="{StaticResource DialogForegroundBrush}" VerticalAlignment="Top" />
+
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="DilutionFactor_Factor" localization:Localization.IsLocalized="True" FontSize="12" Foreground="{StaticResource DialogForegroundBrush}" VerticalAlignment="Center" />
+                
+                <AdornerDecorator Grid.Column="1" Margin="5" VerticalAlignment="Center">
+                    <controls:OmniTextBox Style="{StaticResource CasyOmniTextBoxStyle}" Text="{Binding Path=DilutionFactor, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, Converter={StaticResource DoubleConverter}, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" extensions:SelectTextOnFocus.Active="True">
+                        <extensions:WatermarkExtension.Watermark>
+                            <TextBlock Style="{StaticResource WatermarkTextBlock}" Text="DilutionFactor_Factor" localization:Localization.IsLocalized="True"/>
+                        </extensions:WatermarkExtension.Watermark>
+                    </controls:OmniTextBox>
+                </AdornerDecorator>
+
+                <TextBlock Style="{StaticResource CasyTextBlockStyle}" Grid.Row="1" Text="DilutionFactor_SampleVolume" localization:Localization.IsLocalized="True" FontSize="12" Foreground="{StaticResource DialogForegroundBrush}" VerticalAlignment="Center" />
+                
+                <AdornerDecorator Grid.Row="1" Grid.Column="1" Margin="5" VerticalAlignment="Center">
+                    <controls:OmniTextBox Style="{StaticResource CasyOmniTextBoxStyle}" Text="{Binding Path=DilutionSampleVolume, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" extensions:SelectTextOnFocus.Active="True">
+                        <extensions:WatermarkExtension.Watermark>
+                            <TextBlock Style="{StaticResource WatermarkTextBlock}" Text="DilutionFactor_SampleVolume" localization:Localization.IsLocalized="True"/>
+                        </extensions:WatermarkExtension.Watermark>
+                    </controls:OmniTextBox>
+                </AdornerDecorator>
+
+                <TextBlock Style="{StaticResource CasyTextBlockStyle}" Grid.Row="2" Text="DilutionFactor_CASYtonVolume" localization:Localization.IsLocalized="True" FontSize="12" Foreground="{StaticResource DialogForegroundBrush}" VerticalAlignment="Center" />
+                
+                <AdornerDecorator Grid.Row="2" Grid.Column="1" Margin="5" VerticalAlignment="Center">
+                    <controls:OmniTextBox Style="{StaticResource CasyOmniTextBoxStyle}" Text="{Binding Path=DilutionCasyTonVolume, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnExceptions=True, ValidatesOnDataErrors=True}" extensions:SelectTextOnFocus.Active="True">
+                        <extensions:WatermarkExtension.Watermark>
+                            <TextBlock Style="{StaticResource WatermarkTextBlock}" Text="DilutionFactor_CASYtonVolume" localization:Localization.IsLocalized="True"/>
+                        </extensions:WatermarkExtension.Watermark>
+                    </controls:OmniTextBox>
+                </AdornerDecorator>
+            </Grid>
+            <!--
+            <ComboBox Style="{StaticResource DilutionFactorComboBoxStyle}" 
+                      Grid.Column="1"
+                      IsEditable="True"
+                      Text="{Binding Path=DilutionFactor, Mode=TwoWay}" 
+                      VerticalContentAlignment="Center">
+            </ComboBox>
+            -->
+        </Grid>
+    </Grid>
+</UserControl>

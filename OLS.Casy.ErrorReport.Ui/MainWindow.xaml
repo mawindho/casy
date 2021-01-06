@@ -1,0 +1,28 @@
+﻿<controls:MetroWindow x:Class="OLS.Casy.ErrorReport.Ui.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+        mc:Ignorable="d"
+        Title="OLS CASY Crash Report" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="20" Grid.Row="0" Grid.Column="0">
+            <TextBlock FontSize="28">We're so sorry</TextBlock>
+            <TextBlock>The application crashed unexpected. Please help us to further improve application stability by sending us the following information:</TextBlock>
+        </StackPanel>
+
+        <TextBox Grid.Row="1" Margin="20,20,20,10" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Text="{Binding Path=ErrorReport}" IsReadOnly="True" />
+
+        <StackPanel Orientation="Horizontal" Grid.Row="2" Margin="20">
+            <Button Content="Send as mail" Width="200" Command="{Binding Path=SendAsMailCommand}" Margin="10"></Button>
+            <Button Content="Export as file" Width="200" Command="{Binding Path=ExportFileCommand}" Margin="10"></Button>
+        </StackPanel>
+    </Grid>
+</controls:MetroWindow>

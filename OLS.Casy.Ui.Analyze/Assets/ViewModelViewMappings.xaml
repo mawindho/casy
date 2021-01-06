@@ -1,0 +1,38 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:viewModel="clr-namespace:OLS.Casy.Ui.Analyze.ViewModels"
+                    xmlns:view="clr-namespace:OLS.Casy.Ui.Analyze.Views">
+
+    <DataTemplate DataType="{x:Type viewModel:AnalyzeContainerViewModel}">
+        <view:AnalyzeContainerView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:AnalyzeMeanChartViewModel}">
+        <view:AnalyzeMeanChartView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:AnalyzeMultipleChartsViewModel}">
+        <view:AnalyzeMultipleChartsView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:AnalyzeOverlayChartViewModel}">
+        <view:AnalyzeOverlayChartView />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type viewModel:MeasureResultTableViewModel}">
+        <view:MeasureResultTableView />
+    </DataTemplate>
+
+
+    <!--
+    <DataTemplate DataType="{x:Type viewModel:AnalyzeAdvancedChartViewModel}">
+        <view:AnalyzeAdvancedChartView />
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type viewModel:AdvancedAnalyzeChartViewModel}">
+        <view:AdvancedAnalyzeChartView />
+    </DataTemplate>
+    -->
+
+</ResourceDictionary>

@@ -1,0 +1,20 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:options="http://schemas.microsoft.com/winfx/2006/xaml/presentation/options"
+                    xmlns:converter="clr-namespace:OLS.Casy.Ui.Base.Converters;assembly=OLS.Casy.Ui.Base">
+    
+    <converter:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    <converter:BooleanToInvisibilityConverter x:Key="BooleanToInvisibilityConverter" />
+    
+    <Color x:Key="WhiteColor">#FFFFFFFF</Color>
+    
+    <SolidColorBrush x:Key="WhiteBrush" Color="{StaticResource WhiteColor}" options:Freeze="True" />    
+    
+    <Style TargetType="Label">
+        <Setter Property="FontFamily" Value="pack://application:,,,/OLS.Casy.Ui.Base;component/Resources/#Dosis" />
+    </Style>
+
+    <Style TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="pack://application:,,,/OLS.Casy.Ui.Base;component/Resources/#Dosis" />
+    </Style>
+</ResourceDictionary>

@@ -1,0 +1,73 @@
+﻿
+    <UserControl x:Class="OLS.Casy.Ui.Analyze.Views.AdvancedAnalyzeChartView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <!--
+
+    <Grid x:Name="AnalyzeChartGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <ContentControl Content="{Binding Path=MeasureResultDataChartViewModel}" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Grid.RowSpan="2" Grid.ColumnSpan="2">
+            <ContentControl.ContentTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition />
+                        </Grid.RowDefinitions>
+
+                        <ContentPresenter Content="{TemplateBinding Content}" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+
+                        <dxe:ComboBoxEdit
+                            ItemsSource="{Binding ElementName=AnalyzeChartGrid, Path=DataContext.AvailableResultItemTypes}"
+                            EditValue="{Binding ElementName=AnalyzeChartGrid, Path=DataContext.ResultItemTypes, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                            DisplayMember="DisplayItem" 
+                            ValueMember="ValueItem"
+                            Grid.Column="1"
+                            ShowSizeGrip="False"
+                            IsTextEditable="False"
+                            Width="120"
+                            Margin="10">
+
+                            <dxe:ComboBoxEdit.Resources>
+                                <Style TargetType="dxe:ComboBoxEditItem" x:Key="{themes:EditorListBoxThemeKey ResourceKey=CheckBoxItemStyle, IsThemeIndependent=True}" BasedOn="{StaticResource {themes:EditorListBoxThemeKey ResourceKey=CheckBoxItemStyle}}">
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=IsEnabled}" Value="False">
+                                            <Setter Property="IsEnabled" Value="False"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </dxe:ComboBoxEdit.Resources>
+
+                            <dxe:ComboBoxEdit.StyleSettings>
+                                <dxe:CheckedComboBoxStyleSettings />
+                            </dxe:ComboBoxEdit.StyleSettings>
+
+                            <i:Interaction.Behaviors>
+                                <behaviors:ComboBoxEditBehavior />
+                            </i:Interaction.Behaviors>
+                        </dxe:ComboBoxEdit>
+                    </Grid>
+                </DataTemplate>
+            </ContentControl.ContentTemplate>
+        </ContentControl>
+    </Grid>
+        -->
+</UserControl>

@@ -1,0 +1,67 @@
+﻿<UserControl x:Class="OLS.Casy.Ui.Base.Views.Wizard.SelectCapillaryWizardStepView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:extensions="clr-namespace:OLS.Casy.Ui.Base.Extensions"
+             xmlns:localization="clr-namespace:OLS.Casy.Ui.Base.Localization"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+
+                <TextBlock Style="{StaticResource CasyTextBlockStyle}"  Foreground="White" Text="{Binding Path=Header}" FontWeight="Bold" FontSize="20" />
+                <TextBlock Style="{StaticResource CasyTextBlockStyle}"  Foreground="White" extensions:FormattedTextBlockExtensions.FormattedText="{Binding Path=Text}" TextWrapping="Wrap" Grid.Row="1" FontSize="20"/>
+            </Grid>
+
+            <AdornerDecorator Margin="5" VerticalAlignment="Center" Grid.Row="1">
+                <ComboBox Style="{StaticResource CasyComboBoxStyle}" 
+                                  ItemsSource="{Binding Path=KnownCappillarySizes}" 
+                                  SelectedItem="{Binding Path=SelectedCapillarySize, Mode=TwoWay}"
+                          VerticalContentAlignment="Center">
+                    <extensions:WatermarkExtension.Watermark>
+                        <TextBlock Style="{StaticResource WatermarkTextBlock}" Text="SelectCapillaryWizardStepView_ComboBox_Capillary_Watermark" localization:Localization.IsLocalized="True" VerticalAlignment="Center"/>
+                    </extensions:WatermarkExtension.Watermark>
+
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="1">
+                                <TextBlock Text="{Binding}" />
+                                <TextBlock Text=" &#x00b5;m">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding}" Value="{x:Null}" >
+                                                    <Setter Property="Visibility" Value="Hidden" />
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </AdornerDecorator>
+        </Grid>
+    </Grid>
+</UserControl>

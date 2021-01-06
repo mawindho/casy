@@ -1,0 +1,81 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net472</TargetFramework>
+    <OutputType>Library</OutputType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Simulator|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\BuildOutput\Debug Simulator\Casy\</OutputPath>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Devices.Client">
+      <HintPath>..\..\..\..\..\CERO\iCERO\Source\System\Devices.Client\bin\Debug\net47\Devices.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Devices.Common, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+    <Reference Include="Devices.ReadModels.Client">
+      <HintPath>..\..\..\..\..\CERO\iCERO\Source\System\Devices.ReadModels.Client\bin\Debug\net47\Devices.ReadModels.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Functions.Client">
+      <HintPath>..\..\..\..\..\CERO\iCERO\Source\System\Functions.Client\bin\Debug\net47\Functions.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Functions.Common">
+      <HintPath>..\..\..\..\..\CERO\iCERO\Source\System\Functions.Client\bin\Debug\net47\Functions.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Interactors.Client">
+      <HintPath>..\..\..\..\..\CERO\iCERO\Source\System\Sensors.Client\bin\Debug\net47\Interactors.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Interactors.Common">
+      <HintPath>..\..\..\..\..\CERO\iCERO\Source\System\Sensors.Client\bin\Debug\net47\Interactors.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Interactors.ReadModels.Client">
+      <HintPath>..\..\..\..\..\CERO\iCERO\Source\System\Sensors.ReadModels.Client\bin\Debug\net47\Interactors.ReadModels.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Items.Client">
+      <HintPath>..\..\..\..\..\CERO\iCERO\Source\System\Items.Client\bin\Debug\net47\Items.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Items.Common">
+      <HintPath>..\..\..\..\..\CERO\iCERO\Source\System\Items.ReadModels.Client\bin\Debug\net47\Items.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Items.ReadModels.Client">
+      <HintPath>..\..\..\..\..\CERO\iCERO\Source\System\Items.ReadModels.Client\bin\Debug\net47\Items.ReadModels.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="MicroServices.Common">
+      <HintPath>..\..\..\..\..\CERO\iCERO\Source\System\Devices.ReadModels.Client\bin\Debug\net47\MicroServices.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="MicroServices.Common.RabbitMq">
+      <HintPath>..\..\..\..\..\CERO\iCERO\Source\System\Devices.ReadModels.Client\bin\Debug\net47\MicroServices.Common.RabbitMq.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="Workbooks.Client">
+      <HintPath>..\..\..\..\..\CERO\iCERO\Source\System\Workbooks.Client\bin\Debug\net47\Workbooks.Client.dll</HintPath>
+    </Reference>
+    <Reference Include="Workbooks.Common">
+      <HintPath>..\..\..\..\..\CERO\iCERO\Source\System\Workbooks.ReadModels.Client\bin\Debug\net47\Workbooks.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Workbooks.ReadModels.Client">
+      <HintPath>..\..\..\..\..\CERO\iCERO\Source\System\Workbooks.ReadModels.Client\bin\Debug\net47\Workbooks.ReadModels.Client.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="remoteIPS.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OLS.Casy.Core.Api\OLS.Casy.Core.Api.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Core.Config.Api\OLS.Casy.Core.Config.Api.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Core\OLS.Casy.Core.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Models\OLS.Casy.Models.csproj" />
+    <ProjectReference Include="..\OLS.Casy.RemoteIPS.Api\OLS.Casy.RemoteIPS.Api.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="System.ComponentModel.Composition" Version="4.7.0" />
+  </ItemGroup>
+</Project>

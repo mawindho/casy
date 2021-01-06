@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:base="clr-namespace:OLS.Casy.App.ViewModels.Base"
+             xmlns:microcharts="clr-namespace:Microcharts.Forms;assembly=Microcharts.Forms"
+             xmlns:controls="clr-namespace:OLS.Casy.App.Controls"
+             x:Class="OLS.Casy.App.Views.MeanView"
+             base:ViewModelLocator.AutoWireViewModel="true">
+    <RelativeLayout Padding="0">
+        <Image
+            Aspect="AspectFill"
+            RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+            RelativeLayout.HeightConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+            <Image.Source>
+                <OnPlatform x:TypeArguments="ImageSource">
+                    <On Platform="iOS, Android" Value="app_background" />
+                    <On Platform="UWP, WinRT, WinPhone" Value="Assets/app_background.png" />
+                </OnPlatform>
+            </Image.Source>
+        </Image>
+
+        <Grid BackgroundColor="Transparent"
+              RelativeLayout.WidthConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Width}"
+              RelativeLayout.HeightConstraint= "{ConstraintExpression Type=RelativeToParent, Property=Height}">
+            <ScrollView>
+            <Grid>
+                <controls:BindableGrid ItemsSource="{Binding Path=ChartViewModels}" AllInSameRow="True">
+                    <controls:BindableGrid.ItemDataTemplate>
+                        <DataTemplate>
+                            <Grid ColumnSpacing="0" RowSpacing="0">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                                <Label Grid.ColumnSpan="2" Margin="4,4,0,0" Text="{Binding Path=MeasurementName}" TextColor="White" />
+
+                                <microcharts:ChartView Grid.Row="1" Grid.Column="1" BackgroundColor="Transparent" Chart="{Binding Path=Chart}">
+                                    <microcharts:ChartView.HeightRequest>
+                                        <OnIdiom x:TypeArguments="x:Double" Phone="300" Tablet="400" />
+                                    </microcharts:ChartView.HeightRequest>
+                                </microcharts:ChartView>
+
+                                <Label Grid.Row="2" Grid.Column="1" Text="Diameter (µm)" HorizontalOptions="CenterAndExpand" HorizontalTextAlignment="Center" TextColor="White" />
+                                <Label Grid.Row="1" Grid.Column="0" Text="Counts" LineBreakMode="NoWrap"
+                                           HorizontalOptions="CenterAndExpand"
+                                           Rotation="-90"
+                                           VerticalOptions="CenterAndExpand" TextColor="White" />
+
+                                <Grid Grid.Row="1" Grid.Column="1">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition />
+                                        <!--<RowDefinition.Height>
+                                            <OnPlatform x:TypeArguments="GridLength">
+                                                <On Platform="iOS">370</On>
+                                                <On Platform="UWP, WinRT, WinPhone, Android">320</On>
+                                            </OnPlatform>
+                                        </RowDefinition.Height>
+                                        -->
+                                    </Grid.RowDefinitions>
+
+                                    <controls:BindableGrid ItemsSource="{Binding Path=RangeViewModels}">
+                                        <controls:BindableGrid.ItemDataTemplate>
+                                            <DataTemplate>
+                                                <Grid>
+                                                    <BoxView Color="#66000000">
+                                                        <BoxView.Triggers>
+                                                            <DataTrigger TargetType="BoxView" Binding="{Binding Path=IsTransparent}" Value="True">
+                                                                <Setter Property="Color" Value="Transparent" />
+                                                            </DataTrigger>
+                                                        </BoxView.Triggers>
+                                                    </BoxView>
+                                                    <Label Margin="10,10,0,0" Text="{Binding Path=RangeName}" IsVisible="{Binding Path=IsTransparent}" />
+                                                </Grid>
+                                            </DataTemplate>
+                                        </controls:BindableGrid.ItemDataTemplate>
+                                    </controls:BindableGrid>
+                                </Grid>
+
+                                <Grid Grid.Row="3" Grid.ColumnSpan="2" Margin="4" BackgroundColor="#FFECECEC">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="1*" />
+                                        <ColumnDefinition Width="1*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="{Binding Path=TotalCountsLabel}" FontSize="16" FontFamily="{StaticResource DosisLight}" TextColor="#FFA9A9A9" VerticalOptions="Center"/>
+                                        <Label Text="{Binding Path=TotalCounts}" FontSize="16" FontFamily="{StaticResource DosisBold}" TextColor="#FFA9A9A9" VerticalOptions="Center" Margin="4,0" />
+                                    </StackLayout>
+
+                                    <StackLayout Orientation="Horizontal" Grid.Column="1">
+                                        <Label Text="{Binding Path=TotalCountsCursorLabel}" FontSize="16" FontFamily="{StaticResource DosisLight}" TextColor="#FFA9A9A9" VerticalOptions="Center"/>
+                                        <Label Text="{Binding Path=TotalCountsCursor}" FontSize="16" FontFamily="{StaticResource DosisBold}" TextColor="#FFA9A9A9" VerticalOptions="Center" Margin="4,0" />
+
+                                        <BoxView HeightRequest="10" WidthRequest="10" Margin="4,0" VerticalOptions="Center" CornerRadius="50" BackgroundColor="LightGreen">
+                                            <BoxView.Triggers>
+                                                <DataTrigger TargetType="BoxView" Binding="{Binding Path=TotalCountsCursorState}" Value="Orange">
+                                                    <Setter Property="BackgroundColor" Value="Orange" />
+                                                </DataTrigger>
+                                                <DataTrigger TargetType="BoxView" Binding="{Binding Path=TotalCountsCursorState}" Value="Transparent">
+                                                    <Setter Property="BackgroundColor" Value="Transparent" />
+                                                </DataTrigger>
+                                            </BoxView.Triggers>
+                                        </BoxView>
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Column="2" Orientation="Horizontal">
+                                        <Label Text="{Binding Path=CountsAboveDiameterLabel}" FontSize="16" FontFamily="{StaticResource DosisLight}" TextColor="#FFA9A9A9" VerticalOptions="Center" />
+                                        <Label Text="{Binding Path=CountsAboveDiameter}" FontSize="16" FontFamily="{StaticResource DosisBold}" TextColor="#FFA9A9A9" Margin="4,0" VerticalOptions="Center" />
+                                    </StackLayout>
+
+                                    <StackLayout Grid.Column="3" Orientation="Horizontal">
+                                        <Label Text="Concentration:" FontSize="16" FontFamily="{StaticResource DosisLight}" TextColor="#FFA9A9A9" VerticalOptions="Center" />
+                                        <Label Text="{Binding Path=Concentration}" FontSize="16" FontFamily="{StaticResource DosisBold}" TextColor="#FFA9A9A9" Margin="4,0" VerticalOptions="Center" />
+                                    </StackLayout>
+                                </Grid>
+
+                                    <Grid Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2">
+                                        <Grid Margin="4" BackgroundColor="White">
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+
+                                                <StackLayout Orientation="Horizontal">
+                                                    <BoxView Color="{Binding Path=Color}" WidthRequest="24" HeightRequest="24" />
+                                                    <Label Text="{Binding Path=MeasurementName}" FontFamily="{StaticResource DosisBold}" FontSize="18" Margin="4,0,0,0" TextColor="Black" />
+                                                </StackLayout>
+
+                                                <Grid Grid.Row="1" IsVisible="{Binding Path=HasComment}">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition />
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label FontSize="14" FontFamily="{StaticResource DosisBold}" Text="Comment:"  TextColor="Black" />
+                                                    <Label Grid.Column="1" FontSize="14" FontFamily="{StaticResource DosisRegular}" Text="{Binding Path=Comment}" Margin="4,0,0,0"  TextColor="Black" />
+                                                </Grid>
+
+                                                <Grid Grid.Row="2" RowSpacing="2" ColumnSpacing="0">
+                                                    <Grid.ColumnDefinitions>
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                    </Grid.ColumnDefinitions>
+
+                                                    <Label Grid.Column="0" Text="RANGE" FontFamily="{StaticResource DosisBold}" FontSize="16" TextColor="Black" WidthRequest="100"  LineBreakMode="TailTruncation" />
+                                                    <Label Grid.Column="1" Text="{Binding Path=CountsTitle}" FontFamily="{StaticResource DosisBold}" FontSize="16" TextColor="Black" WidthRequest="130" LineBreakMode="TailTruncation" />
+
+                                                    <Label Grid.Column="2" Text="AGGR." FontFamily="{StaticResource DosisBold}" FontSize="16" TextColor="Black" WidthRequest="70" LineBreakMode="TailTruncation" />
+                                                    <Label Grid.Column="3" Text="{Binding Path=PercentageTitle}" FontFamily="{StaticResource DosisBold}" FontSize="16" TextColor="Black" WidthRequest="100" LineBreakMode="TailTruncation" />
+
+                                                    <Label Grid.Column="4" Text="A" WidthRequest="{Binding Path=SubPopAWidth}" FontFamily="{StaticResource DosisBold}" FontSize="16" TextColor="Black" />
+                                                    <Label Grid.Column="5" Text="B" WidthRequest="{Binding Path=SubPopBWidth}" FontFamily="{StaticResource DosisBold}" FontSize="16" TextColor="Black" />
+                                                    <Label Grid.Column="6" Text="C" WidthRequest="{Binding Path=SubPopCWidth}" FontFamily="{StaticResource DosisBold}" FontSize="16" TextColor="Black" />
+                                                    <Label Grid.Column="7" Text="D" WidthRequest="{Binding Path=SubPopDWidth}" FontFamily="{StaticResource DosisBold}" FontSize="16" TextColor="Black" />
+                                                    <Label Grid.Column="8" Text="E" WidthRequest="{Binding Path=SubPopEWidth}" FontFamily="{StaticResource DosisBold}" FontSize="16" TextColor="Black" />
+
+                                                    <Label Grid.Column="9" Text="A" WidthRequest="{Binding Path=SubPopAWidth}" FontFamily="{StaticResource DosisBold}" FontSize="16" TextColor="Black" />
+                                                    <Label Grid.Column="10" Text="B" WidthRequest="{Binding Path=SubPopBWidth}" FontFamily="{StaticResource DosisBold}" FontSize="16" TextColor="Black" />
+                                                    <Label Grid.Column="11" Text="C" WidthRequest="{Binding Path=SubPopCWidth}" FontFamily="{StaticResource DosisBold}" FontSize="16" TextColor="Black" />
+                                                    <Label Grid.Column="12" Text="D" WidthRequest="{Binding Path=SubPopDWidth}" FontFamily="{StaticResource DosisBold}" FontSize="16" TextColor="Black" />
+                                                    <Label Grid.Column="13" Text="E" WidthRequest="{Binding Path=SubPopEWidth}" FontFamily="{StaticResource DosisBold}" FontSize="16" TextColor="Black" />
+
+                                                    <Label Grid.Column="14" Text="VOL / ML" FontFamily="{StaticResource DosisBold}" FontSize="16" TextColor="Black" WidthRequest="130" LineBreakMode="TailTruncation" />
+                                                    <Label Grid.Column="15" Text="VOL PEAK" FontFamily="{StaticResource DosisBold}" FontSize="16" TextColor="Black" WidthRequest="130" LineBreakMode="TailTruncation" />
+                                                    <Label Grid.Column="16" Text="Ø PEAK" FontFamily="{StaticResource DosisBold}" FontSize="16" TextColor="Black" WidthRequest="120" LineBreakMode="TailTruncation" />
+                                                    <Label Grid.Column="17" Text="Ø MEAN" FontFamily="{StaticResource DosisBold}" FontSize="16" TextColor="Black" WidthRequest="120" LineBreakMode="TailTruncation" />
+                                                    <Label Grid.Column="18" Text="RANGE SETTINGS" FontFamily="{StaticResource DosisBold}" FontSize="16" TextColor="Black" WidthRequest="200" LineBreakMode="TailTruncation" />
+                                                </Grid>
+
+                                                <controls:BindableStackLayout Grid.Row="3" ItemsSource="{Binding Path=RangeViewModels}">
+                                                    <controls:BindableStackLayout.ItemDataTemplate>
+                                                        <DataTemplate>
+                                                            <Grid Margin="1" RowSpacing="2" ColumnSpacing="0">
+                                                                <Grid.ColumnDefinitions>
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                    <ColumnDefinition Width="Auto" />
+                                                                </Grid.ColumnDefinitions>
+
+                                                                <Label Grid.Column="0" Text="{Binding Path=RangeName}" FontFamily="{StaticResource DosisRegular}" FontSize="14" TextColor="Black"  WidthRequest="100" LineBreakMode="TailTruncation">
+                                                                    <Label.Triggers>
+                                                                        <DataTrigger TargetType="Label" Binding="{Binding Path=IsDebris}">
+                                                                            <Setter Property="Text" Value="Debris" />
+                                                                        </DataTrigger>
+                                                                    </Label.Triggers>
+                                                                </Label>
+
+                                                                <Label Grid.Column="1" Text="{Binding Path=CountsPerMl}" FontSize="14" FontFamily="{StaticResource DosisRegular}" TextColor="Black" WidthRequest="130" LineBreakMode="TailTruncation" />
+                                                                <Label Grid.Column="2" Text="{Binding Path=AggregationFactor}" FontSize="14" FontFamily="{StaticResource DosisRegular}" TextColor="Black" WidthRequest="70" LineBreakMode="TailTruncation" />
+                                                                <Label Grid.Column="3" Text="{Binding Path=CountsPercentage}" FontSize="14" FontFamily="{StaticResource DosisRegular}" TextColor="Black" WidthRequest="100" LineBreakMode="TailTruncation" />
+
+                                                                <Label Grid.Column="4" WidthRequest="{Binding Path=SubPopAWidth}" Text="{Binding Path=CountsPerMlA}" FontSize="14" FontFamily="{StaticResource DosisRegular}" TextColor="Black" />
+                                                                <Label Grid.Column="5" WidthRequest="{Binding Path=SubPopBWidth}" Text="{Binding Path=CountsPerMlB}" FontSize="14" FontFamily="{StaticResource DosisRegular}" TextColor="Black" />
+                                                                <Label Grid.Column="6" WidthRequest="{Binding Path=SubPopCWidth}" Text="{Binding Path=CountsPerMlC}" FontSize="14" FontFamily="{StaticResource DosisRegular}" TextColor="Black" />
+                                                                <Label Grid.Column="7" WidthRequest="{Binding Path=SubPopDWidth}" Text="{Binding Path=CountsPerMlD}" FontSize="14" FontFamily="{StaticResource DosisRegular}" TextColor="Black" />
+                                                                <Label Grid.Column="8" WidthRequest="{Binding Path=SubPopEWidth}" Text="{Binding Path=CountsPerMlE}" FontSize="14" FontFamily="{StaticResource DosisRegular}" TextColor="Black" />
+                                                                <Label Grid.Column="9" WidthRequest="{Binding Path=SubPopAWidth}" Text="{Binding Path=CountsPercentageA}" FontSize="14" FontFamily="{StaticResource DosisRegular}" TextColor="Black" />
+                                                                <Label Grid.Column="10" WidthRequest="{Binding Path=SubPopBWidth}" Text="{Binding Path=CountsPercentageB}" FontSize="14" FontFamily="{StaticResource DosisRegular}" TextColor="Black" />
+                                                                <Label Grid.Column="11" WidthRequest="{Binding Path=SubPopCWidth}" Text="{Binding Path=CountsPercentageC}" FontSize="14" FontFamily="{StaticResource DosisRegular}" TextColor="Black" />
+                                                                <Label Grid.Column="12" WidthRequest="{Binding Path=SubPopDWidth}" Text="{Binding Path=CountsPercentageD}" FontSize="14" FontFamily="{StaticResource DosisRegular}" TextColor="Black" />
+                                                                <Label Grid.Column="13" WidthRequest="{Binding Path=SubPopEWidth}" Text="{Binding Path=CountsPercentageE}" FontSize="14" FontFamily="{StaticResource DosisRegular}" TextColor="Black" />
+
+                                                                <Label Grid.Column="14" Text="{Binding Path=VolumePerMl}" FontSize="14" FontFamily="{StaticResource DosisRegular}" TextColor="Black" WidthRequest="130" LineBreakMode="TailTruncation"/>
+                                                                <Label Grid.Column="15" Text="{Binding Path=PeakVolume}" FontSize="14" FontFamily="{StaticResource DosisRegular}" TextColor="Black" WidthRequest="130" LineBreakMode="TailTruncation"/>
+                                                                <Label Grid.Column="16" Text="{Binding Path=PeakDiameter}" FontSize="14" FontFamily="{StaticResource DosisRegular}" TextColor="Black" WidthRequest="120" LineBreakMode="TailTruncation"/>
+                                                                <Label Grid.Column="17" Text="{Binding Path=MeanDiameter}" FontSize="14" FontFamily="{StaticResource DosisRegular}" TextColor="Black" WidthRequest="120" LineBreakMode="TailTruncation"/>
+                                                                <Label Grid.Column="18" Text="{Binding Path=RangeSettings}" FontSize="14" FontFamily="{StaticResource DosisRegular}" TextColor="Black" WidthRequest="200" LineBreakMode="TailTruncation"/>
+                                                            </Grid>
+                                                        </DataTemplate>
+                                                    </controls:BindableStackLayout.ItemDataTemplate>
+                                                </controls:BindableStackLayout>
+                                            </Grid>
+                                    </Grid>
+                            </Grid>
+                        </DataTemplate>
+                    </controls:BindableGrid.ItemDataTemplate>
+                </controls:BindableGrid>
+            </Grid>
+            </ScrollView>
+        </Grid>
+    </RelativeLayout>
+</ContentPage>

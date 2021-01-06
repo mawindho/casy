@@ -1,0 +1,225 @@
+﻿<Dialog:CustomDialog x:Class="OLS.Casy.Ui.MainControls.Views.ToolboxView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:localization="clr-namespace:OLS.Casy.Ui.Base.Localization;assembly=OLS.Casy.Ui.Base"
+             xmlns:extensions="clr-namespace:OLS.Casy.Ui.Base.Extensions;assembly=OLS.Casy.Ui.Base"
+                     xmlns:controls="clr-namespace:OLS.Casy.Ui.Base.Controls;assembly=OLS.Casy.Ui.Base"
+             xmlns:Dialog="clr-namespace:MahApps.Metro.Controls.Dialogs;assembly=MahApps.Metro"
+             xmlns:behaviors="clr-namespace:OLS.Casy.Ui.Base.Behaviors;assembly=OLS.Casy.Ui.Base"
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"
+                     Style="{StaticResource CasyDialogStyle}"
+                     Title="{Binding Path=Title}">
+    <Dialog:CustomDialog.Content>
+        <ScrollViewer VerticalScrollBarVisibility="Auto" MinWidth="711" MaxHeight="900" PanningMode="Both" PanningDeceleration="0.003">
+            <Grid Background="Transparent">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Style="{StaticResource CasyLabelStyle}" Grid.ColumnSpan="2" Content="ToolboxView_Title_Console" localization:Localization.IsLocalized="True" Foreground="White" FontSize="16" FontWeight="Light" />
+
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Visible" extensions:ScrollViewerExtensions.ScrollToBottom="{Binding Path=MessagesChanged}" Background="White" PanningMode="Both" PanningDeceleration="0.003" Height="300">
+                        <ItemsControl Grid.Row="1" ItemsSource="{Binding Path=CommandLineMessages}" Background="White">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <TextBlock Style="{StaticResource CasyTextBlockStyle}" Text="{Binding Path=Message}" Foreground="{Binding Path=Color, Converter={StaticResource StaticResourceConverter}}" TextWrapping="Wrap" FontSize="14"/>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </ScrollViewer>
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition />
+                        </Grid.ColumnDefinitions>
+
+                        <controls:OmniTextBox Style="{StaticResource CasyOmniTextBoxStyle}"
+                                 BorderBrush="Transparent"
+                                 Text="Service>" 
+                                 Background="White" 
+                                 Foreground="Black" 
+                                 VerticalAlignment="Center" 
+                                 IsReadOnly="True"
+                                 FontSize="14" 
+                                 BorderThickness="0"
+                                 HorizontalAlignment="Stretch" 
+                                 HorizontalContentAlignment="Stretch" 
+                                 MinHeight="25"/>
+                        <controls:OmniTextBox Style="{StaticResource CasyOmniTextBoxStyle}"
+                                 BorderBrush="Transparent" 
+                                 Grid.Column="1" 
+                                 Background="White"
+                                 Text="{Binding Path=Command, UpdateSourceTrigger=Explicit}" 
+                                 Foreground="Black" 
+                                 FontSize="14"
+                                 HorizontalAlignment="Stretch" 
+                                 HorizontalContentAlignment="Stretch" 
+                                 BorderThickness="0"
+                                 extensions:InputBindingsManager.UpdatePropertySourceWhenEnterPressed="TextBox.Text"
+                                 IsReadOnly="{Binding Path=IsValidServicePin, Converter={StaticResource InvertBooleanConverter}}"
+                                 CaretBrush="Black"
+                                 MinHeight="25">
+                        </controls:OmniTextBox>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="0,7,0,7">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Style="{StaticResource CasyLabelStyle}" Grid.ColumnSpan="2" Content="ToolboxView_Title_Public" localization:Localization.IsLocalized="True" Foreground="White" FontSize="16" FontWeight="Light" />
+
+                    <Grid Grid.Row="1" Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <AdornerDecorator>
+                            <controls:OmniTextBox Style="{StaticResource CasyOmniTextBoxStyle}" Text="{Binding Path=ServicePin, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                <extensions:WatermarkExtension.Watermark>
+                                    <TextBlock Style="{StaticResource WatermarkTextBlock}" Text="ToolboxView_ServicePin_Watermark" localization:Localization.IsLocalized="True"/>
+                                </extensions:WatermarkExtension.Watermark>
+                            </controls:OmniTextBox>
+                        </AdornerDecorator>
+                        <Button Style="{StaticResource GreenButton}" Grid.Column="1" Command="{Binding Path=SubmitServicePinCommand}" Width="40" Height="40">
+                            <Button.Content>
+                                <iconPacks:PackIconFontAwesome Width="20" Height="20" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center" Kind="CheckSolid" />
+                            </Button.Content>
+                        </Button>
+                    </Grid>
+
+                    <Button Style="{StaticResource GreenButton}" Grid.Row="1" Grid.Column="1" Content="ToolboxView_Button_Dry" localization:Localization.IsLocalized="True" Command="{Binding Path=DryCommand}" Margin="5" Background="Transparent" IsHitTestVisible="True" Foreground="{StaticResource OmniTextBoxForegroundBrush}" BorderBrush="{StaticResource OmniTextBoxForegroundBrush}" BorderThickness="1" />
+
+                    <Button Style="{StaticResource GreenButton}" Grid.Row="2" Content="ToolboxView_Button_Testpattern" localization:Localization.IsLocalized="True" Margin="5" Background="Transparent" IsHitTestVisible="True" Foreground="{StaticResource OmniTextBoxForegroundBrush}" BorderBrush="{StaticResource OmniTextBoxForegroundBrush}" BorderThickness="1">
+                        <b:Interaction.Behaviors>
+                            <behaviors:DropDownButtonBehavior/>
+                        </b:Interaction.Behaviors>
+                        <Button.ContextMenu>
+                            <ContextMenu Style="{StaticResource TopMenuDropDownMenuStyle}" Foreground="Black" Background="White" BorderBrush="Black">
+                                <MenuItem IsEnabled="{Binding Path=Has45Capillary}" Header="ToolboxView_Button_Testpattern_SelectCapillary" localization:Localization.IsLocalized="True" localization:Localization.LocalizationParameter="45" Command="{Binding Path=GetTestPatternCommand}" CommandParameter="45" />
+                                <MenuItem IsEnabled="{Binding Path=Has60Capillary}" Header="ToolboxView_Button_Testpattern_SelectCapillary" localization:Localization.IsLocalized="True" localization:Localization.LocalizationParameter="60" Command="{Binding Path=GetTestPatternCommand}" CommandParameter="60" />
+                                <MenuItem IsEnabled="{Binding Path=Has150Capillary}" Header="ToolboxView_Button_Testpattern_SelectCapillary" localization:Localization.IsLocalized="True" localization:Localization.LocalizationParameter="150" Command="{Binding Path=GetTestPatternCommand}" CommandParameter="150" />
+                            </ContextMenu>
+                        </Button.ContextMenu>
+                    </Button>
+
+                    <Button Style="{StaticResource GreenButton}" Grid.Row="2" Grid.Column="1" Content="ToolboxView_Button_SelfTest" localization:Localization.IsLocalized="True" Command="{Binding Path=SelfTestCommand}" Margin="5" Background="Transparent" IsHitTestVisible="True" Foreground="{StaticResource OmniTextBoxForegroundBrush}" BorderBrush="{StaticResource OmniTextBoxForegroundBrush}" BorderThickness="1" />
+
+                    <Button Style="{StaticResource GreenButton}" Grid.Row="3" Content="ToolboxView_Button_CleanCapillary" localization:Localization.IsLocalized="True" Margin="5" Background="Transparent" IsHitTestVisible="True" Foreground="{StaticResource OmniTextBoxForegroundBrush}" BorderBrush="{StaticResource OmniTextBoxForegroundBrush}" BorderThickness="1">
+                        <b:Interaction.Behaviors>
+                            <behaviors:DropDownButtonBehavior/>
+                        </b:Interaction.Behaviors>
+                        <Button.ContextMenu>
+                            <ContextMenu Style="{StaticResource TopMenuDropDownMenuStyle}" Foreground="Black" Background="White" BorderBrush="Black">
+                                <MenuItem IsEnabled="{Binding Path=Has45Capillary}" Header="ToolboxView_Button_CleanCapillary_SelectCapillary" localization:Localization.IsLocalized="True" localization:Localization.LocalizationParameter="45" Command="{Binding Path=CleanCapillaryCommand}" CommandParameter="45" />
+                                <MenuItem IsEnabled="{Binding Path=Has60Capillary}" Header="ToolboxView_Button_CleanCapillary_SelectCapillary" localization:Localization.IsLocalized="True" localization:Localization.LocalizationParameter="60" Command="{Binding Path=CleanCapillaryCommand}" CommandParameter="60" />
+                                <MenuItem IsEnabled="{Binding Path=Has150Capillary}" Header="ToolboxView_Button_CleanCapillary_SelectCapillary" Command="{Binding Path=CleanCapillaryCommand}" localization:Localization.IsLocalized="True" localization:Localization.LocalizationParameter="150" CommandParameter="150" />
+                            </ContextMenu>
+                        </Button.ContextMenu>
+                    </Button>
+
+                    <Button Style="{StaticResource GreenButton}" Grid.Row="3" Grid.Column="1" Content="ToolboxView_Button_WeeklyClean" localization:Localization.IsLocalized="True" Margin="5" Background="Transparent" IsHitTestVisible="True" Foreground="{StaticResource OmniTextBoxForegroundBrush}" BorderBrush="{StaticResource OmniTextBoxForegroundBrush}" BorderThickness="1">
+                        <b:Interaction.Behaviors>
+                            <behaviors:DropDownButtonBehavior/>
+                        </b:Interaction.Behaviors>
+                        <Button.ContextMenu>
+                            <ContextMenu Style="{StaticResource TopMenuDropDownMenuStyle}" Foreground="Black" Background="White" BorderBrush="Black">
+                                <MenuItem IsEnabled="{Binding Path=Has45Capillary}" Header="ToolboxView_Button_WeeklyClean_SelectCapillary" localization:Localization.IsLocalized="True" localization:Localization.LocalizationParameter="45" Command="{Binding Path=WeeklyCleanCommand}" CommandParameter="45" />
+                                <MenuItem IsEnabled="{Binding Path=Has60Capillary}" Header="ToolboxView_Button_WeeklyClean_SelectCapillary" localization:Localization.IsLocalized="True" localization:Localization.LocalizationParameter="60" Command="{Binding Path=WeeklyCleanCommand}" CommandParameter="60" />
+                                <MenuItem IsEnabled="{Binding Path=Has150Capillary}" Header="ToolboxView_Button_WeeklyClean_SelectCapillary" localization:Localization.IsLocalized="True" localization:Localization.LocalizationParameter="150" Command="{Binding Path=WeeklyCleanCommand}" CommandParameter="150" />
+                            </ContextMenu>
+                        </Button.ContextMenu>
+                    </Button>
+
+                    <Button Style="{StaticResource GreenButton}" Grid.Row="4" Content="ToolboxView_Button_DeepClean" localization:Localization.IsLocalized="True" Margin="5" Background="Transparent" IsHitTestVisible="True" Foreground="{StaticResource OmniTextBoxForegroundBrush}" BorderBrush="{StaticResource OmniTextBoxForegroundBrush}" BorderThickness="1">
+                        <b:Interaction.Behaviors>
+                            <behaviors:DropDownButtonBehavior/>
+                        </b:Interaction.Behaviors>
+                        <Button.ContextMenu>
+                            <ContextMenu Style="{StaticResource TopMenuDropDownMenuStyle}" Foreground="Black" Background="White" BorderBrush="Black">
+                                <MenuItem IsEnabled="{Binding Path=Has45Capillary}" Header="ToolboxView_Button_DeepClean_SelectCapillary" localization:Localization.IsLocalized="True" localization:Localization.LocalizationParameter="45" Command="{Binding Path=DeepCleanCommand}" CommandParameter="45" />
+                                <MenuItem IsEnabled="{Binding Path=Has60Capillary}" Header="ToolboxView_Button_DeepClean_SelectCapillary" localization:Localization.IsLocalized="True" localization:Localization.LocalizationParameter="60" Command="{Binding Path=DeepCleanCommand}" CommandParameter="60" />
+                                <MenuItem IsEnabled="{Binding Path=Has150Capillary}" Header="ToolboxView_Button_DeepClean_SelectCapillary" localization:Localization.IsLocalized="True" localization:Localization.LocalizationParameter="150" Command="{Binding Path=DeepCleanCommand}" CommandParameter="150" />
+                            </ContextMenu>
+                        </Button.ContextMenu>
+                    </Button>
+
+                    <Button Style="{StaticResource GreenButton}" Grid.Row="4" Grid.Column="1" Content="ToolboxView_Button_Abandonment" localization:Localization.IsLocalized="True" Margin="5" Background="Transparent" IsHitTestVisible="True" Foreground="{StaticResource OmniTextBoxForegroundBrush}" BorderBrush="{StaticResource OmniTextBoxForegroundBrush}" BorderThickness="1">
+                        <b:Interaction.Behaviors>
+                            <behaviors:DropDownButtonBehavior/>
+                        </b:Interaction.Behaviors>
+                        <Button.ContextMenu>
+                            <ContextMenu Style="{StaticResource TopMenuDropDownMenuStyle}" Foreground="Black" Background="White" BorderBrush="Black">
+                                <MenuItem IsEnabled="{Binding Path=Has45Capillary}" Header="ToolboxView_Button_Abandonment_SelectCapillary" localization:Localization.IsLocalized="True" localization:Localization.LocalizationParameter="45" Command="{Binding Path=AbandonmentCommand}" CommandParameter="45" />
+                                <MenuItem IsEnabled="{Binding Path=Has60Capillary}" Header="ToolboxView_Button_Abandonment_SelectCapillary" localization:Localization.IsLocalized="True" localization:Localization.LocalizationParameter="60" Command="{Binding Path=AbandonmentCommand}" CommandParameter="60" />
+                                <MenuItem IsEnabled="{Binding Path=Has150Capillary}" Header="ToolboxView_Button_Abandonment_SelectCapillary" localization:Localization.IsLocalized="True" localization:Localization.LocalizationParameter="150" Command="{Binding Path=AbandonmentCommand}" CommandParameter="150" />
+                            </ContextMenu>
+                        </Button.ContextMenu>
+                    </Button>
+
+                    <Button Style="{StaticResource GreenButton}" Grid.Row="5" Grid.Column="0" Content="ToolboxView_Button_StartUp" localization:Localization.IsLocalized="True" Command="{Binding Path=StartUpCommand}" Margin="5" Background="Transparent" IsHitTestVisible="True" Foreground="{StaticResource OmniTextBoxForegroundBrush}" BorderBrush="{StaticResource OmniTextBoxForegroundBrush}" BorderThickness="1" />
+
+                    <Button Style="{StaticResource GreenButton}" Grid.Row="5" Grid.Column="1" Content="ToolboxView_Button_ShutDown" localization:Localization.IsLocalized="True" Command="{Binding Path=ShutDownCommand}" Margin="5" Background="Transparent" IsHitTestVisible="True" Foreground="{StaticResource OmniTextBoxForegroundBrush}" BorderBrush="{StaticResource OmniTextBoxForegroundBrush}" BorderThickness="1" />
+                </Grid>
+
+                <Grid Grid.Row="2" Margin="0,7,0,7" Visibility="{Binding Path=IsValidServicePin, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Label Style="{StaticResource CasyLabelStyle}" Grid.ColumnSpan="2" Content="ToolboxView_Title_Private" localization:Localization.IsLocalized="True" Foreground="White" FontSize="16" FontWeight="Light" />
+
+                    <Button Style="{StaticResource GreenButton}" Grid.Row="1" Content="ToolboxView_Button_PrintStatistice" localization:Localization.IsLocalized="True" Command="{Binding Path=PrintStatisticsCommand}" Margin="5" Background="Transparent" IsHitTestVisible="True" Foreground="{StaticResource OmniTextBoxForegroundBrush}" BorderBrush="{StaticResource OmniTextBoxForegroundBrush}" BorderThickness="1" />
+                    <Button Style="{StaticResource GreenButton}" Grid.Row="1" Grid.Column="1" Content="ToolboxView_Button_CheckTightness" localization:Localization.IsLocalized="True" Command="{Binding Path=CheckTightnessCommand}" Margin="5" Background="Transparent" IsHitTestVisible="True" Foreground="{StaticResource OmniTextBoxForegroundBrush}" BorderBrush="{StaticResource OmniTextBoxForegroundBrush}" BorderThickness="1" />
+                    <Button Style="{StaticResource GreenButton}" Grid.Row="2" Content="ToolboxView_Button_CheckRiseTime" localization:Localization.IsLocalized="True" Margin="5" Background="Transparent" IsHitTestVisible="True" Foreground="{StaticResource OmniTextBoxForegroundBrush}" BorderBrush="{StaticResource OmniTextBoxForegroundBrush}" BorderThickness="1">
+                        <b:Interaction.Behaviors>
+                            <behaviors:DropDownButtonBehavior/>
+                        </b:Interaction.Behaviors>
+                        <Button.ContextMenu>
+                            <ContextMenu Style="{StaticResource TopMenuDropDownMenuStyle}" Foreground="Black" Background="White" BorderBrush="Black">
+                                <MenuItem IsEnabled="{Binding Path=Has45Capillary}" Header="ToolboxView_Button_Testpattern_SelectCapillary" localization:Localization.IsLocalized="True" localization:Localization.LocalizationParameter="45" Command="{Binding Path=CheckRiseTimeCommand}" CommandParameter="45" />
+                                <MenuItem IsEnabled="{Binding Path=Has60Capillary}" Header="ToolboxView_Button_Testpattern_SelectCapillary" localization:Localization.IsLocalized="True" localization:Localization.LocalizationParameter="60" Command="{Binding Path=CheckRiseTimeCommand}" CommandParameter="60" />
+                                <MenuItem IsEnabled="{Binding Path=Has150Capillary}" Header="ToolboxView_Button_Testpattern_SelectCapillary" localization:Localization.IsLocalized="True" localization:Localization.LocalizationParameter="150" Command="{Binding Path=CheckRiseTimeCommand}" CommandParameter="150" />
+                            </ContextMenu>
+                        </Button.ContextMenu>
+                    </Button>
+                    <Button Style="{StaticResource GreenButton}" Grid.Row="2" Grid.Column="1" Content="ToolboxView_Button_ShowCapillaryVoltage" localization:Localization.IsLocalized="True" Command="{Binding Path=GetCapillaryVoltageCommand}" Margin="5" Background="Transparent" IsHitTestVisible="True" Foreground="{StaticResource OmniTextBoxForegroundBrush}" BorderBrush="{StaticResource OmniTextBoxForegroundBrush}" BorderThickness="1" />
+                </Grid>
+            </Grid>
+        </ScrollViewer>
+    </Dialog:CustomDialog.Content>
+</Dialog:CustomDialog>

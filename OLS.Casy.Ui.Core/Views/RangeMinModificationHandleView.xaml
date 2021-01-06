@@ -1,0 +1,46 @@
+﻿<UserControl x:Class="OLS.Casy.Ui.Core.Views.RangeMinModificationHandleView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:controls="clr-namespace:OLS.Casy.Ui.Core.Controls"
+             xmlns:behaviors="clr-namespace:OLS.Casy.Ui.Base.Behaviors;assembly=OLS.Casy.Ui.Base"
+             xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+             mc:Ignorable="d" >
+    <Grid Visibility="{Binding Path=IsVisible, Converter={StaticResource BooleanToVisibilityConverter}}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="20" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Rectangle Width="{Binding Path=Width}" Height="{Binding Path=Height}" Fill="#66000000">
+            <b:Interaction.Behaviors>
+                <behaviors:DoubleTouchBehavior DoubleClickCommand="{Binding RangeDoubleClickCommand}" DoubleClickCommandParameter="{Binding}" />
+            </b:Interaction.Behaviors>
+            <Rectangle.InputBindings>
+                <MouseBinding Gesture="LeftDoubleClick" Command="{Binding RangeDoubleClickCommand}" CommandParameter="{Binding}"/>
+            </Rectangle.InputBindings>
+        </Rectangle>
+
+        <TextBlock Style="{StaticResource CasyTextBlockStyle}" Grid.Column="2" Foreground="White" Text="{Binding Path=ParentName}" VerticalAlignment="Top" FontSize="14" FontWeight="Bold" Margin="0,10,0,0">
+            <TextBlock.LayoutTransform>
+                <RotateTransform Angle="90" />
+            </TextBlock.LayoutTransform>
+        </TextBlock>
+        <Grid HorizontalAlignment="Right" VerticalAlignment="Center" Grid.ColumnSpan="2">
+
+
+            <controls:MoveRangeThumb Template="{StaticResource MoveThumbTemplate}"
+                                            DataContext="{Binding}"
+                                            Cursor="SizeAll"
+                                Width="40"
+                                Height="40"/>
+            <StackPanel Orientation="Horizontal" IsHitTestVisible="False" VerticalAlignment="Center" HorizontalAlignment="Right">
+                <Polygon Points="0,0 20,10, 0,20" Fill="#66000000" />
+            </StackPanel>
+
+            <TextBlock Style="{StaticResource CasyTextBlockStyle}" Foreground="White" Text="{Binding Path=Parent.MinLimit, StringFormat=N2}" VerticalAlignment="Center" HorizontalAlignment="Left" FontSize="12" IsHitTestVisible="False" />
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,14 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:viewModel="clr-namespace:OLS.Casy.Ui.Authorization.ViewModels"                     
+                    xmlns:view="clr-namespace:OLS.Casy.Ui.Authorization.Views">
+
+    <DataTemplate DataType="{x:Type viewModel:LoginViewModel}">
+        <view:LoginView />
+    </DataTemplate>
+    
+    <DataTemplate DataType="{x:Type viewModel:UserManagementViewModel}">
+        <view:UserManagementView />
+    </DataTemplate>
+</ResourceDictionary>

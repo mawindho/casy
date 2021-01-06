@@ -1,0 +1,62 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+	<!--<CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>-->
+  </PropertyGroup>
+
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+		<OutputPath>..\BuildOutput\Debug\Casy\</OutputPath>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+		<DebugType>none</DebugType>
+		<OutputPath>..\BuildOutput\Release\Casy\</OutputPath>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Simulator|AnyCPU'">
+		<DebugSymbols>true</DebugSymbols>
+		<OutputPath>..\BuildOutput\Debug Simulator\Casy\</OutputPath>
+		<CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release Simulator|AnyCPU'">
+		<OutputPath>..\BuildOutput\Release Simulator\Casy\</OutputPath>
+		<Optimize>true</Optimize>
+		<DebugType>none</DebugType>
+		<CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Desktop|AnyCPU'">
+		<DebugSymbols>true</DebugSymbols>
+		<OutputPath>..\BuildOutput\Debug Desktop\Casy\</OutputPath>
+		<CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release Desktop|AnyCPU'">
+		<OutputPath>..\BuildOutput\Release Desktop\Casy\</OutputPath>
+		<Optimize>true</Optimize>
+		<DebugType>none</DebugType>
+		<CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+	</PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="2.2.6" />
+	  <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.2.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="2.2.6" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.5" />
+    <PackageReference Include="SQLitePCLRaw.bundle_sqlcipher" Version="1.1.14" />
+	  <PackageReference Include="SQLitePCLRaw.bundle_green" Version="1.1.14" ExcludeAssets="All" />
+	  <PackageReference Include="System.ComponentModel.Composition" Version="4.7.0" />
+    <PackageReference Include="System.Runtime" Version="4.3.1" />
+    <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="4.7.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\OLS.Casy.IO.SQLite\OLS.Casy.IO.SQLite.csproj" />
+	<ProjectReference Include="..\OLS.Casy.Base\OLS.Casy.Base.csproj" />
+  </ItemGroup>
+
+</Project>
