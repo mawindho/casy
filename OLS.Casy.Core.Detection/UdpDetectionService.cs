@@ -3,7 +3,6 @@ using OLS.Casy.Core.Config.Api;
 using Polly;
 using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Net;
