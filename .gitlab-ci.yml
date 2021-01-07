@@ -21,8 +21,7 @@ build_job:
 deploy_job:
   stage: deploy
   only:
+    - tags
     #- /^(\d+\.)?(\d+\.)?(\d+)$/
-  dependencies:
-    - build_job
   script:
     - echo $CI_BUILD_TAG
