@@ -10,6 +10,7 @@ build_job:
   stage: build
   only:
     - branches
+    - tags
   script:
     - '& "$env:NUGET_PATH" restore OLS.Casy.sln'
     - '& "$env:MSBUILD_PATH" /p:Configuration=Release /clp:ErrorsOnly OLS.Casy.sln'
@@ -21,7 +22,6 @@ build_job:
 deploy_job:
   stage: deploy
   only:
-    - tags
-    #- /^(\d+\.)?(\d+\.)?(\d+)$/
+    - /^(\d+\.)?(\d+\.)?(\d+)$/
   script:
     - echo $CI_BUILD_TAG
