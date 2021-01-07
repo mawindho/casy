@@ -12,6 +12,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Timers;
+using System.Net.Http;
 
 namespace OLS.Casy.Core.Detection
 {
@@ -146,9 +147,9 @@ namespace OLS.Casy.Core.Detection
                         var ipAddresses = ipAddress.Split(';');
                         foreach (var ip in ipAddresses)
                         {
-                            using (var handler = new WebRequestHandler())
+                            using (var handler = new HttpClientHandler())
                             {
-                                handler.ServerCertificateValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
+                                handler.ServerCertificateCustomValidationCallback = (sender, cert, chain, sslPolicyErrors) => true;
                                 using (var httpClient = new HttpClient(handler))
                                 {
                                     var byteArray = Encoding.ASCII.GetBytes("casy:c4sy");

@@ -48,9 +48,4 @@
 	  <ProjectReference Include="..\OLS.Casy.Core.Api\OLS.Casy.Core.Api.csproj" />
 	  <ProjectReference Include="..\OLS.Casy.Core\OLS.Casy.Core.csproj" />
 	</ItemGroup>
-	<ItemGroup>
-	  <Reference Include="System.Net.Http.WebRequest">
-	    <HintPath>..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.Net.Http.WebRequest.dll</HintPath>
-	  </Reference>
-	</ItemGroup>
 </Project>

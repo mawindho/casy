@@ -75,20 +75,20 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Charts.v16.2.Core">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Charts.v16.2.Core.dll</HintPath>
+      <HintPath>..\External\DevExpress.Charts.v16.2.Core.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Data.v16.2">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Data.v16.2.dll</HintPath>
+      <HintPath>..\External\DevExpress.Data.v16.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Mvvm.v16.2">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Mvvm.v16.2.dll</HintPath>
+      <HintPath>..\External\DevExpress.Mvvm.v16.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="DevExpress.Xpf.Charts.v16.2">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Xpf.Charts.v16.2.dll</HintPath>
+      <HintPath>..\External\DevExpress.Xpf.Charts.v16.2.dll</HintPath>
     </Reference>
     <Reference Include="DevExpress.Xpf.Core.v16.2">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Xpf.Core.v16.2.dll</HintPath>
+      <HintPath>..\External\DevExpress.Xpf.Core.v16.2.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>

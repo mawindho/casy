@@ -56,7 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="DevExpress.Mvvm.v16.2">
-      <HintPath>..\..\..\..\..\..\Program Files (x86)\DevExpress 16.2\Components\Bin\Framework\DevExpress.Mvvm.v16.2.dll</HintPath>
+      <HintPath>..\External\DevExpress.Mvvm.v16.2.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
