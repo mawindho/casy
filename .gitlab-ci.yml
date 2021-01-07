@@ -10,5 +10,5 @@ build_job:
   only:
     - branches
   script:
-    - '& "$env:NUGET_PATH" restore'
+    - '& "$env:NUGET_PATH" restore OLS.Casy.sln'
     - '& "$env:MSBUILD_PATH" /p:Configuration=Release /clp:ErrorsOnly OLS.Casy.sln'
