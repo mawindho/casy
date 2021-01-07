@@ -338,11 +338,14 @@ namespace OLS.Casy.Ui.Core.ViewModels
 
         private void CalcDilutionSampleVolume()
         {
-            if (!_ignoreRecalcSampleVolume && DilutionCasyTonVolume == 10d)
-            {
-                this.DilutionSampleVolume = (1000 * this.DilutionCasyTonVolume) / (DilutionFactor - 1);
-
-            }
+            if (_ignoreRecalcSampleVolume || !(DilutionCasyTonVolume > 0d)) return;
+            var newValue = (1000 * DilutionCasyTonVolume) / (DilutionFactor - 1);
+            _uiProject.SendUIEdit(_template, "DilutionSampleVolume", newValue);
+            NotifyOfPropertyChange("DilutionSampleVolume");
+            //if (!_ignoreRecalcSampleVolume && DilutionCasyTonVolume == 10d)
+            //{
+            //this.DilutionSampleVolume = (1000 * this.DilutionCasyTonVolume) / (DilutionFactor - 1);
+            //}
         }
 
         public IEnumerable<string> KnownExperiments
