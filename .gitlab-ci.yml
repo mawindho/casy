@@ -17,8 +17,8 @@ build_job:
     - '& "$env:MSBUILD_PATH" /p:Configuration=Release /clp:ErrorsOnly OLS.Casy.sln'
   artifacts:
     expire_in: 2 days
-    #paths:
-    #  - '.\BuildOutput\Release\'
+    paths:
+      - '.\BuildOutput\Release\'
       
 deploy_job:
   stage: deploy
@@ -32,31 +32,31 @@ deploy_job:
     - New-Item -ItemType directory -Path .\access
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Core.Authorization.Access.dll' -Destination '.\access'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Ui.Authorization.Access.dll' -Destination '.\access'
-    - '& "$env:7ZIP_PATH" .\access.zip .\access'
+    - $env:7ZIP_PATH '.\access.zip' '.\access'
     - New-Item -ItemType directory -Path .\adAuth
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Authorization.ActiveDirectory.SetGroupsUtil.exe' -Destination '.\adAuth'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Authorization.ActiveDirectory.SetGroupsUtil.exe.config' -Destination '.\adAuth'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Core.Authorization.ActiveDirectory.dll' -Destination '.\adAuth'
-    - '& "$env:7ZIP_PATH" .\adAuth.zip .\adAuth'
+    - $env:7ZIP_PATH '.\adAuth.zip' '.\adAuth'
     - New-Item -ItemType directory -Path .\cfr
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.IO.SQLite.EF.AuditTrail.dll' -Destination '.\cfr'
     - Copy-Item '..\..\BuildOutput\Release\Casy\netstandard2.0\OLS.Casy.IO.SQLite.EF.Standard.AuditTrail.dll' -Destination '.\cfr'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Ui.AuditTrail.dll' -Destination '.\cfr'
-    - '& "$env:7ZIP_PATH" .\cfr.zip .\cfr'
+    - $env:7ZIP_PATH '.\cfr.zip' '.\cfr'
     - New-Item -ItemType directory -Path .\control
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Com.dll' -Destination '.\control'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Controller.Calibration.dll' -Destination '.\control'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Controller.Error.dll' -Destination '.\control'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Controller.Service.dll' -Destination '.\control'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Ui.Measure.dll' -Destination '.\control'
-    - '& "$env:7ZIP_PATH" .\control.zip .\control'
+    - $env:7ZIP_PATH '.\control.zip' '.\control'
     - New-Item -ItemType directory -Path .\counter
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Controller.MC.dll' -Destination '.\counter'
-    - '& "$env:7ZIP_PATH" .\counter.zip .\counter'
+    - $env:7ZIP_PATH '.\counter.zip' '.\counter'
     - New-Item -ItemType directory -Path .\localAuth
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Core.Authorization.Local.dll' -Destination '.\localAuth'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Ui.Authorization.dll' -Destination '.\localAuth'
-    - '& "$env:7ZIP_PATH" .\localAuth.zip .\localAuth'
+    - $env:7ZIP_PATH '.\localAuth.zip' '.\localAuth'
     - New-Item -ItemType directory -Path .\main
     - Copy-Item -Path '..\..\BuildOutput\Release\Casy\net472\de\* -Destination '.\main\de' -Recurse
     - Copy-Item -Path '..\..\BuildOutput\Release\Casy\net472\es\* -Destination '.\main\es' -Recurse
@@ -169,22 +169,22 @@ deploy_job:
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\System.Drawing.Common.dll' -Destination '.\main'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\System.Net.Http.WebRequest.dll' -Destination '.\main'
     - Set-Content -Path '.\main\version' -Value '$CI_BUILD_TAG'
-    - '& "$env:7ZIP_PATH" .\main.zip .\main'
+    - $env:7ZIP_PATH '.\main.zip' '.\main'
     - New-Item -ItemType directory -Path .\simulator
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Com.Simulation.dll' -Destination '.\simulator'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Controller.Calibration.dll' -Destination '.\simulator'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Controller.Error.dll' -Destination '.\simulator'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Controller.Service.dll' -Destination '.\simulator'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Ui.Measure.dll' -Destination '.\simulator'
-    - '& "$env:7ZIP_PATH" .\simulator.zip .\simulator'
+    - $env:7ZIP_PATH '.\simulator.zip' '.\simulator'
     - New-Item -ItemType directory -Path .\tipTap
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Ui.Core.TipTap.dll' -Destination '.\tipTap'
-    - '& "$env:7ZIP_PATH" .\tipTap.zip .\tipTap'
+    - $env:7ZIP_PATH '.\tipTap.zip' '.\tipTap'
     - New-Item -ItemType directory -Path .\trial
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Core.Sync.dll' -Destination '.\trial'
-    - '& "$env:7ZIP_PATH" .\trial.zip .\trial'
+    - $env:7ZIP_PATH '.\trial.zip' '.\trial'
     - New-Item -ItemType directory -Path .\ttSwitch
     - Copy-Item '..\..\BuildOutput\Release\Casy\netstandard2.0\OLS.Casy.Com.TTSwitch.dll' -Destination '.\ttSwitch'
-    - '& "$env:7ZIP_PATH" .\ttSwitch.zip .\ttSwitch'
+    - $env:7ZIP_PATH '.\ttSwitch.zip' '.\ttSwitch'
   dependencies:
     - build_job
