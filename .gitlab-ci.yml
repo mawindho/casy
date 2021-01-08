@@ -131,7 +131,7 @@ deploy_job:
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Core.Activation.Model.dll' -Destination '.\main'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Core.Api.dll' -Destination '.\main'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Core.Authorization.Api.dll' -Destination '.\main'
-    - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Core.Authorization.Default.dll' -Destination '.\main'
+    - Copy-Item '..\..\BuildOutput\Release\Casy\netstandard2.0\OLS.Casy.Core.Authorization.Default.dll' -Destination '.\main'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Core.Authorization.dll' -Destination '.\main'
     - Copy-Item '..\..\BuildOutput\Release\Casy\netstandard2.0\OLS.Casy.Core.Authorization.Emergency.dll' -Destination '.\main'
     - Copy-Item '..\..\BuildOutput\Release\Casy\netstandard2.0\OLS.Casy.Core.Authorization.Encryption.dll' -Destination '.\main'
