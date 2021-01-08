@@ -4,6 +4,7 @@ using OLS.Casy.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using System.IO;
 using System.Threading.Tasks;
 
 namespace OLS.Casy.AppService
@@ -19,6 +20,8 @@ namespace OLS.Casy.AppService
         private readonly ILogger _logger;
         private readonly IEnvironmentService _environmentService;
         private readonly IEnumerable<IService> _serviceList;
+
+        private string _version;
 
         /// <summary>
         /// Importing constructor
@@ -74,7 +77,23 @@ namespace OLS.Casy.AppService
         /// <summary>
         /// Property returning the current version of the app service
         /// </summary>
-        public string Version => "1.1.0.9";
+        public string Version
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_version))
+                {
+                    try
+                    {
+                        _version = File.ReadAllText("version");
+                    }
+                    catch
+                    {
+                    }
+                }
+                return _version;
+            }
+        }
 
         private void CallInterfaceFunction(InterfaceFunction function, IProgress<string> progress, Type objType)
         {
