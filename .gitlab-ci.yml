@@ -26,7 +26,7 @@ deploy_job:
     - /^(\d+\.)?(\d+\.)?(\d+.)?(\d+)$/
   script:
     - echo $CI_BUILD_TAG
-    - Remove-Item .\Deployment -Recurse -ErrorAction Ignore
+    - If(Test-Path .\Deployment) { Remove-Item -Recurse -Force .\Deployment }
     - New-Item -ItemType directory -Path .\Deployment\$CI_BUILD_TAG
     - cd .\Deployment\$CI_BUILD_TAG
     - New-Item -ItemType directory -Path .\access
