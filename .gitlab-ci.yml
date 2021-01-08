@@ -58,10 +58,10 @@ deploy_job:
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Ui.Authorization.dll' -Destination '.\localAuth'
     - '& "$env:7ZIP_PATH" .\localAuth.zip .\localAuth'
     - New-Item -ItemType directory -Path .\main
-    - Copy-Item -Path '..\..\BuildOutput\Release\Casy\net472\de\* -Destination '.\main\de' -Recurse
-    - Copy-Item -Path '..\..\BuildOutput\Release\Casy\net472\es\* -Destination '.\main\es' -Recurse
-    - Copy-Item -Path '..\..\BuildOutput\Release\Casy\net472\ja\* -Destination '.\main\ja' -Recurse
-    - Copy-Item -Path '..\..\BuildOutput\Release\Casy\net472\ru\* -Destination '.\main\ru' -Recurse
+    - Copy-Item -Path '..\..\BuildOutput\Release\Casy\net472\de\*' -Destination '.\main\de' -Recurse
+    - Copy-Item -Path '..\..\BuildOutput\Release\Casy\net472\es\*' -Destination '.\main\es' -Recurse
+    - Copy-Item -Path '..\..\BuildOutput\Release\Casy\net472\ja\*' -Destination '.\main\ja' -Recurse
+    - Copy-Item -Path '..\..\BuildOutput\Release\Casy\net472\ru\*' -Destination '.\main\ru' -Recurse
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\DevExpress.Charts.v16.2.Core.dll' -Destination '.\main'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\DevExpress.CodeParser.v16.2.dll' -Destination '.\main'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\DevExpress.Data.v16.2.dll' -Destination '.\main'
