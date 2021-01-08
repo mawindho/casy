@@ -16,8 +16,8 @@ build_job:
     - '& "$env:MSBUILD_PATH" /p:Configuration=Release /clp:ErrorsOnly OLS.Casy.sln'
   artifacts:
     expire_in: 2 days
-    paths:
-      - '.\BuildOutput\Release\'
+    #paths:
+    #  - '.\BuildOutput\Release\'
       
 deploy_job:
   stage: deploy
@@ -25,3 +25,4 @@ deploy_job:
     - /^(\d+\.)?(\d+\.)?(\d+)$/
   script:
     - echo $CI_BUILD_TAG
+    - New-Item -ItemType directory -Path .\$CI_BUILD_TAG
