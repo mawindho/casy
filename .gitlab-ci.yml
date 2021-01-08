@@ -182,7 +182,7 @@ deploy_job:
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\Remotion.Linq.dll' -Destination '.\main'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\System.Drawing.Common.dll' -Destination '.\main'
     #- Copy-Item '..\..\BuildOutput\Release\Casy\net472\System.Net.Http.WebRequest.dll' -Destination '.\main'
-    - Set-Content -Path '.\main\version' -Value '$CI_BUILD_TAG'
+    - Set-Content -Path '.\main\version' -Value $CI_BUILD_TAG
     - cd .\main
     - '& "$env:7ZIP_PATH" a -mx=9 "main.zip" "."'
     - Copy-Item '.\main.zip' -Destination '..'
