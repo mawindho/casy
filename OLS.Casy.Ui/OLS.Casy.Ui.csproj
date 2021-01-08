@@ -90,6 +90,9 @@
       <HintPath>..\External\DevExpress.Mvvm.v16.2.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="DevExpress.Office.v16.2.Core">
+      <HintPath>..\External\DevExpress.Office.v16.2.Core.dll</HintPath>
+    </Reference>
     <Reference Include="DevExpress.Xpf.Core.v16.2">
       <HintPath>..\External\DevExpress.Xpf.Core.v16.2.dll</HintPath>
     </Reference>
@@ -98,6 +101,9 @@
     </Reference>
     <Reference Include="DevExpress.Xpf.Grid.v16.2.Core">
       <HintPath>..\External\DevExpress.Xpf.Grid.v16.2.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="DevExpress.Xpf.Themes.Office2016White.v16.2">
+      <HintPath>..\External\DevExpress.Xpf.Themes.Office2016White.v16.2.dll</HintPath>
     </Reference>
   </ItemGroup>
 </Project>
