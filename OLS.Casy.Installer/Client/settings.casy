@@ -16,6 +16,10 @@
     "Value": 0
   },
   {
+    "Name": "CleanupInterval",
+    "Value": 90
+  },
+  {
     "Name": "ShowLastLoggedInUserName",
     "Value": true
   },
@@ -28,23 +32,31 @@
     "Value": 10
   },
   {
+    "Name": "DefaultBrowseLocation",
+    "Value": ""
+  },
+  {
     "Name": "CalibrationFileDirectory",
     "Value": "Calibration"
+  },
+  {
+    "Name": "UpdateInfoUrl",
+    "Value": "https://www.dropbox.com/s/fcw0veblvo343ig/updateInfo.xml?dl=1"
+  },
+  {
+    "Name": "AdditionalUpdateInfoUrl",
+    "Value": "https://www.dropbox.com/s/m26sljkuy3ynqzc/additinalUpdateInfo.xml?dl=1"
+  },
+  {
+    "Name": "IsHighSecurityModeOn",
+    "Value": false
   },
   {
     "Name": "SerialPort",
     "Value": "Auto"
   },
   {
-    "Name": "DefaultBrowseLocation",
-    "Value": ""
-  },
-  {
     "Name": "ShowMouseOverInGraph",
     "Value": true
-  },
-  {
-    "Name": "IsHighSecurityModeOn",
-    "Value": false
   }
 ]

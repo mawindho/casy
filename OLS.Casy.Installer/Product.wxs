@@ -3,7 +3,7 @@
      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension">
   <?define ProductName = "OLS CASY 2.5 Software" ?>
   <?define ProductManufacturer = "OMNI Life Science GmbH" ?>
-  <?define ProductVersion = "1.0.6.0" ?>
+  <?define ProductVersion = "1.0.7.0" ?>
   <?define ProductUpgradeCode = "9d07d902-8ba8-4cb6-a804-a56a080681be" ?>
 
   <Product Id="*" Name="$(var.ProductName)" Language="1033" Version="$(var.ProductVersion)" Manufacturer="$(var.ProductManufacturer)" UpgradeCode="$(var.ProductUpgradeCode)">
@@ -15,7 +15,6 @@
     <CustomAction Id="Cleanup_all" Directory="INSTALLLOCATION"
                   ExeCommand="cmd /C &quot;rmdir /s /q &quot;..\Casy&quot;&quot;"
 				  Execute="deferred" Return="ignore" HideTarget="no" Impersonate="no" />
-	  
 	  <CustomAction Id="Cleanup_all_Svc" Directory="INSTALLLOCATIONSVC"
                   ExeCommand="cmd /C &quot;rmdir /s /q &quot;..\Casy Remote Access Service&quot;&quot;"
 				  Execute="deferred" Return="ignore" HideTarget="no" Impersonate="no" />
@@ -86,25 +85,9 @@
         </Directory>
 		  <Directory Id="INSTALLLOCATIONSVC" Name="Casy Remote Access Service">
 		  </Directory>
-        <!--<?ifdef Simulator ?>
-          <Directory Id="INSTALLLOCATION" Name="Casy Simulator">
-            <Directory Id="DATALOCATION" Name="Data">
-              <Directory Id="CALIBRATIONLOCATION" Name="Calibration" />
-            </Directory>
-          </Directory>
-        <?else ?>-->
-        <!--
-          <?ifdef Desktop ?>
-            <Directory Id="INSTALLLOCATION" Name="Casy Desktop" />
-          <?else ?>-->
-              <!--<Directory Id="DATALOCATION" Name="Data">-->
-                <!--<Directory Id="CALIBRATIONLOCATION" Name="Calibration" />-->
-              <!--</Directory>-->
-          <!--<?endif ?>
-        <?endif ?>-->
 			</Directory>
 		</Directory>
-  </Fragment>
+    </Fragment>
 
 	<Fragment>
     <!--<Property Id="CALIBRATIONSOURCE" Value="$(var.CalibrationDirectory)" />-->

@@ -1,6 +1,27 @@
 ﻿Release Nodes CASY 2.5
 
-Changes Versions 0.9.11.9 --> 1.0.1.7
+Changes Version 1.0.2.2 --> 1.1.0.10
+- Change of database encryption technology: The database is AES encrypted now (RSA encryption before). Therefore the complete database will be migrated after the first start of the software after the update. This might take several minutes. It depends on the amount of measurement results and templates in your database. An information screen shows the migration process while software start-up.
+- Change of several old (deployed by current installer version) 3rd party libraries: This is the reason, why the update is more than 30 MB! Mostly all libraries have been upgraded or exchanged.
+- Exchange of icon library to avoid future licensing problems
+- CASY Remote Access (optional module):
+  - Embed CRA in installation process
+  - Several bugfixes
+- Activation Server communication via port 80
+- Bugfix: Edit capillary and x-range of existing templates
+- Active Directory Access (optional module):
+  - Bugfix in settings screen deleting customized AD groups
+- Bugfix: Analytic version sometimes kept shoing "Preparing device"
+- CFR (optional module):
+  - Bugfix: Restore deleted measurements
+
+Changes Versions 1.0.1.8 --> 1.0.2.2
+- Print all selected documents in graph view in one PDF
+- Performace and stabilisation enhencements by code optimization and bugfixing
+- Extended network capabilities for mobile App integration
+- Active Directory module optimizations
+
+Changes Versions 0.9.11.9 --> 1.0.1.8
 - Performance upgrade by dividing deleted and not deleted data in separate tables and adjust database indexes
 - Store selected headers in table view as preset
 - Start-Up and Shutdown-Wizard (Start-Up will appear once a day for the first user that logs in, Option in both: Do not show again)

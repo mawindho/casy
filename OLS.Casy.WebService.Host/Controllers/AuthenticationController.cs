@@ -18,7 +18,7 @@ namespace OLS.Casy.WebService.Host.Controllers
         }
 
         [HttpPost]
-        public IActionResult Authenticate([FromBody] UserDto userDto)
+        public ActionResult<UserDto> Authenticate([FromBody] UserDto userDto)
         {
             var user = _userService.Authenticate(userDto.Username, userDto.Password);
 

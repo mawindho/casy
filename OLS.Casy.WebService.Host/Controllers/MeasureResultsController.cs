@@ -27,6 +27,10 @@ namespace OLS.Casy.WebService.Host.Controllers
             _measureResultDataCalculationService = measureResultDataCalculationService;
         }
 
+        /// <summary>
+        /// Returns a life response
+        /// </summary>
+        /// <returns>Pong</returns>
         [AllowAnonymous]
         [HttpGet("/ping")]
         public IActionResult Ping()
@@ -34,24 +38,39 @@ namespace OLS.Casy.WebService.Host.Controllers
             return Ok("Pong");
         }
 
+        /// <summary>
+        /// Returns all known experiments
+        /// </summary>
+        /// <returns>List of experiment names</returns>
         [HttpGet]
-        public async Task<IActionResult> GetExperiments()
+        public async Task<ActionResult<IEnumerable<string>>> GetExperiments()
         {
             var experiments = DatabaseAccessService.GetExperiments(_casyContext);
             return Ok(experiments);
         }
 
+        /// <summary>
+        /// Returns all known groups of the passed experiment
+        /// </summary>
+        /// <param name="experiment">Name of the experiment</param>
+        /// <returns>List of group names</returns>
         [HttpGet]
         [Route("{experiment}")]
-        public async Task<IActionResult> GetGroups(string experiment)
+        public async Task<ActionResult<IEnumerable<string>>> GetGroups(string experiment)
         {
             var groups = DatabaseAccessService.GetGroups(_casyContext, Uri.UnescapeDataString(experiment));
             return Ok(groups);
         }
 
+        /// <summary>
+        /// Returns basic information about all measure results within the passed experiment and group
+        /// </summary>
+        /// <param name="experiment">Name of the experiment</param>
+        /// <param name="group">Name of the group</param>
+        /// <returns>List of basic measure result information</returns>
         [HttpGet]
         [Route("{experiment}/{group}")]
-        public async Task<IActionResult> GetMeasureResults(string experiment, string group)
+        public async Task<ActionResult<IEnumerable<MeasureResulltInfoDto>>> GetMeasureResults(string experiment, string group)
         {
             var measureResults = DatabaseAccessService.GetMeasureResults(_casyContext, Uri.UnescapeDataString(experiment), Uri.UnescapeDataString(group));
             return Ok(measureResults.Select(x => new MeasureResulltInfoDto
@@ -61,9 +80,14 @@ namespace OLS.Casy.WebService.Host.Controllers
             }));
         }
 
+        /// <summary>
+        /// Returns basic information about the measure result with the passed ID
+        /// </summary>
+        /// <param name="id">ID of the measure result</param>
+        /// <returns>Basic measure result information</returns>
         [HttpGet]
         [Route("byid/{id}")]
-        public async Task<IActionResult> GetMeasureResultById(int id)
+        public async Task<ActionResult<MeasureResulltInfoDto>> GetMeasureResultById(int id)
         {
             var measureResult = DatabaseAccessService.GeMeasureResult(_casyContext, id);
             return Ok(new MeasureResulltInfoDto
@@ -75,9 +99,17 @@ namespace OLS.Casy.WebService.Host.Controllers
             });
         }
 
+        /// <summary>
+        /// Returns full information about the measure result with passed, unique combination of
+        /// experiment, group and name
+        /// </summary>
+        /// <param name="experiment">Experiment of the measure result</param>
+        /// <param name="group">Group of the measure result</param>
+        /// <param name="name">Name of the measure result</param>
+        /// <returns>Detailed information about the measure result</returns>
         [HttpGet]
         [Route("{experiment}/{group}/{name}")]
-        public async Task<IActionResult> Get(string experiment, string group, string name)
+        public async Task<ActionResult<MeasureResultDto>> Get(string experiment, string group, string name)
         {
             var measureResult = DatabaseAccessService.GetMeasureResult(_casyContext, Uri.UnescapeDataString(experiment), Uri.UnescapeDataString(group), Uri.UnescapeDataString(name));
 
@@ -173,12 +205,27 @@ namespace OLS.Casy.WebService.Host.Controllers
                 });
             }
 
-            return NotFound(); 
+            return NotFound();
         }
-        
+
+        /// <summary>
+        /// Populates the passed overlay DTO with calculated overlay information
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /MeasureResults/overlay
+        ///     {
+        ///        "measureResultIds": [
+        ///            0, 1, 2
+        ///        ]
+        ///     }
+        /// </remarks>
+        /// <param name="overlayDto">Empty wrapper DTO containg IDs of the measure results the overlay consists of</param>
+        /// <returns>Detailed information about the overlay of passed measure results</returns>
         [HttpPost]
         [Route("overlay")]
-        public async Task<IActionResult> GetOverlayResults([FromBody] OverlayDto overlayDto)
+        public async Task<ActionResult<OverlayDto>> GetOverlayResults([FromBody] OverlayDto overlayDto)
         {
             var measureResults = new List<MeasureResult>();
             foreach(var id in overlayDto.MeasureResultIds)
@@ -395,9 +442,24 @@ namespace OLS.Casy.WebService.Host.Controllers
             return BadRequest(overlayDto);
         }
 
+        /// <summary>
+        /// Populates the passed mean DTO with calculated mean information
+        /// </summary>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     POST /MeasureResults/mean
+        ///     {
+        ///        "measureResultIds": [
+        ///            0, 1, 2
+        ///        ]
+        ///     }
+        /// </remarks>
+        /// <param name="meanDto">Empty wrapper DTO containg IDs of the measure results the mean result consists of</param>
+        /// <returns>Detailed information about the mean result of passed measure results</returns>
         [HttpPost]
         [Route("mean")]
-        public async Task<IActionResult> GetMeanResult([FromBody] MeanDto meanDto)
+        public async Task<ActionResult<MeanDto>> GetMeanResult([FromBody] MeanDto meanDto)
         {
             var measureResults = new List<MeasureResult>();
             foreach (var id in meanDto.MeasureResultIds)

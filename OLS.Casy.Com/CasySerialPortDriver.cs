@@ -1297,11 +1297,11 @@ namespace OLS.Casy.Com
 
         public void OnImportsSatisfied()
         {
-            _serialPort.BaudRate = 19200;
+            _serialPort.BaudRate = 921600;
             _serialPort.Parity = Parity.None;
             _serialPort.DataBits = 8;
             _serialPort.StopBits = StopBits.One;
-            _serialPort.RtsEnable = true;
+            //_serialPort.RtsEnable = true;
 
             _serialPort.DataReceived += OnDataReceived;
         }

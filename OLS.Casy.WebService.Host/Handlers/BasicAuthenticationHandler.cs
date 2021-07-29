@@ -36,6 +36,9 @@ namespace OLS.Casy.WebService.Host.Handlers
             var configUserName = _configuration.GetValue<string>("Username");
             var configPassword = _configuration.GetValue<string>("Password");
 
+            byte[] data = Convert.FromBase64String(configPassword);
+            string configPasswordDecoded = Encoding.UTF8.GetString(data); 
+
             string username;
             string password;
             //User user = null;
@@ -55,7 +58,7 @@ namespace OLS.Casy.WebService.Host.Handlers
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
                 return AuthenticateResult.Fail("Invalid Username or Password");
 
-            if (username != configUserName && password != configPassword)
+            if (username != configUserName && password != configPasswordDecoded)
                 return AuthenticateResult.Fail("Invalid Username or Password");
 
             var claims = new[] {

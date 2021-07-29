@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" InitialTargets="EnsureWixToolsetInstalled" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>3.10</ProductVersion>
+    <ProjectGuid>{c07236ad-5baf-4afe-914b-74ea3185f9e7}</ProjectGuid>
+    <SchemaVersion>2.0</SchemaVersion>
+    <OutputName>OLS CASY 2.5 Installer</OutputName>
+    <OutputType>Bundle</OutputType>
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug Simulator|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug Desktop|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <DefineConstants>Debug</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release Simulator|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release Desktop|x86' ">
+    <OutputPath>bin\$(Configuration)\</OutputPath>
+    <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Bundle.wxs" />
+    <Compile Include="NetFx472.wxs" />
+    <Compile Include="NetFx47.wxs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WixExtension Include="WixNetFxExtension">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\WiX Toolset v3.11\bin\WixNetFxExtension.dll</HintPath>
+      <Name>WixNetFxExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixBalExtension">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\WiX Toolset v3.11\bin\WixBalExtension.dll</HintPath>
+      <Name>WixBalExtension</Name>
+    </WixExtension>
+    <WixExtension Include="WixUtilExtension">
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\WiX Toolset v3.11\bin\WixUtilExtension.dll</HintPath>
+      <Name>WixUtilExtension</Name>
+    </WixExtension>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Access" />
+    <Folder Include="RS232Adapter" />
+    <Folder Include="RS232Adapter\Driver\" />
+    <Folder Include="RS232Adapter\Driver\Linux\" />
+    <Folder Include="RS232Adapter\Driver\Linux\Redhat73\" />
+    <Folder Include="RS232Adapter\Driver\Linux\Redhat8\" />
+    <Folder Include="RS232Adapter\Driver\Linux\Redhat9\" />
+    <Folder Include="RS232Adapter\Driver\MAC\" />
+    <Folder Include="RS232Adapter\Driver\Windows\" />
+    <Folder Include="RS232Adapter\Driver\WIN_98\" />
+    <Folder Include="RS232Adapter\Driver\WIN_me\" />
+    <Folder Include="RS232Adapter\Images\" />
+    <Folder Include="RS232Adapter\Manual\" />
+    <Folder Include="RS232Adapter\Utility\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Access\AccessDatabaseEngine.exe" />
+    <Content Include="license.rtf" />
+    <Content Include="logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RS232Adapter\AUTORUN.EXE" />
+    <Content Include="RS232Adapter\AUTORUN.INF" />
+    <Content Include="RS232Adapter\AUTORUN.INI" />
+    <Content Include="RS232Adapter\Driver\Linux\Redhat73\Makefile" />
+    <Content Include="RS232Adapter\Driver\Linux\Redhat73\pl2303.c" />
+    <Content Include="RS232Adapter\Driver\Linux\Redhat73\ReadMe.txt" />
+    <Content Include="RS232Adapter\Driver\Linux\Redhat8\Makefile" />
+    <Content Include="RS232Adapter\Driver\Linux\Redhat8\pl2303.c" />
+    <Content Include="RS232Adapter\Driver\Linux\Redhat8\ReadMe.txt" />
+    <Content Include="RS232Adapter\Driver\Linux\Redhat9\Makefile" />
+    <Content Include="RS232Adapter\Driver\Linux\Redhat9\pl2303.c" />
+    <Content Include="RS232Adapter\Driver\Linux\Redhat9\ReadMe.txt" />
+    <Content Include="RS232Adapter\Driver\Linux\user guide.doc" />
+    <Content Include="RS232Adapter\Driver\MAC\md_PL2303_MacOSX_10_6-10_10_v1_5_1.zip" />
+    <Content Include="RS232Adapter\Driver\MAC\PL2303_MacOSX_1_6_0_20151022.zip" />
+    <Content Include="RS232Adapter\Driver\Windows\1767464-VerificationReport.pdf" />
+    <Content Include="RS232Adapter\Driver\Windows\checkChipVersion_v1006.exe" />
+    <Content Include="RS232Adapter\Driver\Windows\PL2303 Windows Driver User Manual v1.12.0.pdf" />
+    <Content Include="RS232Adapter\Driver\Windows\PL2303CheckChipVersion_ReadMe.txt" />
+    <Content Include="RS232Adapter\Driver\Windows\PL2303_DriverInstallerv1.12.0_ReleaseNote.txt" />
+    <Content Include="RS232Adapter\Driver\Windows\PL2303_Prolific_DriverInstaller_v1.12.0.exe" />
+    <Content Include="RS232Adapter\Driver\WIN_98\PL-2303 Driver Installer.exe" />
+    <Content Include="RS232Adapter\Driver\WIN_me\PL-2303 Driver Installer.exe" />
+    <Content Include="RS232Adapter\Images\AUTORUN.ICO" />
+    <Content Include="RS232Adapter\Images\Autorun.jpg" />
+    <Content Include="RS232Adapter\Images\Autorun_Press.jpg" />
+    <Content Include="RS232Adapter\Manual\M-AU0002E-CD.pdf" />
+    <Content Include="RS232Adapter\Manual\M-GPL.pdf" />
+    <Content Include="RS232Adapter\Utility\SetCOM.exe" />
+    <Content Include="RS232Adapter\Utility\USB TO RS232 Cable for Windows user%27s manual.doc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OLS.Casy.Installer.ReleaseTest\OLS.Casy.Installer.ReleaseTest.wixproj">
+      <Name>OLS.Casy.Installer.ReleaseTest</Name>
+      <Project>{d8c69974-d735-4c02-91f2-5ea559d7a462}</Project>
+      <Private>True</Private>
+      <DoNotHarvest>True</DoNotHarvest>
+      <RefProjectOutputGroups>Binaries;Content;Satellites</RefProjectOutputGroups>
+      <RefTargetDir>INSTALLFOLDER</RefTargetDir>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(WixTargetsPath)" Condition=" '$(WixTargetsPath)' != '' " />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets" Condition=" '$(WixTargetsPath)' == '' AND Exists('$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets') " />
+  <Target Name="EnsureWixToolsetInstalled" Condition=" '$(WixTargetsImported)' != 'true' ">
+    <Error Text="The WiX Toolset v3.11 (or newer) build tools must be installed to build this project. To download the WiX Toolset, see http://wixtoolset.org/releases/" />
+  </Target>
+  <!--
+	To modify your build process, add your task inside one of the targets below and uncomment it.
+	Other similar extension points exist, see Wix.targets.
+	<Target Name="BeforeBuild">
+	</Target>
+	<Target Name="AfterBuild">
+	</Target>
+	-->
+</Project>

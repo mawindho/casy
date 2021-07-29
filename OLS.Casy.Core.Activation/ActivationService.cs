@@ -170,7 +170,8 @@ namespace OLS.Casy.Core.Activation
                         {
                             //httpClient.BaseAddress = new Uri("http://localhost:51893/");
                             //httpClient.BaseAddress = new Uri("https://185.55.118.30:51894/");
-                            httpClient.BaseAddress = new Uri("https://185.55.118.30:11372/");
+                            //httpClient.BaseAddress = new Uri("https://185.55.118.30:11372/");
+                            httpClient.BaseAddress = new Uri("http://activation.ols-bio.de/activation/");
                             httpClient.Timeout = TimeSpan.FromMinutes(1);
                             httpClient.DefaultRequestHeaders.Accept.Clear();
                             httpClient.DefaultRequestHeaders.Accept.Add(
@@ -229,7 +230,8 @@ namespace OLS.Casy.Core.Activation
                         {
                             //httpClient.BaseAddress = new Uri("http://localhost:51893/");
                             //httpClient.BaseAddress = new Uri("https://185.55.118.30:51894/");
-                            httpClient.BaseAddress = new Uri("https://185.55.118.30:11372/");
+                            //httpClient.BaseAddress = new Uri("https://185.55.118.30:11372/");
+                            httpClient.BaseAddress = new Uri("http://activation.ols-bio.de/activation/");
                             httpClient.Timeout = TimeSpan.FromMinutes(10);
                             httpClient.DefaultRequestHeaders.Accept.Clear();
                             httpClient.DefaultRequestHeaders.Accept.Add(
@@ -433,7 +435,8 @@ namespace OLS.Casy.Core.Activation
                             {
                                 //httpClient.BaseAddress = new Uri("http://localhost:51893/");
                                 //httpClient.BaseAddress = new Uri("https://185.55.118.30:51894/");
-                                httpClient.BaseAddress = new Uri("https://185.55.118.30:11372/");
+                                //httpClient.BaseAddress = new Uri("https://185.55.118.30:11372/");
+                                httpClient.BaseAddress = new Uri("http://activation.ols-bio.de/activation/");
                                 httpClient.Timeout = TimeSpan.FromMinutes(10);
                                 httpClient.DefaultRequestHeaders.Accept.Clear();
                                 httpClient.DefaultRequestHeaders.Accept.Add(
@@ -600,7 +603,8 @@ namespace OLS.Casy.Core.Activation
                     {
                         //httpClient.BaseAddress = new Uri("http://localhost:51893/");
                         //httpClient.BaseAddress = new Uri("https://185.55.118.30:51894/");
-                        httpClient.BaseAddress = new Uri("https://185.55.118.30:11372/");
+                        //httpClient.BaseAddress = new Uri("https://185.55.118.30:11372/");
+                        httpClient.BaseAddress = new Uri("http://activation.ols-bio.de/activation/");
                         httpClient.Timeout = TimeSpan.FromMinutes(10);
                         httpClient.DefaultRequestHeaders.Accept.Clear();
                         httpClient.DefaultRequestHeaders.Accept.Add(

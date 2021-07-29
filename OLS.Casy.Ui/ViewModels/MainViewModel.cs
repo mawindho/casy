@@ -227,6 +227,7 @@ namespace OLS.Casy.Ui.ViewModels
             }
             else
             {
+                IsInitializationVisible = false;
                 IsLoginContainerVisible = true;
             }
 

@@ -151,12 +151,9 @@ namespace OLS.Casy.AppService
         {
             var unhandledExceptionText = new StringBuilder();
 
+            var swVersion = File.ReadAllText("version");
             unhandledExceptionText.AppendLine($"Error Report {DateTime.Now:yyyy-MM-dd HH':'mm':'ss}:");
-            unhandledExceptionText.AppendLine("Last user activities:");
-            foreach (var entry in InteractionLogProvider.InteractionLog)
-            {
-                unhandledExceptionText.AppendLine(entry);
-            }
+            unhandledExceptionText.AppendLine($"Software version: {swVersion}");
 
             if (exception != null)
             {
@@ -193,6 +190,12 @@ namespace OLS.Casy.AppService
             else
             {
                 unhandledExceptionText.AppendLine("AppService has unhandled exception catched.");
+            }
+
+            unhandledExceptionText.AppendLine("Last user activities:");
+            foreach (var entry in InteractionLogProvider.InteractionLog)
+            {
+                unhandledExceptionText.AppendLine(entry);
             }
 
             var path = @"UnhandledException.txt";

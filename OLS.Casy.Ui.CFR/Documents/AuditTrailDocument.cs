@@ -130,6 +130,9 @@ namespace OLS.Casy.Ui.AuditTrail.Documents
 
             foreach (var data in _data)
             {
+                if (data == null)
+                    continue;
+
                 var row2 = _table.AddRow();
                 row2.Height = "0.45cm";
 
@@ -139,11 +142,11 @@ namespace OLS.Casy.Ui.AuditTrail.Documents
 
                 row2.Cells[1].Format.Alignment = ParagraphAlignment.Left;
                 row2.Cells[1].VerticalAlignment = VerticalAlignment.Center;
-                row2.Cells[1].AddParagraph(data.EntityName);
+                row2.Cells[1].AddParagraph(data.EntityName ?? "");
 
                 row2.Cells[2].Format.Alignment = ParagraphAlignment.Left;
                 row2.Cells[2].VerticalAlignment = VerticalAlignment.Center;
-                row2.Cells[2].AddParagraph(data.Action);
+                row2.Cells[2].AddParagraph(data.Action ?? "");
 
                 row2.Cells[3].Format.Alignment = ParagraphAlignment.Left;
                 row2.Cells[3].VerticalAlignment = VerticalAlignment.Center;
@@ -159,15 +162,15 @@ namespace OLS.Casy.Ui.AuditTrail.Documents
 
                 row2.Cells[6].Format.Alignment = ParagraphAlignment.Left;
                 row2.Cells[6].VerticalAlignment = VerticalAlignment.Center;
-                row2.Cells[6].AddParagraph(data.UserChanged);
+                row2.Cells[6].AddParagraph(data.UserChanged ?? "");
 
                 row2.Cells[7].Format.Alignment = ParagraphAlignment.Left;
                 row2.Cells[7].VerticalAlignment = VerticalAlignment.Center;
-                row2.Cells[7].AddParagraph(data.ComputerName);
+                row2.Cells[7].AddParagraph(data.ComputerName ?? "");
 
                 row2.Cells[8].Format.Alignment = ParagraphAlignment.Left;
                 row2.Cells[8].VerticalAlignment = VerticalAlignment.Center;
-                row2.Cells[8].AddParagraph(data.SoftwareVersion);
+                row2.Cells[8].AddParagraph(data.SoftwareVersion ?? "");
             }
         }
     }

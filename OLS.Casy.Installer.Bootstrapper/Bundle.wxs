@@ -2,10 +2,10 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" 
       xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
      xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
-  <!--<?define AccessDatabaseEngineMinRelease = 14.0.7015.1000 ?>-->
+  <?define AccessDatabaseEngineMinRelease = 14.0.7015.1000 ?>
   <?define RS232DriverMinRelease = 1.12.0 ?>
 
-  <Bundle Name="OLS CASY 2.5" Version="1.0.6.0" Manufacturer="OMNI Life Science GmbH" UpgradeCode="9d07d902-8ba8-4cb6-a804-a56a080681be">
+  <Bundle Name="OLS CASY 2.5" Version="1.0.7.0" Manufacturer="OMNI Life Science GmbH" UpgradeCode="9d07d902-8ba8-4cb6-a804-a56a080681be">
     <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense">
       <bal:WixStandardBootstrapperApplication
             LicenseFile="license.rtf"
@@ -15,8 +15,9 @@
 
 		<Chain>
       <PackageGroupRef Id="NetFx472Redist"/>
-      <!--<PackageGroupRef Id="AccessDatabaseEngine2010Redist" After="NetFx47Redist" />-->
-      <PackageGroupRef Id="RS232Adapter" After="NetFx472Redist" />
+      <PackageGroupRef Id="AccessDatabaseEngine2010Redist" After="NetFx472Redist" />
+      <!--<PackageGroupRef Id="RS232Adapter" After="NetFx472Redist" />-->
+      <PackageGroupRef Id="RS232Adapter" After="AccessDatabaseEngine2010Redist" />
       <MsiPackage After="RS232Adapter"
         Id="OLS.Casy"
         SourceFile="$(var.OLS.Casy.Installer.TargetDir)OLS.Casy.Installer.msi"
@@ -27,17 +28,17 @@
 	</Bundle>
 
   <Fragment>
-    <!--
+    
     <util:RegistrySearch Root="HKLM"
                          Key="SOFTWARE\Microsoft\Office\14.0\Access Connectivity Engine\InstallRoot"
                          Value="Path"
                          Variable="AcccessDatabaseEngine"
                          Win64="yes"/>
-                         -->
+                         
 
     <util:ProductSearch ProductCode="{90140000-00D1-0409-0000-0000000FF1CE}" Variable="AccessDatabaseEngine"/>
 
-	  <!--
+	  
     <WixVariable Id="AccessDatabaseDetectCondition" Value="AccessDatabaseEngine &gt;= v$(var.AccessDatabaseEngineMinRelease)" Overridable="yes" />
 
     <PackageGroup Id="AccessDatabaseEngine2010Redist">
@@ -52,7 +53,6 @@
               SourceFile=".\Access\AccessDatabaseEngine.exe"
               DetectCondition="!(wix.AccessDatabaseDetectCondition)"/>
     </PackageGroup>
--->
     <!--<util:RegistrySearch Id="RS232DriverSearch" Root="HKLM" Key="SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{ECC3713C-08A4-40E3-95F1-7D0704F1CE5E}" Variable="DisplayVersion" Win64="yes" />-->
 
     <util:RegistrySearch Root="HKLM"

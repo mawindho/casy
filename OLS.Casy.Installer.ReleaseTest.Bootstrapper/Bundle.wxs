@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi" 
+      xmlns:util="http://schemas.microsoft.com/wix/UtilExtension"
+     xmlns:bal="http://schemas.microsoft.com/wix/BalExtension">
+  <?define AccessDatabaseEngineMinRelease = 14.0.7015.1000 ?>
+  <?define RS232DriverMinRelease = 1.12.0 ?>
+
+  <Bundle Name="OLS CASY 2.5 Release Test 1.1" Version="1.1.0.0" Manufacturer="OMNI Life Science GmbH" UpgradeCode="9d07d902-8ba8-4cb6-a804-a56a080681be">
+    <BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense">
+      <bal:WixStandardBootstrapperApplication
+            LicenseFile="license.rtf"
+            LogoFile="logo.png"
+            />
+    </BootstrapperApplicationRef>
+
+		<Chain>
+      <PackageGroupRef Id="NetFx472Redist"/>
+      <PackageGroupRef Id="AccessDatabaseEngine2010Redist" After="NetFx472Redist" />
+      <!--<PackageGroupRef Id="RS232Adapter" After="NetFx472Redist" />-->
+      <PackageGroupRef Id="RS232Adapter" After="AccessDatabaseEngine2010Redist" />
+      <MsiPackage After="RS232Adapter"
+        Id="OLS.Casy"
+        SourceFile="$(var.OLS.Casy.Installer.ReleaseTest.TargetDir)OLS.Casy.Installer.msi"
+				  DisplayInternalUI='yes'
+    Visible="yes"/>
+
+    </Chain>
+	</Bundle>
+
+  <Fragment>
+    
+    <util:RegistrySearch Root="HKLM"
+                         Key="SOFTWARE\Microsoft\Office\14.0\Access Connectivity Engine\InstallRoot"
+                         Value="Path"
+                         Variable="AcccessDatabaseEngine"
+                         Win64="yes"/>
+                         
+
+    <util:ProductSearch ProductCode="{90140000-00D1-0409-0000-0000000FF1CE}" Variable="AccessDatabaseEngine"/>
+
+	  
+    <WixVariable Id="AccessDatabaseDetectCondition" Value="AccessDatabaseEngine &gt;= v$(var.AccessDatabaseEngineMinRelease)" Overridable="yes" />
+
+    <PackageGroup Id="AccessDatabaseEngine2010Redist">
+      <ExePackage Id="AccessDatabaseEngine2010Redist"
+              DisplayName="Microsoft Access Database Engine"
+              DownloadUrl="http://download.microsoft.com/download/2/4/3/24375141-E08D-4803-AB0E-10F2E3A07AAA/AccessDatabaseEngine.exe"
+              Compressed="no"
+              Cache="yes"
+              PerMachine="yes"
+              Permanent="yes"
+              Vital="yes"
+              SourceFile=".\Access\AccessDatabaseEngine.exe"
+              DetectCondition="!(wix.AccessDatabaseDetectCondition)"/>
+    </PackageGroup>
+    <!--<util:RegistrySearch Id="RS232DriverSearch" Root="HKLM" Key="SOFTWARE\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{ECC3713C-08A4-40E3-95F1-7D0704F1CE5E}" Variable="DisplayVersion" Win64="yes" />-->
+
+    <util:RegistrySearch Root="HKLM"
+                         Key="Software\WOW6432Node\Microsoft\Windows\CurrentVersion\Uninstall\{ECC3713C-08A4-40E3-95F1-7D0704F1CE5E}"
+                         Value="DisplayVersion"
+                         Variable="RS232DriverSearch"
+                         Win64="yes"/>
+
+    <!--<util:ProductSearch ProductCode="{ECC3713C-08A4-40E3-95F1-7D0704F1CE5E}" Variable="RS232DriverSearch" />-->
+
+    <WixVariable Id="RS232DriverSearchCondition" Value="RS232DriverSearch &gt;= v$(var.RS232DriverMinRelease)" Overridable="yes" />
+
+    <PackageGroup Id="RS232Adapter">
+      <ExePackage Id="RS232Adapter"
+              DisplayName="RS232 Adapter"
+              Compressed="no"
+              Cache="yes"
+              PerMachine="yes"
+              Permanent="yes"
+              Vital="yes"
+              SourceFile=".\RS232Adapter\Driver\Windows\PL2303_Prolific_DriverInstaller_v1.12.0.exe"
+              DetectCondition="!(wix.RS232DriverSearchCondition)" />
+    </PackageGroup>
+
+  </Fragment>
+</Wix>

@@ -1,0 +1,109 @@
+log4net: log4net assembly [log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a]. Loaded from [C:\Projects\Casy\Source\Casy 2.5\OLS.Casy-ReleaseC-Indexing\OLS.Casy.Installer.Service\Client\log4net.dll]. (.NET Runtime [4.0.30319.42000] on Microsoft Windows NT 6.2.9200.0)
+log4net: defaultRepositoryType [log4net.Repository.Hierarchy.Hierarchy]
+log4net: Creating repository for assembly [OLS.Casy.Core.Logging.SQLite.EF, Version=0.9.7409.18509, Culture=neutral, PublicKeyToken=null]
+log4net: Assembly [OLS.Casy.Core.Logging.SQLite.EF, Version=0.9.7409.18509, Culture=neutral, PublicKeyToken=null] Loaded From [C:\Projects\Casy\Source\Casy 2.5\OLS.Casy-ReleaseC-Indexing\OLS.Casy.Installer.Service\Client\OLS.Casy.Core.Logging.SQLite.EF.dll]
+log4net: Assembly [OLS.Casy.Core.Logging.SQLite.EF, Version=0.9.7409.18509, Culture=neutral, PublicKeyToken=null] does not have a RepositoryAttribute specified.
+log4net: Assembly [OLS.Casy.Core.Logging.SQLite.EF, Version=0.9.7409.18509, Culture=neutral, PublicKeyToken=null] using repository [log4net-default-repository] and repository type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: Creating repository [log4net-default-repository] using type [log4net.Repository.Hierarchy.Hierarchy]
+log4net: configuring repository [log4net-default-repository] using stream
+log4net: loading XML configuration
+log4net: Configuring Repository [log4net-default-repository]
+log4net: Configuration update mode [Merge].
+log4net: Logger [root] Level string is [ALL].
+log4net: Logger [root] level set to [name="ALL",value=-2147483648].
+log4net: Loading Appender [AdoNetAppender] type: [log4net.Appender.AdoNetAppender]
+log4net: Setting Property [BufferSize] to Int32 value [1]
+log4net: Setting Property [ConnectionType] to String value [System.Data.SQLite.SQLiteConnection, System.Data.SQLite, Version=1.0.112.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139]
+log4net: Setting Property [ConnectionString] to String value [Data Source=.\log.db;Version=3;Password=th1s1sc4sy;]
+log4net: Setting Property [CommandText] to String value [INSERT INTO Log (Date, Level, Logger, Message, User, Category) VALUES (@Date, @Level, @Logger, @Message, @User, @Category)]
+log4net: Setting Property [ParameterName] to String value [@Date]
+log4net: Setting Property [DbType] to DbType value [DateTime]
+log4net: Setting Property [Layout] to object [log4net.Layout.RawTimeStampLayout]
+log4net: Setting Collection Property [AddParameter] to object [log4net.Appender.AdoNetAppenderParameter]
+log4net: Setting Property [ParameterName] to String value [@Level]
+log4net: Setting Property [DbType] to DbType value [String]
+log4net: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Setting Property [ConversionPattern] to String value [%level]
+log4net: Converter [level] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Setting Property [Layout] to object [log4net.Layout.Layout2RawLayoutAdapter]
+log4net: Setting Collection Property [AddParameter] to object [log4net.Appender.AdoNetAppenderParameter]
+log4net: Setting Property [ParameterName] to String value [@Logger]
+log4net: Setting Property [DbType] to DbType value [String]
+log4net: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Setting Property [ConversionPattern] to String value [%logger]
+log4net: Converter [logger] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Setting Property [Layout] to object [log4net.Layout.Layout2RawLayoutAdapter]
+log4net: Setting Collection Property [AddParameter] to object [log4net.Appender.AdoNetAppenderParameter]
+log4net: Setting Property [ParameterName] to String value [@Message]
+log4net: Setting Property [DbType] to DbType value [String]
+log4net: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Setting Property [ConversionPattern] to String value [%message]
+log4net: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Setting Property [Layout] to object [log4net.Layout.Layout2RawLayoutAdapter]
+log4net: Setting Collection Property [AddParameter] to object [log4net.Appender.AdoNetAppenderParameter]
+log4net: Setting Property [ParameterName] to String value [@User]
+log4net: Setting Property [DbType] to DbType value [String]
+log4net: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Setting Property [ConversionPattern] to String value [%property{CasyUser}]
+log4net: Converter [property] Option [CasyUser] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Setting Property [Layout] to object [log4net.Layout.Layout2RawLayoutAdapter]
+log4net: Setting Collection Property [AddParameter] to object [log4net.Appender.AdoNetAppenderParameter]
+log4net: Setting Property [ParameterName] to String value [@Category]
+log4net: Setting Property [DbType] to DbType value [Int32]
+log4net: Converter [message] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Converter [newline] Option [] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Setting Property [ConversionPattern] to String value [%property{Category}]
+log4net: Converter [property] Option [Category] Format [min=-1,max=2147483647,leftAlign=False]
+log4net: Setting Property [Layout] to object [log4net.Layout.Layout2RawLayoutAdapter]
+log4net: Setting Collection Property [AddParameter] to object [log4net.Appender.AdoNetAppenderParameter]
+Native library pre-loader is trying to load native SQLite library "C:\Projects\Casy\Source\Casy 2.5\OLS.Casy-ReleaseC-Indexing\OLS.Casy.Installer.Service\Client\x86\SQLite.Interop.dll"...
+log4net: Created Appender [AdoNetAppender]
+log4net: Adding appender named [AdoNetAppender] to logger [root].
+log4net: Hierarchy Threshold []
+SQLite error (1): no such table: __MigrationHistory in "SELECT 
+[GroupBy1].[A1] AS [C1]
+FROM ( SELECT 
+	Count([Filter1].[A1]) AS [A1]
+	FROM ( SELECT 
+		1 AS [A1]
+		FROM [__MigrationHistory] AS [Extent1]
+		WHERE [Extent1]
+SQLite error (1): no such table: __MigrationHistory in "SELECT 
+[GroupBy1].[A1] AS [C1]
+FROM ( SELECT 
+	Count([Extent1].[A1]) AS [A1]
+	FROM ( SELECT 
+		1 AS [A1]
+		FROM [__MigrationHistory] AS [Extent1]
+	)  AS [Extent1]
+SQLite error (1): no such table: EdmMetadata in "SELECT 
+[Extent1].[Id] AS [Id], 
+[Extent1].[ModelHash] AS [ModelHash]
+FROM [EdmMetadata] AS [Extent1]
+ORDER BY [Extent1].[Id] DESC LIMIT 1"
+SQLite error (1): no such table: __MigrationHistory in "SELECT 
+[GroupBy1].[A1] AS [C1]
+FROM ( SELECT 
+	Count([Filter1].[A1]) AS [A1]
+	FROM ( SELECT 
+		1 AS [A1]
+		FROM [__MigrationHistory] AS [Extent1]
+		WHERE [Extent1]
+SQLite error (1): no such table: __MigrationHistory in "SELECT 
+[GroupBy1].[A1] AS [C1]
+FROM ( SELECT 
+	Count([Extent1].[A1]) AS [A1]
+	FROM ( SELECT 
+		1 AS [A1]
+		FROM [__MigrationHistory] AS [Extent1]
+	)  AS [Extent1]
+SQLite error (1): no such table: EdmMetadata in "SELECT 
+[Extent1].[Id] AS [Id], 
+[Extent1].[ModelHash] AS [ModelHash]
+FROM [EdmMetadata] AS [Extent1]
+ORDER BY [Extent1].[Id] DESC LIMIT 1"
+log4net: Shutdown called on Hierarchy [log4net-default-repository]

@@ -1,0 +1,50 @@
+[
+  {
+    "Name": "IsBackupEnabled",
+    "Value": false
+  },
+  {
+    "Name": "BackupPath",
+    "Value": ""
+  },
+  {
+    "Name": "BackupInterval",
+    "Value": 0
+  },
+  {
+    "Name": "LastBackupTime",
+    "Value": 0
+  },
+  {
+    "Name": "ShowLastLoggedInUserName",
+    "Value": true
+  },
+  {
+    "Name": "LastLoggedInUserName",
+    "Value": "setup"
+  },
+  {
+    "Name": "AutoLogOffTime",
+    "Value": 10
+  },
+  {
+    "Name": "CalibrationFileDirectory",
+    "Value": "Calibration"
+  },
+  {
+    "Name": "SerialPort",
+    "Value": "Auto"
+  },
+  {
+    "Name": "DefaultBrowseLocation",
+    "Value": ""
+  },
+  {
+    "Name": "ShowMouseOverInGraph",
+    "Value": true
+  },
+  {
+    "Name": "IsHighSecurityModeOn",
+    "Value": false
+  }
+]
