@@ -26,9 +26,10 @@ deploy_job:
     - /^(\d+\.)?(\d+\.)?(\d+.)?(\d+)$/
   script:
     - echo $CI_BUILD_TAG
+    - echo $CI_COMMIT_TAG
     - If(Test-Path .\Deployment) { Remove-Item -Recurse -Force .\Deployment }
-    - New-Item -ItemType directory -Path .\Deployment\$CI_BUILD_TAG
-    - cd .\Deployment\$CI_BUILD_TAG
+    - New-Item -ItemType directory -Path .\Deployment\$CI_COMMIT_TAG
+    - cd .\Deployment\$CI_COMMIT_TAG
     - New-Item -ItemType directory -Path .\access
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Core.Authorization.Access.dll' -Destination '.\access'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\OLS.Casy.Ui.Authorization.Access.dll' -Destination '.\access'
@@ -182,7 +183,7 @@ deploy_job:
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\Remotion.Linq.dll' -Destination '.\main'
     - Copy-Item '..\..\BuildOutput\Release\Casy\net472\System.Drawing.Common.dll' -Destination '.\main'
     #- Copy-Item '..\..\BuildOutput\Release\Casy\net472\System.Net.Http.WebRequest.dll' -Destination '.\main'
-    - Set-Content -Path '.\main\version' -Value $CI_BUILD_TAG
+    - Set-Content -Path '.\main\version' -Value $CI_COMMIT_TAG
     - cd .\main
     - '& "$env:7ZIP_PATH" a -mx=9 "main.zip" "."'
     - Copy-Item '.\main.zip' -Destination '..'
