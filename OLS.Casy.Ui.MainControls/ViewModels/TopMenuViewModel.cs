@@ -236,7 +236,7 @@ namespace OLS.Casy.Ui.MainControls.ViewModels
 
         public bool IsPrintAllEnabled
         {
-            get { return this._isPrintAllEnabled; }
+            get { return this._isPrintAllEnabled && _measureResultManager.SelectedMeasureResults.Any(); }
             set
             {
                 if (value != this._isPrintAllEnabled)
