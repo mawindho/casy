@@ -717,12 +717,17 @@ namespace OLS.Casy.Ui.MainControls.ViewModels
 
             foreach (var (_, item2, item3) in AnnotationTypes)
             {
+                if(item3.AnnotationTypeId == -1)
+                {
+                    _logger.Info(Casy.Models.Enums.LogCategory.General, $"Annotation Type '{item2}' has been created.");
+                }
                 item3.AnnottationTypeName = item2;
                 _databaseStorageService.SaveAnnotationType(item3);
             }
 
             foreach(var annotationType in _removedAnnotationTypes)
             {
+                _logger.Info(Casy.Models.Enums.LogCategory.General, $"Annotation Type '{annotationType}' has been deleted.");
                 _databaseStorageService.DeleteAnnotationType(annotationType);
             }
             _removedAnnotationTypes.Clear();

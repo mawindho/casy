@@ -1282,13 +1282,17 @@ namespace OLS.Casy.IO.SQLite.EF
             }
         }
 
-        public IEnumerable<Tuple<string, int, int>> GetExperiments(bool includeDeleted = false)
+        public IEnumerable<Tuple<string, int, int>> GetExperiments(string filter = "", bool includeDeleted = false)
         {
             using (var casyContext = new CasyContext2(_environmentService, _activeAuditTrailDecorator, null))
             {
                 var result = new Dictionary<string, Tuple<string, int, int>>();
-
                 var experimentQuery = casyContext.MeasureResults.Where(x => !x.IsTemporary).AsQueryable();
+
+                if(!string.IsNullOrEmpty(filter))
+                {
+                    experimentQuery = experimentQuery.Where(x => x.Name.ToLower().Contains(filter.ToLower()));
+                }
 
                 var experiments = experimentQuery.Select(x =>  new { x.Experiment, x.Group, x.MeasureResultEntityId }).GroupBy(x => x.Experiment).ToList();
 
@@ -1318,13 +1322,19 @@ namespace OLS.Casy.IO.SQLite.EF
             }
         }
 
-        public IEnumerable<Tuple<string, int>> GetGroups(string experiment, bool includeDeleted = false)
+        public IEnumerable<Tuple<string, int>> GetGroups(string experiment, string filter = "", bool includeDeleted = false)
         {
             using (var casyContext = new CasyContext2(_environmentService, _activeAuditTrailDecorator, null))
             {
                 var result = new Dictionary<string, Tuple<string, int>>();
 
                 var groupQuery = casyContext.MeasureResults.Where(x => !x.IsTemporary);
+
+                if (!string.IsNullOrEmpty(filter))
+                {
+                    groupQuery = groupQuery.Where(x => x.Name.ToLower().Contains(filter.ToLower()));
+                }
+
                 if (string.IsNullOrEmpty(experiment))
                 {
                     groupQuery = groupQuery.Where(x => string.IsNullOrEmpty(x.Experiment));
@@ -1392,7 +1402,7 @@ namespace OLS.Casy.IO.SQLite.EF
             }
         }
 
-        public IEnumerable<MeasureResult> GetMeasureResults(string experiment, string group, bool includeDeleted = false, bool nullAsNoValue = false)
+        public IEnumerable<MeasureResult> GetMeasureResults(string experiment, string group, string filter = "", bool includeDeleted = false, bool nullAsNoValue = false)
         {
             using (var casyContext = new CasyContext2(_environmentService, _activeAuditTrailDecorator, null))
             {
@@ -1405,6 +1415,12 @@ namespace OLS.Casy.IO.SQLite.EF
                     .Include("MeasureResultAccessMappings").AsQueryable();
 
                 measureResultEntities = measureResultEntities.Where(x => !x.IsTemporary);
+
+                if (!string.IsNullOrEmpty(filter))
+                {
+                    measureResultEntities = measureResultEntities.Where(x => x.Name.ToLower().Contains(filter.ToLower()));
+                }
+
                 if (nullAsNoValue)
                 {
                     if (experiment != null)

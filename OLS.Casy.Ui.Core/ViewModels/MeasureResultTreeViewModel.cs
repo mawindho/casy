@@ -46,6 +46,7 @@ namespace OLS.Casy.Ui.Core.ViewModels
         private readonly IEnvironmentService _environmentService;
         private string _selectedExperiment;
         private string _selectedGroup;
+        private string _filterName;
 
         private bool _isExpandViewCollapsed;
         private GridLength _expandViewHeight;
@@ -109,6 +110,20 @@ namespace OLS.Casy.Ui.Core.ViewModels
         public string NavigateBackButtonText => _localizationService.GetLocalizedString("MeasureResultTreeView_BackButton_DefaultText");
 
         public SmartCollection<MeasureResultTreeItemViewModel> MeasureResultTreeItemViewModels { get; }
+
+        public string FilterName
+        {
+            get { return _filterName; }
+            set
+            {
+                if (value != _filterName)
+                {
+                    this._filterName = value;
+                    NotifyOfPropertyChange();
+                    UpdateMeasureResultTreeItems();
+                }
+            }
+        }
 
         public void SetSelectedExperiment(string experiment)
         {
@@ -441,7 +456,7 @@ namespace OLS.Casy.Ui.Core.ViewModels
                     //var userId = _authenticationService.LoggedInUser.Id;
                     //var groupIds = _authenticationService.LoggedInUser.UserGroups.Select(g => g.Id);
 
-                    var experiments = _databaseStorageService.GetExperiments(IsShowDeleted);
+                    var experiments = _databaseStorageService.GetExperiments(FilterName, IsShowDeleted);
 
                     foreach (var experiment in experiments)
                     {
@@ -466,7 +481,7 @@ namespace OLS.Casy.Ui.Core.ViewModels
 
                     if (_groupLevelTreeViewModelExport != null)
                     {
-                        var groups = _databaseStorageService.GetGroups(_selectedExperiment, IsShowDeleted);
+                        var groups = _databaseStorageService.GetGroups(_selectedExperiment, FilterName, IsShowDeleted);
 
                         foreach (var group in groups)
                         {
@@ -493,7 +508,7 @@ namespace OLS.Casy.Ui.Core.ViewModels
 
                     if (_measureResultLevelTreeViewModelExport != null)
                     {
-                        var measureResults = _measureResultStorageService.GetMeasureResults(_selectedExperiment, _selectedGroup, includeDeleted: IsShowDeleted);
+                        var measureResults = _measureResultStorageService.GetMeasureResults(_selectedExperiment, _selectedGroup, FilterName, IsShowDeleted);
 
                         foreach (var measureResult in measureResults)
                         {
@@ -675,7 +690,7 @@ namespace OLS.Casy.Ui.Core.ViewModels
 
             foreach (var measureResult in measureResults)
             {
-                var tempName = FindMeasurementName(measureResult);
+                var tempName = _measureResultManager.FindMeasurementName(measureResult);
 
                 measureResult.MeasureResultGuid = Guid.NewGuid();
                 measureResult.Name = tempName;
@@ -687,7 +702,7 @@ namespace OLS.Casy.Ui.Core.ViewModels
 
                 if (buttonResult == ButtonResult.SaveAll)
                 {
-                    tempName = FindMeasurementName(measureResult);
+                    tempName = _measureResultManager.FindMeasurementName(measureResult);
                     measureResult.Name = tempName;
                     measureResult.Experiment = lastExp;
                     measureResult.Group = lastGrp;
@@ -729,27 +744,6 @@ namespace OLS.Casy.Ui.Core.ViewModels
             }
 
             return buttonResult == ButtonResult.SaveAll;
-        }
-
-        private string FindMeasurementName(MeasureResult measureResult)
-        {
-            var tempName = measureResult.Name;
-
-            if (!_measureResultStorageService.MeasureResultExists(tempName, measureResult.Experiment,
-                measureResult.Group)) return tempName;
-
-            var count = 1;
-            var measurementName = $"{tempName}_{count.ToString()}";
-            while (_measureResultStorageService.MeasureResultExists(measurementName, measureResult.Experiment,
-                measureResult.Group))
-            {
-                count++;
-                measurementName = string.Format("{0}_{1}", tempName, count.ToString());
-            }
-
-            tempName = measurementName;
-
-            return tempName;
         }
 
         private async Task<bool> OpenBinaryFile(FileInfo fileInfo, bool isSaveAll)

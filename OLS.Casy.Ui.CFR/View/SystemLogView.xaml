@@ -46,12 +46,12 @@
                     
                     <AdornerDecorator Margin="5" Grid.Column="1">
                         <ComboBox Style="{StaticResource CasyComboBoxStyle}"
-                                  ItemsSource="{Binding Path=KnownCategories}">
+                                  ItemsSource="{Binding Path=KnownCategories}" SelectedValue="{Binding Path=SelectedCategory}" SelectedValuePath="ValueItem">
                             <ComboBox.ItemTemplate>
                                 <DataTemplate>
                                     <StackPanel Orientation="Horizontal">
-                                        <CheckBox IsChecked="{Binding IsSelected}" Width="20" />
-                                        <TextBlock Text="{Binding DisplayItem}" Width="230" />
+                                        <!--<CheckBox IsChecked="{Binding IsSelected}" Width="40" Foreground="{StaticResource BlackBrush}" />-->
+                                        <TextBlock Text="{Binding DisplayItem}" Width="210" />
                                     </StackPanel>
                                 </DataTemplate>
                             </ComboBox.ItemTemplate>

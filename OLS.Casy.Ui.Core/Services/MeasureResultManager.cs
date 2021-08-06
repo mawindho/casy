@@ -1063,5 +1063,26 @@ namespace OLS.Casy.Ui.Core.Services
                 receiver.BeginInvoke(this, EventArgs.Empty, null, null);
             }
         }
+
+        public string FindMeasurementName(MeasureResult measureResult)
+        {
+            var tempName = measureResult.Name;
+
+            if (!_measureResultStorageService.MeasureResultExists(tempName, measureResult.Experiment,
+                measureResult.Group)) return tempName;
+
+            var count = 1;
+            var measurementName = $"{tempName}_{count.ToString()}";
+            while (_measureResultStorageService.MeasureResultExists(measurementName, measureResult.Experiment,
+                measureResult.Group))
+            {
+                count++;
+                measurementName = string.Format("{0}_{1}", tempName, count.ToString());
+            }
+
+            tempName = measurementName;
+
+            return tempName;
+        }
     }
 }

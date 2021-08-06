@@ -10,7 +10,7 @@ namespace OLS.Casy.Controller.Api
     {
         event EventHandler MeasureResultsChangedEvent;
 
-        IEnumerable<MeasureResult> GetMeasureResults(string experiment, string group, bool includeDeleted = false, bool nullAsNoValue = false);
+        IEnumerable<MeasureResult> GetMeasureResults(string experiment, string group, string filter = "", bool includeDeleted = false, bool nullAsNoValue = false);
         
         /// <summary>
         /// Returns a <see cref="MeasureResult"/> by its ID.

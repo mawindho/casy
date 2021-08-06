@@ -33,9 +33,9 @@ namespace OLS.Casy.IO.Api
         void DeleteMeasureSetup(MeasureSetup measureSetup);
         int SaveMeasureSetup(MeasureSetup measureSetup, bool ignoreAuditTrail = false);
 
-        IEnumerable<Tuple<string, int, int>> GetExperiments(bool includeDeleted = false);
-        IEnumerable<Tuple<string, int>> GetGroups(string experiment, bool includeDeleted = false);
-        IEnumerable<MeasureResult> GetMeasureResults(string experiment, string group, bool includeDeleted = false, bool nullAsNoValue = false);
+        IEnumerable<Tuple<string, int, int>> GetExperiments(string filter = "", bool includeDeleted = false);
+        IEnumerable<Tuple<string, int>> GetGroups(string experiment, string filter = "", bool includeDeleted = false);
+        IEnumerable<MeasureResult> GetMeasureResults(string experiment, string group, string filter = "", bool includeDeleted = false, bool nullAsNoValue = false);
         MeasureResult GetMeasureResult(int measureResultId, bool ignoreCache = false, bool isDeleted = false);
         MeasureResult GetMeasureResultByGuid(Guid guid);
         IEnumerable<MeasureResult> GetTemporaryMeasureResults(User loggedInUser);

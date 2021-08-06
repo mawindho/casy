@@ -302,6 +302,10 @@ namespace OLS.Casy.Ui.Measure.ViewModels
                 Experiment = experiment,
                 Group = group
             };
+
+            var tempName = _measureResultManager.FindMeasurementName(measureResult);
+            measureResult.Name = tempName;
+
             measureSetup.MeasureResult = measureResult;
 
             await _measureResultManager.AddSelectedMeasureResults(new[] { measureResult });

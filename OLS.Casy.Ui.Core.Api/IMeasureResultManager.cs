@@ -31,5 +31,6 @@ namespace OLS.Casy.Ui.Core.Api
         void StartRangeModificationTimer(MeasureSetup measureSetup);
         void StopRangeModificationTimer(MeasureSetup measureSetup);
         MeasureSetup CloneTemplate(MeasureSetup template);
+        string FindMeasurementName(MeasureResult measureResult);
     }
 }

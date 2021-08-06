@@ -5,6 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:localization="clr-namespace:OLS.Casy.Ui.Base.Localization;assembly=OLS.Casy.Ui.Base"
              xmlns:behaviors="clr-namespace:OLS.Casy.Ui.Base.Behaviors;assembly=OLS.Casy.Ui.Base"
+             xmlns:controls="clr-namespace:OLS.Casy.Ui.Base.Controls;assembly=OLS.Casy.Ui.Base"
+             xmlns:extensions="clr-namespace:OLS.Casy.Ui.Base.Extensions;assembly=OLS.Casy.Ui.Base"
               xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
               xmlns:iconPacks="http://metro.mahapps.com/winfx/xaml/iconpacks"
               mc:Ignorable="d" 
@@ -19,6 +21,7 @@
 
         <Grid>
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="Auto" />
                 <RowDefinition />
@@ -73,7 +76,16 @@
                     <behaviors:BubbleTouchEventsBehavior DoBubble="True" />
                 </i:Interaction.Behaviors>
                 -->
-            <ListView Grid.Row="2"  ItemsSource="{Binding Path=MeasureResultTreeItemViewModels}" BorderBrush="Transparent" Background="Transparent" Padding="0" Width="212" ScrollViewer.CanContentScroll="True" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible">
+
+            <AdornerDecorator Grid.Row="2" Margin="2">
+                <controls:OmniTextBox Style="{StaticResource CasyOmniTextBoxStyle}" Text="{Binding Path=FilterName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalContentAlignment="Center">
+                    <extensions:WatermarkExtension.Watermark>
+                        <TextBlock Style="{StaticResource WatermarkTextBlock}" Text="Filter ..." localization:Localization.IsLocalized="True" VerticalAlignment="Center" />
+                    </extensions:WatermarkExtension.Watermark>
+                </controls:OmniTextBox>
+            </AdornerDecorator>
+
+            <ListView Grid.Row="3" ItemsSource="{Binding Path=MeasureResultTreeItemViewModels}" BorderBrush="Transparent" Background="Transparent" Padding="0" Width="212" ScrollViewer.CanContentScroll="True" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Visible">
                 <ListView.ItemsPanel>
                     <ItemsPanelTemplate>
                         <StackPanel />

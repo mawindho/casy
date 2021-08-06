@@ -36,6 +36,7 @@ namespace OLS.Casy.Ui.AuditTrail.ViewModel
         private readonly IEnvironmentService _environmentService;
         private DateTime _filterFromDate = DateTime.UtcNow.AddMonths(-1);
         private DateTime _filterToDate = DateTime.UtcNow;
+        private string _selectedFilterCategory;
 
         [ImportingConstructor]
         public SystemLogViewModel(ILogger logger,
@@ -90,6 +91,19 @@ namespace OLS.Casy.Ui.AuditTrail.ViewModel
             }
         }
 
+        public string SelectedCategory
+        {
+            get => _selectedFilterCategory;
+            set
+            {
+                if (value == _selectedFilterCategory) return;
+                _selectedFilterCategory = value;
+                NotifyOfPropertyChange();
+
+                UpdateSystemLogEntries();
+            }
+        }
+
         public void OnImportsSatisfied()
         {
             Application.Current.Dispatcher.Invoke(UpdateSystemLogEntries);
@@ -105,7 +119,7 @@ namespace OLS.Casy.Ui.AuditTrail.ViewModel
             {
                 FromDate = FilterFromDate,
                 ToDate = FilterToDate,
-                Categories = KnownCategories.Where(x => x.IsSelected).Select(x => (int) Enum.Parse(typeof(LogCategory), x.ValueItem)).ToList()
+                Categories = string.IsNullOrEmpty(SelectedCategory) ? new int[0] : new[] { (int) Enum.Parse(typeof(LogCategory), SelectedCategory) }
             };
             SystemLogEntries = new AsyncVirtualizingCollection<SystemLogEntry>(systemLogEntryProvider, 100, 100 * 1000);
             NotifyOfPropertyChange("SystemLogEntries");

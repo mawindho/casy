@@ -172,14 +172,14 @@ namespace OLS.Casy.IO
 
                 i = 0;
 
-                var experiments = prevProvider.GetExperiments(true);
+                var experiments = prevProvider.GetExperiments(includeDeleted: true);
                 foreach (var experiment in experiments)
                 {
-                    var groups = prevProvider.GetGroups(experiment.Item1, true);
+                    var groups = prevProvider.GetGroups(experiment.Item1, includeDeleted: true);
 
                     foreach (var @group in groups)
                     {
-                        var results = prevProvider.GetMeasureResults(experiment.Item1, group.Item1, true);
+                        var results = prevProvider.GetMeasureResults(experiment.Item1, group.Item1, includeDeleted: true);
 
                         foreach (var result in results)
                         {
@@ -312,19 +312,19 @@ namespace OLS.Casy.IO
             _activeDatabaseStorageProvider.SaveMeasureSetup(measureSetup, ignoreAuditTrail);
         }
 
-        public IEnumerable<Tuple<string, int, int>> GetExperiments(bool includeDeleted = false)
+        public IEnumerable<Tuple<string, int, int>> GetExperiments(string filter = "", bool includeDeleted = false)
         {
-            return _activeDatabaseStorageProvider.GetExperiments(includeDeleted);
+            return _activeDatabaseStorageProvider.GetExperiments(filter, includeDeleted);
         }
 
-        public IEnumerable<Tuple<string, int>> GetGroups(string experiment, bool includeDeleted = false)
+        public IEnumerable<Tuple<string, int>> GetGroups(string experiment, string filter = "", bool includeDeleted = false)
         {
-            return _activeDatabaseStorageProvider.GetGroups(experiment, includeDeleted);
+            return _activeDatabaseStorageProvider.GetGroups(experiment, filter, includeDeleted);
         }
 
-        public IEnumerable<MeasureResult> GetMeasureResults(string experiment, string group, bool includeDeleted = false, bool nullAsNoValue = false)
+        public IEnumerable<MeasureResult> GetMeasureResults(string experiment, string group, string filter = "", bool includeDeleted = false, bool nullAsNoValue = false)
         {
-            return _activeDatabaseStorageProvider.GetMeasureResults(experiment, group, includeDeleted, nullAsNoValue);
+            return _activeDatabaseStorageProvider.GetMeasureResults(experiment, group, filter, includeDeleted, nullAsNoValue);
         }
 
         public IEnumerable<MeasureResult> GetTemporaryMeasureResults(User loggedInUser)

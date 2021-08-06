@@ -7,68 +7,70 @@ namespace OLS.Casy.Ui.Authorization
 {
     public class UserModel : ModelBase, IComparable, IComparable<UserModel>
     {
-        private User _associatedUser;
+        
         private readonly IAuthenticationService _authenticationService;
 
         public UserModel(User user, IAuthenticationService authenticationService)
         {
-            this._associatedUser = user;
+            this.AssociatedUser = user;
             this._authenticationService = authenticationService;
         }
 
+        public User AssociatedUser { get; }
+
         public string UserName
         {
-            get { return _associatedUser.Identity.Name; }
+            get { return AssociatedUser.Identity.Name; }
         }
 
         public string UserRole
         {
-            get { return _associatedUser.UserRole.Name; }
+            get { return AssociatedUser.UserRole.Name; }
             set
             {
-                _associatedUser.UserRole = _authenticationService.RolesList.FirstOrDefault(item => item.Name == value);
+                AssociatedUser.UserRole = _authenticationService.RolesList.FirstOrDefault(item => item.Name == value);
                 NotifyOfPropertyChange();
             }
         }
 
         public string JobTitle
         {
-            get { return _associatedUser.JobTitle; }
-            set { _associatedUser.JobTitle = value; }
+            get { return AssociatedUser.JobTitle; }
+            set { AssociatedUser.JobTitle = value; }
         }
 
         public string Country
         {
-            get { return _associatedUser.CountryRegionName; }
-            set { _associatedUser.CountryRegionName = value; }
+            get { return AssociatedUser.CountryRegionName; }
+            set { AssociatedUser.CountryRegionName = value; }
         }
 
         public string FirstName
         {
-            get { return _associatedUser.FirstName; }
-            set { _associatedUser.FirstName = value; }
+            get { return AssociatedUser.FirstName; }
+            set { AssociatedUser.FirstName = value; }
         }
 
         public string LastName
         {
-            get { return _associatedUser.LastName; }
-            set { _associatedUser.LastName = value; }
+            get { return AssociatedUser.LastName; }
+            set { AssociatedUser.LastName = value; }
         }
 
         public string FullName
         {
-            get { return string.Format("{0} {1}", _associatedUser.FirstName, _associatedUser.LastName); }
+            get { return string.Format("{0} {1}", AssociatedUser.FirstName, AssociatedUser.LastName); }
         }
 
         public string Contacts
         {
-            get { return _associatedUser.EmailAddress; }
-            set { _associatedUser.EmailAddress = value; }
+            get { return AssociatedUser.EmailAddress; }
+            set { AssociatedUser.EmailAddress = value; }
         }
 
         public byte[] Image
         {
-            get { return _associatedUser.Image; }
+            get { return AssociatedUser.Image; }
         }
 
         public int CompareTo(object obj)

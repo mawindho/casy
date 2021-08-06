@@ -3,7 +3,9 @@ using OLS.Casy.Core.Api;
 using OLS.Casy.Core.Authorization.Local;
 using OLS.Casy.Core.Events;
 using OLS.Casy.Core.Localization.Api;
+using OLS.Casy.Core.Logging.Api;
 using OLS.Casy.Models;
+using OLS.Casy.Models.Enums;
 using OLS.Casy.Ui.Base;
 using System;
 using System.Collections.Generic;
@@ -26,6 +28,7 @@ namespace OLS.Casy.Ui.Authorization.ViewModels
         private readonly IEventAggregatorProvider _eventAggregatorProvider;
         private readonly LocalAuthenticationService _authenticationService;
         private readonly ILocalizationService _localizationService;
+        private readonly ILogger _logger;
 
         private readonly ObservableCollection<UserModel> _userViewModels;
 
@@ -37,14 +40,18 @@ namespace OLS.Casy.Ui.Authorization.ViewModels
 
         private bool _updateIsNotLastSupervisor;
 
+        private Dictionary<string, Tuple<string, string>> _changedValues = new Dictionary<string, Tuple<string, string>>();
+
         [ImportingConstructor]
         public UserManagementViewModel(IEventAggregatorProvider eventAggregatorProvider,
             LocalAuthenticationService authenticationService,
-            ILocalizationService localizationService)
+            ILocalizationService localizationService,
+            ILogger logger)
         {
             this._eventAggregatorProvider = eventAggregatorProvider;
             this._authenticationService = authenticationService;
             this._localizationService = localizationService;
+            _logger = logger;
 
             this._userViewModels = new ObservableCollection<UserModel>();
         }
@@ -114,6 +121,11 @@ namespace OLS.Casy.Ui.Authorization.ViewModels
                 {
                     _authenticationService.DeleteUser(userModelToDelete.UserName);
                     FillUserList();
+                }
+
+                if(_changedValues.ContainsKey(userModelToDelete.AssociatedUser.Identity.Name))
+                {
+                    _changedValues.Remove(userModelToDelete.AssociatedUser.Identity.Name);
                 }
             });
         }
@@ -267,14 +279,19 @@ namespace OLS.Casy.Ui.Authorization.ViewModels
 
         private void OnUserModelPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
-            if(e.PropertyName == "UserRole")
+            switch(e.PropertyName)
             {
-                this.UpdateIsNotLastSupervisor = !this._updateIsNotLastSupervisor;
+                case "UserRole":
+                    this.UpdateIsNotLastSupervisor = !this._updateIsNotLastSupervisor;
+                    _changedValues.Add(((UserModel)sender).AssociatedUser.Identity.Name, new Tuple<string, string>(e.PropertyName, ((UserModel)sender).AssociatedUser.UserRole.Name));
+                    break;
             }
+            
         }
 
         public void OnCancel()
         {
+            _changedValues.Clear();
             this.UserName = string.Empty;
             this.FirstName = string.Empty;
             this.LastName = string.Empty;
@@ -292,6 +309,11 @@ namespace OLS.Casy.Ui.Authorization.ViewModels
             if (Validator.TryValidateObject(this, new ValidationContext(this, null, null), result))
             {
                 this._authenticationService.SaveChanges();
+            }
+
+            foreach(var change in _changedValues)
+            {
+                this._logger.Info(LogCategory.UserManagement, string.Format("User '{0}' changed '{1}' to '{2}'", change.Key, change.Value.Item1, change.Value.Item2));
             }
 
             this.UserName = string.Empty;
