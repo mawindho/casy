@@ -1448,7 +1448,7 @@ namespace OLS.Casy.IO.SQLite.Standard
         }
 
         public IEnumerable<MeasureResult> GetMeasureResults(string experiment, string group, string filter = "",
-            bool includeDeleted = false, bool nullAsNoValue = false)
+            bool includeDeleted = false, bool nullAsNoValue = false, int maxItems = -1)
         {
             using (var casyContext = new CasyContext(_environmentService, _activeAuditTrailDecorator, null))
             {
@@ -1500,12 +1500,17 @@ namespace OLS.Casy.IO.SQLite.Standard
                     }
                 }
 
+                if(maxItems > -1)
+                {
+                    measureResultEntities = measureResultEntities.Take(maxItems);
+                }
+
                 foreach (var measureResultEntity in measureResultEntities.ToList())
                 {
                     result.Add(EntityToModel(measureResultEntity));
                 }
 
-                if (includeDeleted)
+                if (includeDeleted && result.Count < maxItems)
                 {
                     var measureResultEntitiesDeleted = casyContext
                         .MeasureResultsDeleted
@@ -1543,6 +1548,8 @@ namespace OLS.Casy.IO.SQLite.Standard
                             measureResultEntitiesDeleted.Where(x => string.IsNullOrEmpty(x.Group));
                     }
                     //}
+
+                    measureResultEntitiesDeleted = measureResultEntitiesDeleted.Take(maxItems - result.Count);
 
                     foreach (var measureResultEntity in measureResultEntitiesDeleted)
                     {

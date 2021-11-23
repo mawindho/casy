@@ -242,7 +242,7 @@ namespace OLS.Casy.Com
         public Tuple<string, uint> GetSerialNumber(IProgress<string> progress)
         {
             return _serialNumber ?? (_serialNumber =
-                       EnqueueCommand(progress, CasyCommand.GETSERIALNO, timeout: 5000) as Tuple<string, uint>);
+                       EnqueueCommand(progress, CasyCommand.GETSERIALNO, timeout: 10000) as Tuple<string, uint>);
         }
 
         public bool SetSerialNumber(string serialNumber, IProgress<string> progress)
@@ -1297,11 +1297,11 @@ namespace OLS.Casy.Com
 
         public void OnImportsSatisfied()
         {
-            _serialPort.BaudRate = 921600;
+            _serialPort.BaudRate = 19200;
             _serialPort.Parity = Parity.None;
             _serialPort.DataBits = 8;
             _serialPort.StopBits = StopBits.One;
-            //_serialPort.RtsEnable = true;
+            _serialPort.RtsEnable = true;
 
             _serialPort.DataReceived += OnDataReceived;
         }

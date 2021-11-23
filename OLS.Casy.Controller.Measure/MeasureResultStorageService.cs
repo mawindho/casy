@@ -43,9 +43,9 @@ namespace OLS.Casy.Controller.Measure
             //get { return _measureResults; }
         //}
 
-        public IEnumerable<MeasureResult> GetMeasureResults(string experiment, string group, string filter = "", bool includeDeleted = false, bool nullAsNoValue = false)
+        public IEnumerable<MeasureResult> GetMeasureResults(string experiment, string group, string filter = "", bool includeDeleted = false, bool nullAsNoValue = false, int maxItems = -1)
         {
-            return _databaseStorageService.GetMeasureResults(experiment, group, filter, includeDeleted, nullAsNoValue);
+            return _databaseStorageService.GetMeasureResults(experiment, group, filter, includeDeleted, nullAsNoValue, maxItems);
             //lock ((((ICollection)_measureResults).SyncRoot)))
             //{
             //return includeDeleted ? _measureResults.ToList() : _measureResults.Where(mr => !mr.IsDelete).ToList();

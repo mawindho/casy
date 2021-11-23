@@ -879,7 +879,7 @@ Do you really want to proceed restoring a backup?</value>
     <value>Module Trial-Version</value>
   </data>
   <data name="AboutDialog_Warenty" xml:space="preserve">
-    <value>Software warenty expires on:</value>
+    <value>Software warranty expires on:</value>
   </data>
   <data name="ChangeVirtualKeyboardDialog_Content" xml:space="preserve">
     <value>Changes to virtual keyboard settings will apply after a restart of the software.</value>

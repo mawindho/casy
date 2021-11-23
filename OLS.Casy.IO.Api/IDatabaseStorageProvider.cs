@@ -35,7 +35,7 @@ namespace OLS.Casy.IO.Api
 
         IEnumerable<Tuple<string, int, int>> GetExperiments(string filter = "", bool includeDeleted = false);
         IEnumerable<Tuple<string, int>> GetGroups(string experiment, string filter = "", bool includeDeleted = false);
-        IEnumerable<MeasureResult> GetMeasureResults(string experiment, string group, string filter = "", bool includeDeleted = false, bool nullAsNoValue = false);
+        IEnumerable<MeasureResult> GetMeasureResults(string experiment, string group, string filter = "", bool includeDeleted = false, bool nullAsNoValue = false, int maxItems = -1);
         MeasureResult GetMeasureResult(int measureResultId, bool ignoreCache = false, bool isDeleted = false);
         MeasureResult GetMeasureResultByGuid(Guid guid);
         IEnumerable<MeasureResult> GetTemporaryMeasureResults(User loggedInUser);

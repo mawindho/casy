@@ -106,6 +106,9 @@ namespace OLS.Casy.Ui.Core.ViewModels
                 {
                     this._filterName = value;
                     NotifyOfPropertyChange();
+
+                    LoadMeasureResults();
+
                     MeasureResultsViewSource.Refresh();
                 }
             }
@@ -120,6 +123,9 @@ namespace OLS.Casy.Ui.Core.ViewModels
                 {
                     this._filterDate = value;
                     NotifyOfPropertyChange();
+
+                    LoadMeasureResults();
+
                     MeasureResultsViewSource.Refresh();
                 }
             }
@@ -141,6 +147,8 @@ namespace OLS.Casy.Ui.Core.ViewModels
                     NotifyOfPropertyChange();
                     NotifyOfPropertyChange("KnownGroups");
 
+                    LoadMeasureResults();
+
                     MeasureResultsViewSource.Refresh();
                 }
             }
@@ -150,7 +158,12 @@ namespace OLS.Casy.Ui.Core.ViewModels
         {
             get
             {
-                return _measureResultManager.GetGroups(_filterExperiment).OrderBy(x => x);
+                var groups = _measureResultManager.GetGroups(_filterExperiment);
+                if(groups == null)
+                {
+                    return new List<string>();
+                }
+                return groups.OrderBy(x => x);
             }
         }
 
@@ -165,6 +178,7 @@ namespace OLS.Casy.Ui.Core.ViewModels
                 {
                     _filterGroup = newValue;
                     NotifyOfPropertyChange();
+                    LoadMeasureResults();
 
                     MeasureResultsViewSource.Refresh();
                 }
@@ -204,8 +218,9 @@ namespace OLS.Casy.Ui.Core.ViewModels
             var userId = this._authenticationService.LoggedInUser.Id;
             var groupIds = this._authenticationService.LoggedInUser.UserGroups.Select(g => g.Id);
 
-            var measureResults = _measureResultStorageService.GetMeasureResults(_filterExperiment, _filterGroup, nullAsNoValue: true).Where(mr => (isSupervisor || mr.AccessMappings.Count == 0 || mr.AccessMappings.Any(am => am.UserId.HasValue && am.UserId.Value == userId) || mr.AccessMappings.Where(x => x.UserGroupId.HasValue).Select(x => x.UserGroupId.Value).Intersect(groupIds).Any()));
-            _measureResults.AddRange(measureResults.ToArray());
+            //var measureResults = _measureResultStorageService.GetMeasureResults(_filterExperiment, _filterGroup, nullAsNoValue: true).Where(mr => (isSupervisor || mr.AccessMappings.Count == 0 || mr.AccessMappings.Any(am => am.UserId.HasValue && am.UserId.Value == userId) || mr.AccessMappings.Where(x => x.UserGroupId.HasValue).Select(x => x.UserGroupId.Value).Intersect(groupIds).Any()));
+            var measureResults = _measureResultStorageService.GetMeasureResults(string.IsNullOrEmpty(_filterExperiment) ? null : _filterExperiment, string.IsNullOrEmpty(_filterGroup) ? null : _filterGroup, nullAsNoValue: true, maxItems: 80);
+            _measureResults.Reset(measureResults.ToArray());
         }
 
         private void OnSelectItem(MeasureResult measureResult)

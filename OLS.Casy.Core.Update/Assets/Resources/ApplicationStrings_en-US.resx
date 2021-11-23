@@ -155,18 +155,22 @@ NOTICE: Probably it will be neccessary to perform an additional, incremental upd
     <value>Software Update</value>
   </data>
   <data name="UpdateService_ReleaseNodes_Message" xml:space="preserve">
-    <value>Easter / Corona Update for all users of NEW CASY
-Updated Version 1.0.2.2
+    <value>CASY Software Version 1.1.0.12
 
-The new CASY Software has seen many improvements and new features like START UP and SHUT DOWN Wizard.
-The update to version 1.0.2.2 is free for all New CASY users and introduces a new feature requested by many users:
-• “Print all“ with a single click (printing icon in the top menu, which allows to create PDF of all open measurements)
-Additionally the version brings several bug fixes and stability improvements.
-We recommend all users to update to this version.
+Thank you for installing the new CASY software update. 
+Keeping the software up to date ensures the stable and secure operation of the device.
 
-Please note, that all customers have access to update during the first 12 month. This period ends {0} for you. In case your update period has already expired, you have the opportunity to update until May 15th, 2020 for free. In parallel you can extend the period. Please contact your local CASY partner for a quote. 
+Highlights:
+• New search option for measurement results by name
+• Major performance and stability enhancement
 
 For detailed information about feature changes please check the ReleaseNotes.txt in installation directory.
+
+CASY software updates are available for all users maintaining an up-to date guarantee. 
+
+Please not that our CASY software up to date guarantee is included during the initial 12 month and can be extended. Your period ends in on {0}. 
+
+Please contact your local CASY partner for a quote to enhance the up-to-date-guarantee. 
 
 We hope you will enjoy your new CASY software!</value>
   </data>

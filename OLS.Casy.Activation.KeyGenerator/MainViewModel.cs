@@ -618,8 +618,11 @@ namespace OLS.Casy.Activation.KeyGenerator
             using (var context = new ActivationServer.Data.ActivationContext())
             {
                 var currentVersion = new Version(CurrentVersion);
-                var activationKeys = context.ActivationKey.Include(x => x.Customer).Include("ProductType")
-                    .Include("ProductAddOn").Include("ActivatedMachine").ToList();
+                //var activationKeys = context.ActivationKey.Include(x => x.Customer).Include("ProductType")
+                    //.Include("ProductAddOn").Include("ActivatedMachine").ToList();
+
+                var activationKeys = context.ActivationKey.Include("Customer").Include("ProductType")
+                        .Include("ActivationKeyProductAddOns").Include("ActivatedMachine").ToList();
 
                 var updatedCustomerIds = new List<Tuple<int, string>>();
 
@@ -633,6 +636,7 @@ namespace OLS.Casy.Activation.KeyGenerator
                             where !string.IsNullOrWhiteSpace(activatedMachine.CurrentVersion)
                             select new Version(activatedMachine.CurrentVersion))
                         .Any(version => version < currentVersion)) continue;
+
                     if (updatedCustomerIds.All(x => x.Item1 != activationKey.CustomerId))
                     {
                         activationKey.Customer.UpdateGuid = Guid.NewGuid().ToString("N");
@@ -666,34 +670,47 @@ namespace OLS.Casy.Activation.KeyGenerator
                     message.To.Add(mailAddress);
                     //message.To.Add("maik.windhorst@ols-bio.de");
                     message.Bcc.Add(new MailAddress("maik.windhorst@ols-bio.de"));
-                    message.Subject = $"Easter / Corona Update for all users of NEW CASY Software {_currentVersion}";
+                    message.Subject = $"Update CASY Software Version {_currentVersion}";
                     message.IsBodyHtml = true;
-                    message.Body = "<p>Dear customer,</p>"
-+ "<p>The new CASY Software has seen many improvements and new features like START UP and SHUT DOWN Wizard.<br>"
-+ "The update to version 1.0.2.2 focuses on bug fixing and stability improvments.Furthermore we've implemented a new feature requested by many users:"
+                    message.Body = message.Body = "<p style=\"font-family:'Calibri, sans-serif';\">Dear CASY User,</p>"
++ "<p style=\"font-family:'Calibri, sans-serif';\">A new version of the CASY software is available to be installed.<br />"
++ "Keeping the software up to date ensures the stable and secure operation of the device. To perform the update using and USB Stick, please follow the instructions provided below.</p>"
++ "<p style=\"font-family:'Calibri, sans-serif';\">Highlights:"
 + "<ul>"
-+ "<li>“Print all“ with a single click (printing icon in the top menu, which allows to create PDF of all open measurements)</li>"
-+ "</ul>"
-+ "<p><b>We recommend all users to update to this version.</b></p>"
-+ "<p>Please note, that all customers have access to updates during the first 12 month.You can check the expiration date of your update guarantee in CASY software information screen.<br>"
-+ "To extend the period, please contact your local CASY partner for a quote.</p>"
-+ "<p><strong><u>How to update:</u></strong></p>"
-+ "<p>CASY control units connected to internet will have automatic access to the update server when you start the software next time. Otherwise, you can install the update via USB stick as described below.</p>"
-+ "<p><b>UPDATE by USB Stick:</b></p>"
++ "<li>New search option for measurement results by name</li>"
++ "<li>Major performance and stability enhancement</li>"
++ "</ul></p>"
++ "<p style=\"font-family:'Calibri, sans-serif';\">For detailed information about feature changes please check the ReleaseNotes.txt in installation directory after installation.</p>"
++ "<p style=\"font-family:'Calibri, sans-serif';\"><b>IMPORTANT NOTE:</b></p>"
++ "<p style=\"font-family:'Calibri, sans-serif';\">The update may take up to about 2 hours. As part of the significant performance enhancement, the software will migrate the CASY database. Therefore please plan your update at an appropriate time for you.</p>"
++ "<p style=\"font-family:'Calibri, sans-serif';\">In case of any problem, please contact us immediately for further support (<a href=\"mailto:update@ols-bio.de\">update@ols-bio.de</a>)."
++ "<p style=\"font-family:'Calibri, sans-serif';\">CASY software updates are available for all users maintaining an up-to date guarantee.</p>"
++ $"<p style=\"font-family:'Calibri, sans-serif';\">Please note that our CASY software up to date guarantee is included during the initial 12 month and can be extended. Your period ends or has been ended on <b>{activationKey.ValidTo.ToString("dd.MM.yyyy HH':'mm':'ss")}</b>."
++ "<p style=\"font-family:'Calibri, sans-serif';\">Please contact your local CASY partner for a quote request to enhance the up-to-date-guarantee or contact <a href=\"mailto:info@ols-bio.de\">info@ols-bio.de</a> and we will bring you into contact with right person.</p>"
++ "<p style=\"font-family:'Calibri, sans-serif';\">We hope you will enjoy your new CASY software experience!</p>"
++ "<p style=\"font-family:'Calibri, sans-serif';\"><strong><u>How to update:</u></strong></p>"
++ "<p style=\"font-family:'Calibri, sans-serif';\"><ol>"
++ "<li>Your CASY control unit connected to the internet will have automatic access to the update server when you start the software soon. Until then, you can install the update via USB stick as described below.</li>"
++ "<li>You can install the update using a USB stick as described below.</li></ol></p>"
++ "<p style=\"font-family:'Calibri, sans-serif';\"><b>USB UPDATE process:</b></p>"
++ "<p style=\"font-family:'Calibri, sans-serif';\"><b>IMPORTANT:</b> This update is a \"two-step\" update. This means you have to plugin the USB stick <b>TWO</b> times <br />"
++ "Update 1 --> Version 1.1.0.1<br />"
++ "Update 2 --> Version 1.1.0.12</p>"
 + "<ol>"
 + "<li>The update USB stick must be prepared on a Windows PC!</li>"
 + $"<li>Download the ZIP file using this link: <a href=\"http://update.ols-bio.de/api/update/usbUpdate/{activationKey.Customer.UpdateGuid}/{activationKey.SerialNumbers}\">http://update.ols-bio.de/api/update/usbUpdate/{activationKey.Customer.UpdateGuid}/{activationKey.SerialNumbers}</a><br>"
 + "<b>Please note:</b>It may be neccessary to accept the security protocol of our german OLS CASY update server </li>"
-+ "<li>Unzip the file with the free tool 7Zip(<a href=\"https://www.7-zip.org/download.html\">https://www.7-zip.org/download.html</a>) to an empty USB stick</li>"
-+ "<li>Plug in the USB stick while CASY software is running and you're logged in with an account with supervisor privileges. Update will be detected automatically.</li>"
-+ "</ol><p>Feel free to contact me directly if you need further assistance or have further questions.</p>"
-+ "<p>------</p>"
-+ "<p>Best regards</p>"
-+ "<p>Maik Windhorst | OLS - OMNI Life Science GmbH &amp;Co KG<br>"
++ "<li>Unzip the file with the free tool <b>7Zip</b> (<a href=\"https://www.7-zip.org/download.html\">https://www.7-zip.org/download.html</a>) to an empty USB stick<br />"
++ "<b>Please ensure:</b> Do NOT extract into a folder, the file “updateVersion.xml” must be in the root directory of the USB stick</li>"
++ "<li>Start the CASY software and log in with an account with supervisor privileges. Plug in the USB stick and the update will be detected automatically.</li>"
++ "</ol><p>Feel free to contact our service (<a href=\"mailto:service@ols-bio.de\">service@ols-bio.de</a>) or me directly if you need further assistance, have further questions or ideas/demands for future CASY software versions.</p>"
++ "<p style=\"font-family:'Calibri, sans-serif';\">------</p>"
++ "<p style=\"font-family:'Calibri, sans-serif';\">Best regards</p>"
++ "<p style=\"font-family:'Calibri, sans-serif';\">Maik Windhorst | OLS - OMNI Life Science GmbH &amp;Co KG<br>"
 + "Head of Software Development<br>"
-+ "T +49 421 276 169 0 | M +49 151 56 23 1234 <br>"
++ "T +49 421 276 169 0<br>"
 + "<a href=\"mailto:maik.windhorst@ols-bio.de\">maik.windhorst@ols-bio.de</a> | <a href=\"http://www.ols-bio.de\">www.ols-bio.de</a></p>"
-+ "<p>Karl-Ferdinand-Braun-Stra&szlig;e 2 | 28359 Bremen | Germany | Gesch&auml;ftsf&uuml;hrer: Dagmar J&uuml;rgens | Amtsgericht Bremen, HRA 23428</p>";
++ "<p style=\"font-family:'Calibri, sans-serif';\">Karl-Ferdinand-Braun-Stra&szlig;e 2 | 28359 Bremen | Germany | Gesch&auml;ftsf&uuml;hrer: Dagmar J&uuml;rgens | Amtsgericht Bremen, HRA 23428</p>";
 
                     ServicePointManager.ServerCertificateValidationCallback =
                         (s, certificate, chain, sslPolicyErrors) => true;
@@ -703,7 +720,7 @@ namespace OLS.Casy.Activation.KeyGenerator
                         Host = "192.168.110.3",
                         Port = 587,
                         EnableSsl = true,
-                        Credentials = new NetworkCredential("mwindhorst", "ZcM53211")
+                        Credentials = new NetworkCredential("mwindhorst", "ZcM5321!QdV96$")
                     })
                     {
                         client.Send(message);

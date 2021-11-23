@@ -155,17 +155,20 @@ HINWEIS: Es ist wahrscheinlich notwendig, dass ein weiteres, inkrementelles Upda
     <value>Software Update</value>
   </data>
   <data name="UpdateService_ReleaseNodes_Message" xml:space="preserve">
-    <value>Oster / Corona Software Update für alle Nutzer des NEW CASY
-Update Version 1.0.2.2
+    <value>CASY Software Version 1.1.0.12
 
-Die neue CASY Software hat bereits viele Verbesserungen, wie den START UP and SHUT DOWN Wizard, erfahren. 
-Das neueste Update auf Version 1.0.2.2 ist gratis für alle Nutzer der neuen CASY Software. Es bringt ein neues Feature, dass sich viele Kunden gewünscht haben:
-• “Print all“ mit einem Click (ein neues Druck-Icon in der  Menü-Leiste. Es erlaubt die Erstellung von PDF Reports aller geöffneter Messungen)
-Zusätzlich bringt die neue Version verschiedene Bug fixes und Stabilitätsverbesserungen.
+Vielen Dank, dass du deine CASY Software geupdatet hast.
+Dadurch stellen wir gemeinsam den sicheren und reibungslosen Betrieb deines CASYs sicher. 
 
-Ein Hinweis – während der ersten 12 Monate haben alle Kunden Zugriff auf alle Updates.  Dieser Zeitraum endet am {0} für dich. Sollte dieser Zeitraum bereits abgelaufen sein, besteht die Möglichkeit, bis zum 15. Mai 2020 das neue Update zu beziehen. Parallel empfehlen wir den Aktualitätszeitraum zu verlängern. Für Details wende dich bitte an deinen CASY Partner. 
+Die Highlights:
+• Suchen und finden Sie Ihre Messergebnisse ganz einfach anhand des Namens
+• Erhöhung der Stabilität durch Geschwindigkeits- und Stabilitätserweiterungen
 
 Für detaillierte Informationen zum Update beachte bitte die ReleaseNotes.txt im Installationsverzeichnis.
+
+CASY Software Updates erhalten alle Nutzer mit gültiger Aktualitätsgarantie kostenfrei.
+
+Ein Hinweis – während der ersten 12 Monate nach dem Kauf haben alle Kunden kostenfreien Zugriff auf alle Updates. Dieser Zeitraum endet für dich am {0}. Wir empfehlen den Aktualitätszeitraum zu verlängern. Für Details wende dich bitte an deinen CASY Partner. 
 
 Viel Spaß mit deiner neuen CASY Software!</value>
   </data>

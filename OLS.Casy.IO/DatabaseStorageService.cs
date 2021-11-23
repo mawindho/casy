@@ -142,30 +142,6 @@ namespace OLS.Casy.IO
                     Globals.ShowSplashProgressDialogDelegate(showProgressWrapper);
                 }
 
-                var predefinedTemplates = prevProvider.GetPredefinedTemplates();
-                var templates = prevProvider.GetMeasureSetupTemplates();
-                
-                var templatesCount = predefinedTemplates.Count() + templates.Count();
-                showProgressWrapper.MessageParameter[5] = $"\nMigrating Templates (0 of {templatesCount} entities)";
-                Globals.ShowSplashProgressDialogDelegate(showProgressWrapper);
-
-                i = 0;
-                foreach (var predefinded in prevProvider.GetPredefinedTemplates())
-                {
-                    _activeDatabaseStorageProvider.SaveMeasureSetup(predefinded, ignoreAuditTrail: true);
-                    i++;
-                    showProgressWrapper.MessageParameter[5] = $"\nMigrating Templates ({i} of {templatesCount} entities)";
-                    Globals.ShowSplashProgressDialogDelegate(showProgressWrapper);
-                }
-
-                foreach (var template in prevProvider.GetMeasureSetupTemplates())
-                {
-                    _activeDatabaseStorageProvider.SaveMeasureSetup(template, ignoreAuditTrail: true);
-                    i++;
-                    showProgressWrapper.MessageParameter[5] = $"\nMigrating Templates ({i} of {templatesCount} entities)";
-                    Globals.ShowSplashProgressDialogDelegate(showProgressWrapper);
-                }
-
                 int measureResultsCount = prevProvider.GetMeasureResultsCount();
                 showProgressWrapper.MessageParameter[6] = $"\nMigrating Measure Results (0 of {measureResultsCount} entities)";
                 Globals.ShowSplashProgressDialogDelegate(showProgressWrapper);
@@ -206,6 +182,30 @@ namespace OLS.Casy.IO
                             Globals.ShowSplashProgressDialogDelegate(showProgressWrapper);
                         }
                     }
+                }
+
+                var predefinedTemplates = prevProvider.GetPredefinedTemplates();
+                var templates = prevProvider.GetMeasureSetupTemplates();
+
+                var templatesCount = predefinedTemplates.Count() + templates.Count();
+                showProgressWrapper.MessageParameter[5] = $"\nMigrating Templates (0 of {templatesCount} entities)";
+                Globals.ShowSplashProgressDialogDelegate(showProgressWrapper);
+
+                i = 0;
+                foreach (var predefinded in prevProvider.GetPredefinedTemplates())
+                {
+                    _activeDatabaseStorageProvider.SaveMeasureSetup(predefinded, ignoreAuditTrail: true);
+                    i++;
+                    showProgressWrapper.MessageParameter[5] = $"\nMigrating Templates ({i} of {templatesCount} entities)";
+                    Globals.ShowSplashProgressDialogDelegate(showProgressWrapper);
+                }
+
+                foreach (var template in prevProvider.GetMeasureSetupTemplates())
+                {
+                    _activeDatabaseStorageProvider.SaveMeasureSetup(template, ignoreAuditTrail: true);
+                    i++;
+                    showProgressWrapper.MessageParameter[5] = $"\nMigrating Templates ({i} of {templatesCount} entities)";
+                    Globals.ShowSplashProgressDialogDelegate(showProgressWrapper);
                 }
 
                 showProgressWrapper.IsFinished = true;
@@ -322,9 +322,9 @@ namespace OLS.Casy.IO
             return _activeDatabaseStorageProvider.GetGroups(experiment, filter, includeDeleted);
         }
 
-        public IEnumerable<MeasureResult> GetMeasureResults(string experiment, string group, string filter = "", bool includeDeleted = false, bool nullAsNoValue = false)
+        public IEnumerable<MeasureResult> GetMeasureResults(string experiment, string group, string filter = "", bool includeDeleted = false, bool nullAsNoValue = false, int maxItems = -1)
         {
-            return _activeDatabaseStorageProvider.GetMeasureResults(experiment, group, filter, includeDeleted, nullAsNoValue);
+            return _activeDatabaseStorageProvider.GetMeasureResults(experiment, group, filter, includeDeleted, nullAsNoValue, maxItems);
         }
 
         public IEnumerable<MeasureResult> GetTemporaryMeasureResults(User loggedInUser)

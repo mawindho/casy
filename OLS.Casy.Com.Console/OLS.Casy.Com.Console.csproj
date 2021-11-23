@@ -34,11 +34,22 @@
     <PackageReference Include="Moq">
       <Version>4.8.2</Version>
     </PackageReference>
+    <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.0.6" />
+    <PackageReference Include="SQLitePCLRaw.lib.e_sqlite3" Version="2.0.6" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.106" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.106" />
+    <PackageReference Include="System.Data.SQLite.EF6" Version="1.0.106" />
     <PackageReference Include="System.Threading.Tasks.Extensions">
       <Version>4.5.4</Version>
     </PackageReference>
     <PackageReference Include="System.ValueTuple">
       <Version>4.5.0</Version>
     </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OLS.Casy.ActivationServer.Data\OLS.Casy.ActivationServer.Data.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Controller.Api\OLS.Casy.Controller.Api.csproj" />
+    <ProjectReference Include="..\OLS.Casy.Controller.Measure\OLS.Casy.Controller.Measure.csproj" />
+    <ProjectReference Include="..\OLS.Casy.IO.SQLite.EF\OLS.Casy.IO.SQLite.EF.csproj" />
   </ItemGroup>
 </Project>
