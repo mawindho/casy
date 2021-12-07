@@ -352,7 +352,7 @@ namespace OLS.Casy.CfrCsyConverter
             if (measureResult.MeasureSetup.DilutionFactor > 1d)
             {
                 measureResult.MeasureSetup.DilutionCasyTonVolume = 10d;
-                measureResult.MeasureSetup.DilutionSampleVolume = (1000 * measureResult.MeasureSetup.DilutionCasyTonVolume) / (measureResult.MeasureSetup.DilutionFactor - 1);
+                measureResult.MeasureSetup.DilutionSampleVolume = 1;
             }
 
             if (measureResult.OriginalMeasureSetup.DilutionFactor > 1d)

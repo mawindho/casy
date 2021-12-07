@@ -35,6 +35,7 @@
     <ProjectReference Include="..\OLS.Casy.Core.Api\OLS.Casy.Core.Api.csproj" />
     <ProjectReference Include="..\OLS.Casy.Core\OLS.Casy.Core.csproj" />
     <ProjectReference Include="..\OLS.Casy.IO.SQLite.EF\OLS.Casy.IO.SQLite.EF.csproj" />
+    <ProjectReference Include="..\OLS.Casy.IO.SQLite.Standard\OLS.Casy.IO.SQLite.Standard.csproj" />
     <ProjectReference Include="..\OLS.Casy.IO.SQLite\OLS.Casy.IO.SQLite.csproj" />
     <ProjectReference Include="..\OLS.Casy.Models\OLS.Casy.Models.csproj" />
   </ItemGroup>

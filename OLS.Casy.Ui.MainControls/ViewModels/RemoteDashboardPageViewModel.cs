@@ -222,7 +222,7 @@ namespace OLS.Casy.Ui.MainControls.ViewModels
                         .WaitAndRetryAsync(3, i => TimeSpan.FromSeconds(2), (result, timeSpan, retryCount, context) =>
                         {
                         })
-                        .ExecuteAsync(() => httpClient.GetAsync($"{url}measureresults/{Uri.EscapeUriString(SelectedRemoteExperiment.ValueItem)}"));
+                        .ExecuteAsync(() => httpClient.GetAsync($"{url}measureresults/{Uri.EscapeDataString(SelectedRemoteExperiment.ValueItem)}"));
 
                     if (response.IsSuccessStatusCode)
                     {
@@ -312,7 +312,7 @@ namespace OLS.Casy.Ui.MainControls.ViewModels
                         .WaitAndRetryAsync(3, i => TimeSpan.FromSeconds(2), (result, timeSpan, retryCount, context) =>
                         {
                         })
-                        .ExecuteAsync(() => httpClient.GetAsync($"{url}measureresults/{Uri.EscapeUriString(SelectedRemoteExperiment.ValueItem)}/{Uri.EscapeUriString(SelectedRemoteGroup.ValueItem)}"));
+                        .ExecuteAsync(() => httpClient.GetAsync($"{url}measureresults/{Uri.EscapeDataString(SelectedRemoteExperiment.ValueItem)}/{Uri.EscapeDataString(SelectedRemoteGroup.ValueItem)}"));
 
                     if (response.IsSuccessStatusCode)
                     {
