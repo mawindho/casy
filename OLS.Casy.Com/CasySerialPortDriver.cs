@@ -42,7 +42,7 @@ namespace OLS.Casy.Com
         private string _errorString;
         private volatile Queue<byte> _receivedBytes = new Queue<byte>();
         private bool _responseSuccess;
-        private Tuple<string, uint> _serialNumber;
+        //private Tuple<string, uint> _serialNumber;
 
         private BlockingCollection<CasyCommandWrapper> _commandQueue;
 
@@ -241,13 +241,12 @@ namespace OLS.Casy.Com
         /// <returns>The serial number and corresponding check sum of the casy device</returns>
         public Tuple<string, uint> GetSerialNumber(IProgress<string> progress)
         {
-            return _serialNumber ?? (_serialNumber =
-                       EnqueueCommand(progress, CasyCommand.GETSERIALNO, timeout: 10000) as Tuple<string, uint>);
+            return EnqueueCommand(progress, CasyCommand.GETSERIALNO, timeout: 10000) as Tuple<string, uint>;
         }
 
         public bool SetSerialNumber(string serialNumber, IProgress<string> progress)
         {
-            _serialNumber = null;
+            //_serialNumber = null;
 
             var data = new byte[20];
             using (var ms = new MemoryStream(data))

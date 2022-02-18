@@ -11,6 +11,7 @@ namespace OLS.Casy.Core
         CheckForCasyConnection,
         WeeklyCleanNotification,
         WeeklyCleanAnnouncementNotification,
-        CheckTrial
+        CheckTrial,
+        KeepAlive
     }
 }

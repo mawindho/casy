@@ -322,6 +322,11 @@ namespace OLS.Casy.IO
             return _activeDatabaseStorageProvider.GetGroups(experiment, filter, includeDeleted);
         }
 
+        public Dictionary<string, List<string>> GetExperimentGroupMappings(bool includeDeleted = false)
+        {
+            return _activeDatabaseStorageProvider.GetExperimentGroupMappings(includeDeleted);
+        }
+
         public IEnumerable<MeasureResult> GetMeasureResults(string experiment, string group, string filter = "", bool includeDeleted = false, bool nullAsNoValue = false, int maxItems = -1)
         {
             return _activeDatabaseStorageProvider.GetMeasureResults(experiment, group, filter, includeDeleted, nullAsNoValue, maxItems);

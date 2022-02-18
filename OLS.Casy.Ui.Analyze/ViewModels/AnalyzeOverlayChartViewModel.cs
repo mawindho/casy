@@ -74,6 +74,14 @@ namespace OLS.Casy.Ui.Analyze.ViewModels
                 //await ShowInvalidMessageBox();
                 //await ShowSelectRangeParent();
 
+                lock (((ICollection)MeasureResultManager.SelectedMeasureResults).SyncRoot)
+                {
+                    foreach (var item in MeasureResultManager.SelectedMeasureResults)
+                    {
+                        item.PropertyChanged += OnPropertyChanged;
+                    }
+                }
+
                 if (_overlayMeasureSetup != null)
                 {
                     MeasureResultContainerViewModel.AddMeasureResults(MeasureResultManager.SelectedMeasureResults.Where(mr => mr.IsVisible && !mr.IsDeletedResult).ToArray());

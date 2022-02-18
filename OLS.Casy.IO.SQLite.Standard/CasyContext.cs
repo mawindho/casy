@@ -42,7 +42,7 @@ namespace OLS.Casy.IO.SQLite.Standard
             optionsBuilder.EnableSensitiveDataLogging();
 
             var connection = InitializeSQLiteConnection();
-            optionsBuilder.UseSqlite(connection, x => x.SuppressForeignKeyEnforcement()).UseLoggerFactory(_myLoggerFactory);
+            optionsBuilder.UseSqlite(connection, x => x.SuppressForeignKeyEnforcement());//.UseLoggerFactory(_myLoggerFactory);
         }
 
         public DbSet<AnnotationTypeEntity> AnnotationTypes { get; set; }

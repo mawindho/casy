@@ -17,6 +17,7 @@ using OLS.Casy.Core.Api;
 using System.Windows;
 using System.Windows.Media;
 using System.ComponentModel;
+using System.Collections;
 
 namespace OLS.Casy.Ui.Analyze.ViewModels
 {
@@ -95,6 +96,15 @@ namespace OLS.Casy.Ui.Analyze.ViewModels
         {
             if(this.IsActive)
             {
+                lock (((ICollection)MeasureResultManager.SelectedMeasureResults).SyncRoot)
+                {
+                    foreach (var item in MeasureResultManager.SelectedMeasureResults)
+                    {
+                        item.PropertyChanged += OnPropertyChanged;
+                    }
+                }
+                
+
                 UpdateMeanResult();
 
                 this.MeasureResultManager.SelectedMeasureResultsChanged += OnSelectedMeasureResultsChanged;
@@ -103,6 +113,14 @@ namespace OLS.Casy.Ui.Analyze.ViewModels
             }
             else
             {
+                lock (((ICollection)MeasureResultManager.SelectedMeasureResults).SyncRoot)
+                {
+                    foreach (var item in MeasureResultManager.SelectedMeasureResults)
+                    {
+                        item.PropertyChanged -= OnPropertyChanged;
+                    }
+                }
+
                 this.MeasureResultManager.SelectedMeasureResultsChanged -= OnSelectedMeasureResultsChanged;
             }
         }
@@ -170,6 +188,8 @@ namespace OLS.Casy.Ui.Analyze.ViewModels
 
         private void OnPropertyChanged(object sender, PropertyChangedEventArgs e)
         {
+            if (!IsActive) return;
+
             if (e.PropertyName == "IsVisible")
             {
                 UpdateMeanResult();

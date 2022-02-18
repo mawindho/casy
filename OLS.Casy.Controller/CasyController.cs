@@ -38,6 +38,8 @@ namespace OLS.Casy.Controller
         private readonly IEncryptionProvider _encryptionProvider;
         private readonly ILogger _logger;
 
+        private System.Timers.Timer _pollTimer;
+
         private bool _initialSelfTestDone;
 
         /// <summary>
@@ -184,6 +186,19 @@ namespace OLS.Casy.Controller
                             //this.CasySerialPortDriver.Co
                             //}
                             CasySerialPortDriver.CheckCasyDeviceConnection();
+                        });
+                        return null;
+                    }
+                });
+                _monitoringService.RegisterMonitoringJob(new MonitoringJob()
+                {
+                    Name = Enum.GetName(typeof(MonitoringTypes), MonitoringTypes.KeepAlive),
+                    IntervalInSeconds = 60,
+                    JobFunction = parameter =>
+                    {
+                        Task.Run(() =>
+                        {
+                            CasySerialPortDriver.GetSerialNumber(new Progress<string>());
                         });
                         return null;
                     }

@@ -447,6 +447,12 @@ namespace OLS.Casy.Ui.Core.Documents
                             measureResultValue = measureResultItem == null
                                 ? "---"
                                 : measureResultItem.ResultItemValue.ToString(measureResultItem.ValueFormat);
+
+                            if (_isCfr)
+                            {
+                                var deviationItem = _measureResult.MeasureResultItemsContainers[MeasureResultItemTypes.Deviation].MeasureResultItem;
+                                measureResultValue += $" (\u00B1 {deviationItem.ResultItemValue:0.##} %)";
+                            }
                             AddResultsRow(currentResultSetting.Name, measureResultValue);
                             break;
                         case DocumentSettingType.ViableCellsMl:

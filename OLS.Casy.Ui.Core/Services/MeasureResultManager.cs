@@ -41,7 +41,7 @@ namespace OLS.Casy.Ui.Core.Services
         private readonly ILogger _logger;
         private MeasureResult _meanMeasureResult;
 
-        private readonly ConcurrentDictionary<string, List<string>> _experimentsGroupsMappings;
+        private ConcurrentDictionary<string, List<string>> _experimentsGroupsMappings;
         private readonly ConcurrentDictionary<string, List<string>> _experimentsGroupsDeletedMappings;
 
         private readonly Timer _raiseEventTimer;
@@ -1042,19 +1042,22 @@ namespace OLS.Casy.Ui.Core.Services
 
         private void UpdateExperimentGroupMappings()
         {
-            _experimentsGroupsMappings.Clear();
+            //_experimentsGroupsMappings.Clear();
 
-            var experiments = _databaseStorageService.GetExperiments().Select(e => e.Item1)
-                .Distinct().OrderBy(experiment => experiment).ToList();
+            //var experiments = _databaseStorageService.GetExperiments().Select(e => e.Item1)
+            //    .Distinct().OrderBy(experiment => experiment).ToList();
 
-            foreach (var experiment in experiments)
-            {
-                var groups = _databaseStorageService.GetGroups(experiment)
-                    .Where(g => !string.IsNullOrEmpty(g.Item1)).Select(g => g.Item1).Distinct()
-                    .OrderBy(group => group).ToList();
+            var groupMappings = _databaseStorageService.GetExperimentGroupMappings();
 
-                _experimentsGroupsMappings.TryAdd(experiment ?? string.Empty, groups);
-            }
+            //foreach (var experiment in experiments)
+            //{
+            //    var groups = _databaseStorageService.GetGroups(experiment)
+            //        .Where(g => !string.IsNullOrEmpty(g.Item1)).Select(g => g.Item1).Distinct()
+            //        .OrderBy(group => group).ToList();
+
+            //    _experimentsGroupsMappings.TryAdd(experiment ?? string.Empty, groups);
+            //}
+            _experimentsGroupsMappings = new ConcurrentDictionary<string, List<string>>(groupMappings);
 
             if (ExperimentsGroupsMappingsChangedEvent == null) return;
             foreach (var @delegate in ExperimentsGroupsMappingsChangedEvent.GetInvocationList())

@@ -209,7 +209,7 @@ Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "OLS.Casy.Installer.ReleaseT
 EndProject
 Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "OLS.Casy.Installer.ReleaseTest.Bootstrapper", "OLS.Casy.Installer.ReleaseTest.Bootstrapper\OLS.Casy.Installer.ReleaseTest.Bootstrapper.wixproj", "{C07236AD-5BAF-4AFE-914B-74EA3185F9E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OLS.Casy.DatabaseValidator", "OLS.Casy.DatabaseValidator\OLS.Casy.DatabaseValidator.csproj", "{DB67923B-5E94-464C-A4FF-65CA70DAFF45}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OLS.Casy.DatabaseValidator", "OLS.Casy.DatabaseValidator\OLS.Casy.DatabaseValidator.csproj", "{DB67923B-5E94-464C-A4FF-65CA70DAFF45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

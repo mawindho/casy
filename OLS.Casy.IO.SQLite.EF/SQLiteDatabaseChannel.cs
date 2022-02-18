@@ -1322,6 +1322,53 @@ namespace OLS.Casy.IO.SQLite.EF
             }
         }
 
+        public Dictionary<string, List<string>> GetExperimentGroupMappings(bool includeDeleted = false)
+        {
+            using (var casyContext = new CasyContext2(_environmentService, _activeAuditTrailDecorator, null))
+            {
+                var result = new Dictionary<string, List<string>>();
+                var experimentQuery = casyContext.MeasureResults.Where(x => !x.IsTemporary).AsQueryable();
+
+                //if (!string.IsNullOrEmpty(filter))
+                //{
+                //    experimentQuery = experimentQuery.Where(x => x.Name.ToLower().Contains(filter.ToLower()));
+                //}
+
+                var experiments = experimentQuery.Select(x => new { x.Experiment, x.Group, x.MeasureResultEntityId }).GroupBy(x => x.Experiment).ToList();
+
+                if (includeDeleted)
+                {
+                    var deletedExperimentQuery = casyContext.MeasureResultsDeleted.Where(x => !x.IsTemporary).AsQueryable();
+
+                    experiments = experiments.Union(deletedExperimentQuery.Select(x => new { x.Experiment, x.Group, x.MeasureResultEntityId }).GroupBy(x => x.Experiment).ToList()).ToList();
+                }
+
+                foreach (var expGroup in experiments)
+                {
+                    var grpGroup = expGroup.GroupBy(x => x.Group);
+
+                    var key = expGroup.Key == null ? string.Empty : expGroup.Key;
+
+                    List<string> experimentList = null;
+                    if (result.TryGetValue(key, out experimentList))
+                    {
+                        if(!experimentList.Contains(expGroup.Key))
+                        {
+                            experimentList.Add(expGroup.Key);
+                        }
+                    }
+                    else
+                    {
+                        experimentList = new List<string>();
+                        experimentList.Add(expGroup.Key);
+                        result.Add(key, experimentList);
+                    }
+                }
+
+                return result;
+            }
+        }
+
         public IEnumerable<Tuple<string, int>> GetGroups(string experiment, string filter = "", bool includeDeleted = false)
         {
             using (var casyContext = new CasyContext2(_environmentService, _activeAuditTrailDecorator, null))

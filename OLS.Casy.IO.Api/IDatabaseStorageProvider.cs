@@ -33,6 +33,7 @@ namespace OLS.Casy.IO.Api
         void DeleteMeasureSetup(MeasureSetup measureSetup);
         int SaveMeasureSetup(MeasureSetup measureSetup, bool ignoreAuditTrail = false);
 
+        Dictionary<string, List<string>> GetExperimentGroupMappings(bool includeDeleted = false);
         IEnumerable<Tuple<string, int, int>> GetExperiments(string filter = "", bool includeDeleted = false);
         IEnumerable<Tuple<string, int>> GetGroups(string experiment, string filter = "", bool includeDeleted = false);
         IEnumerable<MeasureResult> GetMeasureResults(string experiment, string group, string filter = "", bool includeDeleted = false, bool nullAsNoValue = false, int maxItems = -1);

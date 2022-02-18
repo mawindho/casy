@@ -61,7 +61,7 @@ namespace OLS.Casy.Core.Logging.SQLite.EF
         {
             List<SystemLogEntry> result = new List<SystemLogEntry>();
 
-            var logEntries = _logContext.Logs.Where(l => l.Level != "DEBUG").OrderByDescending(log => log.Date).ToList().AsQueryable();
+            var logEntries = _logContext.Logs.AsNoTracking().Where(l => l.Level != "DEBUG").ToList().AsQueryable();//.OrderByDescending(log => log.Date).ToList().AsQueryable();
 
             if(fromDate.HasValue)
             {
