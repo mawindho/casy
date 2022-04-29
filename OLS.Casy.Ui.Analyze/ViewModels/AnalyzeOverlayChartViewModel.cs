@@ -68,6 +68,8 @@ namespace OLS.Casy.Ui.Analyze.ViewModels
 
         protected override async void OnIsActiveChanged()
         {
+            MeasureResultContainerViewModel.ClearMeasureResults();
+
             if (IsActive)
             {
                 await UpdateOverlayTemplate();
@@ -78,6 +80,7 @@ namespace OLS.Casy.Ui.Analyze.ViewModels
                 {
                     foreach (var item in MeasureResultManager.SelectedMeasureResults)
                     {
+                        item.PropertyChanged -= OnPropertyChanged;
                         item.PropertyChanged += OnPropertyChanged;
                     }
                 }
@@ -91,14 +94,14 @@ namespace OLS.Casy.Ui.Analyze.ViewModels
             else
             {
                 MeasureResultManager.SelectedMeasureResultsChanged -= OnSelectedMeasureResultsChanged;
-
-                MeasureResultContainerViewModel.ClearMeasureResults();
+    
                 try
                 {
                     lock (((ICollection) MeasureResultManager.SelectedMeasureResults).SyncRoot)
                     {
                         foreach (var measureResult in MeasureResultManager.SelectedMeasureResults)
                         {
+                            measureResult.PropertyChanged -= OnPropertyChanged;
                             measureResult.PropertyChanged -= OnPropertyChanged;
                         }
                     }
@@ -146,7 +149,7 @@ namespace OLS.Casy.Ui.Analyze.ViewModels
             
             if (e.PropertyName == "IsVisible")
             {
-                await UpdateOverlayTemplate();
+                OnIsActiveChanged();
             }
         }
 

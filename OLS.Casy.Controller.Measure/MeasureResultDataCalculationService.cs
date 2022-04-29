@@ -780,9 +780,11 @@ namespace OLS.Casy.Controller.Measure
                 {
                     Debug.WriteLine("Blubb");
                 }
-                return result;
+                return result.DistinctBy(x => x.MeasureResultItemType);
             //});
         }
+
+        
 
         private static void UpdateMeasureResultItem(MeasureResult measureResult, MeasureResultItem measureResultItemParam)
         {

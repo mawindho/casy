@@ -989,6 +989,7 @@ namespace OLS.Casy.Ui.Core.Services
         {
             foreach (var measureResult in SelectedMeasureResults)
             {
+                measureResult.ForceClearMeasureResultItems();
                 await _measureResultDataCalculationService.UpdateMeasureResultDataAsync(measureResult);
             }
             

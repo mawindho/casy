@@ -313,6 +313,7 @@ namespace OLS.Casy.Controller.Measure
                         showProgressWrapper.MessageParameter[0] += _localizationService.GetLocalizedString("ProgressBox_Measure_Message_CalculateResultData");
                         _eventAggregatorProvider.Instance.GetEvent<ShowProgressEvent>().Publish(showProgressWrapper);
 
+                        measureResult.ForceClearMeasureResultItems();
                         await _measureResultDataCalculationService.UpdateMeasureResultDataAsync(measureResult, SelectedTemplate);
 
                         if (SelectedTemplate.IsDeviationControlEnabled && SelectedTemplate.DeviationControlItems.Any())

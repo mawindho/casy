@@ -176,6 +176,11 @@ namespace OLS.Casy.Models
             }
         }
 
+        public void ForceClearMeasureResultItems()
+        {
+            _measureResultItems = null;
+        }
+
         public IReadOnlyDictionary<MeasureResultItemTypes, MeasureResultItemsContainer> MeasureResultItemsContainers
         {
             get

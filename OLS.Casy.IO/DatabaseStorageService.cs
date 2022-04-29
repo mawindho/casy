@@ -159,11 +159,31 @@ namespace OLS.Casy.IO
 
                         foreach (var result in results)
                         {
-                            
                             var result2 = prevProvider.LoadDisplayData(result);
                             result2 = prevProvider.LoadExportData(result2);
                             if (result2 != null && result2.MeasureSetup != null)
                             {
+                                result2.MeasureResultId = 0;
+                                result2.MeasureSetup.MeasureSetupId = 0;
+                                foreach(var range in result2.MeasureSetup.Cursors)
+                                {
+                                    range.CursorId = 0;
+                                }
+
+                                if (result2.OriginalMeasureSetup != null)
+                                {
+                                    result2.OriginalMeasureSetup.MeasureSetupId = 0;
+                                    foreach (var range in result2.OriginalMeasureSetup.Cursors)
+                                    {
+                                        range.CursorId = 0;
+                                    }
+                                }
+
+                                foreach(var data in result2.MeasureResultDatas)
+                                {
+                                    data.MeasureResultDataId = 0;
+                                }
+
                                 var entityId = _activeDatabaseStorageProvider.SaveMeasureResult(result2,
                                     storeExistingAuditTrail: true, ignoreAuditTrail: true);
 
@@ -194,6 +214,7 @@ namespace OLS.Casy.IO
                 i = 0;
                 foreach (var predefinded in prevProvider.GetPredefinedTemplates())
                 {
+                    predefinded.MeasureSetupId = 0;
                     _activeDatabaseStorageProvider.SaveMeasureSetup(predefinded, ignoreAuditTrail: true);
                     i++;
                     showProgressWrapper.MessageParameter[5] = $"\nMigrating Templates ({i} of {templatesCount} entities)";
@@ -202,6 +223,7 @@ namespace OLS.Casy.IO
 
                 foreach (var template in prevProvider.GetMeasureSetupTemplates())
                 {
+                    template.MeasureSetupId = 0;
                     _activeDatabaseStorageProvider.SaveMeasureSetup(template, ignoreAuditTrail: true);
                     i++;
                     showProgressWrapper.MessageParameter[5] = $"\nMigrating Templates ({i} of {templatesCount} entities)";

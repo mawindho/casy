@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Threading;
+using OLS.Casy.Base;
 
 namespace OLS.Casy.Core.Update.Ui
 {
