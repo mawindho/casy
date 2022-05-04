@@ -6,7 +6,6 @@ using OLS.Casy.Core.Api;
 using OLS.Casy.Core.Authorization.Api;
 using OLS.Casy.Core.Events;
 using OLS.Casy.Core.Localization.Api;
-using OLS.Casy.Core.Logging.Api;
 using OLS.Casy.Core.Runtime.Api;
 using OLS.Casy.Ui.Api;
 using System;
